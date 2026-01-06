@@ -1,0 +1,35 @@
+.carousel {
+  /* Enable horizontal scroll */
+  overflow: hidden; /* hidden to avoid scrollbar if you prefer; use auto for visible */
+}
+
+body {
+    margin: auto;
+    width: 1200px;
+}
+
+.track {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 50%;
+  gap: 20px;
+  overflow-x: hidden;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scroll-padding: 16px; /* aligns first/last nicely */
+  -webkit-overflow-scrolling: touch; /* smooth on iOS */
+}
+
+.card {
+  scroll-snap-align: center; /* snap each card to center */
+  background: #111;
+  color: #fff;
+  border-radius: 12px;
+  padding: 24px;
+  min-height: 160px;
+}
+
+/* Optional: hide scrollbar (WebKit) */
+.track::-webkit-scrollbar {
+  display: none;
+}

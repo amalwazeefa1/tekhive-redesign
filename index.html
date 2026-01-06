@@ -51,27 +51,49 @@
     <!-- Top App Bar -->
     <header
         class="sticky top-0 z-50 bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
-        <div class="flex items-center p-4 justify-between mx-auto w-full">
-            <div class="flex items-center gap-2">
-                <div
-                    class="flex items-center justify-center text-primary size-10 bg-black/5 dark:bg-white/10 rounded-lg">
-                    <span class="material-symbols-outlined text-[28px]">deployed_code</span>
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="relative flex items-center justify-between py-4">
+                <!-- left -->
+                <div class="flex items-center gap-2">
+                    <!-- <div
+                        class="flex items-center justify-center text-primary size-10 bg-black/5 dark:bg-white/10 rounded-lg">
+                        <span class="material-symbols-outlined text-[28px]">deployed_code</span>
+                    </div>
+                    <h2 class="text-xl font-bold tracking-tight">Tekhive</h2> -->
+                    <img src="logo.svg" alt="Tekhive Logo" class="h-12 w-auto" />
                 </div>
-                <h2 class="text-xl font-bold tracking-tight text-slate-900 dark:text-white">Tekhive</h2>
+
+                <!-- Nav container -->
+                <div class="flex items-center justify-between w-[50%]">
+
+                    <!-- nav links (desktop) -->
+                    <nav class="hidden lg:flex items-center gap-10">
+                        <a href="#" class="nav-link">Home</a>
+                        <a href="#" class="nav-link">About</a>
+                        <a href="#" class="nav-link">Services</a>
+                        <a href="#" class="nav-link">Portfolio</a>
+                        <a href="#" class="nav-link">Contact</a>
+                    </nav>
+
+                    <!-- menu button (mobile) -->
+                    <button
+                        class="absolute right-0 flex size-10 cursor-pointer items-center justify-center rounded-full hover:bg-black/5 dark:hover:bg-white/10 text-slate-900 dark:text-white transition-colors">
+                        <span class="material-symbols-outlined text-[28px]">menu</span>
+                    </button>
+
+                </div>
+
             </div>
-            <button
-                class="flex size-10 cursor-pointer items-center justify-center rounded-full hover:bg-black/5 dark:hover:bg-white/10 text-slate-900 dark:text-white transition-colors">
-                <span class="material-symbols-outlined text-[28px]">menu</span>
-            </button>
         </div>
     </header>
+
     <main class="w-full flex flex-col gap-6">
         <!-- Hero Section -->
         <section class="px-4 pt-4">
             <div class="flex flex-col gap-6 overflow-hidden rounded-2xl bg-cover bg-center bg-no-repeat p-6 min-h-[420px] justify-end relative shadow-lg"
                 data-alt="Group of developers collaborating on laptops in a modern office"
                 style='background-image: linear-gradient(180deg, rgba(16, 34, 16, 0) 0%, rgba(16, 34, 16, 0.6) 50%, rgba(16, 34, 16, 0.95) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuBNG5CAVsQBw8rXE8i1UDpI5zbvI3oXxMZVubImd61X07YedxhXaD0lKXq5-l0gIODAcTXDO1zKwQyStb_rSqO4_TPPuRWDjQKhZYc1DVmBZuKzshEoKVarBJlWsTlfsAKYezB2azm_tejpEBWuPdBTC4r4nhrbyitCqiIvJkfoKuUjLu0Ybq2hy09qpe0kJzMQpxxAYwzx3rSILfaoPjbnKtDqR8s46ZzAdxwPwU3Pdy8n65NWDWmk4a7HNWu5_E8VBPWsj1ajmIHM");'>
-                <div class="relative z-10 flex flex-col gap-3 text-left">
+                <div class="relative z-10 flex flex-col gap-3 max-w-7xl text-left">
                     <span
                         class="inline-flex w-fit items-center rounded-full bg-primary/20 backdrop-blur-sm px-3 py-1 text-xs font-bold uppercase tracking-wider text-primary border border-primary/30">
                         Future Ready
@@ -83,134 +105,231 @@
                         We build scalable web and mobile solutions designed for growth.
                     </p>
                 </div>
-                <div class="relative z-10 flex flex-wrap gap-3">
+                <div class="relative flex flex-wrap z-10 gap-3 max-w-7xl">
                     <button
-                        class="flex-1 min-w-[140px] cursor-pointer items-center justify-center rounded-xl h-12 px-6 bg-primary hover:bg-primary-dark transition-colors text-black text-base font-bold tracking-wide shadow-[0_4px_14px_0_rgba(19,236,19,0.39)]">
+                        class="flex min-w-[140px] cursor-pointer items-center justify-center rounded-xl h-12 px-6 bg-primary hover:bg-primary-dark transition-colors text-black text-base font-bold tracking-wide shadow-[0_4px_14px_0_rgba(19,236,19,0.39)]">
                         Start Project
                     </button>
                     <button
-                        class="flex-1 min-w-[140px] cursor-pointer items-center justify-center rounded-xl h-12 px-6 bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/20 transition-colors text-white text-base font-bold tracking-wide">
+                        class="flex min-w-[140px] cursor-pointer items-center justify-center rounded-xl h-12 px-6 bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/20 transition-colors text-white text-base font-bold tracking-wide">
                         Portfolio
                     </button>
                 </div>
             </div>
         </section>
         <!-- Stats / Social Proof -->
-        <section class="px-4">
-            <div class="max-w-md">
-                <div class="flex justify-between items-center py-4 border-y border-slate-200 dark:border-slate-800/50">
+        <section class="py-6">
+            <div class="max-w-7xl mx-auto px-4">
+                <div
+                    class="flex flex-col sm:flex-row justify-center gap-6 sm:gap-10 py-4 border-y border-slate-200 dark:border-slate-800">
+                    <!-- Stat -->
                     <div class="text-center">
-                        <p class="text-2xl font-bold text-slate-900 dark:text-white">50+</p>
-                        <p class="text-xs text-slate-500 dark:text-slate-400 font-medium uppercase tracking-wide">
-                            Clients
-                        </p>
+                        <p class="text-4xl font-bold">50+</p>
+                        <p class="text-xs uppercase tracking-wide text-slate-500">Clients</p>
                     </div>
-                    <div class="w-px h-8 bg-slate-200 dark:bg-slate-800"></div>
+                    <div class="w-px bg-slate-200 dark:bg-slate-800"></div>
                     <div class="text-center">
-                        <p class="text-2xl font-bold text-slate-900 dark:text-white">120</p>
-                        <p class="text-xs text-slate-500 dark:text-slate-400 font-medium uppercase tracking-wide">
-                            Projects
-                        </p>
+                        <p class="text-4xl font-bold">120</p>
+                        <p class="text-xs uppercase tracking-wide text-slate-500">Projects</p>
                     </div>
-                    <div class="w-px h-8 bg-slate-200 dark:bg-slate-800"></div>
+                    <div class="w-px bg-slate-200 dark:bg-slate-800"></div>
                     <div class="text-center">
-                        <p class="text-2xl font-bold text-slate-900 dark:text-white">98%</p>
-                        <p class="text-xs text-slate-500 dark:text-slate-400 font-medium uppercase tracking-wide">
-                            Retention
-                        </p>
+                        <p class="text-4xl font-bold">98%</p>
+                        <p class="text-xs uppercase tracking-wide text-slate-500">Retention</p>
                     </div>
                 </div>
             </div>
         </section>
-        <!-- Services Section -->
-        <section class="flex flex-col gap-4">
-            <div class="flex items-center justify-between px-4">
-                <h2 class="text-slate-900 dark:text-white text-2xl font-bold tracking-tight">Our Services</h2>
-                <button
-                    class="text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-primary transition-colors">See
-                    all</button>
-            </div>
-            <div class="flex flex-col gap-4 px-4">
-                <!-- Card 1: Web Dev -->
-                <div
-                    class="group flex flex-col overflow-hidden rounded-2xl bg-surface-light dark:bg-surface-dark shadow-sm border border-slate-100 dark:border-slate-800/60 transition-all hover:shadow-md">
-                    <div class="h-40 w-full bg-cover bg-center" data-alt="Close up of code on a monitor screen"
-                        style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDFcWmY-1sh98f44RBmO5nuMGO2b0ymPiB6G44J_8z0bzevmg95OFPXRoM2gyIzQmYFEbj7ljZ4-IGUPV5LlRF6kSeI7RTdgaLWxxSwPUTPZ7-0A5Q-BN0lQr_27Ee6YjaG3gSzafXuDgX0IkGRO_xEpvpF752rzNQwtrgjdqlnq_tgPoQUEja-waKsDBMAzTg80RR7X9i32NcLNZiXFEgmX-EUgO1I-pp3j-lfGlAmV-csP4hskRrjFbr2coBoxYb3XwE3ml4VeQX6");'>
-                    </div>
-                    <div class="flex flex-col gap-3 p-5">
-                        <div class="flex items-center gap-3">
-                            <div
-                                class="flex items-center justify-center size-10 rounded-full bg-primary/10 text-primary-dark dark:text-primary">
-                                <span class="material-symbols-outlined">html</span>
-                            </div>
-                            <h3 class="text-lg font-bold text-slate-900 dark:text-white">Web Development</h3>
-                        </div>
-                        <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
-                            High-performance websites and web applications built for scale using React, Vue, and
-                            Next.js.
-                        </p>
-                        <button
-                            class="flex items-center gap-2 text-sm font-bold text-slate-900 dark:text-white group-hover:text-primary transition-colors mt-1">
-                            Learn More <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
-                        </button>
-                    </div>
+
+
+        <section class="py-8">
+            <div class="max-w-7xl mx-auto px-4 space-y-6">
+
+                <!-- Section Header -->
+                <div class="flex flex-col sm:flex-row gap-8 justify-between items-center">
+                    <h2 class="text-4xl font-bold text-slate-900 dark:text-white">
+                        Understanding the business services.
+                    </h2>
+                    <p>
+                        We strive to develop real-world web solutions that are ideal for small to large projects with
+                        bespoke your custom project requirements.
+                    </p>
                 </div>
-                <!-- Card 2: Mobile Apps -->
-                <div
-                    class="group flex flex-col overflow-hidden rounded-2xl bg-surface-light dark:bg-surface-dark shadow-sm border border-slate-100 dark:border-slate-800/60 transition-all hover:shadow-md">
-                    <div class="h-40 w-full bg-cover bg-center" data-alt="Smartphone showing app interface in hand"
-                        style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCOTaDPnCXF46_pAelEr71VEMcoIi-yeoAlO67hORNohy9DTgIh5ahvpin5Gg7-IX033j6aeMQplx5ZZMXSC-itaYNtyicwVnyqxIwzk4RpDnNxaKBQ9HBFO03cnFNN6M6bKqCYsKVo8b7l6gZGSDkTRsNoWgBe_H8zOMlSc5i0-7pYHV6Nbj0wteleLij65WIBviR5U7PshgSdRSbO3IjixUvNKk-7-iEUqsRxWRqy9F8LnGEdD9M8h95L3FmBwLXmnWITIUJZ9SbW");'>
-                    </div>
-                    <div class="flex flex-col gap-3 p-5">
-                        <div class="flex items-center gap-3">
-                            <div
-                                class="flex items-center justify-center size-10 rounded-full bg-primary/10 text-primary-dark dark:text-primary">
-                                <span class="material-symbols-outlined">smartphone</span>
-                            </div>
-                            <h3 class="text-lg font-bold text-slate-900 dark:text-white">Mobile Apps</h3>
+
+                <!-- Horizontal Scroll Wrapper -->
+                <div class="flex gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory pb-4
+             [-ms-overflow-style:none] [scrollbar-width:none]
+             [&::-webkit-scrollbar]:hidden">
+
+                    <!-- Card 1: Web Development -->
+                    <div class="group flex-shrink-0 snap-start w-[280px] sm:w-[320px] md:w-[360px]
+               flex flex-col overflow-hidden rounded-2xl
+               bg-surface-light dark:bg-surface-dark
+               shadow-sm border border-slate-100 dark:border-slate-800/60
+               transition-all hover:shadow-md">
+                        <div class="h-40 w-full bg-cover bg-center" style='background-image:url("webdevelopment.jpg");'>
                         </div>
-                        <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
-                            Native iOS &amp; Android experiences users love, crafted with Swift, Kotlin, and Flutter.
-                        </p>
-                        <button
-                            class="flex items-center gap-2 text-sm font-bold text-slate-900 dark:text-white group-hover:text-primary transition-colors mt-1">
-                            Learn More <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
-                        </button>
-                    </div>
-                </div>
-                <!-- Card 3: Cloud Solutions -->
-                <div
-                    class="group flex flex-col overflow-hidden rounded-2xl bg-surface-light dark:bg-surface-dark shadow-sm border border-slate-100 dark:border-slate-800/60 transition-all hover:shadow-md">
-                    <div class="h-40 w-full bg-cover bg-center"
-                        data-alt="Abstract digital network connections and nodes"
-                        style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCtO35hJqJMZ-vgq3iMPoisyqDT1Nt4aOQCq0Yi3akr6xDsa8rJTNWnu38gV1-0-O94ikH6gGg69PEVAilXnTDG9EO0i8OnMKeVPQIwpN4SinHr7mP3Fy8_hCmItmPS4x735cUNondyvTYZ6NCTDYL1-IyrJcFEXHHVKBMu3nxvlfpgbVLjztwIJSb-09mbmUfdEIy1cAggDs-gv7wP8gQ1Zwr5HMhMDaVXbaQ_znmis_fun8pSf7i-q7H04JdvBHqaPv7fQ6T-uZT3");'>
-                    </div>
-                    <div class="flex flex-col gap-3 p-5">
-                        <div class="flex items-center gap-3">
-                            <div
-                                class="flex items-center justify-center size-10 rounded-full bg-primary/10 text-primary-dark dark:text-primary">
-                                <span class="material-symbols-outlined">cloud</span>
+                        <div class="flex flex-col gap-3 p-5">
+                            <div class="flex items-center gap-3">
+                                <div class="size-10 rounded-full bg-primary/10 flex items-center justify-center">
+                                    <span class="material-symbols-outlined text-primary">html</span>
+                                </div>
+                                <h3 class="text-lg font-bold text-slate-900 dark:text-white">
+                                    Web Development
+                                </h3>
                             </div>
-                            <h3 class="text-lg font-bold text-slate-900 dark:text-white">Cloud Solutions</h3>
+                            <p class="text-sm text-slate-600 dark:text-slate-300">
+                                High-performance websites and web applications built for scale using
+                                React, Vue, and Next.js.
+                            </p>
+                            <button class="mt-1 flex items-center gap-2 text-sm font-bold
+                   text-slate-900 dark:text-white
+                   group-hover:text-primary transition-colors">
+                                Learn More
+                                <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+                            </button>
                         </div>
-                        <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
-                            Scalable infrastructure and cloud-native architecture on AWS, Google Cloud, and Azure.
-                        </p>
-                        <button
-                            class="flex items-center gap-2 text-sm font-bold text-slate-900 dark:text-white group-hover:text-primary transition-colors mt-1">
-                            Learn More <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
-                        </button>
                     </div>
+
+                    <!-- Card 2: Mobile Apps -->
+                    <div class="group flex-shrink-0 snap-start w-[280px] sm:w-[320px] md:w-[360px]
+               flex flex-col overflow-hidden rounded-2xl
+               bg-surface-light dark:bg-surface-dark
+               shadow-sm border border-slate-100 dark:border-slate-800/60
+               transition-all hover:shadow-md">
+                        <div class="h-40 w-full bg-cover bg-center"
+                            style='background-image:url("app_development.avif");'>
+                        </div>
+                        <div class="flex flex-col gap-3 p-5">
+                            <div class="flex items-center gap-3">
+                                <div class="size-10 rounded-full bg-primary/10 flex items-center justify-center">
+                                    <span class="material-symbols-outlined text-primary">smartphone</span>
+                                </div>
+                                <h3 class="text-lg font-bold text-slate-900 dark:text-white">
+                                    Mobile Apps
+                                </h3>
+                            </div>
+                            <p class="text-sm text-slate-600 dark:text-slate-300">
+                                Native iOS & Android experiences users love, crafted with Swift,
+                                Kotlin, and Flutter.
+                            </p>
+                            <button class="mt-1 flex items-center gap-2 text-sm font-bold
+                   text-slate-900 dark:text-white
+                   group-hover:text-primary transition-colors">
+                                Learn More
+                                <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Card 3: Cloud Solutions -->
+                    <div class="group flex-shrink-0 snap-start w-[280px] sm:w-[320px] md:w-[360px]
+                          flex flex-col overflow-hidden rounded-2xl
+                           bg-surface-light dark:bg-surface-dark
+                            shadow-sm border border-slate-100 dark:border-slate-800/60
+                             transition-all hover:shadow-md">
+                        <div class="h-40 w-full bg-cover bg-center"
+                            style='background-image:url("ecommerse_development.jpg");'>
+                        </div>
+                        <div class="flex flex-col gap-3 p-5">
+                            <div class="flex items-center gap-3">
+                                <div class="size-10 rounded-full bg-primary/10 flex items-center justify-center">
+                                    <span class="material-symbols-outlined text-primary">cloud</span>
+                                </div>
+                                <h3 class="text-lg font-bold text-slate-900 dark:text-white">
+                                    Ecommerce Solutions
+                                </h3>
+                            </div>
+                            <p class="text-sm text-slate-600 dark:text-slate-300">
+                                With extensive expertise in e-commerce development, Tekhive is a reliable partner for
+                                your various ecommerce web development needs. We create a perfect platform with a blend
+                                of compelling design and modern features.
+                            </p>
+                            <button class="mt-1 flex items-center gap-2 text-sm font-bold
+                                   text-slate-900 dark:text-white
+                                   group-hover:text-primary transition-colors">
+                                Learn More
+                                <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+                            </button>
+                        </div>
+                    </div>
+                    <!-- Card 3: Cloud Solutions -->
+                    <div class="group flex-shrink-0 snap-start w-[280px] sm:w-[320px] md:w-[360px]
+                          flex flex-col overflow-hidden rounded-2xl
+                           bg-surface-light dark:bg-surface-dark
+                            shadow-sm border border-slate-100 dark:border-slate-800/60
+                             transition-all hover:shadow-md">
+                        <div class="h-40 w-full bg-cover bg-center"
+                            style='background-image:url("https://lh3.googleusercontent.com/aida-public/AB6AXuCtO35hJqJMZ-vgq3iMPoisyqDT1Nt4aOQCq0Yi3akr6xDsa8rJTNWnu38gV1-0-O94ikH6gGg69PEVAilXnTDG9EO0i8OnMKeVPQIwpN4SinHr7mP3Fy8_hCmItmPS4x735cUNondyvTYZ6NCTDYL1-IyrJcFEXHHVKBMu3nxvlfpgbVLjztwIJSb-09mbmUfdEIy1cAggDs-gv7wP8gQ1Zwr5HMhMDaVXbaQ_znmis_fun8pSf7i-q7H04JdvBHqaPv7fQ6T-uZT3");'>
+                        </div>
+                        <div class="flex flex-col gap-3 p-5">
+                            <div class="flex items-center gap-3">
+                                <div class="size-10 rounded-full bg-primary/10 flex items-center justify-center">
+                                    <span class="material-symbols-outlined text-primary">cloud</span>
+                                </div>
+                                <h3 class="text-lg font-bold text-slate-900 dark:text-white">
+                                    Cloud Solutions
+                                </h3>
+                            </div>
+                            <p class="text-sm text-slate-600 dark:text-slate-300">
+                                Scalable infrastructure and cloud-native architecture on AWS,
+                                Google Cloud, and Azure.
+                            </p>
+                            <button class="mt-1 flex items-center gap-2 text-sm font-bold
+                                   text-slate-900 dark:text-white
+                                   group-hover:text-primary transition-colors">
+                                Learn More
+                                <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+                            </button>
+                        </div>
+                    </div>
+                    <!-- Card 3: Cloud Solutions -->
+                    <div class="group flex-shrink-0 snap-start w-[280px] sm:w-[320px] md:w-[360px]
+                          flex flex-col overflow-hidden rounded-2xl
+                           bg-surface-light dark:bg-surface-dark
+                            shadow-sm border border-slate-100 dark:border-slate-800/60
+                             transition-all hover:shadow-md">
+                        <div class="h-40 w-full bg-cover bg-center"
+                            style='background-image:url("https://lh3.googleusercontent.com/aida-public/AB6AXuCtO35hJqJMZ-vgq3iMPoisyqDT1Nt4aOQCq0Yi3akr6xDsa8rJTNWnu38gV1-0-O94ikH6gGg69PEVAilXnTDG9EO0i8OnMKeVPQIwpN4SinHr7mP3Fy8_hCmItmPS4x735cUNondyvTYZ6NCTDYL1-IyrJcFEXHHVKBMu3nxvlfpgbVLjztwIJSb-09mbmUfdEIy1cAggDs-gv7wP8gQ1Zwr5HMhMDaVXbaQ_znmis_fun8pSf7i-q7H04JdvBHqaPv7fQ6T-uZT3");'>
+                        </div>
+                        <div class="flex flex-col gap-3 p-5">
+                            <div class="flex items-center gap-3">
+                                <div class="size-10 rounded-full bg-primary/10 flex items-center justify-center">
+                                    <span class="material-symbols-outlined text-primary">cloud</span>
+                                </div>
+                                <h3 class="text-lg font-bold text-slate-900 dark:text-white">
+                                    Cloud Solutions
+                                </h3>
+                            </div>
+                            <p class="text-sm text-slate-600 dark:text-slate-300">
+                                Scalable infrastructure and cloud-native architecture on AWS,
+                                Google Cloud, and Azure.
+                            </p>
+                            <button class="mt-1 flex items-center gap-2 text-sm font-bold
+                                   text-slate-900 dark:text-white
+                                   group-hover:text-primary transition-colors">
+                                Learn More
+                                <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+                            </button>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </section>
+
+
+
         <!-- Why Choose Us -->
         <section class="px-4 py-4">
             <div class="rounded-2xl max-w-md mx-auto bg-surface-dark p-6 relative overflow-hidden">
                 <!-- Background decorative elements -->
-                <div class="absolute -top-10 -right-10 size-40 bg-primary/20 rounded-full blur-3xl"></div>
-                <div class="absolute bottom-0 left-0 size-32 bg-primary/10 rounded-full blur-2xl"></div>
-                <h2 class="text-white text-2xl font-bold tracking-tight mb-6 relative z-10">Why Choose Tekhive?</h2>
+                <div class="absolute -top-10 -right-10 size-40 bg-primary/20 rounded-full blur-3xl">
+                </div>
+                <div class="absolute bottom-0 left-0 size-32 bg-primary/10 rounded-full blur-2xl">
+                </div>
+                <h2 class="text-white text-2xl font-bold tracking-tight mb-6 relative z-10">Why
+                    Choose Tekhive?</h2>
                 <div class="space-y-4 relative z-10">
                     <div class="flex items-start gap-3">
                         <div class="mt-0.5 flex items-center justify-center size-6 rounded-full bg-primary shrink-0">
@@ -218,7 +337,8 @@
                         </div>
                         <div>
                             <p class="text-white font-bold text-base">Agile Methodology</p>
-                            <p class="text-slate-300 text-sm">We adapt quickly to changes and deliver in sprints.</p>
+                            <p class="text-slate-300 text-sm">We adapt quickly to changes and
+                                deliver in sprints.</p>
                         </div>
                     </div>
                     <div class="flex items-start gap-3">
@@ -227,7 +347,8 @@
                         </div>
                         <div>
                             <p class="text-white font-bold text-base">Dedicated Support</p>
-                            <p class="text-slate-300 text-sm">24/7 maintenance and monitoring for your products.</p>
+                            <p class="text-slate-300 text-sm">24/7 maintenance and monitoring for
+                                your products.</p>
                         </div>
                     </div>
                     <div class="flex items-start gap-3">
@@ -236,15 +357,17 @@
                         </div>
                         <div>
                             <p class="text-white font-bold text-base">Scalable Architecture</p>
-                            <p class="text-slate-300 text-sm">Built to grow with your user base from day one.</p>
+                            <p class="text-slate-300 text-sm">Built to grow with your user base from
+                                day one.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
         <!-- Trusted By Strip -->
-        <section class="px-4 pb-8 text-center">
-            <p class="text-sm font-semibold text-slate-400 uppercase tracking-widest mb-4">Trusted by industry leaders
+        <section class="px-4 pb-8 text-center max-w-md mx-auto">
+            <p class="text-sm font-semibold text-slate-400 uppercase tracking-widest mb-4">Trusted
+                by industry leaders
             </p>
             <div class="flex justify-between items-center opacity-60 dark:opacity-40 grayscale gap-4 overflow-hidden">
                 <span class="material-symbols-outlined text-4xl">savings</span>
