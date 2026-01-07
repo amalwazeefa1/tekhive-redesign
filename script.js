@@ -1,4 +1,6 @@
-// gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger);
+
+
 
 // gsap.utils.toArray(".fade-section").forEach((section) => {
 //     gsap.from(section, {
@@ -14,23 +16,37 @@
 //     });
 // });
 
+window.addEventListener("DOMContentLoaded", () => {
+    gsap.to("#hero", {
+        duration: 1,
+        ease: "power3.out",
+        maxWidth: "100vw",
+        scrollTrigger: {
+            trigger: "#hero",
+            start: "top top",
+            end: "+=500",
+            scrub: 1
+        }
+    })
+});
 
-        const counters = document.querySelectorAll(".counter");
 
-        counters.forEach(counter => {
-            const target = +counter.dataset.target;
-            let current = 0;
-            const increment = Math.ceil(target / 150);
+const counters = document.querySelectorAll(".counter");
 
-            const update = () => {
-                if (current < target) {
-                    current += increment;
-                    counter.textContent = current;
-                    requestAnimationFrame(update);
-                } else {
-                    counter.textContent = target;
-                }
-            };
+counters.forEach(counter => {
+    const target = +counter.dataset.target;
+    let current = 0;
+    const increment = Math.ceil(target / 150);
 
-            update();
-        });
+    const update = () => {
+        if (current < target) {
+            current += increment;
+            counter.textContent = current;
+            requestAnimationFrame(update);
+        } else {
+            counter.textContent = target;
+        }
+    };
+
+    update();
+});
