@@ -17,13 +17,14 @@ gsap.registerPlugin(ScrollTrigger);
 // });
 
 window.addEventListener("DOMContentLoaded", () => {
+    gsap.set("#hero", { maxWidth: "80%" });
     gsap.to("#hero", {
-        duration: 1,
+        duration: 0.5,
         ease: "power3.out",
         maxWidth: "100vw",
         scrollTrigger: {
             trigger: "#hero",
-            start: "top top",
+            start: "top",
             end: "+=500",
             scrub: 1
         }
