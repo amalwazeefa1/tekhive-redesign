@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Locomotive Scroll + Tailwind</title>
+
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Locomotive Scroll CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css" />
+
+    <style>
+        /* Required for locomotive */
+        [data-scroll-container] {
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body class="bg-slate-950 text-slate-100">
+
+    <!-- SCROLL CONTAINER (REQUIRED) -->
+    <div data-scroll-container>
+
+        <!-- HERO SECTION -->
+        <section data-scroll-section class="min-h-screen flex items-center justify-center
+             bg-gradient-to-br from-blue-600 to-sky-400 text-white px-6">
+            <div class="text-center">
+                <h1 data-scroll data-scroll-speed="2" class="text-4xl sm:text-6xl font-bold mb-4">
+                    Locomotive Scroll
+                </h1>
+
+                <p data-scroll data-scroll-speed="1" class="text-lg opacity-90">
+                    Smooth scrolling with Tailwind CSS
+                </p>
+            </div>
+        </section>
+
+        <!-- PARALLAX BOXES -->
+        <section data-scroll-section class="min-h-screen flex items-center justify-center bg-slate-900">
+            <div class="flex gap-10 flex-wrap justify-center">
+
+                <div data-scroll data-scroll-speed="3" class="w-64 h-64 rounded-2xl bg-sky-400
+                 flex items-center justify-center text-slate-900
+                 font-bold text-xl">
+                    Fast
+                </div>
+
+                <div data-scroll data-scroll-speed="-2" class="w-64 h-64 rounded-2xl bg-blue-500
+                 flex items-center justify-center text-white
+                 font-bold text-xl">
+                    Slow
+                </div>
+
+            </div>
+        </section>
+
+        <!-- IN-VIEW ANIMATION -->
+        <section data-scroll-section class="min-h-screen flex items-center justify-center bg-slate-950 px-6">
+            <div class="text-center max-w-xl">
+
+                <h2 data-scroll data-scroll-class="is-inview" class="fade-up text-3xl font-semibold mb-4">
+                    Scroll Trigger Animation
+                </h2>
+
+                <p data-scroll data-scroll-class="is-inview" class="fade-up text-slate-400">
+                    This content animates when it enters the viewport.
+                </p>
+
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer data-scroll-section class="py-10 text-center text-sm text-slate-500 bg-slate-900">
+            © 2026 • Tailwind + Locomotive Scroll
+        </footer>
+
+    </div>
+
+    <!-- Locomotive Scroll JS -->
+    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
+
+    <script>
+        const scroll = new LocomotiveScroll({
+            el: document.querySelector('[data-scroll-container]'),
+            smooth: true,
+            multiplier: 0.6,   // 👈 smaller = slower
+            smartphone: { smooth: true, multiplier: 0.7 },
+            tablet: { smooth: true, multiplier: 0.7 }
+        });
+    </script>
+
+
+    <!-- Tailwind animation helpers -->
+    <style>
+        .fade-up {
+            opacity: 0;
+            transform: translateY(60px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-up.is-inview {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+
+</body>
+
+</html>

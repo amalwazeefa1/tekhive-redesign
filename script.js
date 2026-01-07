@@ -17,7 +17,7 @@ gsap.registerPlugin(ScrollTrigger);
 // });
 
 window.addEventListener("DOMContentLoaded", () => {
-    gsap.set("#hero", { maxWidth: "80%" });
+    gsap.set("#hero", { maxWidth: "85%" });
     gsap.to("#hero", {
         duration: 0.5,
         ease: "power3.out",
@@ -30,6 +30,7 @@ window.addEventListener("DOMContentLoaded", () => {
         }
     })
 });
+
 
 
 const counters = document.querySelectorAll(".counter");

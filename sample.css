@@ -1,3 +1,8 @@
+/* Required for locomotive */
+        [data-scroll-container] {
+            overflow: hidden;
+        }
+
 .carousel {
   /* Enable horizontal scroll */
   overflow: hidden; /* hidden to avoid scrollbar if you prefer; use auto for visible */
