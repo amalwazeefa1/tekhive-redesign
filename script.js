@@ -1,5 +1,11 @@
 gsap.registerPlugin(ScrollTrigger);
-
+ScrollTrigger.config({
+  ignoreMobileResize: true,
+});
+ScrollTrigger.normalizeScroll(true);
+ScrollTrigger.normalizeScroll({
+  allowNestedScroll: true,
+});
 
 
 // gsap.utils.toArray(".fade-section").forEach((section) => {
@@ -17,7 +23,7 @@ gsap.registerPlugin(ScrollTrigger);
 // });
 
 window.addEventListener("DOMContentLoaded", () => {
-    gsap.set("#hero", { maxWidth: "85%" });
+    gsap.set("#hero", { maxWidth: "85%", borderRadius: "30px" });
 
     ScrollTrigger.matchMedia({
         // For mobile screens
@@ -26,11 +32,12 @@ window.addEventListener("DOMContentLoaded", () => {
                 duration: 0.5,
                 ease: "power3.out",
                 maxWidth: "100vw",
+                borderRadius: "0",
                 scrollTrigger: {
                     trigger: "#hero",
                     start: "-=120",   // 👈 different start for mobile
                     end: "+=300",
-                    scrub: 1
+                    scrub: 1,
                 }
             });
         },
@@ -41,11 +48,12 @@ window.addEventListener("DOMContentLoaded", () => {
                 duration: 0.5,
                 ease: "power3.out",
                 maxWidth: "100vw",
+                borderRadius: "0",
                 scrollTrigger: {
                     trigger: "#hero",
                     start: "-=120",  // 👈 original start
                     end: "+=500",
-                    scrub: 1
+                    scrub: 1,
                 }
             });
         }
