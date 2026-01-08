@@ -63,7 +63,7 @@
                         <span class="material-symbols-outlined text-[28px]">deployed_code</span>
                     </div>
                     <h2 class="text-xl font-bold tracking-tight">Tekhive</h2> -->
-                    <img src="logo.svg" alt="Tekhive Logo" class="h-12 w-auto" />
+                    <img src="/assets/logo.svg" alt="Tekhive Logo" class="h-12 w-auto" />
                 </div>
 
                 <!-- Nav container -->
@@ -92,7 +92,7 @@
 
     <!-- <main class="w-full flex flex-col gap-6"> -->
     <!-- Hero Section -->
-    <section class="px-4 pt-4">
+    <section class="px-4 py-12">
         <div class="max-w-7xl m-auto" id="hero">
             <div class="flex m-auto flex-col gap-6 overflow-hidden rounded-2xl bg-cover bg-center bg-no-repeat p-6 min-h-[420px] justify-end relative shadow-lg"
                 data-alt="Group of developers collaborating on laptops in a modern office"
@@ -122,32 +122,48 @@
             </div>
         </div>
     </section>
-    <!-- Stats / Social Proof -->
-    <section class="py-6 social">
-        <div class="max-w-7xl mx-auto px-4">
-            <div
-                class="flex flex-col xs:flex-row justify-center gap-6 sm:gap-10 py-4 border-y border-slate-200 dark:border-slate-800">
-                <!-- Stat -->
-                <div class="text-center">
-                    <p class="counter text-4xl font-bold" data-target="50">0</p>
-                    <p class="text-xs uppercase tracking-wide text-slate-500">Clients</p>
+
+
+
+    <section class="py-12">
+        <div class="max-w-7xl mx-auto px-4 space-y-6">
+            <div class="flex justify-between">
+                <div class="flex justify-between gap-8">
+                    <div>
+                        <img class="w-16 h-16" src="/assets/grow.svg" alt="">
+                    </div>
+                    <div class="flex flex-col">
+                        <h2 class="font-bold text-xl">Grow your business</h2>
+                        <p class="text-gray-500 font-light">We believe in challenges and so we have made challenges.</p>
+                    </div>
                 </div>
-                <div class="w-px bg-slate-200 dark:bg-slate-800"></div>
-                <div class="text-center">
-                    <p class="counter text-4xl font-bold" data-target="120">0</p>
-                    <p class="text-xs uppercase tracking-wide text-slate-500">Projects</p>
+                <div class="flex justify-between gap-8">
+                    <div>
+                        <img class="w-16 h-16" src="/assets/savings.svg" alt="">
+                    </div>
+                    <div class="flex flex-col">
+                        <h2 class="font-bold text-xl">
+                            Cost savings ideas</h2>
+                        <p class="text-gray-500 font-light">We also help our clients with social media strategy.</p>
+                    </div>
                 </div>
-                <div class="w-px bg-slate-200 dark:bg-slate-800"></div>
-                <div class="text-center">
-                    <p class="counter text-4xl font-bold" data-target="98">0</p>
-                    <p class="text-xs uppercase tracking-wide text-slate-500">Retention</p>
+                <div class="flex justify-between gap-8">
+                    <div>
+                        <img class="w-16 h-16" src="/assets/boost_performance.svg" alt="">
+                    </div>
+                    <div class="flex flex-col">
+                        <h2 class="font-bold text-xl">
+                            Boost performance</h2>
+                        <p class="text-gray-500 font-light">We deliver email marketing campaigns to your audience.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
 
-    <section class="py-8">
+
+    <section class="py-12">
         <div class="max-w-7xl mx-auto px-4 space-y-6">
 
             <!-- Section Header -->
@@ -164,461 +180,464 @@
                 <!-- second div full width -->
                 <div class="flex gap-2 justify-end sm:w-[20%]">
                     <span class="w-12 h-12 rounded-full bg-white">
-                        <img class="p-4 m-auto" src="arrow_left.svg" alt="">
+                        <img class="p-4 m-auto" src="/assets/arrow_left.svg" alt="">
                     </span>
                     <span class="w-12 h-12 rounded-full bg-white">
-                        <img class="p-4 m-auto" src="arrow_right.svg" alt="">
+                        <img class="p-4 m-auto" src="/assets/arrow_right.svg" alt="">
                     </span>
                 </div>
             </div>
 
 
             <!-- Horizontal Scroll Wrapper -->
-            <div class="flex mt-10 gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory pb-4
-             [-ms-overflow-style:none] [scrollbar-width:none]
-             [&::-webkit-scrollbar]:hidden">
+            <div id="services-slider">
+                <div class="flex mt-10 gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory pb-4
+               [-ms-overflow-style:none] [scrollbar-width:none]
+                [&::-webkit-scrollbar]:hidden">
 
-                <!-- Card 1: Web Development -->
-                <div class="group flex-shrink-0 snap-start w-[280px] sm:w-[320px] md:w-[360px]
+                    <!-- Card 1: Web Development -->
+                    <div class="card group flex-shrink-0 snap-start w-[280px] sm:w-[320px] md:w-[360px]
                flex flex-col overflow-hidden rounded-xl
                bg-surface-light dark:bg-surface-dark
                shadow-sm border border-slate-100 dark:border-slate-800/60
                transition-all hover:shadow-md">
-                    <div class="h-40 w-full bg-cover bg-center" style='background-image:url("webdevelopment.jpg");'>
-                    </div>
-                    <div class="flex flex-col gap-3 p-5">
-                        <div class="flex items-center gap-3">
-                            <div class="size-10 rounded-full bg-primary/10 flex items-center justify-center">
-                                <span class="material-symbols-outlined text-primary">html</span>
-                            </div>
-                            <h3 class="text-lg font-bold text-slate-900 dark:text-white">
-                                Web Development
-                            </h3>
+                        <div class="h-40 w-full bg-cover bg-center"
+                            style='background-image:url("/assets/webdevelopment.jpg");'>
                         </div>
-                        <p class="text-sm text-slate-600 dark:text-slate-300">
-                            Put your business at the forefront with an impressive website. Our web development
-                            services give you a competitive edge, helping you drive traffic, convert visitors into
-                            customers, and elevate your business to new heights.
-                        </p>
-                        <button class="mt-1 flex items-center gap-2 text-sm font-bold
+                        <div class="flex flex-col gap-3 p-5">
+                            <div class="flex items-center gap-3">
+                                <div class="size-10 rounded-full bg-primary/10 flex items-center justify-center">
+                                    <span class="material-symbols-outlined text-primary">html</span>
+                                </div>
+                                <h3 class="text-lg font-bold text-slate-900 dark:text-white">
+                                    Web Development
+                                </h3>
+                            </div>
+                            <p class="text-sm text-slate-600 dark:text-slate-300">
+                                Put your business at the forefront with an impressive website. Our web development
+                                services give you a competitive edge, helping you drive traffic, convert visitors into
+                                customers, and elevate your business to new heights.
+                            </p>
+                            <button class="mt-1 flex items-center gap-2 text-sm font-bold
                    text-slate-900 dark:text-white
                    group-hover:text-primary transition-colors">
-                            Learn More
-                            <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
-                        </button>
+                                Learn More
+                                <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+                            </button>
+                        </div>
                     </div>
-                </div>
 
-                <!-- Card 2: Mobile Apps -->
-                <div class="group flex-shrink-0 snap-start w-[280px] sm:w-[320px] md:w-[360px]
+                    <!-- Card 2: Mobile Apps -->
+                    <div class="card group flex-shrink-0 snap-start w-[280px] sm:w-[320px] md:w-[360px]
                           flex flex-col overflow-hidden rounded-xl
                            bg-surface-light dark:bg-surface-dark
                             shadow-sm border border-slate-100 dark:border-slate-800/60
                              transition-all hover:shadow-md">
-                    <div class="h-40 w-full bg-cover bg-center"
-                        style='background-image:url("ecommerse_development.jpg");'>
-                    </div>
-                    <div class="flex flex-col gap-3 p-5">
-                        <div class="flex items-center gap-3">
-                            <div class="size-10 rounded-full bg-primary/10 flex items-center justify-center">
-                                <span class="material-symbols-outlined text-primary">cloud</span>
-                            </div>
-                            <h3 class="text-lg font-bold text-slate-900 dark:text-white">
-                                Ecommerce Solutions
-                            </h3>
+                        <div class="h-40 w-full bg-cover bg-center"
+                            style='background-image:url("/assets/ecommerse_development.jpg");'>
                         </div>
-                        <p class="text-sm text-slate-600 dark:text-slate-300">
-                            With extensive expertise in e-commerce development, Tekhive is a reliable partner for
-                            your various ecommerce web development needs. We create a perfect platform with a blend
-                            of compelling design and modern features.
-                        </p>
-                        <button class="mt-1 flex items-center gap-2 text-sm font-bold
+                        <div class="flex flex-col gap-3 p-5">
+                            <div class="flex items-center gap-3">
+                                <div class="size-10 rounded-full bg-primary/10 flex items-center justify-center">
+                                    <span class="material-symbols-outlined text-primary">cloud</span>
+                                </div>
+                                <h3 class="text-lg font-bold text-slate-900 dark:text-white">
+                                    Ecommerce Solutions
+                                </h3>
+                            </div>
+                            <p class="text-sm text-slate-600 dark:text-slate-300">
+                                With extensive expertise in e-commerce development, Tekhive is a reliable partner for
+                                your various ecommerce web development needs. We create a perfect platform with a blend
+                                of compelling design and modern features.
+                            </p>
+                            <button class="mt-1 flex items-center gap-2 text-sm font-bold
                                    text-slate-900 dark:text-white
                                    group-hover:text-primary transition-colors">
-                            Learn More
-                            <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
-                        </button>
+                                Learn More
+                                <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+                            </button>
+                        </div>
                     </div>
-                </div>
 
-                <!-- Card 3: Ecommerce Solutions -->
-                <div class="group flex-shrink-0 snap-start w-[280px] sm:w-[320px] md:w-[360px]
+                    <!-- Card 3: Ecommerce Solutions -->
+                    <div class="card group flex-shrink-0 snap-start w-[280px] sm:w-[320px] md:w-[360px]
                flex flex-col overflow-hidden rounded-xl
                bg-surface-light dark:bg-surface-dark
                shadow-sm border border-slate-100 dark:border-slate-800/60
                transition-all hover:shadow-md">
-                    <div class="h-40 w-full bg-cover bg-center" style='background-image:url("app_development.avif");'>
-                    </div>
-                    <div class="flex flex-col gap-3 p-5">
-                        <div class="flex items-center gap-3">
-                            <div class="size-10 rounded-full bg-primary/10 flex items-center justify-center">
-                                <span class="material-symbols-outlined text-primary">smartphone</span>
-                            </div>
-                            <h3 class="text-lg font-bold text-slate-900 dark:text-white">
-                                Mobile Apps
-                            </h3>
+                        <div class="h-40 w-full bg-cover bg-center"
+                            style='background-image:url("/assets/app_development.avif");'>
                         </div>
-                        <p class="text-sm text-slate-600 dark:text-slate-300">
-                            By prioritizing your business objectives and enhancing user engagement, our experts
-                            specialize in developing mobile applications for both iOS and Android operating systems.
-                        </p>
-                        <button class="mt-1 flex items-center gap-2 text-sm font-bold
+                        <div class="flex flex-col gap-3 p-5">
+                            <div class="flex items-center gap-3">
+                                <div class="size-10 rounded-full bg-primary/10 flex items-center justify-center">
+                                    <span class="material-symbols-outlined text-primary">smartphone</span>
+                                </div>
+                                <h3 class="text-lg font-bold text-slate-900 dark:text-white">
+                                    Mobile Apps
+                                </h3>
+                            </div>
+                            <p class="text-sm text-slate-600 dark:text-slate-300">
+                                By prioritizing your business objectives and enhancing user engagement, our experts
+                                specialize in developing mobile applications for both iOS and Android operating systems.
+                            </p>
+                            <button class="mt-1 flex items-center gap-2 text-sm font-bold
                    text-slate-900 dark:text-white
                    group-hover:text-primary transition-colors">
-                            Learn More
-                            <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
-                        </button>
+                                Learn More
+                                <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+                            </button>
+                        </div>
                     </div>
-                </div>
 
-                <!-- Card 4: Third Party Apps Integration -->
-                <div class="group flex-shrink-0 snap-start w-[280px] sm:w-[320px] md:w-[360px]
+                    <!-- Card 4: Third Party Apps Integration -->
+                    <div class="card group flex-shrink-0 snap-start w-[280px] sm:w-[320px] md:w-[360px]
                           flex flex-col overflow-hidden rounded-xl
                            bg-surface-light dark:bg-surface-dark
                             shadow-sm border border-slate-100 dark:border-slate-800/60
                              transition-all hover:shadow-md">
-                    <div class="h-40 w-full bg-cover bg-center"
-                        style='background-image:url("https://lh3.googleusercontent.com/aida-public/AB6AXuCtO35hJqJMZ-vgq3iMPoisyqDT1Nt4aOQCq0Yi3akr6xDsa8rJTNWnu38gV1-0-O94ikH6gGg69PEVAilXnTDG9EO0i8OnMKeVPQIwpN4SinHr7mP3Fy8_hCmItmPS4x735cUNondyvTYZ6NCTDYL1-IyrJcFEXHHVKBMu3nxvlfpgbVLjztwIJSb-09mbmUfdEIy1cAggDs-gv7wP8gQ1Zwr5HMhMDaVXbaQ_znmis_fun8pSf7i-q7H04JdvBHqaPv7fQ6T-uZT3");'>
-                    </div>
-                    <div class="flex flex-col gap-3 p-5">
-                        <div class="flex items-center gap-3">
-                            <div class="size-10 rounded-full bg-primary/10 flex items-center justify-center">
-                                <span class="material-symbols-outlined text-primary">cloud</span>
-                            </div>
-                            <h3 class="text-lg font-bold text-slate-900 dark:text-white">
-                                Third Party Apps Integration
-                            </h3>
+                        <div class="h-40 w-full bg-cover bg-center"
+                            style='background-image:url("https://lh3.googleusercontent.com/aida-public/AB6AXuCtO35hJqJMZ-vgq3iMPoisyqDT1Nt4aOQCq0Yi3akr6xDsa8rJTNWnu38gV1-0-O94ikH6gGg69PEVAilXnTDG9EO0i8OnMKeVPQIwpN4SinHr7mP3Fy8_hCmItmPS4x735cUNondyvTYZ6NCTDYL1-IyrJcFEXHHVKBMu3nxvlfpgbVLjztwIJSb-09mbmUfdEIy1cAggDs-gv7wP8gQ1Zwr5HMhMDaVXbaQ_znmis_fun8pSf7i-q7H04JdvBHqaPv7fQ6T-uZT3");'>
                         </div>
-                        <p class="text-sm text-slate-600 dark:text-slate-300">
-                            Tekhive has proven track record in delivering successful API projects across diverse
-                            industries. We are committed to foster innovation through highly effective API
-                            development and integration strategies.
-                        </p>
-                        <button class="mt-1 flex items-center gap-2 text-sm font-bold
+                        <div class="flex flex-col gap-3 p-5">
+                            <div class="flex items-center gap-3">
+                                <div class="size-10 rounded-full bg-primary/10 flex items-center justify-center">
+                                    <span class="material-symbols-outlined text-primary">cloud</span>
+                                </div>
+                                <h3 class="text-lg font-bold text-slate-900 dark:text-white">
+                                    Third Party Apps Integration
+                                </h3>
+                            </div>
+                            <p class="text-sm text-slate-600 dark:text-slate-300">
+                                Tekhive has proven track record in delivering successful API projects across diverse
+                                industries. We are committed to foster innovation through highly effective API
+                                development and integration strategies.
+                            </p>
+                            <button class="mt-1 flex items-center gap-2 text-sm font-bold
                                    text-slate-900 dark:text-white
                                    group-hover:text-primary transition-colors">
-                            Learn More
-                            <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
-                        </button>
+                                Learn More
+                                <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+                            </button>
+                        </div>
                     </div>
-                </div>
-                <!-- Card 5: CMS Development -->
-                <div class="group flex-shrink-0 snap-start w-[280px] sm:w-[320px] md:w-[360px]
+                    <!-- Card 5: CMS Development -->
+                    <div class="card group flex-shrink-0 snap-start w-[280px] sm:w-[320px] md:w-[360px]
                           flex flex-col overflow-hidden rounded-xl
                            bg-surface-light dark:bg-surface-dark
                             shadow-sm border border-slate-100 dark:border-slate-800/60
                              transition-all hover:shadow-md">
-                    <div class="h-40 w-full bg-cover bg-center"
-                        style='background-image:url("https://lh3.googleusercontent.com/aida-public/AB6AXuCtO35hJqJMZ-vgq3iMPoisyqDT1Nt4aOQCq0Yi3akr6xDsa8rJTNWnu38gV1-0-O94ikH6gGg69PEVAilXnTDG9EO0i8OnMKeVPQIwpN4SinHr7mP3Fy8_hCmItmPS4x735cUNondyvTYZ6NCTDYL1-IyrJcFEXHHVKBMu3nxvlfpgbVLjztwIJSb-09mbmUfdEIy1cAggDs-gv7wP8gQ1Zwr5HMhMDaVXbaQ_znmis_fun8pSf7i-q7H04JdvBHqaPv7fQ6T-uZT3");'>
-                    </div>
-                    <div class="flex flex-col gap-3 p-5">
-                        <div class="flex items-center gap-3">
-                            <div class="size-10 rounded-full bg-primary/10 flex items-center justify-center">
-                                <span class="material-symbols-outlined text-primary">cloud</span>
-                            </div>
-                            <h3 class="text-lg font-bold text-slate-900 dark:text-white">
-                                CMS Development
-                            </h3>
+                        <div class="h-40 w-full bg-cover bg-center"
+                            style='background-image:url("https://lh3.googleusercontent.com/aida-public/AB6AXuCtO35hJqJMZ-vgq3iMPoisyqDT1Nt4aOQCq0Yi3akr6xDsa8rJTNWnu38gV1-0-O94ikH6gGg69PEVAilXnTDG9EO0i8OnMKeVPQIwpN4SinHr7mP3Fy8_hCmItmPS4x735cUNondyvTYZ6NCTDYL1-IyrJcFEXHHVKBMu3nxvlfpgbVLjztwIJSb-09mbmUfdEIy1cAggDs-gv7wP8gQ1Zwr5HMhMDaVXbaQ_znmis_fun8pSf7i-q7H04JdvBHqaPv7fQ6T-uZT3");'>
                         </div>
-                        <p class="text-sm text-slate-600 dark:text-slate-300">
-                            Ensure a competitive advantage in the digital age with the right CMS solution. Our
-                            professionals can develop a fully functional CMS Platform to meet your specific needs.
-                        </p>
-                        <button class="mt-1 flex items-center gap-2 text-sm font-bold
+                        <div class="flex flex-col gap-3 p-5">
+                            <div class="flex items-center gap-3">
+                                <div class="size-10 rounded-full bg-primary/10 flex items-center justify-center">
+                                    <span class="material-symbols-outlined text-primary">cloud</span>
+                                </div>
+                                <h3 class="text-lg font-bold text-slate-900 dark:text-white">
+                                    CMS Development
+                                </h3>
+                            </div>
+                            <p class="text-sm text-slate-600 dark:text-slate-300">
+                                Ensure a competitive advantage in the digital age with the right CMS solution. Our
+                                professionals can develop a fully functional CMS Platform to meet your specific needs.
+                            </p>
+                            <button class="mt-1 flex items-center gap-2 text-sm font-bold
                                    text-slate-900 dark:text-white
                                    group-hover:text-primary transition-colors">
-                            Learn More
-                            <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
-                        </button>
+                                Learn More
+                                <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+                            </button>
+                        </div>
                     </div>
-                </div>
 
-                <!-- Card 6: Digital Marketing -->
-                <div class="group flex-shrink-0 snap-start w-[280px] sm:w-[320px] md:w-[360px]
+                    <!-- Card 6: Digital Marketing -->
+                    <div class="card group flex-shrink-0 snap-start w-[280px] sm:w-[320px] md:w-[360px]
                           flex flex-col overflow-hidden rounded-xl
                            bg-surface-light dark:bg-surface-dark
                             shadow-sm border border-slate-100 dark:border-slate-800/60
                              transition-all hover:shadow-md">
-                    <div class="h-40 w-full bg-cover bg-center"
-                        style='background-image:url("https://lh3.googleusercontent.com/aida-public/AB6AXuCtO35hJqJMZ-vgq3iMPoisyqDT1Nt4aOQCq0Yi3akr6xDsa8rJTNWnu38gV1-0-O94ikH6gGg69PEVAilXnTDG9EO0i8OnMKeVPQIwpN4SinHr7mP3Fy8_hCmItmPS4x735cUNondyvTYZ6NCTDYL1-IyrJcFEXHHVKBMu3nxvlfpgbVLjztwIJSb-09mbmUfdEIy1cAggDs-gv7wP8gQ1Zwr5HMhMDaVXbaQ_znmis_fun8pSf7i-q7H04JdvBHqaPv7fQ6T-uZT3");'>
-                    </div>
-                    <div class="flex flex-col gap-3 p-5">
-                        <div class="flex items-center gap-3">
-                            <div class="size-10 rounded-full bg-primary/10 flex items-center justify-center">
-                                <span class="material-symbols-outlined text-primary">cloud</span>
-                            </div>
-                            <h3 class="text-lg font-bold text-slate-900 dark:text-white">
-                                Digital Marketing
-                            </h3>
+                        <div class="h-40 w-full bg-cover bg-center"
+                            style='background-image:url("https://lh3.googleusercontent.com/aida-public/AB6AXuCtO35hJqJMZ-vgq3iMPoisyqDT1Nt4aOQCq0Yi3akr6xDsa8rJTNWnu38gV1-0-O94ikH6gGg69PEVAilXnTDG9EO0i8OnMKeVPQIwpN4SinHr7mP3Fy8_hCmItmPS4x735cUNondyvTYZ6NCTDYL1-IyrJcFEXHHVKBMu3nxvlfpgbVLjztwIJSb-09mbmUfdEIy1cAggDs-gv7wP8gQ1Zwr5HMhMDaVXbaQ_znmis_fun8pSf7i-q7H04JdvBHqaPv7fQ6T-uZT3");'>
                         </div>
-                        <p class="text-sm text-slate-600 dark:text-slate-300">
-                            Customized digital marketing strategies, experienced digital marketers, and innovative
-                            approach, we harness the potential of digital ways that makes your brand supreme in the
-                            online space.
-                        </p>
-                        <button class="mt-1 flex items-center gap-2 text-sm font-bold
+                        <div class="flex flex-col gap-3 p-5">
+                            <div class="flex items-center gap-3">
+                                <div class="size-10 rounded-full bg-primary/10 flex items-center justify-center">
+                                    <span class="material-symbols-outlined text-primary">cloud</span>
+                                </div>
+                                <h3 class="text-lg font-bold text-slate-900 dark:text-white">
+                                    Digital Marketing
+                                </h3>
+                            </div>
+                            <p class="text-sm text-slate-600 dark:text-slate-300">
+                                Customized digital marketing strategies, experienced digital marketers, and innovative
+                                approach, we harness the potential of digital ways that makes your brand supreme in the
+                                online space.
+                            </p>
+                            <button class="mt-1 flex items-center gap-2 text-sm font-bold
                                    text-slate-900 dark:text-white
                                    group-hover:text-primary transition-colors">
-                            Learn More
-                            <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
-                        </button>
+                                Learn More
+                                <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+                            </button>
+                        </div>
                     </div>
-                </div>
 
-                <!-- Card 7: SAP Business One -->
-                <div class="group flex-shrink-0 snap-start w-[280px] sm:w-[320px] md:w-[360px]
+                    <!-- Card 7: SAP Business One -->
+                    <div class="card group flex-shrink-0 snap-start w-[280px] sm:w-[320px] md:w-[360px]
                           flex flex-col overflow-hidden rounded-xl
                            bg-surface-light dark:bg-surface-dark
                             shadow-sm border border-slate-100 dark:border-slate-800/60
                              transition-all hover:shadow-md">
-                    <div class="h-40 w-full bg-cover bg-center"
-                        style='background-image:url("https://lh3.googleusercontent.com/aida-public/AB6AXuCtO35hJqJMZ-vgq3iMPoisyqDT1Nt4aOQCq0Yi3akr6xDsa8rJTNWnu38gV1-0-O94ikH6gGg69PEVAilXnTDG9EO0i8OnMKeVPQIwpN4SinHr7mP3Fy8_hCmItmPS4x735cUNondyvTYZ6NCTDYL1-IyrJcFEXHHVKBMu3nxvlfpgbVLjztwIJSb-09mbmUfdEIy1cAggDs-gv7wP8gQ1Zwr5HMhMDaVXbaQ_znmis_fun8pSf7i-q7H04JdvBHqaPv7fQ6T-uZT3");'>
-                    </div>
-                    <div class="flex flex-col gap-3 p-5">
-                        <div class="flex items-center gap-3">
-                            <div class="size-10 rounded-full bg-primary/10 flex items-center justify-center">
-                                <span class="material-symbols-outlined text-primary">cloud</span>
-                            </div>
-                            <h3 class="text-lg font-bold text-slate-900 dark:text-white">
-                                SAP Business One
-                            </h3>
+                        <div class="h-40 w-full bg-cover bg-center"
+                            style='background-image:url("https://lh3.googleusercontent.com/aida-public/AB6AXuCtO35hJqJMZ-vgq3iMPoisyqDT1Nt4aOQCq0Yi3akr6xDsa8rJTNWnu38gV1-0-O94ikH6gGg69PEVAilXnTDG9EO0i8OnMKeVPQIwpN4SinHr7mP3Fy8_hCmItmPS4x735cUNondyvTYZ6NCTDYL1-IyrJcFEXHHVKBMu3nxvlfpgbVLjztwIJSb-09mbmUfdEIy1cAggDs-gv7wP8gQ1Zwr5HMhMDaVXbaQ_znmis_fun8pSf7i-q7H04JdvBHqaPv7fQ6T-uZT3");'>
                         </div>
-                        <p class="text-sm text-slate-600 dark:text-slate-300">
-                            The modern business environment requires a robust solution that empowers organizations
-                            to thrive. We offer bespoke ERP solution that easily adapts to ever-evolving market
-                            challenges and demands.
-                        </p>
-                        <button class="mt-1 flex items-center gap-2 text-sm font-bold
+                        <div class="flex flex-col gap-3 p-5">
+                            <div class="flex items-center gap-3">
+                                <div class="size-10 rounded-full bg-primary/10 flex items-center justify-center">
+                                    <span class="material-symbols-outlined text-primary">cloud</span>
+                                </div>
+                                <h3 class="text-lg font-bold text-slate-900 dark:text-white">
+                                    SAP Business One
+                                </h3>
+                            </div>
+                            <p class="text-sm text-slate-600 dark:text-slate-300">
+                                The modern business environment requires a robust solution that empowers organizations
+                                to thrive. We offer bespoke ERP solution that easily adapts to ever-evolving market
+                                challenges and demands.
+                            </p>
+                            <button class="mt-1 flex items-center gap-2 text-sm font-bold
                                    text-slate-900 dark:text-white
                                    group-hover:text-primary transition-colors">
-                            Learn More
-                            <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
-                        </button>
+                                Learn More
+                                <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+                            </button>
+                        </div>
                     </div>
-                </div>
 
-                <!-- Card 8: Business Intelligence Tools -->
-                <div class="group flex-shrink-0 snap-start w-[280px] sm:w-[320px] md:w-[360px]
+                    <!-- Card 8: Business Intelligence Tools -->
+                    <div class="card group flex-shrink-0 snap-start w-[280px] sm:w-[320px] md:w-[360px]
                           flex flex-col overflow-hidden rounded-xl
                            bg-surface-light dark:bg-surface-dark
                             shadow-sm border border-slate-100 dark:border-slate-800/60
                              transition-all hover:shadow-md">
-                    <div class="h-40 w-full bg-cover bg-center"
-                        style='background-image:url("https://lh3.googleusercontent.com/aida-public/AB6AXuCtO35hJqJMZ-vgq3iMPoisyqDT1Nt4aOQCq0Yi3akr6xDsa8rJTNWnu38gV1-0-O94ikH6gGg69PEVAilXnTDG9EO0i8OnMKeVPQIwpN4SinHr7mP3Fy8_hCmItmPS4x735cUNondyvTYZ6NCTDYL1-IyrJcFEXHHVKBMu3nxvlfpgbVLjztwIJSb-09mbmUfdEIy1cAggDs-gv7wP8gQ1Zwr5HMhMDaVXbaQ_znmis_fun8pSf7i-q7H04JdvBHqaPv7fQ6T-uZT3");'>
-                    </div>
-                    <div class="flex flex-col gap-3 p-5">
-                        <div class="flex items-center gap-3">
-                            <div class="size-10 rounded-full bg-primary/10 flex items-center justify-center">
-                                <span class="material-symbols-outlined text-primary">cloud</span>
-                            </div>
-                            <h3 class="text-lg font-bold text-slate-900 dark:text-white">
-                                Business Intelligence Tools
-                            </h3>
+                        <div class="h-40 w-full bg-cover bg-center"
+                            style='background-image:url("https://lh3.googleusercontent.com/aida-public/AB6AXuCtO35hJqJMZ-vgq3iMPoisyqDT1Nt4aOQCq0Yi3akr6xDsa8rJTNWnu38gV1-0-O94ikH6gGg69PEVAilXnTDG9EO0i8OnMKeVPQIwpN4SinHr7mP3Fy8_hCmItmPS4x735cUNondyvTYZ6NCTDYL1-IyrJcFEXHHVKBMu3nxvlfpgbVLjztwIJSb-09mbmUfdEIy1cAggDs-gv7wP8gQ1Zwr5HMhMDaVXbaQ_znmis_fun8pSf7i-q7H04JdvBHqaPv7fQ6T-uZT3");'>
                         </div>
-                        <p class="text-sm text-slate-600 dark:text-slate-300">
-                            In times of transformation, organizations need to equip themselves with robust solutions
-                            that ease the way of doing business. At Tekhive, we help you achieve your goals by
-                            harnessing the power of your business data.
-                        </p>
-                        <button class="mt-1 flex items-center gap-2 text-sm font-bold
+                        <div class="flex flex-col gap-3 p-5">
+                            <div class="flex items-center gap-3">
+                                <div class="size-10 rounded-full bg-primary/10 flex items-center justify-center">
+                                    <span class="material-symbols-outlined text-primary">cloud</span>
+                                </div>
+                                <h3 class="text-lg font-bold text-slate-900 dark:text-white">
+                                    Business Intelligence Tools
+                                </h3>
+                            </div>
+                            <p class="text-sm text-slate-600 dark:text-slate-300">
+                                In times of transformation, organizations need to equip themselves with robust solutions
+                                that ease the way of doing business. At Tekhive, we help you achieve your goals by
+                                harnessing the power of your business data.
+                            </p>
+                            <button class="mt-1 flex items-center gap-2 text-sm font-bold
                                    text-slate-900 dark:text-white
                                    group-hover:text-primary transition-colors">
-                            Learn More
-                            <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
-                        </button>
+                                Learn More
+                                <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+                            </button>
+                        </div>
                     </div>
-                </div>
 
-                <!-- Card 9: CRM -->
-                <div class="group flex-shrink-0 snap-start w-[280px] sm:w-[320px] md:w-[360px]
+                    <!-- Card 9: CRM -->
+                    <div class="card group flex-shrink-0 snap-start w-[280px] sm:w-[320px] md:w-[360px]
                           flex flex-col overflow-hidden rounded-xl
                            bg-surface-light dark:bg-surface-dark
                             shadow-sm border border-slate-100 dark:border-slate-800/60
                              transition-all hover:shadow-md">
-                    <div class="h-40 w-full bg-cover bg-center"
-                        style='background-image:url("https://lh3.googleusercontent.com/aida-public/AB6AXuCtO35hJqJMZ-vgq3iMPoisyqDT1Nt4aOQCq0Yi3akr6xDsa8rJTNWnu38gV1-0-O94ikH6gGg69PEVAilXnTDG9EO0i8OnMKeVPQIwpN4SinHr7mP3Fy8_hCmItmPS4x735cUNondyvTYZ6NCTDYL1-IyrJcFEXHHVKBMu3nxvlfpgbVLjztwIJSb-09mbmUfdEIy1cAggDs-gv7wP8gQ1Zwr5HMhMDaVXbaQ_znmis_fun8pSf7i-q7H04JdvBHqaPv7fQ6T-uZT3");'>
-                    </div>
-                    <div class="flex flex-col gap-3 p-5">
-                        <div class="flex items-center gap-3">
-                            <div class="size-10 rounded-full bg-primary/10 flex items-center justify-center">
-                                <span class="material-symbols-outlined text-primary">cloud</span>
-                            </div>
-                            <h3 class="text-lg font-bold text-slate-900 dark:text-white">
-                                CRM
-                            </h3>
+                        <div class="h-40 w-full bg-cover bg-center"
+                            style='background-image:url("https://lh3.googleusercontent.com/aida-public/AB6AXuCtO35hJqJMZ-vgq3iMPoisyqDT1Nt4aOQCq0Yi3akr6xDsa8rJTNWnu38gV1-0-O94ikH6gGg69PEVAilXnTDG9EO0i8OnMKeVPQIwpN4SinHr7mP3Fy8_hCmItmPS4x735cUNondyvTYZ6NCTDYL1-IyrJcFEXHHVKBMu3nxvlfpgbVLjztwIJSb-09mbmUfdEIy1cAggDs-gv7wP8gQ1Zwr5HMhMDaVXbaQ_znmis_fun8pSf7i-q7H04JdvBHqaPv7fQ6T-uZT3");'>
                         </div>
-                        <p class="text-sm text-slate-600 dark:text-slate-300">
-                            Your business can't overlook the need for an efficient CRM software, as it is the
-                            cornerstone of customer management and business success. Embark on a journey of business
-                            success with us.
-                        </p>
-                        <button class="mt-1 flex items-center gap-2 text-sm font-bold
+                        <div class="flex flex-col gap-3 p-5">
+                            <div class="flex items-center gap-3">
+                                <div class="size-10 rounded-full bg-primary/10 flex items-center justify-center">
+                                    <span class="material-symbols-outlined text-primary">cloud</span>
+                                </div>
+                                <h3 class="text-lg font-bold text-slate-900 dark:text-white">
+                                    CRM
+                                </h3>
+                            </div>
+                            <p class="text-sm text-slate-600 dark:text-slate-300">
+                                Your business can't overlook the need for an efficient CRM software, as it is the
+                                cornerstone of customer management and business success. Embark on a journey of business
+                                success with us.
+                            </p>
+                            <button class="mt-1 flex items-center gap-2 text-sm font-bold
                                    text-slate-900 dark:text-white
                                    group-hover:text-primary transition-colors">
-                            Learn More
-                            <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
-                        </button>
+                                Learn More
+                                <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+                            </button>
+                        </div>
                     </div>
-                </div>
 
-                <!-- Card 10: Business Process Automation -->
-                <div class="group flex-shrink-0 snap-start w-[280px] sm:w-[320px] md:w-[360px]
+                    <!-- Card 10: Business Process Automation -->
+                    <div class="card group flex-shrink-0 snap-start w-[280px] sm:w-[320px] md:w-[360px]
                           flex flex-col overflow-hidden rounded-xl
                            bg-surface-light dark:bg-surface-dark
                             shadow-sm border border-slate-100 dark:border-slate-800/60
                              transition-all hover:shadow-md">
-                    <div class="h-40 w-full bg-cover bg-center"
-                        style='background-image:url("https://lh3.googleusercontent.com/aida-public/AB6AXuCtO35hJqJMZ-vgq3iMPoisyqDT1Nt4aOQCq0Yi3akr6xDsa8rJTNWnu38gV1-0-O94ikH6gGg69PEVAilXnTDG9EO0i8OnMKeVPQIwpN4SinHr7mP3Fy8_hCmItmPS4x735cUNondyvTYZ6NCTDYL1-IyrJcFEXHHVKBMu3nxvlfpgbVLjztwIJSb-09mbmUfdEIy1cAggDs-gv7wP8gQ1Zwr5HMhMDaVXbaQ_znmis_fun8pSf7i-q7H04JdvBHqaPv7fQ6T-uZT3");'>
-                    </div>
-                    <div class="flex flex-col gap-3 p-5">
-                        <div class="flex items-center gap-3">
-                            <div class="size-10 rounded-full bg-primary/10 flex items-center justify-center">
-                                <span class="material-symbols-outlined text-primary">cloud</span>
-                            </div>
-                            <h3 class="text-lg font-bold text-slate-900 dark:text-white">
-                                Business Process Automation
-                            </h3>
+                        <div class="h-40 w-full bg-cover bg-center"
+                            style='background-image:url("https://lh3.googleusercontent.com/aida-public/AB6AXuCtO35hJqJMZ-vgq3iMPoisyqDT1Nt4aOQCq0Yi3akr6xDsa8rJTNWnu38gV1-0-O94ikH6gGg69PEVAilXnTDG9EO0i8OnMKeVPQIwpN4SinHr7mP3Fy8_hCmItmPS4x735cUNondyvTYZ6NCTDYL1-IyrJcFEXHHVKBMu3nxvlfpgbVLjztwIJSb-09mbmUfdEIy1cAggDs-gv7wP8gQ1Zwr5HMhMDaVXbaQ_znmis_fun8pSf7i-q7H04JdvBHqaPv7fQ6T-uZT3");'>
                         </div>
-                        <p class="text-sm text-slate-600 dark:text-slate-300">
-                            In modern times it is important to keep your business moving forward with the latest
-                            technology solutions. Tekhive’s business process automation drives innovation,
-                            efficiency and insights.
-                        </p>
-                        <button class="mt-1 flex items-center gap-2 text-sm font-bold
+                        <div class="flex flex-col gap-3 p-5">
+                            <div class="flex items-center gap-3">
+                                <div class="size-10 rounded-full bg-primary/10 flex items-center justify-center">
+                                    <span class="material-symbols-outlined text-primary">cloud</span>
+                                </div>
+                                <h3 class="text-lg font-bold text-slate-900 dark:text-white">
+                                    Business Process Automation
+                                </h3>
+                            </div>
+                            <p class="text-sm text-slate-600 dark:text-slate-300">
+                                In modern times it is important to keep your business moving forward with the latest
+                                technology solutions. Tekhive’s business process automation drives innovation,
+                                efficiency and insights.
+                            </p>
+                            <button class="mt-1 flex items-center gap-2 text-sm font-bold
                                    text-slate-900 dark:text-white
                                    group-hover:text-primary transition-colors">
-                            Learn More
-                            <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
-                        </button>
+                                Learn More
+                                <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+                            </button>
+                        </div>
                     </div>
-                </div>
 
-                <!-- Card 11: IT Consulting -->
-                <div class="group flex-shrink-0 snap-start w-[280px] sm:w-[320px] md:w-[360px]
+                    <!-- Card 11: IT Consulting -->
+                    <div class="card group flex-shrink-0 snap-start w-[280px] sm:w-[320px] md:w-[360px]
                           flex flex-col overflow-hidden rounded-xl
                            bg-surface-light dark:bg-surface-dark
                             shadow-sm border border-slate-100 dark:border-slate-800/60
                              transition-all hover:shadow-md">
-                    <div class="h-40 w-full bg-cover bg-center"
-                        style='background-image:url("https://lh3.googleusercontent.com/aida-public/AB6AXuCtO35hJqJMZ-vgq3iMPoisyqDT1Nt4aOQCq0Yi3akr6xDsa8rJTNWnu38gV1-0-O94ikH6gGg69PEVAilXnTDG9EO0i8OnMKeVPQIwpN4SinHr7mP3Fy8_hCmItmPS4x735cUNondyvTYZ6NCTDYL1-IyrJcFEXHHVKBMu3nxvlfpgbVLjztwIJSb-09mbmUfdEIy1cAggDs-gv7wP8gQ1Zwr5HMhMDaVXbaQ_znmis_fun8pSf7i-q7H04JdvBHqaPv7fQ6T-uZT3");'>
-                    </div>
-                    <div class="flex flex-col gap-3 p-5">
-                        <div class="flex items-center gap-3">
-                            <div class="size-10 rounded-full bg-primary/10 flex items-center justify-center">
-                                <span class="material-symbols-outlined text-primary">cloud</span>
-                            </div>
-                            <h3 class="text-lg font-bold text-slate-900 dark:text-white">
-                                IT Consulting
-                            </h3>
+                        <div class="h-40 w-full bg-cover bg-center"
+                            style='background-image:url("https://lh3.googleusercontent.com/aida-public/AB6AXuCtO35hJqJMZ-vgq3iMPoisyqDT1Nt4aOQCq0Yi3akr6xDsa8rJTNWnu38gV1-0-O94ikH6gGg69PEVAilXnTDG9EO0i8OnMKeVPQIwpN4SinHr7mP3Fy8_hCmItmPS4x735cUNondyvTYZ6NCTDYL1-IyrJcFEXHHVKBMu3nxvlfpgbVLjztwIJSb-09mbmUfdEIy1cAggDs-gv7wP8gQ1Zwr5HMhMDaVXbaQ_znmis_fun8pSf7i-q7H04JdvBHqaPv7fQ6T-uZT3");'>
                         </div>
-                        <p class="text-sm text-slate-600 dark:text-slate-300">
-                            In the era where adoption of cutting-edge technology becomes the core of success, IT
-                            consulting services play a crucial role in supporting the right technologies, tools and
-                            capabilities. Stay ahead with the right combination of solutions.
-                        </p>
-                        <button class="mt-1 flex items-center gap-2 text-sm font-bold
+                        <div class="flex flex-col gap-3 p-5">
+                            <div class="flex items-center gap-3">
+                                <div class="size-10 rounded-full bg-primary/10 flex items-center justify-center">
+                                    <span class="material-symbols-outlined text-primary">cloud</span>
+                                </div>
+                                <h3 class="text-lg font-bold text-slate-900 dark:text-white">
+                                    IT Consulting
+                                </h3>
+                            </div>
+                            <p class="text-sm text-slate-600 dark:text-slate-300">
+                                In the era where adoption of cutting-edge technology becomes the core of success, IT
+                                consulting services play a crucial role in supporting the right technologies, tools and
+                                capabilities. Stay ahead with the right combination of solutions.
+                            </p>
+                            <button class="mt-1 flex items-center gap-2 text-sm font-bold
                                    text-slate-900 dark:text-white
                                    group-hover:text-primary transition-colors">
-                            Learn More
-                            <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
-                        </button>
+                                Learn More
+                                <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+                            </button>
+                        </div>
                     </div>
-                </div>
 
-                <!-- Card 12: IT Support -->
-                <div class="group flex-shrink-0 snap-start w-[280px] sm:w-[320px] md:w-[360px]
+                    <!-- Card 12: IT Support -->
+                    <div class="card group flex-shrink-0 snap-start w-[280px] sm:w-[320px] md:w-[360px]
                           flex flex-col overflow-hidden rounded-xl
                            bg-surface-light dark:bg-surface-dark
                             shadow-sm border border-slate-100 dark:border-slate-800/60
                              transition-all hover:shadow-md">
-                    <div class="h-40 w-full bg-cover bg-center"
-                        style='background-image:url("https://lh3.googleusercontent.com/aida-public/AB6AXuCtO35hJqJMZ-vgq3iMPoisyqDT1Nt4aOQCq0Yi3akr6xDsa8rJTNWnu38gV1-0-O94ikH6gGg69PEVAilXnTDG9EO0i8OnMKeVPQIwpN4SinHr7mP3Fy8_hCmItmPS4x735cUNondyvTYZ6NCTDYL1-IyrJcFEXHHVKBMu3nxvlfpgbVLjztwIJSb-09mbmUfdEIy1cAggDs-gv7wP8gQ1Zwr5HMhMDaVXbaQ_znmis_fun8pSf7i-q7H04JdvBHqaPv7fQ6T-uZT3");'>
-                    </div>
-                    <div class="flex flex-col gap-3 p-5">
-                        <div class="flex items-center gap-3">
-                            <div class="size-10 rounded-full bg-primary/10 flex items-center justify-center">
-                                <span class="material-symbols-outlined text-primary">cloud</span>
-                            </div>
-                            <h3 class="text-lg font-bold text-slate-900 dark:text-white">
-                                IT Support
-                            </h3>
+                        <div class="h-40 w-full bg-cover bg-center"
+                            style='background-image:url("https://lh3.googleusercontent.com/aida-public/AB6AXuCtO35hJqJMZ-vgq3iMPoisyqDT1Nt4aOQCq0Yi3akr6xDsa8rJTNWnu38gV1-0-O94ikH6gGg69PEVAilXnTDG9EO0i8OnMKeVPQIwpN4SinHr7mP3Fy8_hCmItmPS4x735cUNondyvTYZ6NCTDYL1-IyrJcFEXHHVKBMu3nxvlfpgbVLjztwIJSb-09mbmUfdEIy1cAggDs-gv7wP8gQ1Zwr5HMhMDaVXbaQ_znmis_fun8pSf7i-q7H04JdvBHqaPv7fQ6T-uZT3");'>
                         </div>
-                        <p class="text-sm text-slate-600 dark:text-slate-300">
-                            Tekhive’s IT support quickly resolve technical issues, get your business back on track,
-                            all without the need for your in-house IT teams to be physically present.
-                        </p>
-                        <button class="mt-1 flex items-center gap-2 text-sm font-bold
+                        <div class="flex flex-col gap-3 p-5">
+                            <div class="flex items-center gap-3">
+                                <div class="size-10 rounded-full bg-primary/10 flex items-center justify-center">
+                                    <span class="material-symbols-outlined text-primary">cloud</span>
+                                </div>
+                                <h3 class="text-lg font-bold text-slate-900 dark:text-white">
+                                    IT Support
+                                </h3>
+                            </div>
+                            <p class="text-sm text-slate-600 dark:text-slate-300">
+                                Tekhive’s IT support quickly resolve technical issues, get your business back on track,
+                                all without the need for your in-house IT teams to be physically present.
+                            </p>
+                            <button class="mt-1 flex items-center gap-2 text-sm font-bold
                                    text-slate-900 dark:text-white
                                    group-hover:text-primary transition-colors">
-                            Learn More
-                            <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
-                        </button>
+                                Learn More
+                                <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+                            </button>
+                        </div>
                     </div>
-                </div>
 
-                <!-- Card 13: Back Office Support -->
-                <div class="group flex-shrink-0 snap-start w-[280px] sm:w-[320px] md:w-[360px]
+                    <!-- Card 13: Back Office Support -->
+                    <div class="card group flex-shrink-0 snap-start w-[280px] sm:w-[320px] md:w-[360px]
                           flex flex-col overflow-hidden rounded-xl
                            bg-surface-light dark:bg-surface-dark
                             shadow-sm border border-slate-100 dark:border-slate-800/60
                              transition-all hover:shadow-md">
-                    <div class="h-40 w-full bg-cover bg-center"
-                        style='background-image:url("https://lh3.googleusercontent.com/aida-public/AB6AXuCtO35hJqJMZ-vgq3iMPoisyqDT1Nt4aOQCq0Yi3akr6xDsa8rJTNWnu38gV1-0-O94ikH6gGg69PEVAilXnTDG9EO0i8OnMKeVPQIwpN4SinHr7mP3Fy8_hCmItmPS4x735cUNondyvTYZ6NCTDYL1-IyrJcFEXHHVKBMu3nxvlfpgbVLjztwIJSb-09mbmUfdEIy1cAggDs-gv7wP8gQ1Zwr5HMhMDaVXbaQ_znmis_fun8pSf7i-q7H04JdvBHqaPv7fQ6T-uZT3");'>
-                    </div>
-                    <div class="flex flex-col gap-3 p-5">
-                        <div class="flex items-center gap-3">
-                            <div class="size-10 rounded-full bg-primary/10 flex items-center justify-center">
-                                <span class="material-symbols-outlined text-primary">cloud</span>
-                            </div>
-                            <h3 class="text-lg font-bold text-slate-900 dark:text-white">
-                                Back Office Support
-                            </h3>
+                        <div class="h-40 w-full bg-cover bg-center"
+                            style='background-image:url("https://lh3.googleusercontent.com/aida-public/AB6AXuCtO35hJqJMZ-vgq3iMPoisyqDT1Nt4aOQCq0Yi3akr6xDsa8rJTNWnu38gV1-0-O94ikH6gGg69PEVAilXnTDG9EO0i8OnMKeVPQIwpN4SinHr7mP3Fy8_hCmItmPS4x735cUNondyvTYZ6NCTDYL1-IyrJcFEXHHVKBMu3nxvlfpgbVLjztwIJSb-09mbmUfdEIy1cAggDs-gv7wP8gQ1Zwr5HMhMDaVXbaQ_znmis_fun8pSf7i-q7H04JdvBHqaPv7fQ6T-uZT3");'>
                         </div>
-                        <p class="text-sm text-slate-600 dark:text-slate-300">
-                            Tekhive's comprehensive back-office support ensures the smooth operation of your
-                            business without the need for your in-house IT teams to be physically present.
-                        </p>
-                        <button class="mt-1 flex items-center gap-2 text-sm font-bold
+                        <div class="flex flex-col gap-3 p-5">
+                            <div class="flex items-center gap-3">
+                                <div class="size-10 rounded-full bg-primary/10 flex items-center justify-center">
+                                    <span class="material-symbols-outlined text-primary">cloud</span>
+                                </div>
+                                <h3 class="text-lg font-bold text-slate-900 dark:text-white">
+                                    Back Office Support
+                                </h3>
+                            </div>
+                            <p class="text-sm text-slate-600 dark:text-slate-300">
+                                Tekhive's comprehensive back-office support ensures the smooth operation of your
+                                business without the need for your in-house IT teams to be physically present.
+                            </p>
+                            <button class="mt-1 flex items-center gap-2 text-sm font-bold
                                    text-slate-900 dark:text-white
                                    group-hover:text-primary transition-colors">
-                            Learn More
-                            <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
-                        </button>
+                                Learn More
+                                <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+                            </button>
+                        </div>
                     </div>
-                </div>
 
-                <!-- Card 14: Back Office Support -->
-                <div class="group flex-shrink-0 snap-start w-[280px] sm:w-[320px] md:w-[360px]
+                    <!-- Card 14: Back Office Support -->
+                    <div class="card group flex-shrink-0 snap-start w-[280px] sm:w-[320px] md:w-[360px]
                           flex flex-col overflow-hidden rounded-xl
                            bg-surface-light dark:bg-surface-dark
                             shadow-sm border border-slate-100 dark:border-slate-800/60
                              transition-all hover:shadow-md">
-                    <div class="h-40 w-full bg-cover bg-center"
-                        style='background-image:url("https://lh3.googleusercontent.com/aida-public/AB6AXuCtO35hJqJMZ-vgq3iMPoisyqDT1Nt4aOQCq0Yi3akr6xDsa8rJTNWnu38gV1-0-O94ikH6gGg69PEVAilXnTDG9EO0i8OnMKeVPQIwpN4SinHr7mP3Fy8_hCmItmPS4x735cUNondyvTYZ6NCTDYL1-IyrJcFEXHHVKBMu3nxvlfpgbVLjztwIJSb-09mbmUfdEIy1cAggDs-gv7wP8gQ1Zwr5HMhMDaVXbaQ_znmis_fun8pSf7i-q7H04JdvBHqaPv7fQ6T-uZT3");'>
-                    </div>
-                    <div class="flex flex-col gap-3 p-5">
-                        <div class="flex items-center gap-3">
-                            <div class="size-10 rounded-full bg-primary/10 flex items-center justify-center">
-                                <span class="material-symbols-outlined text-primary">cloud</span>
-                            </div>
-                            <h3 class="text-lg font-bold text-slate-900 dark:text-white">
-                                Domain and Web Hosting
-                            </h3>
+                        <div class="h-40 w-full bg-cover bg-center"
+                            style='background-image:url("https://lh3.googleusercontent.com/aida-public/AB6AXuCtO35hJqJMZ-vgq3iMPoisyqDT1Nt4aOQCq0Yi3akr6xDsa8rJTNWnu38gV1-0-O94ikH6gGg69PEVAilXnTDG9EO0i8OnMKeVPQIwpN4SinHr7mP3Fy8_hCmItmPS4x735cUNondyvTYZ6NCTDYL1-IyrJcFEXHHVKBMu3nxvlfpgbVLjztwIJSb-09mbmUfdEIy1cAggDs-gv7wP8gQ1Zwr5HMhMDaVXbaQ_znmis_fun8pSf7i-q7H04JdvBHqaPv7fQ6T-uZT3");'>
                         </div>
-                        <p class="text-sm text-slate-600 dark:text-slate-300">
-                            Creating a greater online space is the gateway to success for your business. Recognizing
-                            this, Tekhive paves the path for future growth and a greater online presence by offering
-                            affordable domain and web hosting services.
-                        </p>
-                        <button class="mt-1 flex items-center gap-2 text-sm font-bold
+                        <div class="flex flex-col gap-3 p-5">
+                            <div class="flex items-center gap-3">
+                                <div class="size-10 rounded-full bg-primary/10 flex items-center justify-center">
+                                    <span class="material-symbols-outlined text-primary">cloud</span>
+                                </div>
+                                <h3 class="text-lg font-bold text-slate-900 dark:text-white">
+                                    Domain and Web Hosting
+                                </h3>
+                            </div>
+                            <p class="text-sm text-slate-600 dark:text-slate-300">
+                                Creating a greater online space is the gateway to success for your business. Recognizing
+                                this, Tekhive paves the path for future growth and a greater online presence by offering
+                                affordable domain and web hosting services.
+                            </p>
+                            <button class="mt-1 flex items-center gap-2 text-sm font-bold
                                    text-slate-900 dark:text-white
                                    group-hover:text-primary transition-colors">
-                            Learn More
-                            <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
-                        </button>
+                                Learn More
+                                <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+                            </button>
+                        </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
@@ -626,7 +645,7 @@
 
 
     <!-- Why Choose Us -->
-    <section class="px-4 py-4">
+    <section class="px-4 py-12">
         <div class="rounded-2xl max-w-md mx-auto bg-surface-dark p-6 relative overflow-hidden">
             <!-- Background decorative elements -->
             <div class="absolute -top-10 -right-10 size-40 bg-primary/20 rounded-full blur-3xl">
@@ -689,7 +708,7 @@
         <div class="max-w-md mx-auto pointer-events-auto">
             <button
                 class="w-full flex items-center justify-between rounded-full h-14 pl-6 pr-2 bg-slate-900 dark:bg-white text-white dark:text-black shadow-xl hover:scale-[1.02] active:scale-[0.98] transition-all">
-                <span class="font-bold text-lg">Let's build together</span>
+                <span class="text-sm">Let's build together</span>
                 <div class="flex items-center justify-center size-10 rounded-full bg-primary text-black">
                     <span class="material-symbols-outlined">arrow_outward</span>
                 </div>

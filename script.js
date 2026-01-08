@@ -24,7 +24,7 @@ window.addEventListener("DOMContentLoaded", () => {
         maxWidth: "100vw",
         scrollTrigger: {
             trigger: "#hero",
-            start: "top",
+            start: "-=120",
             end: "+=500",
             scrub: 1
         }
@@ -32,7 +32,11 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 
 
+////////////////////////////////////////////////////////////////////////////////////auto horizontal card slide animation
 
+
+
+///////////////////////////////////////////////////////////////////////////counter animation
 const counters = document.querySelectorAll(".counter");
 
 counters.forEach(counter => {
