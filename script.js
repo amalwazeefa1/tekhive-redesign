@@ -18,18 +18,40 @@ gsap.registerPlugin(ScrollTrigger);
 
 window.addEventListener("DOMContentLoaded", () => {
     gsap.set("#hero", { maxWidth: "85%" });
-    gsap.to("#hero", {
-        duration: 0.5,
-        ease: "power3.out",
-        maxWidth: "100vw",
-        scrollTrigger: {
-            trigger: "#hero",
-            start: "-=120",
-            end: "+=500",
-            scrub: 1
+
+    ScrollTrigger.matchMedia({
+        // For mobile screens
+        "(max-width: 768px)": function () {
+            gsap.to("#hero", {
+                duration: 0.5,
+                ease: "power3.out",
+                maxWidth: "100vw",
+                scrollTrigger: {
+                    trigger: "#hero",
+                    start: "-=120",   // 👈 different start for mobile
+                    end: "+=300",
+                    scrub: 1
+                }
+            });
+        },
+
+        // For desktop screens
+        "(min-width: 769px)": function () {
+            gsap.to("#hero", {
+                duration: 0.5,
+                ease: "power3.out",
+                maxWidth: "100vw",
+                scrollTrigger: {
+                    trigger: "#hero",
+                    start: "-=120",  // 👈 original start
+                    end: "+=500",
+                    scrub: 1
+                }
+            });
         }
-    })
+    });
 });
+
 
 
 ////////////////////////////////////////////////////////////////////////////////////auto horizontal card slide animation
