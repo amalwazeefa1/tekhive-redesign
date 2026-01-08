@@ -35,7 +35,7 @@ window.addEventListener("DOMContentLoaded", () => {
                 borderRadius: "0",
                 scrollTrigger: {
                     trigger: "#hero",
-                    start: "-=120",   // 👈 different start for mobile
+                    start: "-=120", 
                     end: "+=300",
                     scrub: 1,
                 }
@@ -51,8 +51,8 @@ window.addEventListener("DOMContentLoaded", () => {
                 borderRadius: "0",
                 scrollTrigger: {
                     trigger: "#hero",
-                    start: "-=120",  // 👈 original start
-                    end: "+=500",
+                    start: "-=120", 
+                    end: "+=400",
                     scrub: 1,
                 }
             });
