@@ -1,10 +1,11 @@
+//////////////////////////////////////////////////////////////////////////////for optimized scroll performance
 gsap.registerPlugin(ScrollTrigger);
 ScrollTrigger.config({
-  ignoreMobileResize: true,
+    ignoreMobileResize: true,
 });
 ScrollTrigger.normalizeScroll(true);
 ScrollTrigger.normalizeScroll({
-  allowNestedScroll: true,
+    allowNestedScroll: true,
 });
 
 
@@ -22,6 +23,8 @@ ScrollTrigger.normalizeScroll({
 //     });
 // });
 
+
+//////////////////////////////////////////////////////////////////////////////hero section animation
 window.addEventListener("DOMContentLoaded", () => {
     gsap.set("#hero", { maxWidth: "85%", borderRadius: "30px" });
 
@@ -35,7 +38,7 @@ window.addEventListener("DOMContentLoaded", () => {
                 borderRadius: "0",
                 scrollTrigger: {
                     trigger: "#hero",
-                    start: "-=120", 
+                    start: "-=120",
                     end: "+=300",
                     scrub: 1,
                 }
@@ -51,7 +54,7 @@ window.addEventListener("DOMContentLoaded", () => {
                 borderRadius: "0",
                 scrollTrigger: {
                     trigger: "#hero",
-                    start: "-=120", 
+                    start: "-=120",
                     end: "+=400",
                     scrub: 1,
                 }

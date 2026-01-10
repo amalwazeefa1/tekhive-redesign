@@ -163,11 +163,23 @@
                     </div>
                 </div>
             </div>
-            <div class="flex flex-col sm:flex-row">
-                <div class="relative w-full sm:w-1/2">
-                    <div class="img-card"></div>
-                    <div class="img-card"></div>
+            <div class="flex flex-col sm:flex-row gap-8">
+                <div class="relative w-full sm:w-1/2 h-[380px] flex items-center justify-center">
+
+                    <!-- Image 1 (Back / Left) -->
+                    <div class="absolute left-0 top-6 z-10">
+                        <img src="/assets/demo-it-business-01.jpg.webp" alt=""
+                            class="w-[280px] sm:w-[320px] rounded-2xl shadow-xl object-cover" />
+                    </div>
+
+                    <!-- Image 2 (Front / Right) -->
+                    <div class="absolute left-[35%] top-0 z-20">
+                        <img src="/assets/demo-it-business-02.jpg.webp" alt=""
+                            class="w-[280px] sm:w-[320px] rounded-2xl shadow-2xl object-cover" />
+                    </div>
+
                 </div>
+
                 <div class="flex flex-col w-full sm:w-1/2 gap-8">
                     <h2 class="text-5xl font-bold">Powerful agency for corporate business.</h2>
                     <p class="space-y-4">We strive to develop real-world web solutions that are ideal for small to large
