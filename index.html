@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tekhive Home Screen</title>
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap"
@@ -99,35 +99,58 @@
      bg-white dark:bg-slate-900
      flex flex-col items-center justify-center
      opacity-0 pointer-events-none px-4">
+        <div class="flex absolute top-0 z-10 justify-between items-center max-w-7xl px-4 h-16 w-screen bg-transparent">
+            <div class="logo">
+                <img src="/assets/logo.svg" alt="Tekhive Logo" class="h-10 w-auto" />
+            </div>
 
-        <div class="logo absolute top-3 left-4">
-            <img src="/assets/logo.svg" alt="Tekhive Logo" class="h-10 w-auto" />
+            <!-- Close Button -->
+            <button id="closeMenu" class="size-11 flex items-center justify-center rounded-full
+             hover:bg-[#0000000d] transition">
+                <span class="material-symbols-outlined text-[28px]">close</span>
+            </button>
         </div>
-
-        <!-- Close Button -->
-        <button id="closeMenu" class="absolute top-3 right-4 size-11 flex items-center justify-center rounded-full
-             hover:bg-black/10 dark:hover:bg-white/10 transition">
-            <span class="material-symbols-outlined text-[28px]">close</span>
-        </button>
-
         <!-- Menu Links -->
-        <nav class="flex items-center gap-8 text-center w-full h-screen">
-            <div class="hidden md:flex flex-col items-center gap-8 w-1/2">
-                <img src="/assets/menu-illustration.svg" alt="Menu Illustration" class="w-64 h-64" />
+        <nav class="flex items-center gap-8 text-center w-full h-screen py-4">
+            <div class="hidden relative md:flex flex-col justify-center gap-8 w-1/2 h-screen">
+                <img src="/assets/prism-menu-img.avif" alt="Menu Illustration" class="" />
+                <div class="absolute flex flex-col justify-end z-10 w-full h-full">
+                    <div class="grid grid-cols-2 gap-8 p-8">
+                        <div class="flex flex-col items-start">
+                            <h1 class="text-xl text-[#6c6c6c] font-medium">Phone</h1>
+                            <h1 class="text-xl text-[#8f8f8f]">+91 1234 5678</h1>
+                        </div>
+                        <div class="flex flex-col items-start">
+                            <h1 class="text-xl text-[#6c6c6c] font-medium">Email</h1>
+                            <h1 class="text-xl text-[#8f8f8f]">Hello@gmail.com</h1>
+                        </div>
+                        <div class="flex flex-col items-start">
+                            <h1 class="text-xl text-[#6c6c6c] font-medium">Address</h1>
+                            <h1 class="text-xl text-[#8f8f8f]">Infopark Koratty</h1>
+                            <h1 class="text-xl text-[#8f8f8f]">Kerala, India</h1>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <div class="flex flex-col w-screen md:w-1/2">
-                <a href="#" class="split menu-link text-2xl md:text-4xl text-left py-4 border-b">Home</a>
-                <a href="#" class="split menu-link text-2xl md:text-4xl text-left py-4 border-b">About</a>
-                <a href="#" class="split menu-link text-2xl md:text-4xl text-left py-4 border-b">Services</a>
-                <a href="#" class="split menu-link text-2xl md:text-4xl text-left py-4 border-b">Portfolio</a>
-                <a href="#" class="split menu-link text-2xl md:text-4xl text-left py-4 border-b">Contact</a>
-                <button class="hidden md:block bottom-0 rounded bg-gradient-to-r from-[#499BD5] to-[#57BF93] text-white text-xl w-full p-4 m-auto">
-                    <a href="">Let's Talk</a>
-                </button>
+                <div class="flex flex-col gap-8">
+                    <div class="flex flex-col">
+                        <a href="#" class="split menu-link text-2xl md:text-4xl text-left py-4 border-b hover:bg-gray-100 transition duration-200 ease-in-out">Home</a>
+                        <a href="#" class="split menu-link text-2xl md:text-4xl text-left py-4 border-b hover:bg-gray-100 transition duration-200 ease-in-out">About</a>
+                        <a href="#" class="split menu-link text-2xl md:text-4xl text-left py-4 border-b hover:bg-gray-100 transition duration-200 ease-in-out">Services</a>
+                        <a href="#" class="split menu-link text-2xl md:text-4xl text-left py-4 border-b hover:bg-gray-100 transition duration-200 ease-in-out">Portfolio</a>
+                        <a href="#" class="split menu-link text-2xl md:text-4xl text-left py-4 hover:bg-gray-100 transition duration-200 ease-in-out">Contact</a>
+                    </div>
+                    <button
+                        class="hidden md:block bottom-0 rounded bg-gradient-to-r from-[#499BD5] to-[#57BF93] text-white text-xl w-full p-4 m-auto">
+                        <a href="">Let's Talk</a>
+                    </button>
+                </div>
             </div>
         </nav>
-        <button class="block md:hidden bottom-0 rounded bg-gradient-to-r from-[#499BD5] to-[#57BF93] text-white text-xl w-full p-4 m-4">
+        <button
+            class="block md:hidden bottom-0 rounded bg-gradient-to-r from-[#499BD5] to-[#57BF93] text-white text-xl w-full p-4 m-4">
             <a href="">Let's Talk</a>
         </button>
     </div>
