@@ -38,3 +38,9 @@ body {
 .track::-webkit-scrollbar {
   display: none;
 }
+
+.menu-link {
+  @apply text-3xl md:text-4xl font-semibold
+         text-slate-900 dark:text-white
+         hover:text-primary transition;
+}

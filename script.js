@@ -1,4 +1,4 @@
-//////////////////////////////////////////////////////////////////////////////for optimized scroll performance
+//////////////////////////////////////////////////////////////////////////////for optimized scroll performance4
 gsap.registerPlugin(ScrollTrigger);
 ScrollTrigger.config({
     ignoreMobileResize: true,
@@ -68,46 +68,71 @@ window.addEventListener("DOMContentLoaded", () => {
 ////////////////////////////////////////////////////////////////////////////////////card drag and slide
 const slider = document.getElementById("services-track");
 
-  let isDown = false;
-  let startX;
-  let scrollLeft;
+let isDown = false;
+let startX;
+let scrollLeft;
 
-  /* -------- Mouse Events -------- */
-  slider.addEventListener("mousedown", (e) => {
+/* -------- Mouse Events -------- */
+slider.addEventListener("mousedown", (e) => {
     isDown = true;
     slider.classList.add("cursor-grabbing");
 
     startX = e.pageX - slider.offsetLeft;
     scrollLeft = slider.scrollLeft;
-  });
+});
 
-  slider.addEventListener("mouseleave", () => {
+slider.addEventListener("mouseleave", () => {
     isDown = false;
     slider.classList.remove("cursor-grabbing");
-  });
+});
 
-  slider.addEventListener("mouseup", () => {
+slider.addEventListener("mouseup", () => {
     isDown = false;
     slider.classList.remove("cursor-grabbing");
-  });
+});
 
-  slider.addEventListener("mousemove", (e) => {
+slider.addEventListener("mousemove", (e) => {
     if (!isDown) return;
     e.preventDefault();
 
     const x = e.pageX - slider.offsetLeft;
     const walk = (x - startX) * 1.4; // speed
     slider.scrollLeft = scrollLeft - walk;
-  });
+});
 
-  /* -------- Touch Events -------- */
-  slider.addEventListener("touchstart", (e) => {
+/* -------- Touch Events -------- */
+slider.addEventListener("touchstart", (e) => {
     startX = e.touches[0].pageX;
     scrollLeft = slider.scrollLeft;
-  });
+});
 
-  slider.addEventListener("touchmove", (e) => {
+slider.addEventListener("touchmove", (e) => {
     const x = e.touches[0].pageX;
     const walk = (x - startX) * 1.4;
     slider.scrollLeft = scrollLeft - walk;
-  });
+});
+
+
+
+////////////////////////////////////////////////////////////////////////////////menu button toggle
+const openMenu = document.getElementById("openMenu");
+const closeMenu = document.getElementById("closeMenu");
+const menu = document.getElementById("fullscreenMenu");
+
+openMenu.addEventListener("click", () => {
+    menu.classList.remove("opacity-0", "pointer-events-none");
+    menu.classList.add("opacity-100");
+    document.body.classList.add("overflow-hidden");
+});
+
+closeMenu.addEventListener("click", closeMenuFn);
+
+menu.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", closeMenuFn);
+});
+
+function closeMenuFn() {
+    menu.classList.add("opacity-0", "pointer-events-none");
+    menu.classList.remove("opacity-100");
+    document.body.classList.remove("overflow-hidden");
+}
