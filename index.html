@@ -243,12 +243,14 @@
 
 
             <!-- Horizontal Scroll Wrapper -->
+            <!-- Services Slider Wrapper -->
             <div id="services-slider" class="cursor-grab active:cursor-grabbing">
-                <div class="flex mt-10 gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory pb-4
-                                  [-ms-overflow-style:none] [scrollbar-width:none]
-                         [&::-webkit-scrollbar]:hidden">
 
-                    <!-- Card 1: Web Development -->
+                <!-- ACTUAL SCROLL CONTAINER -->
+                <div id="services-track" class="flex mt-10 gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory pb-4
+           [-ms-overflow-style:none] [scrollbar-width:none]
+           [&::-webkit-scrollbar]:hidden select-none">
+<!-- Card 1: Web Development -->
                     <div class="card group flex-shrink-0 snap-start w-[280px] sm:w-[320px] md:w-[360px]
                                flex flex-col overflow-hidden rounded-xl
                                     bg-surface-light dark:bg-surface-dark
@@ -690,8 +692,10 @@
                             </button>
                         </div>
                     </div>
+
                 </div>
             </div>
+
         </div>
     </section>
 
