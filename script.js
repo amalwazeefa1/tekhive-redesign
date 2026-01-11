@@ -1,5 +1,5 @@
 //////////////////////////////////////////////////////////////////////////////for optimized scroll performance4
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger, SplitText);
 ScrollTrigger.config({
     ignoreMobileResize: true,
 });
@@ -136,3 +136,31 @@ function closeMenuFn() {
     menu.classList.remove("opacity-100");
     document.body.classList.remove("overflow-hidden");
 }
+
+
+/////////////////////////////////////////////////////////////////////////////////////split text animation
+document.fonts.ready.then(() => {
+  gsap.set(".split", { opacity: 1 });
+
+  let split;
+  SplitText.create(".split", {
+    type: "words,lines",
+    linesClass: "line",
+    autoSplit: true,
+    mask: "lines",
+    onSplit: (self) => {
+      split = gsap.from(self.lines, {
+        duration: 2,
+        yPercent: 100,
+        opacity: 0,
+        stagger: 0.1,
+        ease: "expo.out",
+      });
+      return split;
+    }
+  });
+
+   document.querySelector("button").addEventListener("click", (e) => {
+    split.timeScale(1).play(0);
+  });
+});
