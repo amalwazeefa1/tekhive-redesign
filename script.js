@@ -65,27 +65,31 @@ window.addEventListener("DOMContentLoaded", () => {
 
 
 
-////////////////////////////////////////////////////////////////////////////////////auto horizontal card slide animation
+////////////////////////////////////////////////////////////////////////////////////card drag and slide
+const slider = document.getElementById("services-slider");
 
+let isDown = false;
+let startX;
+let scrollLeft;
 
+slider.addEventListener("mousedown", () => isDown = false);
+slider.addEventListener("mouseup", () => isDown = false);
 
-///////////////////////////////////////////////////////////////////////////counter animation
-const counters = document.querySelectorAll(".counter");
-
-counters.forEach(counter => {
-    const target = +counter.dataset.target;
-    let current = 0;
-    const increment = Math.ceil(target / 150);
-
-    const update = () => {
-        if (current < target) {
-            current += increment;
-            counter.textContent = current;
-            requestAnimationFrame(update);
-        } else {
-            counter.textContent = target;
-        }
-    };
-
-    update();
+slider.addEventListener("mousemove", (e) => {
+    if (!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - slider.offsetLeft;
+    const walk = (x - startX) * 1.4;
+    slider.scrollLeft = scrollLeft - walk;
 });
+
+slider.addEventListener("touchstart", (e) => {
+    startX = e.touches[0].pageX;
+    scrollLeft = slider.scrollLeft;
+});
+
+slider.addEventListener("touchmove", (e) => {
+    const x = e.touches[0].pageX;
+    slider.scrollLeft = scrollLeft - (x - startX);
+});
+
