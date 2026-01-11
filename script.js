@@ -120,8 +120,9 @@ const closeMenu = document.getElementById("closeMenu");
 const menu = document.getElementById("fullscreenMenu");
 
 openMenu.addEventListener("click", () => {
+    // enable smooth fade-in
+    menu.classList.add("transition-opacity", "duration-300", "ease-in-out");
     menu.classList.remove("opacity-0", "pointer-events-none");
-    menu.classList.add("opacity-100");
     document.body.classList.add("overflow-hidden");
 });
 
@@ -132,10 +133,12 @@ menu.querySelectorAll("a").forEach(link => {
 });
 
 function closeMenuFn() {
+    // disable transition → instant close
+    menu.classList.remove("transition-opacity", "duration-300", "ease-in-out");
     menu.classList.add("opacity-0", "pointer-events-none");
-    menu.classList.remove("opacity-100");
     document.body.classList.remove("overflow-hidden");
 }
+
 
 
 /////////////////////////////////////////////////////////////////////////////////////split text animation
