@@ -152,16 +152,19 @@ document.fonts.ready.then(() => {
     autoSplit: true,
     mask: "lines",
     onSplit: (self) => {
-      split = gsap.from(self.lines, {
-        duration: 2,
-        yPercent: 100,
-        opacity: 0,
-        stagger: 0.1,
-        ease: "expo.out",
-      });
+      split = gsap.timeline({ paused: true })
+        .to({}, { duration: 0.3 }) // 1s delay before the reveal
+        .from(self.lines, {
+          duration: 2,
+          yPercent: 100,
+          opacity: 0,
+          stagger: 0.1,
+          ease: "expo.out",
+        });
       return split;
     }
   });
+
 
    document.querySelector("button").addEventListener("click", (e) => {
     split.timeScale(1).play(0);
