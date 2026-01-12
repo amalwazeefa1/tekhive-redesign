@@ -170,3 +170,43 @@ document.fonts.ready.then(() => {
     split.timeScale(1).play(0);
   });
 });
+
+
+
+
+///////////////////////////////////////////////////////////////////////gsap custom cursor
+const dot = document.getElementById("cursor-dot");
+const ring = document.getElementById("cursor-ring");
+
+let mouseX = 0;
+let mouseY = 0;
+
+window.addEventListener("mousemove", (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+
+    gsap.to(dot, {
+        x: mouseX,
+        y: mouseY,
+        duration: 0.1,
+        ease: "power2.out"
+    });
+});
+
+//hover effects
+document.querySelectorAll(".cursor-hover").forEach(el => {
+    el.addEventListener("mouseenter", () => {
+        gsap.to(ring, {
+            scale: 1.8,
+            duration: 0.3
+        });
+    });
+
+    el.addEventListener("mouseleave", () => {
+        gsap.to(ring, {
+            scale: 1,
+            duration: 0.3
+        });
+    });
+});
+
