@@ -143,70 +143,86 @@ function closeMenuFn() {
 
 /////////////////////////////////////////////////////////////////////////////////////split text animation
 document.fonts.ready.then(() => {
-  gsap.set(".split", { opacity: 1 });
+    gsap.set(".split", { opacity: 1 });
 
-  let split;
-  SplitText.create(".split", {
-    type: "words,lines",
-    linesClass: "line",
-    autoSplit: true,
-    mask: "lines",
-    onSplit: (self) => {
-      split = gsap.timeline({ paused: true })
-        .to({}, { duration: 0.3 }) // 1s delay before the reveal
-        .from(self.lines, {
-          duration: 2,
-          yPercent: 100,
-          opacity: 0,
-          stagger: 0.1,
-          ease: "expo.out",
-        });
-      return split;
+    let split;
+    SplitText.create(".split", {
+        type: "words,lines",
+        linesClass: "line",
+        autoSplit: true,
+        mask: "lines",
+        onSplit: (self) => {
+            split = gsap.timeline({ paused: true })
+                .to({}, { duration: 0.3 }) // 1s delay before the reveal
+                .from(self.lines, {
+                    duration: 2,
+                    yPercent: 100,
+                    opacity: 0,
+                    stagger: 0.1,
+                    ease: "expo.out",
+                });
+            return split;
+        }
+    });
+
+
+    document.querySelector("button").addEventListener("click", (e) => {
+        split.timeScale(1).play(0);
+    });
+});
+
+
+
+
+///////////////////////////////////////////////////////////////////////auto card slide
+const track = document.getElementById("services-track");
+const cards = track.querySelectorAll(".card");
+
+let index = 0;
+let interval = null;
+const delay = 2500;
+let isPaused = false;
+
+function slideNext() {
+    if (isPaused) return;
+
+    index++;
+
+    if (index >= cards.length) {
+        index = 0;
+        track.scrollTo({ left: 0, behavior: "smooth" });
+        return;
     }
-  });
 
-
-   document.querySelector("button").addEventListener("click", (e) => {
-    split.timeScale(1).play(0);
-  });
-});
-
-
-
-
-///////////////////////////////////////////////////////////////////////gsap custom cursor
-const dot = document.getElementById("cursor-dot");
-const ring = document.getElementById("cursor-ring");
-
-let mouseX = 0;
-let mouseY = 0;
-
-window.addEventListener("mousemove", (e) => {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
-
-    gsap.to(dot, {
-        x: mouseX,
-        y: mouseY,
-        duration: 0.1,
-        ease: "power2.out"
+    track.scrollTo({
+        left: cards[index].offsetLeft,
+        behavior: "smooth",
     });
-});
+}
 
-//hover effects
-document.querySelectorAll(".cursor-hover").forEach(el => {
-    el.addEventListener("mouseenter", () => {
-        gsap.to(ring, {
-            scale: 1.8,
-            duration: 0.3
-        });
-    });
+function startAutoSlide() {
+    if (interval) return; // prevent duplicates
+    interval = setInterval(slideNext, delay);
+}
 
-    el.addEventListener("mouseleave", () => {
-        gsap.to(ring, {
-            scale: 1,
-            duration: 0.3
-        });
-    });
-});
+function stopAutoSlide() {
+    isPaused = true;
+    clearInterval(interval);
+    interval = null;
+}
 
+function resumeAutoSlide() {
+    isPaused = false;
+    startAutoSlide();
+}
+
+// ✅ REAL pause on hover
+track.addEventListener("mouseenter", stopAutoSlide);
+track.addEventListener("mouseleave", resumeAutoSlide);
+
+// Mobile safety
+track.addEventListener("touchstart", stopAutoSlide, { passive: true });
+track.addEventListener("touchend", resumeAutoSlide);
+
+// Start slider
+startAutoSlide();
