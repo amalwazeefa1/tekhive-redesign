@@ -23,6 +23,15 @@
             darkMode: "class",
             theme: {
                 extend: {
+                    keyframes: {
+                        fill: {
+                            '0%': { width: '0%' },
+                            '100%': { width: '98%' },
+                        },
+                    },
+                    animation: {
+                        fill: 'fill 3s ease-out forwards',
+                    },
                     screens: {
                         "xs": "380px",
                     },
@@ -332,13 +341,13 @@
                 <div class="relative w-full sm:w-1/2 h-[380px] flex items-center justify-center">
 
                     <!-- Image 1 (Back / Left) -->
-                    <div class="absolute left-0 top-6 z-10">
+                    <div class="fade-up opacity-0 translate-y-8 absolute left-0 top-6 z-10">
                         <img src="/assets/demo-it-business-01.jpg.webp" alt=""
                             class="w-[280px] sm:w-[320px] rounded-2xl shadow-xl object-cover" />
                     </div>
 
                     <!-- Image 2 (Front / Right) -->
-                    <div class="absolute left-[35%] top-0 z-20">
+                    <div class="fade-up opacity-0 translate-y-8 absolute left-[35%] top-0 z-20">
                         <img src="/assets/demo-it-business-02.jpg.webp" alt=""
                             class="w-[280px] sm:w-[320px] rounded-2xl shadow-2xl object-cover" />
                     </div>
@@ -354,22 +363,21 @@
                     <div class="space-y-2">
                         <!-- BUSINESS GROWTH -->
                         <div class="relative w-full rounded-full overflow-hidden">
-                            <div class="bg-gradient-to-r from-[#57BF93] to-transparent text-white p-2 rounded-full px-10 text-[11px]"
-                                style="width:98%">
-                                <div class="flex justify-between">
+                            <div class="fade-up opacity-0 w-[98%] rounded-full overflow-hidden">
+                                <div
+                                    class="bg-gradient-to-r from-[#57BF93] to-transparent animate-fill p-2 px-10 text-[11px] text-white flex justify-between">
                                     <span>BUSINESS GROWTH</span>
                                     <span class="text-[#57BF93]">98%</span>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- NEW TECHNOLOGIES -->
                         <div class="relative w-full rounded-full overflow-hidden">
-                            <div class="bg-gradient-to-r from-[#499BD5] to-transparent text-white p-2 rounded-full px-10 text-[11px]"
-                                style="width:85%">
-                                <div class="flex justify-between">
+                            <div class="fade-up opacity-0 w-[85%] rounded-full overflow-hidden">
+                                <div
+                                    class="bg-gradient-to-r from-[#499BD5] to-transparent animate-fill p-2 px-10 text-[11px] text-white flex justify-between">
                                     <span>NEW TECHNOLOGIES</span>
-                                    <span class="text-[#499BD5]">85%</span>
+                                    <span class="text-[#57BF93]">98%</span>
                                 </div>
                             </div>
                         </div>
@@ -911,19 +919,7 @@
             </div>
         </div>
     </section>
-    <!-- Trusted By Strip -->
-    <section class="px-4 pb-8 text-center max-w-md mx-auto">
-        <p class="text-sm font-semibold text-slate-400 uppercase tracking-widest mb-4">Trusted
-            by industry leaders
-        </p>
-        <div class="flex justify-between items-center opacity-60 dark:opacity-40 grayscale gap-4 overflow-hidden">
-            <span class="material-symbols-outlined text-4xl">savings</span>
-            <span class="material-symbols-outlined text-4xl">flight</span>
-            <span class="material-symbols-outlined text-4xl">local_shipping</span>
-            <span class="material-symbols-outlined text-4xl">apartment</span>
-            <span class="material-symbols-outlined text-4xl">storefront</span>
-        </div>
-    </section>
+    
     <!-- </main> -->
     <!-- Sticky Bottom Nav / FAB Area -->
     <div class="fixed bottom-0 left-0 w-full p-4 shadow-lg pt-8 pointer-events-none z-40">
@@ -939,7 +935,7 @@
     </div>
 
     <footer class="bg-slate-950 text-slate-300">
-        <div class="max-w-7xl mx-auto px-6 py-16">
+        <div class="max-w-7xl mx-auto px-6 py-16 mt-12">
 
             <!-- Top Section -->
             <div class="grid gap-12 sm:grid-cols-2 lg:grid-cols-4">

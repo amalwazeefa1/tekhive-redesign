@@ -226,3 +226,21 @@ track.addEventListener("touchend", resumeAutoSlide);
 
 // Start slider
 startAutoSlide();
+
+
+
+
+///////////////////////////////////////////////////////////////////////////////fade in gsap animation
+gsap.utils.toArray(".fade-up").forEach((el, i) => {
+    gsap.to(el, {
+        opacity: 1,
+        y: 0,
+        duration: 1.2,
+        ease: "power1.out",
+        scrollTrigger: {
+            trigger: el,
+            start: "top 80%",
+        },
+        delay: i * 0.2,
+    })
+})
