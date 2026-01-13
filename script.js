@@ -9,21 +9,6 @@ ScrollTrigger.normalizeScroll({
 });
 
 
-// gsap.utils.toArray(".fade-section").forEach((section) => {
-//     gsap.from(section, {
-//         opacity: 0,
-//         y: 60,
-//         duration: 1,
-//         ease: "power3.out",
-//         scrollTrigger: {
-//             trigger: section,
-//             start: "top 80%",
-//             toggleActions: "play none none none"
-//         }
-//     });
-// });
-
-
 //////////////////////////////////////////////////////////////////////////////hero section animation
 window.addEventListener("DOMContentLoaded", () => {
     gsap.set("#hero", { maxWidth: "85%", borderRadius: "30px" });
@@ -307,4 +292,13 @@ gsap.to(counter2, {
     onUpdate: () => {
         document.getElementById("progrss-count2").textContent = Math.floor(counter2.value) + "%";
     }
+})
+
+/////////////////////////////////////////////////////////////////morph svg animation
+gsap.to("#grow-morph-1", {
+    morphSVG: "#grow-morph-2",
+    duration: 3,
+    ease: "expo.inOut",
+    repeat: -1,
+    yoyo: true
 })
