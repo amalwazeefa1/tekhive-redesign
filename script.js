@@ -244,3 +244,16 @@ gsap.utils.toArray(".fade-up").forEach((el, i) => {
         delay: i * 0.2,
     })
 })
+
+gsap.fromTo("#progress-bar", 
+    { width: "50%"},
+    {
+        width: "98%",
+        duration: 2,
+        ease: "power2.out",
+        scrollTrigger: {
+            trigger: "#about-us",
+            start: "top center",
+        },
+        delay: 5,
+    })
