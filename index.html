@@ -362,25 +362,48 @@
                         target groups and also deliver optimized.</p>
                     <div class="space-y-2">
                         <!-- BUSINESS GROWTH -->
-                        <div class="relative w-full rounded-full overflow-hidden flex">
-                            <div class="w-[98%] rounded-full overflow-hidden">
-                                <div id="progress-bar"
-                                    class="bg-gradient-to-r from-[#57BF93] to-transparent animate-fill p-2 px-10 text-[11px] text-white flex justify-between">
-                                    <span>BUSINESS GROWTH</span>
-                                    <span class="text-[#57BF93]">98%</span>
-                                </div>
+                        <div class="relative w-full rounded-full overflow-hidden h-8">
+
+                            <!-- ✅ FILL (scales) -->
+                            <div id="progress-fill1" class="absolute inset-0 bg-gradient-to-r from-[#57BF93] to-transparent
+                               origin-left scale-x-0">
+                            </div>
+
+                            <!-- ✅ TEXT (does NOT scale) -->
+                            <div class="relative z-10 h-full px-4 text-[11px] text-white
+                             flex items-center justify-between">
+                                <span>BUSINESS GROWTH</span>
+                                <span id="progress-count" class="text-[#57BF93]">98%</span>
                             </div>
                         </div>
 
-                        <div class="relative w-full rounded-full overflow-hidden flex">
+                        <!-- NEW TECHNOLOGIES -->
+                         <div class="relative w-full rounded-full overflow-hidden h-8">
+
+                            <!-- ✅ FILL (scales) -->
+                            <div id="progress-fill2" class="absolute inset-0 bg-gradient-to-r from-[#499BD5] to-transparent
+                               origin-left scale-x-0">
+                            </div>
+
+                            <!-- ✅ TEXT (does NOT scale) -->
+                            <div class="relative z-10 h-full px-4 text-[11px] text-white
+                             flex items-center justify-between">
+                                <span>NEW TECHNOLOGIES</span>
+                                <span id="progrss-count" class="text-[#57BF93]">85%</span>
+                            </div>
+                        </div>
+
+                        
+
+                        <!-- <div class="relative w-full rounded-full overflow-hidden flex">
                             <div class="w-[85%] rounded-full overflow-hidden">
                                 <div
-                                    class="bg-gradient-to-r from-[#499BD5] to-transparent animate-fill p-2 px-10 text-[11px] text-white flex justify-between">
+                                    class="bg-gradient-to-r from-[#499BD5] to-transparent p-2 px-10 text-[11px] text-white flex justify-between">
                                     <span>NEW TECHNOLOGIES</span>
                                     <span class="text-[#57BF93]">98%</span>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
@@ -919,7 +942,7 @@
             </div>
         </div>
     </section>
-    
+
     <!-- </main> -->
     <!-- Sticky Bottom Nav / FAB Area -->
     <div class="fixed bottom-0 left-0 w-full p-4 shadow-lg pt-8 pointer-events-none z-40">

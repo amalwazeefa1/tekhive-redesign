@@ -239,21 +239,39 @@ gsap.utils.toArray(".fade-up").forEach((el, i) => {
         ease: "power1.out",
         scrollTrigger: {
             trigger: el,
-            start: "top 80%",
+            start: "top 50%",
         },
-        delay: i * 0.2,
+        delay: i * 0.3,
     })
 })
 
-gsap.fromTo("#progress-bar", 
-    { width: "50%"},
-    {
-        width: "98%",
-        duration: 2,
-        ease: "power2.out",
-        scrollTrigger: {
-            trigger: "#about-us",
-            start: "top center",
-        },
-        delay: 5,
-    })
+gsap.fromTo(
+  "#progress-fill1",
+  { scaleX: 0 },
+  {
+    scaleX: 0.98,
+    duration: 3,
+    ease: "power2.out",
+    scrollTrigger: {
+      trigger: "#about-us",
+      start: "top center",
+      toggleActions: "play none none none"
+    }
+  }
+);
+gsap.fromTo(
+  "#progress-fill2",
+  { scaleX: 0 },
+  {
+    scaleX: 0.85,
+    duration: 3,
+    ease: "power2.out",
+    scrollTrigger: {
+      trigger: "#about-us",
+      start: "top center",
+      toggleActions: "play none none none"
+    }
+  }
+);
+
+
