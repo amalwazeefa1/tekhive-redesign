@@ -226,7 +226,7 @@ gsap.utils.toArray(".fade-up, .fade-up2").forEach((el, i) => {
         ease: "power1.out",
         scrollTrigger: {
             trigger: el,
-            start: isFadeUp2 ? "top 70%" : "top 50%",
+            start: isFadeUp2 ? "top 70%" : "top 60%",
         },
         delay: isFadeUp2 ? 0 : i * 0.3,
     })
@@ -295,10 +295,26 @@ gsap.to(counter2, {
 })
 
 /////////////////////////////////////////////////////////////////morph svg animation
-gsap.to("#grow-morph-1", {
-    morphSVG: "#grow-morph-2",
-    duration: 3,
-    ease: "expo.inOut",
-    repeat: -1,
-    yoyo: true
+// gsap.to("#grow-morph-1", {
+//     morphSVG: "#grow-morph-2",
+//     duration: 1.5,
+//     ease: "expo.inOut",
+//     repeat: -1,
+//     yoyo: true
+// })
+
+const morphPairs = [
+    { from: "#grow-morph-1", to: "#grow-morph-2" },
+    { from: "#cost-morph-1", to: "#cost-morph-2" },
+    { from: "#boost-morph-1", to: "#boost-morph-2" }
+];
+
+const tl = gsap.timeline({ repeat: -1, yoyo: true });
+
+morphPairs.forEach(pair => {
+    tl.to(pair.from, {
+        morphSVG: pair.to,
+        duration: 1,
+        ease: "expo.inOut"
+    })
 })
