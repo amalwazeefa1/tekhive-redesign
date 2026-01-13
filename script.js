@@ -1,5 +1,5 @@
 //////////////////////////////////////////////////////////////////////////////for optimized scroll performance4
-gsap.registerPlugin(ScrollTrigger, SplitText);
+gsap.registerPlugin(ScrollTrigger, SplitText, MorphSVGPlugin);
 ScrollTrigger.config({
     ignoreMobileResize: true,
 });
@@ -231,7 +231,9 @@ startAutoSlide();
 
 
 ///////////////////////////////////////////////////////////////////////////////fade in gsap animation
-gsap.utils.toArray(".fade-up").forEach((el, i) => {
+gsap.utils.toArray(".fade-up, .fade-up2").forEach((el, i) => {
+    const isFadeUp2 = el.classList.contains("fade-up2");
+
     gsap.to(el, {
         opacity: 1,
         y: 0,
@@ -239,39 +241,70 @@ gsap.utils.toArray(".fade-up").forEach((el, i) => {
         ease: "power1.out",
         scrollTrigger: {
             trigger: el,
-            start: "top 50%",
+            start: isFadeUp2 ? "top 70%" : "top 50%",
         },
-        delay: i * 0.3,
+        delay: isFadeUp2 ? 0 : i * 0.3,
     })
 })
 
+////////////////////////////////////////////////////////////////////////////////progress bar animation
 gsap.fromTo(
-  "#progress-fill1",
-  { scaleX: 0 },
-  {
-    scaleX: 0.98,
-    duration: 3,
-    ease: "power2.out",
-    scrollTrigger: {
-      trigger: "#about-us",
-      start: "top center",
-      toggleActions: "play none none none"
+    "#progress-fill1",
+    { scaleX: 0 },
+    {
+        scaleX: 0.98,
+        duration: 3,
+        ease: "power2.out",
+        scrollTrigger: {
+            trigger: "#about-us",
+            start: "top center",
+            toggleActions: "play none none none"
+        }
     }
-  }
 );
 gsap.fromTo(
-  "#progress-fill2",
-  { scaleX: 0 },
-  {
-    scaleX: 0.85,
-    duration: 3,
-    ease: "power2.out",
-    scrollTrigger: {
-      trigger: "#about-us",
-      start: "top center",
-      toggleActions: "play none none none"
+    "#progress-fill2",
+    { scaleX: 0 },
+    {
+        scaleX: 0.85,
+        duration: 3,
+        ease: "power2.out",
+        scrollTrigger: {
+            trigger: "#about-us",
+            start: "top center",
+            toggleActions: "play none none none"
+        }
     }
-  }
 );
 
 
+////////////////////////////////////////////////////////////////////////////////////counter animation
+//first counter
+let counter1 = { value: 0 };
+gsap.to(counter1, {
+    value: 98,
+    duration: 2,
+    ease: "power1.out",
+    scrollTrigger: {
+        trigger: "#about-us",
+        start: "top center"
+    },
+    onUpdate: () => {
+        document.getElementById("progress-count1").textContent = Math.floor(counter1.value) + "%";
+    }
+})
+
+//second counter
+let counter2 = { value: 0};
+gsap.to(counter2, {
+    value: 85,
+    duration: 2,
+    ease: "power1.out",
+    scrollTrigger: {
+        trigger: "#about-us",
+        start: "top center"
+    },
+    onUpdate: () => {
+        document.getElementById("progrss-count2").textContent = Math.floor(counter2.value) + "%";
+    }
+})
