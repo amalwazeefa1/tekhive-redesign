@@ -56,6 +56,11 @@
             min-height: max(884px, 100dvh);
         }
 
+        #lottiePreview svg {
+            margin: auto !important;
+            width: full !important;
+        }
+
         /* GSAP mouse hover */
 
         .cursor,
@@ -127,7 +132,7 @@
                         </a>
 
                         <!-- Mega menu -->
-                        <div class="absolute left-0 top-full w-screen
+                        <div class="absolute left-0 shadow-lg top-full w-screen
             bg-white dark:bg-slate-800
             border border-slate-100 dark:border-slate-700
             opacity-0 pointer-events-none
@@ -141,43 +146,52 @@
                 group-hover:translate-y-0
                 transition-transform duration-500 ease-out">
 
+                               
                                 <div class="flex py-8 gap-[100px]">
+
+                                    <div class="flex">
+                                        <h1 class="text-4xl leading-[45px]">Building Strong Capabilities to Empower Your Brand</h1>
+                                    </div>
 
                                     <div class="flex flex-col gap-3 min-w-[200px]">
                                         <h1 class="text-[#09aeb8] text-sm font-semibold mb-4 tracking-wide">
                                             IT SERVICES
                                         </h1>
 
-                                        <a href="#" class="dropdown-link">Web Development</a>
-                                        <a href="#" class="dropdown-link">Ecommerce Solutions</a>
-                                        <a href="#" class="dropdown-link">Mobile App Development</a>
-                                        <a href="#" class="dropdown-link">CMS Development</a>
-                                        <a href="#" class="dropdown-link">Digital Marketing</a>
-                                        <a href="#" class="dropdown-link">Domain & Web Hosting</a>
+                                        <a href="#" class="dropdown-link"
+                                            data-lottie="/assets/business-strategy.json">Web Development</a>
+                                        <a href="#" class="dropdown-link" data-lottie="/assets/ecommerce-solutions.json">Ecommerce
+                                            Solutions</a>
+                                        <a href="#" class="dropdown-link" data-lottie="/assets/app-development.json">Mobile App
+                                            Development</a>
+                                        <a href="#" class="dropdown-link" data-lottie="/assets/cms.json">CMS
+                                            Development</a>
+                                        <a href="#" class="dropdown-link" data-lottie="/assets/digital-marketing.json">Digital Marketing</a>
+                                        <a href="#" class="dropdown-link" data-lottie="/assets/domain-hosting.json">Domain Hosting</a>
                                     </div>
-
-                                    <div class="flex flex-col gap-3 min-w-[220px]">
+                                    <div class="flex flex-col gap-3 min-w-[200px]">
                                         <h1 class="text-[#09aeb8] text-sm font-semibold mb-4 tracking-wide">
                                             BUSINESS SOLUTIONS
                                         </h1>
-                                        <a href="#" class="dropdown-link">SAP Business One</a>
-                                        <a href="#" class="dropdown-link">Business Intelligence Tool</a>
-                                        <a href="#" class="dropdown-link">Third Party App Integration</a>
-                                        <a href="#" class="dropdown-link">CRM</a>
-                                        <a href="#" class="dropdown-link">Business Process Automation</a>
-                                        <a href="#" class="dropdown-link">IT Support</a>
-                                        <a href="#" class="dropdown-link">IT Consulting</a>
-                                        <a href="#" class="dropdown-link">Back Office Support</a>
+
+                                        <a href="#" class="dropdown-link"
+                                            data-lottie="/assets/sap.json">SAP BUSINESS ONE</a>
+                                        <a href="#" class="dropdown-link" data-lottie="/assets/business-growth.json">Business Intelligence Tool</a>
+                                        <a href="#" class="dropdown-link" data-lottie="/assets/api-integration.json">Third Party App Integration</a>
+                                        <a href="#" class="dropdown-link" data-lottie="/assets/crm.json">CRM</a>
+                                        <a href="#" class="dropdown-link" data-lottie="/assets/cms.json">Business Process Automation</a>
+                                        <a href="#" class="dropdown-link" data-lottie="/assets/cms.json">IT Support</a>
+                                        <a href="#" class="dropdown-link" data-lottie="/assets/cms.json">IT Consulting</a>
+                                        <a href="#" class="dropdown-link" data-lottie="/assets/cms.json">Back Office Support</a>
                                     </div>
-                                    
-                                    <!-- <div
-                                        class="w-screen bg-[url('assets/prism-menu-img.avif')] bg-cover bg-center">
-                                    </div> -->
-                                    <!-- <div id="lottie" class="bg-gray-100 h-[350px] flex items-center justify-center">
-                                    </div> -->
-                                    <!-- showcasing div for lottie -->
-                                    <div class="lottie"></div>
+
+                                    <!-- Lottie Preview Area -->
+                                    <div id="lottiePreview"
+                                        class="w-screen h-[350px] bg-[#fcfcfc] flex items-center justify-center">
+                                    </div>
+
                                 </div>
+
                             </div>
                         </div>
                     </div>

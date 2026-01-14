@@ -337,23 +337,34 @@ morphPairs.forEach(pair => {
 
 
 const navItems = document.querySelectorAll(".dropdown-link");
+const lottieContainer = document.getElementById("lottiePreview");
+
+let currentAnimation = null;
 
 navItems.forEach(item => {
-  const container = item.querySelector(".lottie");
-  const path = item.dataset.lottie;
-
-  const animation = lottie.loadAnimation({
-    container,
-    renderer: "svg",
-    loop: false,
-    autoplay: false,
-  });
-
   item.addEventListener("mouseenter", () => {
-    animation.goToAndPlay(0, true);
+    const path = item.dataset.lottie;
+    if (!path) return;
+
+    // Destroy previous animation
+    if (currentAnimation) {
+      currentAnimation.destroy();
+    }
+
+    // Load new animation
+    currentAnimation = lottie.loadAnimation({
+      container: lottieContainer,
+      renderer: "svg",
+      loop: true,
+      autoplay: true,
+      path: path
+    });
   });
 
   item.addEventListener("mouseleave", () => {
-    animation.stop(); // reset
+    if (currentAnimation) {
+      currentAnimation.stop();
+    }
   });
 });
+
