@@ -317,7 +317,43 @@ const tl = gsap.timeline({ repeat: -1, yoyo: true });
 morphPairs.forEach(pair => {
     tl.to(pair.from, {
         morphSVG: pair.to,
-        duration: 1,
+        duration: 0.9,
         ease: "expo.inOut"
     })
 })
+
+
+////////////////////////////////////////////////////////////////////////////lottie animation
+// lottie.loadAnimation({
+//   container: document.getElementById("lottie"),
+//   renderer: "svg",
+//   loop: true,
+//   autoplay: true,
+//   path: "/assets/business-strategy.json",
+//   rendererSettings: {
+//     preserveAspectRatio: "xMidYMid meet"
+//   }
+// });
+
+
+const navItems = document.querySelectorAll(".dropdown-link");
+
+navItems.forEach(item => {
+  const container = item.querySelector(".lottie");
+  const path = item.dataset.lottie;
+
+  const animation = lottie.loadAnimation({
+    container,
+    renderer: "svg",
+    loop: false,
+    autoplay: false,
+  });
+
+  item.addEventListener("mouseenter", () => {
+    animation.goToAndPlay(0, true);
+  });
+
+  item.addEventListener("mouseleave", () => {
+    animation.stop(); // reset
+  });
+});
