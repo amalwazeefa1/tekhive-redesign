@@ -97,7 +97,7 @@
 <body
     class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white font-display antialiased overflow-x-hidden">
     <!-- Top App Bar -->
-    <header class="sticky top-0 z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md
+    <header class="sticky top-0 z-50 bg-white/80 hover:bg-white transition-all duration-100 dark:bg-slate-900/80 backdrop-blur-md
          border-b border-slate-200 dark:border-slate-800">
 
         <div class="max-w-7xl mx-auto px-4">
@@ -115,10 +115,10 @@
                     <a href="#" class="nav-link">About</a>
 
                     <!-- Services Dropdown -->
-                    <div class="relative group">
+                    <div class="group">
 
                         <!-- Trigger -->
-                        <a href="#" class="nav-link flex items-center gap-1">
+                        <a href="#" class="nav-link flex items-center py-5 gap-1">
                             Services
                             <span class="material-symbols-outlined text-[18px]
                                       transition-transform duration-300 group-hover:rotate-180">
@@ -127,45 +127,47 @@
                         </a>
 
                         <!-- Dropdown -->
-                        <div class="absolute left-0 top-full mt-2
-               w-max rounded-xl bg-white dark:bg-slate-800
-               shadow-xl border border-slate-100 dark:border-slate-700
-               opacity-0 invisible translate-y-2
-               group-hover:opacity-100 group-hover:visible
-               group-hover:translate-y-0
-               transition-all duration-200 ease-out
-               z-50">
+                        <div class="absolute w-screen left-0 top-full
+                              w-max bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700
+                              opacity-0 invisible translate-y-2
+                              group-hover:opacity-100 group-hover:visible
+                              group-hover:translate-y-0
+                              transition-all duration-200 ease-out
+                              z-50">
+                            <div class="max-w-7xl mx-auto">
+                                <div class="flex py-8 gap-[100px]">
 
-                            <div class="flex p-8 gap-10">
+                                    <div class="flex flex-col gap-3 min-w-[200px]">
+                                        <h1 class="text-[#09aeb8] text-sm font-semibold tracking-wide">
+                                            IT SERVICES
+                                        </h1>
 
-                                <div class="flex flex-col gap-3 min-w-[200px]">
-                                    <h1 class="text-[#09aeb8] text-sm font-semibold tracking-wide">
-                                        IT SERVICES
-                                    </h1>
+                                        <a href="#" class="dropdown-link">Web Development</a>
+                                        <a href="#" class="dropdown-link">Ecommerce Solutions</a>
+                                        <a href="#" class="dropdown-link">Mobile App Development</a>
+                                        <a href="#" class="dropdown-link">CMS Development</a>
+                                        <a href="#" class="dropdown-link">Digital Marketing</a>
+                                        <a href="#" class="dropdown-link">Domain & Web Hosting</a>
+                                    </div>
 
-                                    <a href="#" class="dropdown-link">Web Development</a>
-                                    <a href="#" class="dropdown-link">Ecommerce Solutions</a>
-                                    <a href="#" class="dropdown-link">Mobile App Development</a>
-                                    <a href="#" class="dropdown-link">CMS Development</a>
-                                    <a href="#" class="dropdown-link">Digital Marketing</a>
-                                    <a href="#" class="dropdown-link">Domain & Web Hosting</a>
+                                    <div class="flex flex-col gap-3 min-w-[220px]">
+                                        <h1 class="text-[#09aeb8] text-sm font-semibold tracking-wide">
+                                            BUSINESS SOLUTIONS
+                                        </h1>
+
+                                        <a href="#" class="dropdown-link">SAP Business One</a>
+                                        <a href="#" class="dropdown-link">Business Intelligence Tool</a>
+                                        <a href="#" class="dropdown-link">Third Party App Integration</a>
+                                        <a href="#" class="dropdown-link">CRM</a>
+                                        <a href="#" class="dropdown-link">Business Process Automation</a>
+                                        <a href="#" class="dropdown-link">IT Support</a>
+                                        <a href="#" class="dropdown-link">IT Consulting</a>
+                                        <a href="#" class="dropdown-link">Back Office Support</a>
+                                    </div>
+                                    <div class="w-screen h-auto bg-[url('assets/prism-menu-img.avif')] bg-cover bg-center">
+                                    </div>
+
                                 </div>
-
-                                <div class="flex flex-col gap-3 min-w-[220px]">
-                                    <h1 class="text-[#09aeb8] text-sm font-semibold tracking-wide">
-                                        BUSINESS SOLUTIONS
-                                    </h1>
-
-                                    <a href="#" class="dropdown-link">SAP Business One</a>
-                                    <a href="#" class="dropdown-link">Business Intelligence Tool</a>
-                                    <a href="#" class="dropdown-link">Third Party App Integration</a>
-                                    <a href="#" class="dropdown-link">CRM</a>
-                                    <a href="#" class="dropdown-link">Business Process Automation</a>
-                                    <a href="#" class="dropdown-link">IT Support</a>
-                                    <a href="#" class="dropdown-link">IT Consulting</a>
-                                    <a href="#" class="dropdown-link">Back Office Support</a>
-                                </div>
-
                             </div>
                         </div>
                     </div>
@@ -275,7 +277,7 @@
         <div class="max-w-7xl m-auto overflow-hidden" id="hero">
             <div class="flex m-auto flex-col gap-6 overflow-hidden bg-cover bg-center bg-no-repeat p-6 min-h-[420px] justify-end relative shadow-lg"
                 data-alt="Group of developers collaborating on laptops in a modern office"
-                style='background-image: linear-gradient(180deg, rgba(16, 34, 16, 0) 0%, rgba(16, 34, 16, 0.6) 50%, rgba(16, 34, 16, 0.95) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuBNG5CAVsQBw8rXE8i1UDpI5zbvI3oXxMZVubImd61X07YedxhXaD0lKXq5-l0gIODAcTXDO1zKwQyStb_rSqO4_TPPuRWDjQKhZYc1DVmBZuKzshEoKVarBJlWsTlfsAKYezB2azm_tejpEBWuPdBTC4r4nhrbyitCqiIvJkfoKuUjLu0Ybq2hy09qpe0kJzMQpxxAYwzx3rSILfaoPjbnKtDqR8s46ZzAdxwPwU3Pdy8n65NWDWmk4a7HNWu5_E8VBPWsj1ajmIHM");'>
+                style='background-image: linear-gradient(180deg, rgba(16, 34, 16, 0) 0%, rgba(16, 34, 16, 0.6) 50%, rgba(16, 34, 16, 0.95) 100%), url("/assets/main.webp");'>
                 <div class="relative z-10 flex flex-col gap-3 max-w-7xl text-left">
                     <span
                         class="inline-flex w-fit items-center rounded-full bg-primary/20 backdrop-blur-sm px-3 py-1 text-xs font-bold uppercase tracking-wider text-primary border border-primary/30">
@@ -359,36 +361,60 @@
                             </defs>
 
                             <!-- START SHAPE -->
-                            <path id="cost-morph-1" fill="url(#twGradient)" d="M118.0 101.3
-    c3.2 3.2 3.4 8.5.4 12.0
-    l-20.0 21.5
-    c-19.6 21.0-31.0 47.5-31.0 75.0
-    c0 13.0 15.2 23.3 27.2 17.6
-    c15.0-7.1 31.5-10.8 48.5-10.8
-    h268.8
-    c38.5 0 71.0 27.0 78.4 64.0
-    c2.1 9.8-6.0 18.3-15.9 18.3
-    h-41.8
-    c-38.7 0-70.0 31.3-70.0 70.0
-    s31.3 70.0 70.0 70.0
-    h53.0
-    c0 79.0-64.0 143.0-143.0 143.0
-    H121.0
-    c-79.0 0-143.0-64.0-143.0-143.0
-    V223.0
-    c0-56.0 21.0-110.0 58.5-150.0
-    l20.0-21.5
-    c3.2-3.2 8.4-3.4 11.5-.4
-    z
-    M128.0 470.0
-    a16.0 16.0 0 1 0 0 32.0
-    h59.0
-    a16.0 16.0 0 1 0 0-32.0
-    z" />
+                            <path id="cost-morph-1" fill="url(#twGradient)" d="M170.07 170.08
+c97.34 0 170.08-38.48 170.08-72.89
+0-34.41-72.74-72.89-170.08-72.89
+S0 62.87 0 97.19
+c0 34.44 72.74 72.89 170.07 72.89
+z
+
+M170.07 462.64
+c14.20 0 27.89-.83 40.90-2.33
+a194.58 194.58 0 0 1-26.82-46.51
+c-4.67.16-9.35.27-14.08.27
+-55.62 0-108.35-11.02-148.39-31.03
+-7.88-3.94-15.14-8.17-21.77-12.65
+v19.38
+c0 34.41 72.74 72.89 170.07 72.89
+z
+
+M170.07 364.46
+c.50 0 .99-.01 1.49-.01
+a195.68 195.68 0 0 1-1.52-24.31
+c0-8.22.52-16.34 1.52-24.29
+-.50 0-.99.02-1.49.02
+-55.62 0-108.35-11.02-148.39-31.03
+-7.88-3.94-15.14-8.17-21.77-12.65
+v19.37
+c0 34.41 72.74 72.89 170.07 72.89
+z
+
+M170.07 266.27
+c4.82 0 9.58-.10 14.31-.28
+a194.66 194.66 0 0 1 30.43-50.77
+a408.40 408.40 0 0 1-44.74 2.45
+c-55.62 0-108.35-11.02-148.39-31.03
+-7.88-3.94-15.14-8.17-21.77-12.65
+v19.38
+c0 34.42 72.74 72.90 170.08 72.90
+z
+
+M242.97 259.60
+a145.99 145.99 0 0 0-21.72 53.07
+a146.77 146.77 0 0 0-2.61 27.48
+c0 7.06.52 13.99 1.49 20.78
+a145.60 145.60 0 0 0 15.18 46.84
+a147.64 147.64 0 0 0 30.90 40.02
+c25.93 23.70 60.43 38.16 98.23 38.16
+c80.37 0 145.80-65.43 145.80-145.80
+c0-80.38-65.43-145.80-145.80-145.80
+c-8.30 0-16.45.71-24.39 2.05
+c-40.40 6.83-75.22 30.35-97.11 63.20
+z
+" />
 
                             <!-- TARGET SHAPE (hidden, same fill) -->
-                            <path id="cost-morph-2" fill="url(#twGradient)" opacity="0"
-                                d="M432 72V24H80
+                            <path id="cost-morph-2" fill="url(#twGradient)" opacity="0" d="M432 72V24H80
     C35.84 24 0 59.82 0 104
     v304
     c0 44.18 35.84 80 80 80
@@ -447,37 +473,40 @@
                             </defs>
 
                             <!-- START SHAPE -->
-                            <path id="boost-morph-1" class="p-3" fill="url(#twGradient)" d="M501.4 0.1
-    c-100.0-1.8-214.0 50.5-286.0 131.6
-    A270.5 270.5 0 0 0 30.0 210.7
-    c-10.7 10.7-2.6 25.8 10.7 27.6
-    l82.2 11.8-10.1 11.3
-    c-8.6 9.6-8.2 24.2.9 32.9
-    l137.1 137.1
-    c8.7 8.7 23.3 9.1 32.9.9
-    l11.3-10.1 11.8 82.2
-    c.6 4.3 4.2 7.4 8.0 8.7
-    c2.8.9 6.0.7 8.8-.5
-    c48.8-48.8 77.1-116.0 78.5-185.0
-    c81.0-72.2 133.6-186.1 131.6-286.0
-    a10.7 10.7 0 0 0-10.4-10.4
-    z
+                            <path id="boost-morph-1" class="p-3" fill="url(#twGradient)" d="M501.51 0.06
+c-99.93-1.79-214.27 50.48-286.08 131.50
+A270.72 270.72 0 0 0 29.90 210.55
+a10.67 10.67 0 0 0 5.97 18.15
+l82.24 11.78-10.15 11.38
+a10.67 10.67 0 0 0 .43 14.66
+l137.08 137.08
+a10.64 10.64 0 0 0 14.66.41
+l11.38-10.15
+11.78 82.24
+c.58 4.01 3.73 6.96 7.55 8.24
+a9.81 9.81 0 0 0 3.05.47
+a12.05 12.05 0 0 0 8.26-3.43
+c48.74-48.74 76.98-115.92 78.27-184.92
+c81.17-72.32 133.85-186.27 131.50-286.06
+a10.71 10.71 0 0 0-10.43-10.42
+z
 
-    M401.6 184.2
-    c-10.4 10.4-24.1 15.6-37.9 15.6
-    s-27.5-5.2-37.9-15.6
-    a53.6 53.6 0 0 1 0-75.8
-    c20.9-20.9 54.8-20.9 75.8 0
-    s20.9 54.9 0 75.8
-    z
+M403.20 184.18
+c-10.39 10.39-24.06 15.60-37.73 15.60
+s-27.35-5.21-37.73-15.60
+a53.43 53.43 0 0 1 0-75.45
+c20.80-20.80 54.66-20.80 75.45 0
+s20.80 54.66 0 75.45
+z
 
-    M58.3 362.8
-    c-22.9 22.9-54.3 126.3-57.8 138.0
-    a10.8 10.8 0 0 0 13.4 13.4
-    c11.7-3.5 115.1-34.9 138.0-57.8
-    a66.2 66.2 0 0 0 0-93.6
-    a66.3 66.3 0 0 0-93.6 0
-    z" />
+M58.09 360.64
+c-22.83 22.83-54.17 125.95-57.67 137.61
+a10.71 10.71 0 0 0 13.30 13.30
+c11.66-3.50 114.78-34.84 137.61-57.67
+a66.02 66.02 0 0 0 0-93.24
+a66.04 66.04 0 0 0-93.24 0
+z
+" />
 
                             <!-- TARGET SHAPE (hidden, same fill) -->
                             <path id="boost-morph-2" fill="url(#twGradient)" opacity="0"
