@@ -227,6 +227,7 @@ gsap.utils.toArray(".fade-up, .fade-up2").forEach((el, i) => {
         scrollTrigger: {
             trigger: el,
             start: isFadeUp2 ? "top 70%" : "top 60%",
+            toggleActions: "play reverse play reverse",
         },
         delay: isFadeUp2 ? 0 : i * 0.3,
     })
@@ -243,7 +244,7 @@ gsap.fromTo(
         scrollTrigger: {
             trigger: "#about-us",
             start: "top center",
-            toggleActions: "play none none none"
+            toggleActions: "play reverse play reverse"
         }
     }
 );
@@ -257,7 +258,7 @@ gsap.fromTo(
         scrollTrigger: {
             trigger: "#about-us",
             start: "top center",
-            toggleActions: "play none none none"
+            toggleActions: "play reverse play reverse"
         }
     }
 );
@@ -272,7 +273,8 @@ gsap.to(counter1, {
     ease: "power1.out",
     scrollTrigger: {
         trigger: "#about-us",
-        start: "top center"
+        start: "top center",
+        toggleActions: "play reverse play reverse"
     },
     onUpdate: () => {
         document.getElementById("progress-count1").textContent = Math.floor(counter1.value) + "%";
@@ -287,7 +289,8 @@ gsap.to(counter2, {
     ease: "power1.out",
     scrollTrigger: {
         trigger: "#about-us",
-        start: "top center"
+        start: "top center",
+        toggleActions: "play reverse play reverse"
     },
     onUpdate: () => {
         document.getElementById("progrss-count2").textContent = Math.floor(counter2.value) + "%";
