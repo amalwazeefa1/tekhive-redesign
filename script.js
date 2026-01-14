@@ -317,7 +317,7 @@ const tl = gsap.timeline({ repeat: -1, yoyo: true });
 morphPairs.forEach(pair => {
     tl.to(pair.from, {
         morphSVG: pair.to,
-        duration: 0.9,
+        duration: 0.8,
         ease: "expo.inOut"
     })
 })
