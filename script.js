@@ -230,7 +230,7 @@ gsap.utils.toArray(".fade-up, .fade-up2").forEach((el, i) => {
         scrollTrigger: {
             trigger: el,
             start: isFadeUp2 ? "top 70%" : "top 80%",
-            toggleActions: "play reverse play reverse",
+            toggleActions: isFadeUp2 ? "play reverse play reverse" : "play reverse play reverse",
         },
         delay: isFadeUp2 ? 0 : i * 0.3,
     })
