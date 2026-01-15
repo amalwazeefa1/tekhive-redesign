@@ -12,9 +12,6 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
         rel="stylesheet" />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
-        rel="stylesheet" />
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <!-- Theme Config -->
@@ -52,9 +49,9 @@
         }
     </script>
     <style>
-        body {
+        /* body {
             min-height: max(884px, 100dvh);
-        }
+        } */
 
         #lottiePreview svg {
             margin: auto !important;
@@ -146,11 +143,12 @@
                 group-hover:translate-y-0
                 transition-transform duration-500 ease-out">
 
-                               
+
                                 <div class="flex py-8 gap-[100px]">
 
                                     <div class="flex">
-                                        <h1 class="text-4xl leading-[45px]">Building Strong Capabilities to Empower Your Brand</h1>
+                                        <h1 class="text-4xl leading-[45px]">Building Strong Capabilities to Empower Your
+                                            Brand</h1>
                                     </div>
 
                                     <div class="flex flex-col gap-3 min-w-[200px]">
@@ -160,34 +158,46 @@
 
                                         <a href="#" class="dropdown-link"
                                             data-lottie="/assets/business-strategy.json">Web Development</a>
-                                        <a href="#" class="dropdown-link" data-lottie="/assets/ecommerce-solutions.json">Ecommerce
+                                        <a href="#" class="dropdown-link"
+                                            data-lottie="/assets/ecommerce-solutions.json">Ecommerce
                                             Solutions</a>
-                                        <a href="#" class="dropdown-link" data-lottie="/assets/app-development.json">Mobile App
+                                        <a href="#" class="dropdown-link"
+                                            data-lottie="/assets/app-development.json">Mobile App
                                             Development</a>
                                         <a href="#" class="dropdown-link" data-lottie="/assets/cms.json">CMS
                                             Development</a>
-                                        <a href="#" class="dropdown-link" data-lottie="/assets/digital-marketing.json">Digital Marketing</a>
-                                        <a href="#" class="dropdown-link" data-lottie="/assets/domain-hosting.json">Domain Hosting</a>
+                                        <a href="#" class="dropdown-link"
+                                            data-lottie="/assets/digital-marketing.json">Digital Marketing</a>
+                                        <a href="#" class="dropdown-link"
+                                            data-lottie="/assets/domain-hosting.json">Domain Hosting</a>
                                     </div>
                                     <div class="flex flex-col gap-3 min-w-[200px]">
                                         <h1 class="text-[#09aeb8] text-sm font-semibold mb-4 tracking-wide">
                                             BUSINESS SOLUTIONS
                                         </h1>
 
+                                        <a href="#" class="dropdown-link" data-lottie="/assets/sap.json">SAP BUSINESS
+                                            ONE</a>
                                         <a href="#" class="dropdown-link"
-                                            data-lottie="/assets/sap.json">SAP BUSINESS ONE</a>
-                                        <a href="#" class="dropdown-link" data-lottie="/assets/business-growth.json">Business Intelligence Tool</a>
-                                        <a href="#" class="dropdown-link" data-lottie="/assets/api-integration.json">Third Party App Integration</a>
+                                            data-lottie="/assets/business-growth.json">Business Intelligence Tool</a>
+                                        <a href="#" class="dropdown-link"
+                                            data-lottie="/assets/api-integration.json">Third Party App Integration</a>
                                         <a href="#" class="dropdown-link" data-lottie="/assets/crm.json">CRM</a>
-                                        <a href="#" class="dropdown-link" data-lottie="/assets/cms.json">Business Process Automation</a>
-                                        <a href="#" class="dropdown-link" data-lottie="/assets/cms.json">IT Support</a>
-                                        <a href="#" class="dropdown-link" data-lottie="/assets/cms.json">IT Consulting</a>
-                                        <a href="#" class="dropdown-link" data-lottie="/assets/cms.json">Back Office Support</a>
+                                        <a href="#" class="dropdown-link"
+                                            data-lottie="/assets/business-process-automation.json">Business
+                                            Process Automation</a>
+                                        <a href="#" class="dropdown-link" data-lottie="/assets/it-support.json">IT
+                                            Support</a>
+                                        <a href="#" class="dropdown-link" data-lottie="/assets/it-consulting.json">IT
+                                            Consulting</a>
+                                        <a href="#" class="dropdown-link"
+                                            data-lottie="/assets/back-office-service.json">Back Office
+                                            Support</a>
                                     </div>
 
                                     <!-- Lottie Preview Area -->
                                     <div id="lottiePreview"
-                                        class="w-screen h-[350px] bg-[#fcfcfc] flex items-center justify-center">
+                                        class="w-screen h-auto bg-[#fcfcfc] flex items-center justify-center">
                                     </div>
 
                                 </div>
@@ -278,6 +288,14 @@
                             class="split menu-link text-2xl md:text-4xl text-left py-4 border-b hover:bg-gray-100 transition duration-200 ease-in-out">Portfolio</a>
                         <a href="#"
                             class="split menu-link text-2xl md:text-4xl text-left py-4 hover:bg-gray-100 transition duration-200 ease-in-out">Contact</a>
+                    </div>
+                    <div class="card relative flex md:hidden mb-4">
+                        <img class="h-[200px] w-screen object-cover rounded" src="/assets/demo-it-business-01.jpg.webp"
+                            alt="Business demo">
+                        <div class="flex flex-col absolute items-start p-4 bottom-0">
+                            <h1 class="text-white">Make it yours</h1>
+                            <h1 class="text-white">Build your perfect Lightship today</h1>
+                        </div>
                     </div>
                     <button
                         class="hidden md:block bottom-0 rounded bg-gradient-to-r from-[#499BD5] to-[#57BF93] text-white text-xl w-full p-4 m-auto">
@@ -635,10 +653,10 @@ z
                 </div>
                 <!-- second div full width -->
                 <div class="flex gap-2 justify-end sm:w-[20%]">
-                    <span class="w-12 h-12 rounded-full bg-white">
+                    <span class="w-12 h-12 rounded-full bg-white" id="previous-btn">
                         <img class="p-4 m-auto" src="/assets/arrow_left.svg" alt="">
                     </span>
-                    <span class="w-12 h-12 rounded-full bg-white">
+                    <span class="w-12 h-12 rounded-full bg-white" id="next-btn">
                         <img class="p-4 m-auto" src="/assets/arrow_right.svg" alt="">
                     </span>
                 </div>
@@ -1103,6 +1121,73 @@ z
         </div>
     </section>
 
+
+    <section class="px-4 py-12 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 space-y-6">
+            <h2 class="text-4xl font-bold tracking-tight text-center">
+                Customer Response
+            </h2>
+            <div class="quote absolute h-auto w-[100px] top-50 z-0">
+                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" x="0"
+                    y="0" viewBox="0 0 349.078 349.078" style="enable-background:new 0 0 512 512" xml:space="preserve"
+                    class="">
+                    <g>
+                        <path
+                            d="M150.299 26.634v58.25c0 7.9-6.404 14.301-14.304 14.301-28.186 0-43.518 28.909-45.643 85.966h45.643c7.9 0 14.304 6.407 14.304 14.304v122.992c0 7.896-6.404 14.298-14.304 14.298H14.301C6.398 336.745 0 330.338 0 322.447V199.455c0-27.352 2.754-52.452 8.183-74.611 5.568-22.721 14.115-42.587 25.396-59.048 11.608-16.917 26.128-30.192 43.16-39.44C93.886 17.052 113.826 12.333 136 12.333c7.895 0 14.299 6.401 14.299 14.301zm184.474 72.552c7.896 0 14.305-6.407 14.305-14.301v-58.25c0-7.9-6.408-14.301-14.305-14.301-22.165 0-42.108 4.72-59.249 14.023-17.035 9.248-31.563 22.523-43.173 39.44-11.277 16.461-19.824 36.328-25.393 59.054-5.426 22.166-8.18 47.266-8.18 74.605v122.992c0 7.896 6.406 14.298 14.304 14.298h121.69c7.896 0 14.299-6.407 14.299-14.298V199.455c0-7.896-6.402-14.304-14.299-14.304H289.78c2.093-57.056 17.201-85.965 44.993-85.965z"
+                            fill="#E0EFF9" opacity="1" data-original="#000000" class=""></path>
+                    </g>
+                </svg>
+            </div>
+            <div class="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl pt-8 mx-auto">
+                <div class="card relative p-8 rounded-xl bg-surface-light">
+                    <p>They turned our app idea into reality with precision and creativity. A top-notch team for mobile
+                        app development!</p>
+                    <div class="small-card p-8 bg-white absolute rounded-3xl">
+                        <div class="d-flex justify-between">
+                            <div class="avatar">
+                                <img src="/assets/" class="h-8 w-8" alt="">
+                            </div>
+                            <h1>name</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="card relative p-8 rounded-xl bg-surface-light">
+                    <p>Outstanding web development! They brought our vision to life with exceptional design and
+                        functionality. Highly recommended!</p>
+                    <div class="small-card p-8 bg-white absolute rounded-3xl">
+                        <div class="d-flex justify-between">
+                            <div class="avatar">
+                                <img src="/assets/" class="h-8 w-8" alt="">
+                            </div>
+                            <h1>name</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="card relative p-8 rounded-xl bg-surface-light mt-14">
+                    <p>Your ecommerce solutions made our online store a success. Seamless, powerful, and boosted our
+                        sales!</p>
+                    <div class="small-card p-8 bg-white absolute rounded-3xl">
+                        <div class="d-flex justify-between">
+                            <div class="avatar">
+                                <img src="/assets/" class="h-8 w-8" alt="">
+                            </div>
+                            <h1>name</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="card relative p-8 rounded-xl bg-surface-light mt-14">
+                    <p>SAP Business One transformed our business. Streamlined, efficient, and essential for growth.</p>
+                    <div class="small-card p-8 bg-white absolute rounded-3xl">
+                        <div class="d-flex justify-between">
+                            <div class="avatar">
+                                <img src="/assets/" class="h-8 w-8" alt="">
+                            </div>
+                            <h1>name</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>
 
 
     <!-- Why Choose Us -->

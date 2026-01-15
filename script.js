@@ -163,6 +163,9 @@ document.fonts.ready.then(() => {
 const track = document.getElementById("services-track");
 const cards = track.querySelectorAll(".card");
 
+// const prevBtn = document.getElementById("previous-btn");
+// const nextBtn = document.getElementById("next-btn");
+
 let index = 0;
 let interval = null;
 const delay = 2500;
@@ -226,7 +229,7 @@ gsap.utils.toArray(".fade-up, .fade-up2").forEach((el, i) => {
         ease: "power1.out",
         scrollTrigger: {
             trigger: el,
-            start: isFadeUp2 ? "top 70%" : "top 60%",
+            start: isFadeUp2 ? "top 70%" : "top 80%",
             toggleActions: "play reverse play reverse",
         },
         delay: isFadeUp2 ? 0 : i * 0.3,
@@ -368,3 +371,30 @@ navItems.forEach(item => {
   });
 });
 
+
+//////////////////////////////////////////////////////////////////////////////carousel buttons
+const previousBtn = document.getElementById("previous-btn");
+const nextBtn = document.getElementById("next-btn");
+previousBtn.addEventListener("click", () => {
+    index--;
+
+    if (index < 0) {
+        index = cards.length - 1;
+    }
+    track.scrollTo({
+        left: cards[index].offsetLeft,
+        behavior: "smooth",
+    });
+}
+);
+
+nextBtn.addEventListener("click", () => {
+    index++;
+    if (index >= cards.length) {
+        index = 0;
+    }
+    track.scrollTo({
+        left: cards[index].offsetLeft,
+        behavior: "smooth",
+    });
+});
