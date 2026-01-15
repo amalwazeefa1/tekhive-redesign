@@ -221,18 +221,23 @@ startAutoSlide();
 ///////////////////////////////////////////////////////////////////////////////fade in gsap animation
 gsap.utils.toArray(".fade-up, .fade-up2").forEach((el, i) => {
     const isFadeUp2 = el.classList.contains("fade-up2");
+    const isFadeUp = el.classList.contains("fade-up");
 
     gsap.to(el, {
         opacity: 1,
         y: 0,
-        duration: 1.2,
+        duration: 1,
         ease: "power1.out",
         scrollTrigger: {
             trigger: el,
             start: isFadeUp2 ? "top 70%" : "top 80%",
             toggleActions: isFadeUp2 ? "play reverse play reverse" : "play reverse play reverse",
         },
-        delay: isFadeUp2 ? 0 : i * 0.3,
+        delay: isFadeUp2
+            ? 0          // fade-up2 starts immediately
+            : isFadeUp
+                ? i * 0.3  // fade-up staggers by index
+                : 0
     })
 })
 
@@ -285,7 +290,7 @@ gsap.to(counter1, {
 })
 
 //second counter
-let counter2 = { value: 0};
+let counter2 = { value: 0 };
 gsap.to(counter2, {
     value: 85,
     duration: 2,
@@ -345,30 +350,30 @@ const lottieContainer = document.getElementById("lottiePreview");
 let currentAnimation = null;
 
 navItems.forEach(item => {
-  item.addEventListener("mouseenter", () => {
-    const path = item.dataset.lottie;
-    if (!path) return;
+    item.addEventListener("mouseenter", () => {
+        const path = item.dataset.lottie;
+        if (!path) return;
 
-    // Destroy previous animation
-    if (currentAnimation) {
-      currentAnimation.destroy();
-    }
+        // Destroy previous animation
+        if (currentAnimation) {
+            currentAnimation.destroy();
+        }
 
-    // Load new animation
-    currentAnimation = lottie.loadAnimation({
-      container: lottieContainer,
-      renderer: "svg",
-      loop: true,
-      autoplay: true,
-      path: path
+        // Load new animation
+        currentAnimation = lottie.loadAnimation({
+            container: lottieContainer,
+            renderer: "svg",
+            loop: true,
+            autoplay: true,
+            path: path
+        });
     });
-  });
 
-  item.addEventListener("mouseleave", () => {
-    if (currentAnimation) {
-      currentAnimation.stop();
-    }
-  });
+    item.addEventListener("mouseleave", () => {
+        if (currentAnimation) {
+            currentAnimation.stop();
+        }
+    });
 });
 
 
