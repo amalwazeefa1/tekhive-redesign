@@ -11,7 +11,7 @@ ScrollTrigger.normalizeScroll({
 
 //////////////////////////////////////////////////////////////////////////////hero section animation
 window.addEventListener("DOMContentLoaded", () => {
-    gsap.set("#hero", { maxWidth: "85%", borderRadius: "30px" });
+    gsap.set("#hero", { maxWidth: "88%", borderRadius: "30px" });
 
     ScrollTrigger.matchMedia({
         // For mobile screens

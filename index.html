@@ -315,11 +315,14 @@
 
     <!-- <main class="w-full flex flex-col gap-6"> -->
     <!-- Hero Section -->
-    <section class=" py-12">
-        <div class="max-w-7xl m-auto overflow-hidden" id="hero">
-            <div class="flex m-auto flex-col gap-6 overflow-hidden bg-cover bg-center bg-no-repeat p-6 min-h-[420px] justify-end relative shadow-lg"
+    <section id="hero" 
+  class="flex items-end  py-12 mt-12 bg-center m-auto overflow-hidden bg-cover bg-no-repeat p-6 min-h-[420px]" 
+  style='background-image: linear-gradient(180deg, rgba(16, 34, 16, 0) 0%, rgba(16, 34, 16, 0.6) 50%, rgba(16, 34, 16, 0.95) 100%), url("/assets/main.webp");'>
+
+        <div class="max-w-7xl mx-auto w-full">
+            <div class="flex m-auto flex-col gap-6 relative shadow-lg"
                 data-alt="Group of developers collaborating on laptops in a modern office"
-                style='background-image: linear-gradient(180deg, rgba(16, 34, 16, 0) 0%, rgba(16, 34, 16, 0.6) 50%, rgba(16, 34, 16, 0.95) 100%), url("/assets/main.webp");'>
+                >
                 <div class="relative z-10 flex flex-col gap-3 max-w-7xl text-left">
                     <span
                         class="inline-flex w-fit items-center rounded-full bg-primary/20 backdrop-blur-sm px-3 py-1 text-xs font-bold uppercase tracking-wider text-primary border border-primary/30">
@@ -1210,7 +1213,7 @@ z
                 </div>
                 <div class="fade-up opacity-0 translate-y-8  card mt-[40px] relative p-8 rounded-xl bg-surface-light">
                     <p>
-                        SAP Business One transformed our business. Streamlined, efficient, and essential for growth.
+                        SAP Business One transformed our business. Streamlined, efficient, and essential for growth. <br class="hidden md:block"> &nbsp;
                     </p>
 
                     <div class="small-card flex items-center gap-3 p-4 bg-white absolute rounded-3xl">
