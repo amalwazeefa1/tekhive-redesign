@@ -99,7 +99,7 @@
 <body
     class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white font-display antialiased overflow-x-hidden">
     <!-- Top App Bar -->
-    <header class="sticky top-0 z-50 bg-white/80 hover:bg-white transition-all duration-100 dark:bg-slate-900/80 backdrop-blur-md
+    <header class="fixed w-full top-0 z-50 bg-white/80 hover:bg-white transition-all duration-300 dark:bg-slate-900/80 backdrop-blur-md
          border-b border-slate-200 dark:border-slate-800">
 
         <div class="max-w-7xl mx-auto px-4">
@@ -235,12 +235,122 @@
         </div>
     </header>
 
+     <div
+    id="wrapper"
+    class="relative w-full min-h-screen bg-[#111] overflow-hidden flex items-center justify-center"
+  >
 
+    <!-- SLIDES -->
+    <div class="absolute inset-0">
+      <div
+        class="slide absolute inset-0 bg-cover bg-center"
+        style="background-image:url('https://crafto.themezaa.com/it-business/wp-content/uploads/sites/36/2024/04/demo-it-business-banner-bg.jpg.webp');"
+      >
+        <div class="absolute inset-0 bg-black/40"></div>
+      </div>
+
+      <div
+        class="slide absolute inset-0 bg-cover bg-center opacity-0"
+        style="background-image:url('https://crafto.themezaa.com/it-business/wp-content/uploads/sites/36/2024/04/demo-it-business-about-title-bg.jpg');"
+      >
+        <div class="absolute inset-0 bg-black/40"></div>
+      </div>
+
+      <div
+        class="slide absolute inset-0 bg-cover bg-center opacity-0"
+        style="background-image:url('https://techor-html.netlify.app/assets/img/slider/slider-1-3.jpg');"
+      >
+        <div class="absolute inset-0 bg-black/40"></div>
+      </div>
+
+      <div
+        class="slide absolute inset-0 bg-cover bg-center opacity-0"
+        style="background-image:url('https://crafto.themezaa.com/it-business/wp-content/uploads/sites/36/2024/04/demo-it-business-banner-bg.jpg.webp');"
+      >
+        <div class="absolute inset-0 bg-black/40"></div>
+      </div>
+    </div>
+
+    <!-- TEXT -->
+    <div
+      id="text"
+      class="
+        relative z-10
+        w-[90%] md:w-2/3 lg:w-1/2
+        text-white
+        text-2xl sm:text-3xl md:text-4xl lg:text-5xl
+        font-semibold leading-tight
+        text-center md:text-left
+        mx-auto md:mx-0
+        md:absolute
+        md:top-1/2 md:left-24
+        md:-translate-y-1/2
+      "
+    >
+      Turning Ideas Into Powerful Digital Products
+    </div>
+
+    <!-- NAVIGATION -->
+    <div id="nav" class="
+        absolute z-10
+        bottom-6 md:bottom-16
+        left-0
+        flex flex-col md:flex-row
+        gap-6 md:gap-2
+        w-full
+        px-6 md:px-24
+      ">
+
+  <!-- ITEM -->
+  <div class="nav-item w-full group flex flex-col gap-6 cursor-pointer active">
+    <span class="text-white text-sm md:text-base opacity-60 group-hover:opacity-100">
+      01 Web Development
+    </span>
+    <div class="
+      relative overflow-hidden
+      w-full h-[3px]
+      bg-white/40
+      before:content-['']
+      before:absolute before:inset-0
+      before:bg-white
+      before:-translate-x-full
+      before:transition-all before:duration-500
+      group-[.active]:before:translate-x-0
+    "></div>
+  </div>
+
+  <div class="nav-item w-full group flex flex-col gap-6 cursor-pointer">
+    <span class="text-white text-sm md:text-base opacity-60 group-hover:opacity-100">
+      02 App Development
+    </span>
+    <div class="relative w-full h-[3px] bg-white/40"></div>
+  </div>
+
+  <div class="nav-item w-full group flex flex-col gap-6 cursor-pointer">
+    <span class="text-white text-sm md:text-base opacity-60 group-hover:opacity-100">
+      03 CMS Development
+    </span>
+    <div class="relative w-full h-[3px] bg-white/40"></div>
+  </div>
+
+  <div class="nav-item w-full group flex flex-col gap-6 cursor-pointer">
+    <span class="text-white text-sm md:text-base opacity-60 group-hover:opacity-100">
+      04 Digital Marketing
+    </span>
+    <div class="relative w-full h-[3px] bg-white/40"></div>
+  </div>
+
+  <!-- NEXT -->
+  <button id="next" class="ml-auto md:ml-6">
+    <img class="h-10 w-10 md:h-12 md:w-12" src="/assets/right.svg" alt="Next">
+  </button>
+</div>
+  </div>
     <!-- Fullscreen Menu Overlay -->
-    <div id="fullscreenMenu" class="fixed inset-0 z-[999] w-screen h-dvh
-     bg-white dark:bg-slate-900
+    <div id="fullscreenMenu" class="fixed inset-0 z-[999] w-screen h-full
+     bg-white dark:bg-slate-900 overflow-y-auto md:overflow-y-hidden overflow-x-hidden
      flex flex-col items-center justify-center
-     opacity-0 pointer-events-none px-4">
+     opacity-0 pointer-events-none px-4 py-4">
         <div class="flex absolute top-0 z-10 justify-between items-center max-w-7xl px-4 h-16 w-screen bg-transparent">
             <div class="logo">
                 <img src="/assets/logo.svg" alt="Tekhive Logo" class="h-10 w-auto" />
@@ -253,7 +363,7 @@
             </button>
         </div>
         <!-- Menu Links -->
-        <nav class="flex items-center gap-8 text-center w-full h-screen py-4">
+        <nav class="flex items-start gap-8 text-center w-full h-screen py-4">
             <div class="hidden relative md:flex flex-col justify-center gap-8 w-1/2 h-screen">
                 <img src="/assets/prism-menu-img.avif" alt="Menu Illustration" class="" />
                 <div class="absolute flex flex-col justify-end z-10 w-full h-full">
@@ -271,12 +381,26 @@
                             <h1 class="text-xl text-[#8f8f8f]">Infopark Koratty</h1>
                             <h1 class="text-xl text-[#8f8f8f]">Kerala, India</h1>
                         </div>
+                        <div class="flex flex-col items-start justify-end">
+                            <h1 class="text-xl text-[#6c6c6c] font-medium">Social</h1>
+                            <div class="flex gap-4 mt-2">
+                                <div class="h-4 w-4">
+                                    <img src="/assets/instagram.svg" alt="">
+                                </div>
+                                <div class="h-4 w-4">
+                                    <img src="/assets/facebook.svg" alt="">
+                                </div>
+                                <div class="h-4 w-4">
+                                    <img src="/assets/whatsapp.svg" alt="">
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="flex flex-col w-screen md:w-1/2">
-                <div class="flex flex-col gap-8">
+            <div class="flex flex-col w-screen md:w-1/2 pb-4">
+                <div class="flex flex-col gap-8 pt-36">
                     <div class="flex flex-col">
                         <a href="#"
                             class="split menu-link text-2xl md:text-4xl text-left py-4 border-b hover:bg-gray-100 transition duration-200 ease-in-out">Home</a>
@@ -289,16 +413,47 @@
                         <a href="#"
                             class="split menu-link text-2xl md:text-4xl text-left py-4 hover:bg-gray-100 transition duration-200 ease-in-out">Contact</a>
                     </div>
-                    <div class="card relative flex md:hidden mb-4">
-                        <img class="h-[200px] w-screen object-cover rounded" src="/assets/demo-it-business-01.jpg.webp"
-                            alt="Business demo">
-                        <div class="flex flex-col absolute items-start p-4 bottom-0">
-                            <h1 class="text-white">Make it yours</h1>
-                            <h1 class="text-white text-start">Build your perfect Lightship today</h1>
+                    <div class="flex flex-col gap-1">
+                        <div class="card relative flex md:hidden">
+                            <a href="" class="w-full">
+                                <img class="h-[200px] w-full object-cover rounded-md"
+                                    src="/assets/build-your-project.jpg" alt="Business demo">
+                                <div class="absolute inset-0 bg-black/50 rounded-md"></div>
+                            </a>
+                            <div class="flex flex-col absolute items-start p-4 bottom-0">
+                                <h1 class="text-white font-medium text-xl">Design Your Perfect Setup</h1>
+                                <h1 class="text-white text-start font-medium">Tailored solutions designed for your
+                                    business</h1>
+                            </div>
                         </div>
+                        <div class="card relative flex md:hidden">
+                            <a href="" class="w-full">
+                                <img class="h-[200px] w-full object-cover rounded-md" src="/assets/connect-with-us.jpg"
+                                    alt="Business demo">
+                                <div class="absolute inset-0 bg-black/50 rounded-md"></div>
+                            </a>
+                            <div class="flex flex-col absolute items-start p-4 bottom-0">
+                                <h1 class="text-white font-medium text-xl">Connect with us</h1>
+                                <h1 class="text-white text-start font-medium">Questions? We've got answers</h1>
+                            </div>
+                        </div>
+                        <div class="flex md:hidden justify-center items-center mt-4">
+                            <div class="flex gap-4">
+                                <div class="h-4 w-4">
+                                    <img src="/assets/instagram.svg" alt="">
+                                </div>
+                                <div class="h-4 w-4">
+                                    <img src="/assets/facebook.svg" alt="">
+                                </div>
+                                <div class="h-4 w-4">
+                                    <img src="/assets/whatsapp.svg" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <p class="block md:hidden">Copyright © 2026 Tekhive</p>
                     </div>
                     <button
-                        class="hidden md:block bottom-0 rounded bg-gradient-to-r from-[#499BD5] to-[#57BF93] text-white text-xl w-full p-4 m-auto">
+                        class="hidden md:block rounded bg-gradient-to-r from-[#499BD5] to-[#57BF93] text-white text-xl w-full p-4 m-auto">
                         <a href="">Let's Talk</a>
                     </button>
                 </div>
@@ -315,25 +470,26 @@
 
     <!-- <main class="w-full flex flex-col gap-6"> -->
     <!-- Hero Section -->
-    <section id="hero" 
-  class="flex items-end  py-12 mt-12 bg-center m-auto overflow-hidden bg-cover bg-no-repeat p-6 min-h-[420px]" 
-  style='background-image: linear-gradient(180deg, rgba(16, 34, 16, 0) 0%, rgba(16, 34, 16, 0.6) 50%, rgba(16, 34, 16, 0.95) 100%), url("/assets/main.webp");'>
+    <section id="hero"
+        class="flex items-end  py-12 mt-12 bg-center m-auto overflow-hidden bg-cover bg-no-repeat p-6 min-h-[420px]"
+        style='background-image: linear-gradient(180deg, rgba(16, 34, 16, 0) 0%, rgba(16, 34, 16, 0.6) 50%, rgba(16, 34, 16, 0.95) 100%), url("/assets/main.webp");'>
 
         <div class="max-w-7xl mx-auto w-full">
-            <div class="flex m-auto flex-col gap-6 relative shadow-lg"
-                data-alt="Group of developers collaborating on laptops in a modern office"
-                >
+            <div class="flex m-auto flex-col gap-6 relative"
+                data-alt="Group of developers collaborating on laptops in a modern office">
                 <div class="relative z-10 flex flex-col gap-3 max-w-7xl text-left">
                     <span
                         class="inline-flex w-fit items-center rounded-full bg-primary/20 backdrop-blur-sm px-3 py-1 text-xs font-bold uppercase tracking-wider text-primary border border-primary/30">
                         Future Ready
                     </span>
                     <h1 class="text-white text-4xl font-bold leading-[1.1] tracking-tight">
-                        Your Strategic Tech Partner
+                        <!-- Your Strategic Tech Partner -->
+                        Your Technology Partner for
                     </h1>
                     <p class="text-slate-200 text-base font-normal leading-relaxed max-w-[90%]">
                         We build scalable web and mobile solutions designed for growth.
                     </p>
+
                 </div>
                 <div class="relative flex flex-wrap z-10 gap-3 max-w-7xl">
                     <button
@@ -660,7 +816,7 @@ z
                         <img class="p-4 m-auto" src="/assets/arrow_left.svg" alt="">
                     </span>
                     <span class="w-12 h-12 rounded-full bg-white" id="next-btn">
-                        <img class="p-4 m-auto" src="/assets/arrow_right.svg" alt="">
+                        <img class="p-4 m-auto" src="" alt="">
                     </span>
                 </div>
             </div>
@@ -1157,15 +1313,16 @@ z
                             <h1 class="text-sm font-semibold">Lorry Melon</h1>
                         </div>
                         <div class="flex items-center gap-1 ml-auto">
-                            <img class="w-5 h-auto" src="/assets/star.svg" alt="">
-                            <img class="w-5 h-auto" src="/assets/star.svg" alt="">
-                            <img class="w-5 h-auto" src="/assets/star.svg" alt="">
-                            <img class="w-5 h-auto" src="/assets/star.svg" alt="">
-                            <img class="w-5 h-auto" src="/assets/star.svg" alt="">
+                            <img class="w-5 h-auto fade-up opacity-0" src="/assets/star.svg" alt="">
+                            <img class="w-5 h-auto fade-up opacity-0" src="/assets/star.svg" alt="">
+                            <img class="w-5 h-auto fade-up opacity-0" src="/assets/star.svg" alt="">
+                            <img class="w-5 h-auto fade-up opacity-0" src="/assets/star.svg" alt="">
+                            <img class="w-5 h-auto fade-up opacity-0" src="/assets/star.svg" alt="">
                         </div>
                     </div>
                 </div>
-                <div class="fade-up opacity-0 translate-y-8 mt-[40px] md:mt-0 card relative p-8 rounded-xl bg-surface-light">
+                <div
+                    class="fade-up opacity-0 translate-y-8 mt-[40px] md:mt-0 card relative p-8 rounded-xl bg-surface-light">
                     <p>
                         Outstanding web development! They brought our vision to life with exceptional design and
                         functionality. Highly recommended!
@@ -1180,11 +1337,11 @@ z
                             <h1 class="text-sm font-semibold">Steve Smith</h1>
                         </div>
                         <div class="flex items-center gap-1 ml-auto">
-                            <img class="w-5 h-auto" src="/assets/star.svg" alt="">
-                            <img class="w-5 h-auto" src="/assets/star.svg" alt="">
-                            <img class="w-5 h-auto" src="/assets/star.svg" alt="">
-                            <img class="w-5 h-auto" src="/assets/star.svg" alt="">
-                            <img class="w-5 h-auto" src="/assets/star.svg" alt="">
+                            <img class="w-5 h-auto fade-up opacity-0" src="/assets/star.svg" alt="">
+                            <img class="w-5 h-auto fade-up opacity-0" src="/assets/star.svg" alt="">
+                            <img class="w-5 h-auto fade-up opacity-0" src="/assets/star.svg" alt="">
+                            <img class="w-5 h-auto fade-up opacity-0" src="/assets/star.svg" alt="">
+                            <img class="w-5 h-auto fade-up opacity-0" src="/assets/star.svg" alt="">
                         </div>
                     </div>
                 </div>
@@ -1203,17 +1360,18 @@ z
                             <h1 class="text-sm font-semibold">krista</h1>
                         </div>
                         <div class="flex items-center gap-1 ml-auto">
-                            <img class="w-5 h-auto" src="/assets/star.svg" alt="">
-                            <img class="w-5 h-auto" src="/assets/star.svg" alt="">
-                            <img class="w-5 h-auto" src="/assets/star.svg" alt="">
-                            <img class="w-5 h-auto" src="/assets/star.svg" alt="">
-                            <img class="w-5 h-auto" src="/assets/star.svg" alt="">
+                            <img class="w-5 h-auto fade-up opacity-0" src="/assets/star.svg" alt="">
+                            <img class="w-5 h-auto fade-up opacity-0" src="/assets/star.svg" alt="">
+                            <img class="w-5 h-auto fade-up opacity-0" src="/assets/star.svg" alt="">
+                            <img class="w-5 h-auto fade-up opacity-0" src="/assets/star.svg" alt="">
+                            <img class="w-5 h-auto fade-up opacity-0" src="/assets/star.svg" alt="">
                         </div>
                     </div>
                 </div>
                 <div class="fade-up opacity-0 translate-y-8  card mt-[40px] relative p-8 rounded-xl bg-surface-light">
                     <p>
-                        SAP Business One transformed our business. Streamlined, efficient, and essential for growth. <br class="hidden md:block"> &nbsp;
+                        SAP Business One transformed our business. Streamlined, efficient, and essential for growth. <br
+                            class="hidden md:block"> &nbsp;
                     </p>
 
                     <div class="small-card flex items-center gap-3 p-4 bg-white absolute rounded-3xl">
@@ -1225,11 +1383,11 @@ z
                             <h1 class="text-sm font-semibold">Elora</h1>
                         </div>
                         <div class="flex items-center gap-1 ml-auto">
-                            <img class="w-5 h-auto" src="/assets/star.svg" alt="">
-                            <img class="w-5 h-auto" src="/assets/star.svg" alt="">
-                            <img class="w-5 h-auto" src="/assets/star.svg" alt="">
-                            <img class="w-5 h-auto" src="/assets/star.svg" alt="">
-                            <img class="w-5 h-auto" src="/assets/star.svg" alt="">
+                            <img class="w-5 h-auto fade-up opacity-0" src="/assets/star.svg" alt="">
+                            <img class="w-5 h-auto fade-up opacity-0" src="/assets/star.svg" alt="">
+                            <img class="w-5 h-auto fade-up opacity-0" src="/assets/star.svg" alt="">
+                            <img class="w-5 h-auto fade-up opacity-0" src="/assets/star.svg" alt="">
+                            <img class="w-5 h-auto fade-up opacity-0" src="/assets/star.svg" alt="">
                         </div>
                     </div>
                 </div>
@@ -1285,16 +1443,14 @@ z
 
     <!-- </main> -->
     <!-- Sticky Bottom Nav / FAB Area -->
-    <div class="fixed bottom-0 left-0 w-full p-4 shadow-lg pt-8 pointer-events-none z-40">
-        <div class="max-w-md mx-auto md:mx-0 md:ml-auto pointer-events-auto">
-            <button
-                class="w-full flex items-center justify-between rounded-full h-14 pl-6 pr-2 bg-slate-900 dark:bg-white text-white dark:text-black shadow-xl hover:scale-[1.02] active:scale-[0.98] transition-all">
+    <div class="fixed bottom-0 right-0 p-4 pt-8 pointer-events-none z-40">
+            <button id="pop-up"
+                class="w-[230px] flex items-center justify-between rounded-full h-14 pl-6 pr-2 bg-slate-900 dark:bg-white text-white dark:text-black shadow-xl hover:scale-[1.02] active:scale-[0.98] transition-all">
                 <span class="text-sm">Let's build together</span>
                 <div class="flex items-center justify-center size-10 rounded-full bg-primary text-black">
                     <span class="material-symbols-outlined">arrow_outward</span>
                 </div>
             </button>
-        </div>
     </div>
 
     <footer class="bg-slate-950 text-slate-300">
@@ -1348,9 +1504,9 @@ z
 
                     <form class="mt-4 flex gap-2">
                         <input type="email" placeholder="Email address" class="w-full rounded-lg bg-slate-900 border border-slate-800 px-4 py-2 text-sm
-                   focus:outline-none focus:ring-2 focus:ring-indigo-500" />
+                        focus:outline-none focus:ring-2 focus:ring-indigo-500" />
                         <button class="rounded-lg bg-indigo-600 px-4 py-2 text-sm font-medium text-white
-                   hover:bg-indigo-500 transition">
+                        hover:bg-indigo-500 transition">
                             →
                         </button>
                     </form>
@@ -1376,7 +1532,7 @@ z
     </footer>
 
 
-
+   <!-- GSAP and Plugins -->
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/ScrollTrigger.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/SplitText.min.js"></script>
@@ -1384,6 +1540,7 @@ z
     <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.11/dist/dotlottie-wc.js" type="module"></script>
     <script src="https://unpkg.com/lottie-web/build/player/lottie.min.js"></script>
     <script src="script.js"></script>
+    <script src="Slider1.js"></script>
 </body>
 
 </html>

@@ -1,5 +1,5 @@
 //////////////////////////////////////////////////////////////////////////////for optimized scroll performance4
-gsap.registerPlugin(ScrollTrigger, SplitText, MorphSVGPlugin);
+gsap.registerPlugin(ScrollTrigger, SplitText, MorphSVGPlugin, ScrollTrigger);
 ScrollTrigger.config({
     ignoreMobileResize: true,
 });
@@ -403,3 +403,58 @@ nextBtn.addEventListener("click", () => {
         behavior: "smooth",
     });
 });
+
+
+///////////////////////////////////////////////////////////////////////////////popup button gsap animation
+window.addEventListener("load", () => {
+    gsap.from("#pop-up", {
+        scale: 0.6,
+        opacity: 0,
+        y: 40,
+        duration: 0.8,
+        ease: "back.out(1.7",
+        delay: 0.3
+    })
+})
+
+window.addEventListener("load", () => {
+  const button = document.querySelector("#pop-up")
+  const text = button.querySelector(".popup-text")
+  const icon = button.querySelector(".popup-icon")
+
+  // calculate final width (icon + padding)
+  const iconWidth = icon.offsetWidth
+  const finalWidth = iconWidth + 16 // little breathing space
+
+  const tl = gsap.timeline({ delay: 0.3 })
+
+  // 1️⃣ Pop-in animation
+  tl.from(button, {
+    scale: 0.6,
+    opacity: 0,
+    y: 40,
+    duration: 0.8,
+    ease: "back.out(1.7)"
+  })
+
+  // 2️⃣ Fade + slide text out
+  tl.to(text, {
+    opacity: 0,
+    x: -20,
+    duration: 0.3,
+    ease: "power2.out"
+  }, "+=0.6")
+
+  // 3️⃣ Shrink button to icon size
+  tl.to(button, {
+    width: finalWidth,
+    paddingLeft: 0,
+    paddingRight: 0,
+    duration: 0.5,
+    ease: "power3.inOut"
+  })
+})
+
+
+
+///////////////////////////////////////////////////////////////////////////////gsap scroll smoother
