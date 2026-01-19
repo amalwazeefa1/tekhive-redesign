@@ -20,89 +20,76 @@
         GSAP Smooth Scroll Header
     </header>
 
-    <!-- SMOOTH SCROLL WRAPPER -->
-    <div id="smooth-wrapper" class="fixed inset-0 overflow-hidden">
-        <div id="smooth-content" class="[will-change:transform]">
+    <!-- Hover target -->
+<div
+  class="group relative inline-block p-10 bg-zinc-900 text-white rounded-xl cursor-none"
+  id="hover-target"
+>
+  Hover me
+</div>
 
-            <!-- HERO -->
-            <section
-                class="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-600 to-purple-600 text-white">
-                <h1 class="text-6xl font-bold fade-up">
-                    Smooth Scrolling
-                </h1>
-            </section>
+<!-- Custom Cursor Icon -->
+<div
+  id="cursor-icon"
+  class="pointer-events-none fixed top-0 left-0 z-50
+         flex items-center justify-center
+         w-12 h-12 rounded-full
+         bg-white/90 backdrop-blur
+         opacity-0 scale-50"
+>
+  <svg
+    class="w-5 h-5 text-black"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    viewBox="0 0 24 24"
+  >
+    <path d="M5 12h14M12 5l7 7-7 7" />
+  </svg>
+</div>
 
-            <!-- SECTION 1 -->
-            <section class="min-h-screen flex items-center justify-center bg-white">
-                <div class="text-center space-y-6">
-                    <h2 class="text-4xl font-bold fade-up">
-                        ScrollTrigger Works
-                    </h2>
-                    <p class="max-w-lg mx-auto fade-up">
-                        ScrollSmoother works perfectly with ScrollTrigger animations.
-                    </p>
-                </div>
-            </section>
-
-            <!-- PARALLAX -->
-            <section class="min-h-screen flex items-center justify-center bg-slate-900 text-white">
-                <div data-speed="0.8" class="text-5xl font-bold">
-                    Parallax Text
-                </div>
-            </section>
-
-            <!-- SECTION 2 -->
-            <section class="min-h-screen flex items-center justify-center bg-emerald-500 text-white">
-                <h2 class="text-5xl font-bold fade-up">
-                    Premium Feel ✨
-                </h2>
-            </section>
-
-            <!-- FOOTER -->
-            <footer class="py-24 bg-black text-white text-center">
-                © 2026 Tekhive
-            </footer>
-
-        </div>
-    </div>
 
     <!-- GSAP CORE -->
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/ScrollTrigger.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/ScrollSmoother.min.js"></script>
 
-    <script>
-        gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+    <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+<script>
+  const target = document.getElementById("hover-target");
+  const cursor = document.getElementById("cursor-icon");
 
-        /* CREATE SMOOTH SCROLL */
-        const smoother = ScrollSmoother.create({
-            wrapper: "#smooth-wrapper",
-            content: "#smooth-content",
-            smooth: 1.2,          // desktop smoothness
-            smoothTouch: 0.1,     // mobile smoothness
-            effects: true
-        });
+  // Smooth follow
+  window.addEventListener("mousemove", (e) => {
+    gsap.to(cursor, {
+      x: e.clientX - 24,
+      y: e.clientY - 24,
+      duration: 0.3,
+      ease: "power3.out",
+    });
+  });
 
-        /* FADE-UP ANIMATION */
-        gsap.utils.toArray(".fade-up").forEach(el => {
-            gsap.fromTo(el,
-                { opacity: 0, y: 60 },
-                {
-                    opacity: 1,
-                    y: 0,
-                    duration: 1,
-                    ease: "power3.out",
-                    scrollTrigger: {
-                        trigger: el,
-                        start: "top 85%",
-                    }
-                }
-            );
-        });
+  // Show cursor
+  target.addEventListener("mouseenter", () => {
+    gsap.to(cursor, {
+      scale: 1,
+      opacity: 1,
+      duration: 0.25,
+      ease: "power3.out",
+    });
+  });
 
-        /* FIX ANCHOR JUMPING */
-        ScrollTrigger.normalizeScroll(true);
-    </script>
+  // Hide cursor
+  target.addEventListener("mouseleave", () => {
+    gsap.to(cursor, {
+      scale: 0.5,
+      opacity: 0,
+      duration: 0.25,
+      ease: "power3.in",
+    });
+  });
+</script>
+
 
 </body>
 

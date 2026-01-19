@@ -57,42 +57,6 @@
             margin: auto !important;
             width: full !important;
         }
-
-        /* GSAP mouse hover */
-
-        .cursor,
-        .hand {
-            position: fixed;
-            left: 0;
-            border-radius: 50%;
-            pointer-events: none;
-            transition: transform 0.1s;
-        }
-
-        .cursor {
-            background: white;
-            top: 0;
-            width: 10px;
-            height: 10px;
-            z-index: 999;
-        }
-
-        .hand {
-            background-color: rgb(109, 50, 50);
-            clip-path: polygon(100% 0, 100% 76%, 90% 100%, 76% 100%, 76% 85%, 16% 85%, 16% 100%, 0 100%, 0 0);
-            width: 117px;
-            height: 38px;
-            z-index: 9999;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border-radius: 0;
-            transform: rotate(45deg);
-            opacity: 0;
-            font-family: Gridular;
-            z-index: 1;
-            padding: 2rem;
-        }
     </style>
 </head>
 
@@ -837,7 +801,7 @@ z
 
             <!-- Horizontal Scroll Wrapper -->
             <!-- Services Slider Wrapper -->
-            <div id="services-slider" class="cursor-grab active:cursor-grabbing">
+            <div id="services-slider" class="cursor-pointer active:cursor-pointer">
 
 
                 <!-- ACTUAL SCROLL CONTAINER -->
@@ -1286,7 +1250,27 @@ z
                             </button>
                         </div>
                     </div>
-
+                    <div id="cursor-icon" class="shadow-lg pointer-events-none fixed top-[-10px] left-[-13px] z-50
+         flex items-center justify-center
+         w-20 h-20 rounded-full
+         bg-gradient-to-r from-[#499BD5] to-[#57BF93] backdrop-blur
+         opacity-0 scale-50">
+                        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink"
+                            class="w-10 h-10" x="0" y="0" viewBox="0 0 24 24"
+                            style="enable-background:new 0 0 512 512" xml:space="preserve" class="">
+                            <g>
+                                <clipPath id="a">
+                                    <path d="M0 0h24v24H0z" fill="#ffffff" opacity="1" data-original="#000000" class="">
+                                    </path>
+                                </clipPath>
+                                <g clip-path="url(#a)">
+                                    <path fill="#ffffff" fill-rule="evenodd"
+                                        d="m.47 11.47-.53.53.53.53 6 6a.75.75 0 0 0 1.06-1.06L2.06 12l5.47-5.47a.75.75 0 1 0-1.06-1.06zm23.06 0 .53.53-.53.53-6 6a.75.75 0 1 1-1.06-1.06L21.94 12l-5.47-5.47a.75.75 0 0 1 1.06-1.06z"
+                                        clip-rule="evenodd" opacity="1" data-original="#000000" class=""></path>
+                                </g>
+                            </g>
+                        </svg>
+                    </div>
                 </div>
             </div>
 

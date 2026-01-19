@@ -471,4 +471,36 @@ window.addEventListener("load", () => {
 
 
 
-///////////////////////////////////////////////////////////////////////////////gsap scroll smoother
+////////////////////////////////////////////////////////////////////////////icon when hover gsap animation
+const target = document.getElementById("services-track");
+  const cursor = document.getElementById("cursor-icon");
+
+  // Smooth follow
+  window.addEventListener("mousemove", (e) => {
+    gsap.to(cursor, {
+      x: e.clientX - 24,
+      y: e.clientY - 24,
+      duration: 0.3,
+      ease: "power3.out",
+    });
+  });
+
+  // Show cursor
+  target.addEventListener("mouseenter", () => {
+    gsap.to(cursor, {
+      scale: 1,
+      opacity: 1,
+      duration: 0.25,
+      ease: "power3.out",
+    });
+  });
+
+  // Hide cursor
+  target.addEventListener("mouseleave", () => {
+    gsap.to(cursor, {
+      scale: 0.5,
+      opacity: 0,
+      duration: 0.25,
+      ease: "power3.in",
+    });
+  });
