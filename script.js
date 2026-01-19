@@ -159,32 +159,29 @@ document.fonts.ready.then(() => {
 
 
 
-///////////////////////////////////////////////////////////////////////auto card slide
+///////////////////////////////////////////////////////////////////////
+// AUTO CARD SLIDE + GSAP SCROLL TRIGGER
+///////////////////////////////////////////////////////////////////////
+
+// Elements
 const track = document.getElementById("services-track");
 const cards = track.querySelectorAll(".card");
 
 const prevBtn = document.getElementById("previous-btn");
 const nextButton = document.getElementById("next-btn");
 
-// Pause on hover (desktop)
-prevBtn.addEventListener("mouseenter", stopAutoSlide);
-nextButton.addEventListener("mouseenter", stopAutoSlide);
-prevBtn.addEventListener("mouseleave", resumeAutoSlide);
-nextButton.addEventListener("mouseleave", resumeAutoSlide);
+// GSAP
+gsap.registerPlugin(ScrollTrigger);
 
-// Pause on touch (mobile)
-prevBtn.addEventListener("touchstart", stopAutoSlide, { passive: true });
-nextButton.addEventListener("touchstart", stopAutoSlide, { passive: true });
-prevBtn.addEventListener("touchend", resumeAutoSlide);
-nextButton.addEventListener("touchend", resumeAutoSlide);
-
-
-
+// State
 let index = 0;
 let interval = null;
 const delay = 2500;
 let isPaused = false;
 
+///////////////////////////////////////////////////////////////////////
+// SLIDE LOGIC
+///////////////////////////////////////////////////////////////////////
 function slideNext() {
     if (isPaused) return;
 
@@ -218,16 +215,55 @@ function resumeAutoSlide() {
     startAutoSlide();
 }
 
-// ✅ REAL pause on hover
+///////////////////////////////////////////////////////////////////////
+// PAUSE ON HOVER / TOUCH
+///////////////////////////////////////////////////////////////////////
+
+// Buttons hover (desktop)
+prevBtn.addEventListener("mouseenter", stopAutoSlide);
+nextButton.addEventListener("mouseenter", stopAutoSlide);
+prevBtn.addEventListener("mouseleave", resumeAutoSlide);
+nextButton.addEventListener("mouseleave", resumeAutoSlide);
+
+// Buttons touch (mobile)
+prevBtn.addEventListener("touchstart", stopAutoSlide, { passive: true });
+nextButton.addEventListener("touchstart", stopAutoSlide, { passive: true });
+prevBtn.addEventListener("touchend", resumeAutoSlide);
+nextButton.addEventListener("touchend", resumeAutoSlide);
+
+// Track hover
 track.addEventListener("mouseenter", stopAutoSlide);
 track.addEventListener("mouseleave", resumeAutoSlide);
 
-// Mobile safety
+// Track touch (mobile)
 track.addEventListener("touchstart", stopAutoSlide, { passive: true });
 track.addEventListener("touchend", resumeAutoSlide);
 
-// Start slider
-startAutoSlide();
+///////////////////////////////////////////////////////////////////////
+// GSAP SCROLL TRIGGER (START / STOP ON VIEW)
+///////////////////////////////////////////////////////////////////////
+ScrollTrigger.create({
+    trigger: "#services-section",
+    start: "top 70%",
+    end: "bottom 30%",
+
+    onEnter: () => {
+        resumeAutoSlide();
+    },
+
+    onEnterBack: () => {
+        resumeAutoSlide();
+    },
+
+    onLeave: () => {
+        stopAutoSlide();
+    },
+
+    onLeaveBack: () => {
+        stopAutoSlide();
+    }
+});
+
 
 
 
@@ -504,3 +540,8 @@ const target = document.getElementById("services-track");
       ease: "power3.in",
     });
   });
+
+  
+
+  ///////////////////////////////////////////////////////////////////////////////auto card slide on scrolltrigger
+  

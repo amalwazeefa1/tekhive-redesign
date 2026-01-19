@@ -41,7 +41,7 @@
                         "surface-dark": "#1a2e1a",
                     },
                     fontFamily: {
-                        "display": ["Space Grotesk", "sans-serif"]
+                        "display": ["Nunito Sans", "sans-serif"]
                     },
                     borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px" },
                 },
@@ -52,7 +52,8 @@
         /* body {
             min-height: max(884px, 100dvh);
         } */
-
+         
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300..700&display=swap');
         #lottiePreview svg {
             margin: auto !important;
             width: full !important;
@@ -120,19 +121,19 @@
                                             IT SERVICES
                                         </h1>
 
-                                        <a href="#" class="dropdown-link"
+                                        <a href="#" class="dropdown-link text-black"
                                             data-lottie="/assets/business-strategy.json">Web Development</a>
-                                        <a href="#" class="dropdown-link"
+                                        <a href="#" class="dropdown-link text-black"
                                             data-lottie="/assets/ecommerce-solutions.json">Ecommerce
                                             Solutions</a>
-                                        <a href="#" class="dropdown-link"
+                                        <a href="#" class="dropdown-link text-black"
                                             data-lottie="/assets/app-development.json">Mobile App
                                             Development</a>
-                                        <a href="#" class="dropdown-link" data-lottie="/assets/cms.json">CMS
+                                        <a href="#" class="dropdown-link text-black" data-lottie="/assets/cms.json">CMS
                                             Development</a>
-                                        <a href="#" class="dropdown-link"
+                                        <a href="#" class="dropdown-link text-black"
                                             data-lottie="/assets/digital-marketing.json">Digital Marketing</a>
-                                        <a href="#" class="dropdown-link"
+                                        <a href="#" class="dropdown-link text-black"
                                             data-lottie="/assets/domain-hosting.json">Domain Hosting</a>
                                     </div>
                                     <div class="flex flex-col gap-3 min-w-[200px]">
@@ -140,21 +141,21 @@
                                             BUSINESS SOLUTIONS
                                         </h1>
 
-                                        <a href="#" class="dropdown-link" data-lottie="/assets/sap.json">SAP BUSINESS
+                                        <a href="#" class="dropdown-link text-black" data-lottie="/assets/sap.json">SAP BUSINESS
                                             ONE</a>
-                                        <a href="#" class="dropdown-link"
+                                        <a href="#" class="dropdown-link text-black"
                                             data-lottie="/assets/business-growth.json">Business Intelligence Tool</a>
-                                        <a href="#" class="dropdown-link"
+                                        <a href="#" class="dropdown-link text-black"
                                             data-lottie="/assets/api-integration.json">Third Party App Integration</a>
-                                        <a href="#" class="dropdown-link" data-lottie="/assets/crm.json">CRM</a>
-                                        <a href="#" class="dropdown-link"
+                                        <a href="#" class="dropdown-link text-black" data-lottie="/assets/crm.json">CRM</a>
+                                        <a href="#" class="dropdown-link text-black"
                                             data-lottie="/assets/business-process-automation.json">Business
                                             Process Automation</a>
-                                        <a href="#" class="dropdown-link" data-lottie="/assets/it-support.json">IT
+                                        <a href="#" class="dropdown-link text-black" data-lottie="/assets/it-support.json">IT
                                             Support</a>
-                                        <a href="#" class="dropdown-link" data-lottie="/assets/it-consulting.json">IT
+                                        <a href="#" class="dropdown-link text-black" data-lottie="/assets/it-consulting.json">IT
                                             Consulting</a>
-                                        <a href="#" class="dropdown-link"
+                                        <a href="#" class="dropdown-link text-black"
                                             data-lottie="/assets/back-office-service.json">Back Office
                                             Support</a>
                                     </div>
@@ -789,10 +790,10 @@ z
                 </div>
                 <!-- second div full width -->
                 <div class="flex gap-2 justify-end sm:w-[20%]">
-                    <span class="w-12 h-12 cursor-pointer rounded-full bg-white" id="previous-btn">
+                    <span class="w-12 h-12 cursor-pointer rounded-full bg-white active:scale-90" id="previous-btn">
                         <img class="p-4 m-auto" src="/assets/arrow_left.svg" alt="">
                     </span>
-                    <span class="w-12 h-12 cursor-pointer rounded-full bg-white" id="next-btn">
+                    <span class="w-12 h-12 cursor-pointer rounded-full bg-white active:scale-90" id="next-btn">
                         <img class="p-4 m-auto" src="/assets/arrow_right.svg" alt="">
                     </span>
                 </div>
@@ -802,7 +803,6 @@ z
             <!-- Horizontal Scroll Wrapper -->
             <!-- Services Slider Wrapper -->
             <div id="services-slider" class="cursor-pointer active:cursor-pointer">
-
 
                 <!-- ACTUAL SCROLL CONTAINER -->
                 <div id="services-track" class="flex mt-10 gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory pb-4
