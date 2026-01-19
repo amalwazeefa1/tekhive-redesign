@@ -11,30 +11,49 @@ document.addEventListener("DOMContentLoaded", () => {
     const navItems = gsap.utils.toArray(".nav-item");
     const textEl = document.getElementById("text");
     const nextBtn = document.getElementById("next");
+    const nav = document.getElementById("nav");
 
     let currentIndex = 0;
     let isAnimating = false;
     let startX = 0;
     let endX = 0;
 
-    // ------------------------
-    // Initial state
-    // ------------------------
+    /* ------------------------
+       AUTO SLIDE CONFIG
+    ------------------------ */
+    let autoSlideInterval = null;
+    const AUTO_DELAY = 5000; // 5 seconds
+
+    function startAutoSlide() {
+        if (autoSlideInterval) return;
+        autoSlideInterval = setInterval(() => {
+            if (!isAnimating) gotoSlide(1);
+        }, AUTO_DELAY);
+    }
+
+    function stopAutoSlide() {
+        clearInterval(autoSlideInterval);
+        autoSlideInterval = null;
+    }
+
+    /* ------------------------
+       INITIAL STATE
+    ------------------------ */
     gsap.set(slides, { xPercent: 100, zIndex: 0 });
     gsap.set(slides[0], { xPercent: 0, zIndex: 2 });
 
-    // ------------------------
-    // Update nav
-    // ------------------------
+    /* ------------------------
+       UPDATE NAV
+    ------------------------ */
     function updateNav(index) {
         navItems.forEach((item, i) => {
             item.classList.toggle("active", i === index);
         });
     }
 
-    // ------------------------
-    // Go to slide
-    // ------------------------
+    /* ------------------------
+       GO TO SLIDE
+    ------------------------ */
     function gotoSlide(direction) {
         if (isAnimating) return;
         isAnimating = true;
@@ -63,29 +82,21 @@ document.addEventListener("DOMContentLoaded", () => {
             .add(() => {
                 textEl.innerHTML = slideTexts[nextIndex];
             })
-            .to(
-                nextSlide,
-                { xPercent: 0, duration: 1.8 },
-                0
-            )
-            .to(
-                textEl,
-                { opacity: 1, y: 0, duration: 0.8 },
-                1.1
-            );
+            .to(nextSlide, { xPercent: 0, duration: 1.8 }, 0)
+            .to(textEl, { opacity: 1, y: 0, duration: 0.8 }, 1.1);
     }
 
-    // ------------------------
-    // Direct nav click
-    // ------------------------
+    /* ------------------------
+       DIRECT NAV CLICK
+    ------------------------ */
     function gotoSlideDirect(index) {
         if (index === currentIndex || isAnimating) return;
         gotoSlide(index > currentIndex ? 1 : -1);
     }
 
-    // ------------------------
-    // Touch & Mouse swipe
-    // ------------------------
+    /* ------------------------
+       TOUCH & MOUSE SWIPE
+    ------------------------ */
     function handleGesture() {
         const diff = endX - startX;
         if (diff < -50) gotoSlide(1);
@@ -94,28 +105,51 @@ document.addEventListener("DOMContentLoaded", () => {
 
     wrapper.addEventListener("touchstart", (e) => {
         startX = e.changedTouches[0].screenX;
+        stopAutoSlide();
     });
 
     wrapper.addEventListener("touchend", (e) => {
         endX = e.changedTouches[0].screenX;
         handleGesture();
+        startAutoSlide();
     });
 
     wrapper.addEventListener("mousedown", (e) => {
         startX = e.clientX;
+        stopAutoSlide();
     });
 
     wrapper.addEventListener("mouseup", (e) => {
         endX = e.clientX;
         handleGesture();
+        startAutoSlide();
     });
 
-    // ------------------------
-    // Events
-    // ------------------------
+    /* ------------------------
+       EVENTS
+    ------------------------ */
     navItems.forEach((item, index) => {
-        item.addEventListener("click", () => gotoSlideDirect(index));
+        item.addEventListener("click", () => {
+            stopAutoSlide();
+            gotoSlideDirect(index);
+            startAutoSlide();
+        });
     });
 
-    nextBtn.addEventListener("click", () => gotoSlide(1));
+    nextBtn.addEventListener("click", () => {
+        stopAutoSlide();
+        gotoSlide(1);
+        startAutoSlide();
+    });
+
+    /* ------------------------
+       PAUSE ON NAV HOVER
+    ------------------------ */
+    nav.addEventListener("mouseenter", stopAutoSlide);
+    nav.addEventListener("mouseleave", startAutoSlide);
+
+    /* ------------------------
+       START AUTO SLIDE
+    ------------------------ */
+    startAutoSlide();
 });

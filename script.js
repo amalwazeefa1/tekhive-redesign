@@ -163,8 +163,22 @@ document.fonts.ready.then(() => {
 const track = document.getElementById("services-track");
 const cards = track.querySelectorAll(".card");
 
-// const prevBtn = document.getElementById("previous-btn");
-// const nextBtn = document.getElementById("next-btn");
+const prevBtn = document.getElementById("previous-btn");
+const nextButton = document.getElementById("next-btn");
+
+// Pause on hover (desktop)
+prevBtn.addEventListener("mouseenter", stopAutoSlide);
+nextButton.addEventListener("mouseenter", stopAutoSlide);
+prevBtn.addEventListener("mouseleave", resumeAutoSlide);
+nextButton.addEventListener("mouseleave", resumeAutoSlide);
+
+// Pause on touch (mobile)
+prevBtn.addEventListener("touchstart", stopAutoSlide, { passive: true });
+nextButton.addEventListener("touchstart", stopAutoSlide, { passive: true });
+prevBtn.addEventListener("touchend", resumeAutoSlide);
+nextButton.addEventListener("touchend", resumeAutoSlide);
+
+
 
 let index = 0;
 let interval = null;
