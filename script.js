@@ -543,5 +543,10 @@ const target = document.getElementById("services-track");
 
   
 
-  ///////////////////////////////////////////////////////////////////////////////auto card slide on scrolltrigger
-  
+  document.querySelectorAll('img[data-alt-src]').forEach(img => {
+  img.addEventListener('click', () => {
+    const current = img.src;
+    img.src = img.dataset.altSrc;
+    img.dataset.altSrc = current; // swap back
+  });
+});

@@ -72,20 +72,20 @@
 
                 <!-- Logo -->
                 <div class="flex items-center">
-                    <img src="/assets/logo.svg" alt="Tekhive Logo" class="h-10 w-auto" />
+                    <img src="/assets/logo.svg" data-alt-src="/assets/tekhive_logo_white.svg" alt="Tekhive Logo" class="h-10 w-auto cursor-pointer" />
                 </div>
 
                 <!-- Navigation (Desktop Only Links) -->
                 <nav class="hidden lg:flex items-center gap-10">
 
-                    <a href="#" class="nav-link">Home</a>
-                    <a href="#" class="nav-link">About</a>
+                    <a href="#" class="nav-link text-black">Home</a>
+                    <a href="#" class="nav-link text-black">About</a>
 
                     <!-- Services Dropdown -->
                     <div class="group">
 
                         <!-- Trigger -->
-                        <a href="#" class="nav-link flex items-center py-5 gap-1">
+                        <a href="#" class="nav-link text-black flex items-center py-5 gap-1">
                             Services
                             <span class="material-symbols-outlined text-[18px]
                                       transition-transform duration-300 group-hover:rotate-180">
@@ -173,8 +173,8 @@
 
 
 
-                    <a href="#" class="nav-link">Portfolio</a>
-                    <a href="#" class="nav-link">Contact</a>
+                    <a href="#" class="nav-link text-black">Portfolio</a>
+                    <a href="#" class="nav-link text-black">Contact</a>
                 </nav>
 
                 <!-- Right Actions (ALWAYS visible) -->
@@ -227,8 +227,9 @@
 
 
         <!-- TEXT -->
-        <div id="text" class="
-        relative z-10
+        <div  class="
+      ">
+            <h1 id="text" class="relative z-10
         w-[90%] md:w-2/3 lg:w-1/2
         text-white
         text-2xl sm:text-3xl md:text-4xl lg:text-5xl
@@ -237,10 +238,12 @@
         mx-auto md:mx-0
         md:absolute
         md:top-1/2 md:left-24
-        md:-translate-y-1/2
-      ">
-            Turning Ideas Into Powerful Digital Products
+        md:-translate-y-1/2">Turning Ideas Into Powerful Digital Products <br>
+            <button class="p-4 bg-white text-black">
+            button  
+        </button>
         </div>
+        
 
         <!-- NAVIGATION -->
         <div id="nav" class="
@@ -835,7 +838,7 @@ z
                             <button class="mt-1 flex items-center gap-2 text-sm font-bold
                                        text-slate-900 dark:text-white
                                       group-hover:text-primary transition-colors">
-                                Learn More
+                                <a href="">Learn More</a>
                                 <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
                             </button>
                         </div>
@@ -867,7 +870,7 @@ z
                             <button class="mt-1 flex items-center gap-2 text-sm font-bold
                                    text-slate-900 dark:text-white
                                    group-hover:text-primary transition-colors">
-                                Learn More
+                                <a href="">Learn More</a>
                                 <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
                             </button>
                         </div>
@@ -898,7 +901,7 @@ z
                             <button class="mt-1 flex items-center gap-2 text-sm font-bold
                    text-slate-900 dark:text-white
                    group-hover:text-primary transition-colors">
-                                Learn More
+                                <a href="">Learn More</a>
                                 <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
                             </button>
                         </div>
@@ -930,7 +933,7 @@ z
                             <button class="mt-1 flex items-center gap-2 text-sm font-bold
                                    text-slate-900 dark:text-white
                                    group-hover:text-primary transition-colors">
-                                Learn More
+                                <a href="">Learn More</a>
                                 <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
                             </button>
                         </div>
@@ -960,7 +963,7 @@ z
                             <button class="mt-1 flex items-center gap-2 text-sm font-bold
                                    text-slate-900 dark:text-white
                                    group-hover:text-primary transition-colors">
-                                Learn More
+                                <a href="">Learn More</a>
                                 <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
                             </button>
                         </div>
@@ -992,7 +995,7 @@ z
                             <button class="mt-1 flex items-center gap-2 text-sm font-bold
                                    text-slate-900 dark:text-white
                                    group-hover:text-primary transition-colors">
-                                Learn More
+                                <a href="">Learn More</a>
                                 <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
                             </button>
                         </div>
@@ -1024,7 +1027,7 @@ z
                             <button class="mt-1 flex items-center gap-2 text-sm font-bold
                                    text-slate-900 dark:text-white
                                    group-hover:text-primary transition-colors">
-                                Learn More
+                                <a href="">Learn More</a>
                                 <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
                             </button>
                         </div>
@@ -1056,7 +1059,7 @@ z
                             <button class="mt-1 flex items-center gap-2 text-sm font-bold
                                    text-slate-900 dark:text-white
                                    group-hover:text-primary transition-colors">
-                                Learn More
+                                <a href="">Learn More</a>
                                 <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
                             </button>
                         </div>
@@ -1087,7 +1090,7 @@ z
                             <button class="mt-1 flex items-center gap-2 text-sm font-bold
                                    text-slate-900 dark:text-white
                                    group-hover:text-primary transition-colors">
-                                Learn More
+                                <a href="">Learn More</a>
                                 <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
                             </button>
                         </div>
@@ -1119,7 +1122,7 @@ z
                             <button class="mt-1 flex items-center gap-2 text-sm font-bold
                                    text-slate-900 dark:text-white
                                    group-hover:text-primary transition-colors">
-                                Learn More
+                                <a href="">Learn More</a>
                                 <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
                             </button>
                         </div>
@@ -1151,7 +1154,7 @@ z
                             <button class="mt-1 flex items-center gap-2 text-sm font-bold
                                    text-slate-900 dark:text-white
                                    group-hover:text-primary transition-colors">
-                                Learn More
+                                <a href="">Learn More</a>
                                 <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
                             </button>
                         </div>
@@ -1182,7 +1185,7 @@ z
                             <button class="mt-1 flex items-center gap-2 text-sm font-bold
                                    text-slate-900 dark:text-white
                                    group-hover:text-primary transition-colors">
-                                Learn More
+                                <a href="">Learn More</a>
                                 <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
                             </button>
                         </div>
@@ -1213,7 +1216,7 @@ z
                             <button class="mt-1 flex items-center gap-2 text-sm font-bold
                                    text-slate-900 dark:text-white
                                    group-hover:text-primary transition-colors">
-                                Learn More
+                                <a href="">Learn More</a>
                                 <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
                             </button>
                         </div>
@@ -1245,7 +1248,7 @@ z
                             <button class="mt-1 flex items-center gap-2 text-sm font-bold
                                    text-slate-900 dark:text-white
                                    group-hover:text-primary transition-colors">
-                                Learn More
+                                <a href="">Learn More</a>
                                 <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
                             </button>
                         </div>
