@@ -468,85 +468,149 @@ window.addEventListener("load", () => {
 })
 
 window.addEventListener("load", () => {
-  const button = document.querySelector("#pop-up")
-  const text = button.querySelector(".popup-text")
-  const icon = button.querySelector(".popup-icon")
+    const button = document.querySelector("#pop-up")
+    const text = button.querySelector(".popup-text")
+    const icon = button.querySelector(".popup-icon")
 
-  // calculate final width (icon + padding)
-  const iconWidth = icon.offsetWidth
-  const finalWidth = iconWidth + 16 // little breathing space
+    // calculate final width (icon + padding)
+    const iconWidth = icon.offsetWidth
+    const finalWidth = iconWidth + 16 // little breathing space
 
-  const tl = gsap.timeline({ delay: 0.3 })
+    const tl = gsap.timeline({ delay: 0.3 })
 
-  // 1️⃣ Pop-in animation
-  tl.from(button, {
-    scale: 0.6,
-    opacity: 0,
-    y: 40,
-    duration: 0.8,
-    ease: "back.out(1.7)"
-  })
+    // 1️⃣ Pop-in animation
+    tl.from(button, {
+        scale: 0.6,
+        opacity: 0,
+        y: 40,
+        duration: 0.8,
+        ease: "back.out(1.7)"
+    })
 
-  // 2️⃣ Fade + slide text out
-  tl.to(text, {
-    opacity: 0,
-    x: -20,
-    duration: 0.3,
-    ease: "power2.out"
-  }, "+=0.6")
+    // 2️⃣ Fade + slide text out
+    tl.to(text, {
+        opacity: 0,
+        x: -20,
+        duration: 0.3,
+        ease: "power2.out"
+    }, "+=0.6")
 
-  // 3️⃣ Shrink button to icon size
-  tl.to(button, {
-    width: finalWidth,
-    paddingLeft: 0,
-    paddingRight: 0,
-    duration: 0.5,
-    ease: "power3.inOut"
-  })
+    // 3️⃣ Shrink button to icon size
+    tl.to(button, {
+        width: finalWidth,
+        paddingLeft: 0,
+        paddingRight: 0,
+        duration: 0.5,
+        ease: "power3.inOut"
+    })
 })
 
 
 
 ////////////////////////////////////////////////////////////////////////////icon when hover gsap animation
 const target = document.getElementById("services-track");
-  const cursor = document.getElementById("cursor-icon");
+const cursor = document.getElementById("cursor-icon");
 
-  // Smooth follow
-  window.addEventListener("mousemove", (e) => {
+// Smooth follow
+window.addEventListener("mousemove", (e) => {
     gsap.to(cursor, {
-      x: e.clientX - 24,
-      y: e.clientY - 24,
-      duration: 0.3,
-      ease: "power3.out",
+        x: e.clientX - 24,
+        y: e.clientY - 24,
+        duration: 0.3,
+        ease: "power3.out",
     });
-  });
+});
 
-  // Show cursor
-  target.addEventListener("mouseenter", () => {
+// Show cursor
+target.addEventListener("mouseenter", () => {
     gsap.to(cursor, {
-      scale: 1,
-      opacity: 1,
-      duration: 0.25,
-      ease: "power3.out",
+        scale: 1,
+        opacity: 1,
+        duration: 0.25,
+        ease: "power3.out",
     });
-  });
+});
 
-  // Hide cursor
-  target.addEventListener("mouseleave", () => {
+// Hide cursor
+target.addEventListener("mouseleave", () => {
     gsap.to(cursor, {
-      scale: 0.5,
-      opacity: 0,
-      duration: 0.25,
-      ease: "power3.in",
+        scale: 0.5,
+        opacity: 0,
+        duration: 0.25,
+        ease: "power3.in",
     });
-  });
+});
 
-  
 
-  document.querySelectorAll('img[data-alt-src]').forEach(img => {
-  img.addEventListener('click', () => {
-    const current = img.src;
-    img.src = img.dataset.altSrc;
-    img.dataset.altSrc = current; // swap back
+//////////////////////////////////////////////////////////////////////////////header gsap animation
+const header = document.getElementById("site-header");
+const navLinks = document.querySelectorAll('.nav-link');
+
+
+ScrollTrigger.create({
+  start: "350px top",
+  end: "99999",
+  onToggle: (self) => {
+    // header background
+    header.classList.toggle("bg-white", self.isActive);
+    header.classList.toggle("bg-gradient-to-b", !self.isActive);
+    header.classList.toggle("from-black", !self.isActive);
+    header.classList.toggle("to-transparent", !self.isActive);
+
+    // nav link colors
+    navLinks.forEach(link => {
+      link.classList.toggle("text-black", self.isActive);
+      link.classList.toggle("text-white", !self.isActive);
+    });
+  }
+});
+
+// handle hover only when NOT scrolled past 350px
+header.addEventListener('mouseleave', () => {
+  const isScrolled = ScrollTrigger.isInViewport(header, "350px top"); 
+  // or track state yourself with a variable
+
+  navLinks.forEach(link => {
+    if (isScrolled) {
+      // keep black if scrolled
+      link.classList.remove('text-white');
+      link.classList.add('text-black');
+    } else {
+      // revert to white if not scrolled
+      link.classList.remove('text-black');
+      link.classList.add('text-white');
+    }
   });
 });
+
+header.addEventListener('mouseenter', () => {
+    document.querySelectorAll('img[data-alt-src]').forEach(img => {
+        const current = img.src;
+        img.src = img.dataset.altSrc;
+        img.dataset.altSrc = current; // swap back reference
+    });
+});
+
+header.addEventListener('mouseleave', () => {
+    document.querySelectorAll('img[data-alt-src]').forEach(img => {
+        const current = img.src;
+        img.src = img.dataset.altSrc;
+        img.dataset.altSrc = current; // swap back again
+    });
+});
+
+// header.addEventListener('mouseenter', () => {
+//   navLinks.forEach(link => {
+//     link.classList.remove('text-white');
+//     link.classList.add('text-black');
+//   });
+// });
+
+// header.addEventListener('mouseleave', () => {
+//   navLinks.forEach(link => {
+//     link.classList.remove('text-black');
+//     link.classList.add('text-white');
+//   });
+// });
+
+/////////////////////////////////////////////////////////////////////////////logo
