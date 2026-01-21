@@ -199,6 +199,7 @@ function slideNext() {
     });
 }
 
+
 function startAutoSlide() {
     if (interval) return; // prevent duplicates
     interval = setInterval(slideNext, delay);
@@ -244,7 +245,7 @@ track.addEventListener("touchend", resumeAutoSlide);
 ///////////////////////////////////////////////////////////////////////
 ScrollTrigger.create({
     trigger: "#services-section",
-    start: "top 70%",
+    start: "top",
     end: "bottom 30%",
 
     onEnter: () => {
