@@ -463,7 +463,7 @@ window.addEventListener("load", () => {
         y: 40,
         duration: 0.8,
         ease: "back.out(1.7",
-        delay: 0.3
+        delay: 0.5
     })
 })
 
@@ -484,6 +484,7 @@ window.addEventListener("load", () => {
         opacity: 0,
         y: 40,
         duration: 0.8,
+        scrub: true,
         ease: "back.out(1.7)"
     })
 
@@ -492,6 +493,7 @@ window.addEventListener("load", () => {
         opacity: 0,
         x: -20,
         duration: 0.3,
+        scrub: true,
         ease: "power2.out"
     }, "+=0.6")
 
@@ -501,6 +503,7 @@ window.addEventListener("load", () => {
         paddingLeft: 0,
         paddingRight: 0,
         duration: 0.5,
+        scrub: true,
         ease: "power3.inOut"
     })
 })
@@ -556,7 +559,6 @@ ScrollTrigger.create({
     header.classList.toggle("bg-gradient-to-b", !self.isActive);
     header.classList.toggle("from-black", !self.isActive);
     header.classList.toggle("to-transparent", !self.isActive);
-
     // nav link colors
     navLinks.forEach(link => {
       link.classList.toggle("text-black", self.isActive);
@@ -583,6 +585,14 @@ header.addEventListener('mouseleave', () => {
   });
 });
 
+// header.addEventListener ('mouseleave', () => {
+//     setTimeout(() => {
+//         header.classList.add('bg-gradient-to-b'),
+//         header.classList.add('from-black'),
+//         header.classList.add('to-transparent');
+//     }, 800);
+// })
+
 header.addEventListener('mouseenter', () => {
     document.querySelectorAll('img[data-alt-src]').forEach(img => {
         const current = img.src;
@@ -599,6 +609,21 @@ header.addEventListener('mouseleave', () => {
     });
 });
 
+header.addEventListener('mouseenter', () => {
+    navLinks.forEach(link => {
+        link.classList.remove('text-white');
+        link.classList.add('text-black')
+    })
+})
+
+header.addEventListener('mouseleave', () => {
+    navLinks.forEach(link => {
+        link.classList.remove('text-black')
+        link.classList.add('text-white')
+    })
+})
+
+
 // header.addEventListener('mouseenter', () => {
 //   navLinks.forEach(link => {
 //     link.classList.remove('text-white');
@@ -614,3 +639,30 @@ header.addEventListener('mouseleave', () => {
 // });
 
 /////////////////////////////////////////////////////////////////////////////logo
+const logo = document.getElementById("site-logo");
+const whiteLogo = logo.src;
+const blackLogo = logo.dataset.altSrc;
+
+ScrollTrigger.create({
+  start: "350px top",
+  onEnter: () => {
+    gsap.to(logo, {
+      opacity: 0,
+      duration: 0.1,
+      onComplete: () => {
+        logo.src = blackLogo;
+        gsap.to(logo, { opacity: 1, duration: 0.1 });
+      }
+    });
+  },
+  onLeaveBack: () => {
+    gsap.to(logo, {
+      opacity: 0,
+      duration: 0.1,
+      onComplete: () => {
+        logo.src = whiteLogo;
+        gsap.to(logo, { opacity: 1, duration: 0.1 });
+      }
+    });
+  }
+});
