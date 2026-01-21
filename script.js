@@ -548,7 +548,9 @@ target.addEventListener("mouseleave", () => {
 //////////////////////////////////////////////////////////////////////////////header gsap animation
 const header = document.getElementById("site-header");
 const navLinks = document.querySelectorAll('.nav-link');
-
+const whatsappIcon = document.querySelector(".whatsapp-icon-white");
+const phoneIcon = document.querySelector(".phone-icon-white");
+const menuIcon = document.querySelector(".menu");
 
 ScrollTrigger.create({
   start: "350px top",
@@ -564,6 +566,15 @@ ScrollTrigger.create({
       link.classList.toggle("text-black", self.isActive);
       link.classList.toggle("text-white", !self.isActive);
     });
+    // whatsapp icon color toggle
+    whatsappIcon.classList.toggle("text-black", self.isActive);
+    whatsappIcon.classList.toggle("text-white", !self.isActive);
+    phoneIcon.classList.toggle("text-black", self.isActive);
+    phoneIcon.classList.toggle("text-white", !self.isActive);
+    // menu icon color toggle
+    menuIcon.classList.toggle("text-black", self.isActive);
+    menuIcon.classList.toggle("text-white", !self.isActive);
+
   }
 });
 
@@ -584,14 +595,6 @@ header.addEventListener('mouseleave', () => {
     }
   });
 });
-
-// header.addEventListener ('mouseleave', () => {
-//     setTimeout(() => {
-//         header.classList.add('bg-gradient-to-b'),
-//         header.classList.add('from-black'),
-//         header.classList.add('to-transparent');
-//     }, 800);
-// })
 
 header.addEventListener('mouseenter', () => {
     document.querySelectorAll('img[data-alt-src]').forEach(img => {
@@ -614,6 +617,12 @@ header.addEventListener('mouseenter', () => {
         link.classList.remove('text-white');
         link.classList.add('text-black')
     })
+    menuIcon.classList.remove('text-white');
+    menuIcon.classList.add('text-black')
+    whatsappIcon.classList.remove('text-white')
+    whatsappIcon.classList.add('text-black')
+    phoneIcon.classList.remove('text-white')
+    phoneIcon.classList.add('text-black')
 })
 
 header.addEventListener('mouseleave', () => {
@@ -621,6 +630,12 @@ header.addEventListener('mouseleave', () => {
         link.classList.remove('text-black')
         link.classList.add('text-white')
     })
+    menuIcon.classList.remove('text-black');
+    menuIcon.classList.add('text-white');
+    whatsappIcon.classList.remove('text-black')
+    whatsappIcon.classList.add('text-white')
+    phoneIcon.classList.remove('text-black')
+    phoneIcon.classList.add('text-white')
 })
 
 
