@@ -690,7 +690,19 @@ gsap.registerPlugin(ScrollTrigger)
 ScrollTrigger.create({
     trigger: ".pinned-section",
     start: "top top",
-    end: "+-100%",
+    end: "+=100%",
     pin: true,
     pinSpacing: true,
+})
+
+gsap.from(".pinned-section .tekhive-icon", {
+    scale: 0.6,
+    opacity: 0,
+    scrollTrigger: {
+        trigger: ".pin-section",
+        start: "400px top",
+        end: "+=100%",
+        pin: true,
+        scrub: true,
+    }
 })
