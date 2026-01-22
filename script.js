@@ -10,43 +10,7 @@ ScrollTrigger.normalizeScroll({
 
 
 //////////////////////////////////////////////////////////////////////////////hero section animation
-window.addEventListener("DOMContentLoaded", () => {
-    gsap.set("#hero", { maxWidth: "88%", borderRadius: "30px" });
 
-    ScrollTrigger.matchMedia({
-        // For mobile screens
-        "(max-width: 768px)": function () {
-            gsap.to("#hero", {
-                duration: 0.5,
-                ease: "power3.out",
-                maxWidth: "100vw",
-                borderRadius: "0",
-                scrollTrigger: {
-                    trigger: "#hero",
-                    start: "-=120",
-                    end: "+=300",
-                    scrub: 1,
-                }
-            });
-        },
-
-        // For desktop screens
-        "(min-width: 769px)": function () {
-            gsap.to("#hero", {
-                duration: 0.5,
-                ease: "power3.out",
-                maxWidth: "100vw",
-                borderRadius: "0",
-                scrollTrigger: {
-                    trigger: "#hero",
-                    start: "-=120",
-                    end: "+=400",
-                    scrub: 1,
-                }
-            });
-        }
-    });
-});
 
 
 
@@ -701,13 +665,37 @@ gsap.from(".pinned-section .tekhive-icon", {
     delay: 0.7,
     duration: 2,
     scrollTrigger: {
-        trigger: ".pin-section",
+        trigger: ".pinned-section",
         start: "top top",
         end: "+=200%",
         pin: true,
         toggleActions: "play reverse play reverse"
     }
 })
+
+
+gsap.from(".logo-part", {
+  opacity: 0,
+  y: 20,
+  scale: 0.8,
+  rotate: 5,
+  filter: "blur(6px)",
+  duration: 1.2,
+  ease: "expo.out",
+  delay: 1.5,
+  stagger: {
+    each: 0.12,
+    from: "start"
+  },
+  scrollTrigger: {
+    trigger: ".tekhive-text",
+    start: "top top",
+    end: "9999999",
+    scrub: false,
+    markers: true
+  }
+});
+
 
 ////////////////////////////////////////////////////////////////////////////////
 
