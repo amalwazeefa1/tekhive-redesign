@@ -554,7 +554,7 @@ const phoneIcon = document.querySelector(".phone-icon-white");
 const menuIcon = document.querySelector(".menu");
 
 ScrollTrigger.create({
-  start: "350px top",
+  start: "1300px top",
   end: "99999",
   onToggle: (self) => {
     // header background
@@ -581,7 +581,7 @@ ScrollTrigger.create({
 
 // handle hover only when NOT scrolled past 350px
 header.addEventListener('mouseleave', () => {
-  const isScrolled = ScrollTrigger.isInViewport(header, "350px top"); 
+  const isScrolled = ScrollTrigger.isInViewport(header, "1200px top"); 
   // or track state yourself with a variable
 
   navLinks.forEach(link => {
@@ -660,7 +660,7 @@ const whiteLogo = logo.src;
 const blackLogo = logo.dataset.altSrc;
 
 ScrollTrigger.create({
-  start: "350px top",
+  start: "1300px top",
   onEnter: () => {
     gsap.to(logo, {
       opacity: 0,
@@ -684,7 +684,7 @@ ScrollTrigger.create({
 });
 
 
-/////////////////////////////////////////////////////////////////////////////////Pinned section
+/////////////////////////////////////////////////////////////////////////////////Pinned intro aimation
 gsap.registerPlugin(ScrollTrigger)
 
 ScrollTrigger.create({
@@ -698,11 +698,16 @@ ScrollTrigger.create({
 gsap.from(".pinned-section .tekhive-icon", {
     scale: 0.6,
     opacity: 0,
+    delay: 0.7,
+    duration: 2,
     scrollTrigger: {
         trigger: ".pin-section",
-        start: "400px top",
-        end: "+=100%",
+        start: "top top",
+        end: "+=200%",
         pin: true,
-        scrub: true,
+        toggleActions: "play reverse play reverse"
     }
 })
+
+////////////////////////////////////////////////////////////////////////////////
+
