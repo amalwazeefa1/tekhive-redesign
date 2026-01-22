@@ -520,7 +520,7 @@ window.addEventListener("mousemove", (e) => {
     gsap.to(cursor, {
         x: e.clientX - 24,
         y: e.clientY - 24,
-        duration: 0.3,
+        duration: 0.5,
         ease: "power3.out",
     });
 });
@@ -540,7 +540,7 @@ target.addEventListener("mouseleave", () => {
     gsap.to(cursor, {
         scale: 0.5,
         opacity: 0,
-        duration: 0.25,
+        duration: 0.2,
         ease: "power3.in",
     });
 });

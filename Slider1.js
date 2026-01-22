@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
         "Turning Ideas Into Powerful Digital Products",
         "Crafting Seamless Mobile Experiences",
         "Empowering Your Brand with Tailored CMS Tools",
-        "Turning Ideas into Influence",
+        "Helping Brands Grow with Digital Marketing",
     ];
 
     const wrapper = document.getElementById("wrapper");
