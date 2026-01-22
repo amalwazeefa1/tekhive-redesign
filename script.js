@@ -690,7 +690,7 @@ gsap.registerPlugin(ScrollTrigger)
 ScrollTrigger.create({
     trigger: ".pinned-section",
     start: "top top",
-    end: "+=100%",
+    end: "+-100%",
     pin: true,
     pinSpacing: true,
 })
