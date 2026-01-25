@@ -692,7 +692,6 @@ gsap.from(".logo-part", {
     start: "top top",
     end: "9999999",
     scrub: false,
-    markers: true
   }
 });
 
