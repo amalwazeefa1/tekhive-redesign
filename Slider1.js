@@ -86,44 +86,44 @@ document.addEventListener("DOMContentLoaded", () => {
             .to(textEl, { opacity: 1, y: 0, duration: 0.8 }, 1.1);
     }
 
-    /* ------------------------
-       DIRECT NAV CLICK
-    ------------------------ */
-    function gotoSlideDirect(index) {
-        if (index === currentIndex || isAnimating) return;
-        gotoSlide(index > currentIndex ? 1 : -1);
-    }
+    // /* ------------------------
+    //    DIRECT NAV CLICK
+    // ------------------------ */
+    // function gotoSlideDirect(index) {
+    //     if (index === currentIndex || isAnimating) return;
+    //     gotoSlide(index > currentIndex ? 1 : -1);
+    // }
 
-    /* ------------------------
-       TOUCH & MOUSE SWIPE
-    ------------------------ */
-    function handleGesture() {
-        const diff = endX - startX;
-        if (diff < -50) gotoSlide(1);
-        if (diff > 50) gotoSlide(-1);
-    }
+    // /* ------------------------
+    //    TOUCH & MOUSE SWIPE
+    // ------------------------ */
+    // function handleGesture() {
+    //     const diff = endX - startX;
+    //     if (diff < -50) gotoSlide(1);
+    //     if (diff > 50) gotoSlide(-1);
+    // }
 
-    wrapper.addEventListener("touchstart", (e) => {
-        startX = e.changedTouches[0].screenX;
-        stopAutoSlide();
-    });
+    // wrapper.addEventListener("touchstart", (e) => {
+    //     startX = e.changedTouches[0].screenX;
+    //     stopAutoSlide();
+    // });
 
-    wrapper.addEventListener("touchend", (e) => {
-        endX = e.changedTouches[0].screenX;
-        handleGesture();
-        startAutoSlide();
-    });
+    // wrapper.addEventListener("touchend", (e) => {
+    //     endX = e.changedTouches[0].screenX;
+    //     handleGesture();
+    //     startAutoSlide();
+    // });
 
-    wrapper.addEventListener("mousedown", (e) => {
-        startX = e.clientX;
-        stopAutoSlide();
-    });
+    // wrapper.addEventListener("mousedown", (e) => {
+    //     startX = e.clientX;
+    //     stopAutoSlide();
+    // });
 
-    wrapper.addEventListener("mouseup", (e) => {
-        endX = e.clientX;
-        handleGesture();
-        startAutoSlide();
-    });
+    // wrapper.addEventListener("mouseup", (e) => {
+    //     endX = e.clientX;
+    //     handleGesture();
+    //     startAutoSlide();
+    // });
 
     /* ------------------------
        EVENTS
@@ -142,11 +142,11 @@ document.addEventListener("DOMContentLoaded", () => {
         startAutoSlide();
     });
 
-    /* ------------------------
-       PAUSE ON NAV HOVER
-    ------------------------ */
-    nav.addEventListener("mouseenter", stopAutoSlide);
-    nav.addEventListener("mouseleave", startAutoSlide);
+    // /* ------------------------
+    //    PAUSE ON NAV HOVER
+    // ------------------------ */
+    // nav.addEventListener("mouseenter", stopAutoSlide);
+    // nav.addEventListener("mouseleave", startAutoSlide);
 
     /* ------------------------
        START AUTO SLIDE
