@@ -127,49 +127,52 @@ if (document.body.classList.contains('home-page')) {
 
 
 
-///////////////////////////////////////////////////////////////////////
-// AUTO CARD SLIDE + GSAP SCROLL TRIGGER
-///////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////// AUTO CARD SLIDE + GSAP SCROLL TRIGGER
 
-// Elements
-const track = document.getElementById("services-track");
-const cards = track.querySelectorAll(".card");
+document.addEventListener("DOMContentLoaded", () => {
+    if (!document.body.classList.contains("home-page")) return;
 
-const prevBtn = document.getElementById("previous-btn");
-const nextButton = document.getElementById("next-btn");
+    const track = document.getElementById("services-track");
+    if (!track) return;
 
-// GSAP
+    const cards = track.querySelectorAll(".card");
+    const prevBtn = document.getElementById("previous-btn");
+    const nextBtn = document.getElementById("next-btn");
 
-// State
-let index = 0;
-let interval = null;
-const delay = 2000;
-let isPaused = false;
+    let index = 0;
+    let interval = null;
+    const delay = 2000;
 
-///////////////////////////////////////////////////////////////////////
-// SLIDE LOGIC
-///////////////////////////////////////////////////////////////////////
-function slideNext() {
-    if (isPaused) return;
-
-    index++;
-
-    if (index >= cards.length) {
-        index = 0;
-        track.scrollTo({ left: 0, behavior: "smooth" });
-        return;
+    function scrollToIndex(i) {
+        index = (i + cards.length) % cards.length;
+        track.scrollTo({
+            left: cards[index].offsetLeft,
+            behavior: "smooth",
+        });
     }
 
-    track.scrollTo({
-        left: cards[index].offsetLeft,
-        behavior: "smooth",
-    });
-}
+    function slideNext() {
+        scrollToIndex(index + 1);
+    }
 
+    function slidePrev() {
+        scrollToIndex(index - 1);
+    }
 
-function startAutoSlide() {
-    if (interval) return; // prevent duplicates
-    interval = setInterval(slideNext, delay);
+    function startAutoSlide() {
+        if (interval) return;
+        interval = setInterval(slideNext, delay);
+    }
+
+    function stopAutoSlide() {
+        if (!interval) return;
+        clearInterval(interval);
+        interval = null;
+    }
+
+    function resumeAutoSlide() {
+    isPaused = false;
+    startAutoSlide();
 }
 
 function stopAutoSlide() {
@@ -178,58 +181,59 @@ function stopAutoSlide() {
     interval = null;
 }
 
-function resumeAutoSlide() {
-    isPaused = false;
+
+    // Buttons
+    nextBtn?.addEventListener("click", () => {
+        stopAutoSlide();
+        slideNext();
+        startAutoSlide();
+    });
+
+    prevBtn?.addEventListener("click", () => {
+        stopAutoSlide();
+        slidePrev();
+        startAutoSlide();
+    });
+
+    // 🔥 PAUSE ON HOVER / TOUCH (single system)
+    [track, prevBtn, nextBtn].forEach(el => {
+        if (!el) return;
+
+        el.addEventListener("mouseenter", stopAutoSlide);
+        el.addEventListener("mouseleave", startAutoSlide);
+
+        el.addEventListener("touchstart", stopAutoSlide, { passive: true });
+        el.addEventListener("touchend", startAutoSlide);
+    });
+
     startAutoSlide();
-}
-///////////////////////////////////////////////////////////////////////
-// PAUSE ON HOVER / TOUCH
-///////////////////////////////////////////////////////////////////////
 
-// Buttons hover (desktop)
-prevBtn.addEventListener("mouseenter", stopAutoSlide);
-nextButton.addEventListener("mouseenter", stopAutoSlide);
-prevBtn.addEventListener("mouseleave", resumeAutoSlide);
-nextButton.addEventListener("mouseleave", resumeAutoSlide);
+    ScrollTrigger.create({
+        trigger: "#services-slider",
+        start: "top",
+        end: "bottom 30%",
 
-// Buttons touch (mobile)
-prevBtn.addEventListener("touchstart", stopAutoSlide, { passive: true });
-nextButton.addEventListener("touchstart", stopAutoSlide, { passive: true });
-prevBtn.addEventListener("touchend", resumeAutoSlide);
-nextButton.addEventListener("touchend", resumeAutoSlide);
+        onEnter: () => {
+            resumeAutoSlide();
+        },
 
-// Track hover
-track.addEventListener("mouseenter", stopAutoSlide);
-track.addEventListener("mouseleave", resumeAutoSlide);
+        onEnterBack: () => {
+            resumeAutoSlide();
+        },
 
-// Track touch (mobile)
-track.addEventListener("touchstart", stopAutoSlide, { passive: true });
-track.addEventListener("touchend", resumeAutoSlide);
+        onLeave: () => {
+            stopAutoSlide();
+        },
 
-///////////////////////////////////////////////////////////////////////
-// GSAP SCROLL TRIGGER (START / STOP ON VIEW)
-///////////////////////////////////////////////////////////////////////
-ScrollTrigger.create({
-    trigger: "#services-slider",
-    start: "top",
-    end: "bottom 30%",
+        onLeaveBack: () => {
+            stopAutoSlide();
+        }
+    });
 
-    onEnter: () => {
-        resumeAutoSlide();
-    },
-
-    onEnterBack: () => {
-        resumeAutoSlide();
-    },
-
-    onLeave: () => {
-        stopAutoSlide();
-    },
-
-    onLeaveBack: () => {
-        stopAutoSlide();
-    }
 });
+
+
+///////////////////////////////////////////////////////////////////////// GSAP SCROLL TRIGGER (START / STOP ON VIEW)
 
 
 
@@ -421,32 +425,34 @@ navItems.forEach(item => {
 
 
 //////////////////////////////////////////////////////////////////////////////carousel buttons
-const previousBtn = document.getElementById("previous-btn");
-const nextBtn = document.getElementById("next-btn");
-previousBtn.addEventListener("click", () => {
-    index--;
+if (document.body.classList.contains("home-page")) {
+    const previousBtn = document.getElementById("previous-btn");
+    const nextBtn = document.getElementById("next-btn");
+    previousBtn.addEventListener("click", () => {
+        index--;
 
-    if (index < 0) {
-        index = cards.length - 1;
+        if (index < 0) {
+            index = cards.length - 1;
+        }
+        track.scrollTo({
+            left: cards[index].offsetLeft,
+            behavior: "smooth",
+        });
     }
-    track.scrollTo({
-        left: cards[index].offsetLeft,
-        behavior: "smooth",
+    );
+
+    nextBtn.addEventListener("click", () => {
+        index++;
+        if (index >= cards.length) {
+            index = 0;
+        }
+        track.scrollTo({
+            left: cards[index].offsetLeft,
+            behavior: "smooth",
+        });
     });
+
 }
-);
-
-nextBtn.addEventListener("click", () => {
-    index++;
-    if (index >= cards.length) {
-        index = 0;
-    }
-    track.scrollTo({
-        left: cards[index].offsetLeft,
-        behavior: "smooth",
-    });
-});
-
 
 ///////////////////////////////////////////////////////////////////////////////popup button gsap animation
 window.addEventListener("load", () => {
@@ -504,38 +510,45 @@ window.addEventListener("load", () => {
 
 
 ////////////////////////////////////////////////////////////////////////////icon when hover gsap animation
-const target = document.getElementById("services-track");
-const cursor = document.getElementById("cursor-icon");
+document.addEventListener("DOMContentLoaded", () => {
+    if (!document.body.classList.contains("home-page")) return;
 
-// Smooth follow
-window.addEventListener("mousemove", (e) => {
-    gsap.to(cursor, {
-        x: e.clientX - 24,
-        y: e.clientY - 24,
-        duration: 0.5,
-        ease: "power3.out",
+    const target = document.getElementById("services-track");
+    const cursor = document.getElementById("cursor-icon");
+
+    if (!target || !cursor) return;
+
+    // Smooth follow
+    window.addEventListener("mousemove", (e) => {
+        gsap.to(cursor, {
+            x: e.clientX - 24,
+            y: e.clientY - 24,
+            duration: 0.5,
+            ease: "power3.out",
+        });
+    });
+
+    // Show cursor
+    target.addEventListener("mouseenter", () => {
+        gsap.to(cursor, {
+            scale: 1,
+            opacity: 1,
+            duration: 0.25,
+            ease: "power3.out",
+        });
+    });
+
+    // Hide cursor
+    target.addEventListener("mouseleave", () => {
+        gsap.to(cursor, {
+            scale: 0.5,
+            opacity: 0,
+            duration: 0.2,
+            ease: "power3.in",
+        });
     });
 });
 
-// Show cursor
-target.addEventListener("mouseenter", () => {
-    gsap.to(cursor, {
-        scale: 1,
-        opacity: 1,
-        duration: 0.25,
-        ease: "power3.out",
-    });
-});
-
-// Hide cursor
-target.addEventListener("mouseleave", () => {
-    gsap.to(cursor, {
-        scale: 0.5,
-        opacity: 0,
-        duration: 0.2,
-        ease: "power3.in",
-    });
-});
 
 
 //////////////////////////////////////////////////////////////////////////////header gsap animation
@@ -656,48 +669,49 @@ header.addEventListener('mouseleave', () => {
 // });
 
 /////////////////////////////////////////////////////////////////////////////logo
-const logo = document.getElementById("site-logo");
-const whiteLogo = logo.src;
-const blackLogo = logo.dataset.altSrc;
+if (document.body.classList.contains("home-page")) {
+    const logo = document.getElementById("site-logo");
+    const whiteLogo = logo.src;
+    const blackLogo = logo.dataset.altSrc;
 
-if (document.body.classList.contains("about-page")) {
-    startValue = "300px top"
+  
+
+    ScrollTrigger.create({
+        start: startValue,
+        onEnter: () => {
+            gsap.to(logo, {
+                opacity: 0,
+                duration: 0.1,
+                onComplete: () => {
+                    logo.src = blackLogo;
+                    gsap.to(logo, { opacity: 1, duration: 0.1 });
+                }
+            });
+        },
+        onLeaveBack: () => {
+            gsap.to(logo, {
+                opacity: 0,
+                duration: 0.1,
+                onComplete: () => {
+                    logo.src = whiteLogo;
+                    gsap.to(logo, { opacity: 1, duration: 0.1 });
+                }
+            });
+        }
+    });
 }
 
-ScrollTrigger.create({
-    start: startValue,
-    onEnter: () => {
-        gsap.to(logo, {
-            opacity: 0,
-            duration: 0.1,
-            onComplete: () => {
-                logo.src = blackLogo;
-                gsap.to(logo, { opacity: 1, duration: 0.1 });
-            }
-        });
-    },
-    onLeaveBack: () => {
-        gsap.to(logo, {
-            opacity: 0,
-            duration: 0.1,
-            onComplete: () => {
-                logo.src = whiteLogo;
-                gsap.to(logo, { opacity: 1, duration: 0.1 });
-            }
-        });
-    }
-});
 
 
 /////////////////////////////////////////////////////////////////////////////////Pinned intro aimation
 
-ScrollTrigger.create({
-    trigger: ".pinned-section",
-    start: "top top",
-    end: "+-100%",
-    pin: true,
-    pinSpacing: true,
-})
+// ScrollTrigger.create({
+//     trigger: ".pinned-section",
+//     start: "top top",
+//     end: "+-100%",
+//     pin: true,
+//     pinSpacing: true,
+// })
 
 gsap.from(".pinned-section .tekhive-icon", {
     scale: 0.6,
@@ -709,7 +723,7 @@ gsap.from(".pinned-section .tekhive-icon", {
         start: "top top",
         end: "+=200%",
         pin: true,
-        toggleActions: "play reverse play reverse"
+        toggleActions: "play reverse play reverse",
     }
 })
 
