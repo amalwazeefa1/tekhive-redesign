@@ -1,5 +1,5 @@
 //////////////////////////////////////////////////////////////////////////////for optimized scroll performance4
-gsap.registerPlugin(ScrollTrigger, SplitText, MorphSVGPlugin, ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger, SplitText, MorphSVGPlugin);
 ScrollTrigger.config({
     ignoreMobileResize: true,
 });
@@ -14,52 +14,6 @@ ScrollTrigger.normalizeScroll({
 
 
 
-////////////////////////////////////////////////////////////////////////////////////card drag and slide
-const slider = document.getElementById("services-track");
-
-let isDown = false;
-let startX;
-let scrollLeft;
-
-/* -------- Mouse Events -------- */
-slider.addEventListener("mousedown", (e) => {
-    isDown = true;
-    slider.classList.add("cursor-grabbing");
-
-    startX = e.pageX - slider.offsetLeft;
-    scrollLeft = slider.scrollLeft;
-});
-
-slider.addEventListener("mouseleave", () => {
-    isDown = false;
-    slider.classList.remove("cursor-grabbing");
-});
-
-slider.addEventListener("mouseup", () => {
-    isDown = false;
-    slider.classList.remove("cursor-grabbing");
-});
-
-slider.addEventListener("mousemove", (e) => {
-    if (!isDown) return;
-    e.preventDefault();
-
-    const x = e.pageX - slider.offsetLeft;
-    const walk = (x - startX) * 1.4; // speed
-    slider.scrollLeft = scrollLeft - walk;
-});
-
-/* -------- Touch Events -------- */
-slider.addEventListener("touchstart", (e) => {
-    startX = e.touches[0].pageX;
-    scrollLeft = slider.scrollLeft;
-});
-
-slider.addEventListener("touchmove", (e) => {
-    const x = e.touches[0].pageX;
-    const walk = (x - startX) * 1.4;
-    slider.scrollLeft = scrollLeft - walk;
-});
 
 
 
@@ -122,7 +76,57 @@ document.fonts.ready.then(() => {
 
 
 
+////////////////////////////////////////////////////////////////////////////////////card drag and slide
+if (document.body.classList.contains('home-page')) {
+    
+}
 
+
+const slider = document.getElementById("services-track");
+
+let isDown = false;
+let startX;
+let scrollLeft;
+
+/* -------- Mouse Events -------- */
+slider.addEventListener("mousedown", (e) => {
+    isDown = true;
+    slider.classList.add("cursor-grabbing");
+
+    startX = e.pageX - slider.offsetLeft;
+    scrollLeft = slider.scrollLeft;
+});
+
+slider.addEventListener("mouseleave", () => {
+    isDown = false;
+    slider.classList.remove("cursor-grabbing");
+});
+
+slider.addEventListener("mouseup", () => {
+    isDown = false;
+    slider.classList.remove("cursor-grabbing");
+});
+
+slider.addEventListener("mousemove", (e) => {
+    if (!isDown) return;
+    e.preventDefault();
+
+    const x = e.pageX - slider.offsetLeft;
+    const walk = (x - startX) * 1.4; // speed
+    slider.scrollLeft = scrollLeft - walk;
+});
+
+/* -------- Touch Events -------- */
+slider.addEventListener("touchstart", (e) => {
+    startX = e.touches[0].pageX;
+    scrollLeft = slider.scrollLeft;
+});
+
+slider.addEventListener("touchmove", (e) => {
+    const x = e.touches[0].pageX;
+    const walk = (x - startX) * 1.4;
+    slider.scrollLeft = scrollLeft - walk;
+});
 ///////////////////////////////////////////////////////////////////////
 // AUTO CARD SLIDE + GSAP SCROLL TRIGGER
 ///////////////////////////////////////////////////////////////////////
@@ -135,12 +139,11 @@ const prevBtn = document.getElementById("previous-btn");
 const nextButton = document.getElementById("next-btn");
 
 // GSAP
-gsap.registerPlugin(ScrollTrigger);
 
 // State
 let index = 0;
 let interval = null;
-const delay = 2500;
+const delay = 2000;
 let isPaused = false;
 
 ///////////////////////////////////////////////////////////////////////
@@ -180,6 +183,8 @@ function resumeAutoSlide() {
     startAutoSlide();
 }
 
+
+
 ///////////////////////////////////////////////////////////////////////
 // PAUSE ON HOVER / TOUCH
 ///////////////////////////////////////////////////////////////////////
@@ -208,7 +213,7 @@ track.addEventListener("touchend", resumeAutoSlide);
 // GSAP SCROLL TRIGGER (START / STOP ON VIEW)
 ///////////////////////////////////////////////////////////////////////
 ScrollTrigger.create({
-    trigger: "#services-section",
+    trigger: "#services-slider",
     start: "top",
     end: "bottom 30%",
 
@@ -244,9 +249,10 @@ gsap.utils.toArray(".fade-up, .fade-up2").forEach((el, i) => {
         duration: 1,
         ease: "power1.out",
         scrollTrigger: {
-            trigger: el,
+            trigger: "#about",
             start: isFadeUp2 ? "top 70%" : "top 80%",
-            toggleActions: isFadeUp2 ? "play reverse play reverse" : "play reverse play reverse",
+            // toggleActions: isFadeUp2 ? "play reverse play reverse" : "play reverse play reverse",
+            toggleActions: "play none none reset",
         },
         delay: isFadeUp2
             ? 0          // fade-up2 starts immediately
@@ -257,68 +263,93 @@ gsap.utils.toArray(".fade-up, .fade-up2").forEach((el, i) => {
 })
 
 ////////////////////////////////////////////////////////////////////////////////progress bar animation
-gsap.fromTo(
-    "#progress-fill1",
-    { scaleX: 0 },
-    {
-        scaleX: 0.98,
-        duration: 3,
-        ease: "power2.out",
-        scrollTrigger: {
-            trigger: "#about-us",
-            start: "top center",
-            toggleActions: "play reverse play reverse"
-        }
+if (document.body.classList.contains("home-page")) {
+
+    const aboutSection = document.getElementById("about-us");
+    const progress1 = document.getElementById("progress-fill1");
+    const progress2 = document.getElementById("progress-fill2");
+
+    if (aboutSection && progress1 && progress2) {
+
+        gsap.fromTo(
+            progress1,
+            { scaleX: 0, transformOrigin: "left center" },
+            {
+                scaleX: 0.98,
+                duration: 3,
+                ease: "power2.out",
+                scrollTrigger: {
+                    trigger: aboutSection,
+                    start: "top center",
+                    toggleActions: "play none none reset"
+                }
+            }
+        );
+
+        gsap.fromTo(
+            progress2,
+            { scaleX: 0, transformOrigin: "left center" },
+            {
+                scaleX: 0.85,
+                duration: 3,
+                ease: "power2.out",
+                scrollTrigger: {
+                    trigger: aboutSection,
+                    start: "top center",
+                    toggleActions: "play none none reset"
+                }
+            }
+        );
+
     }
-);
-gsap.fromTo(
-    "#progress-fill2",
-    { scaleX: 0 },
-    {
-        scaleX: 0.85,
-        duration: 3,
-        ease: "power2.out",
-        scrollTrigger: {
-            trigger: "#about-us",
-            start: "top center",
-            toggleActions: "play reverse play reverse"
-        }
-    }
-);
+}
 
 
 ////////////////////////////////////////////////////////////////////////////////////counter animation
 //first counter
-let counter1 = { value: 0 };
-gsap.to(counter1, {
-    value: 98,
-    duration: 2,
-    ease: "power1.out",
-    scrollTrigger: {
-        trigger: "#about-us",
-        start: "top center",
-        toggleActions: "play reverse play reverse"
-    },
-    onUpdate: () => {
-        document.getElementById("progress-count1").textContent = Math.floor(counter1.value) + "%";
-    }
-})
 
-//second counter
-let counter2 = { value: 0 };
-gsap.to(counter2, {
-    value: 85,
-    duration: 2,
-    ease: "power1.out",
-    scrollTrigger: {
-        trigger: "#about-us",
-        start: "top center",
-        toggleActions: "play reverse play reverse"
-    },
-    onUpdate: () => {
-        document.getElementById("progrss-count2").textContent = Math.floor(counter2.value) + "%";
-    }
-})
+if (document.body.classList.contains("home-page")) {
+
+    // first counter
+    let counter1 = { value: 0 };
+    gsap.to(counter1, {
+        value: 98,
+        duration: 2,
+        ease: "power1.out",
+        scrollTrigger: {
+            trigger: "#about-us",
+            start: "top center",
+            toggleActions: "play none none reset"
+        },
+        onUpdate: () => {
+            const el1 = document.getElementById("progress-count1");
+            if (el1) {
+                el1.textContent = Math.floor(counter1.value) + "%";
+            }
+        }
+    });
+
+    // second counter
+    let counter2 = { value: 0 };
+    gsap.to(counter2, {
+        value: 85,
+        duration: 2,
+        ease: "power1.out",
+        scrollTrigger: {
+            trigger: "#about-us",
+            start: "top center",
+            toggleActions: "play none none reset"
+        },
+        onUpdate: () => {
+            const el2 = document.getElementById("progress-count2");
+            if (el2) {
+                el2.textContent = Math.floor(counter2.value) + "%";
+            }
+        }
+    });
+
+}
+
 
 /////////////////////////////////////////////////////////////////morph svg animation
 // gsap.to("#grow-morph-1", {
@@ -517,48 +548,57 @@ const whatsappIcon = document.querySelector(".whatsapp-icon-white");
 const phoneIcon = document.querySelector(".phone-icon-white");
 const menuIcon = document.querySelector(".menu");
 
-ScrollTrigger.create({
-  start: "1300px top",
-  end: "99999",
-  onToggle: (self) => {
-    // header background
-    header.classList.toggle("bg-white", self.isActive);
-    header.classList.toggle("bg-gradient-to-b", !self.isActive);
-    header.classList.toggle("from-black", !self.isActive);
-    header.classList.toggle("to-transparent", !self.isActive);
-    // nav link colors
-    navLinks.forEach(link => {
-      link.classList.toggle("text-black", self.isActive);
-      link.classList.toggle("text-white", !self.isActive);
-    });
-    // whatsapp icon color toggle
-    whatsappIcon.classList.toggle("text-black", self.isActive);
-    whatsappIcon.classList.toggle("text-white", !self.isActive);
-    phoneIcon.classList.toggle("text-black", self.isActive);
-    phoneIcon.classList.toggle("text-white", !self.isActive);
-    // menu icon color toggle
-    menuIcon.classList.toggle("text-black", self.isActive);
-    menuIcon.classList.toggle("text-white", !self.isActive);
+let startValue = "top top"
+let endValue = "99999";
 
-  }
+if (document.body.classList.contains("home-page")) {
+    startValue = "1300px top";
+}
+if (document.body.classList.contains("about-page")) {
+    startValue = "300px top";
+}
+
+ScrollTrigger.create({
+    start: startValue,
+    end: endValue,
+    onToggle: (self) => {
+        // header background
+        header.classList.toggle("bg-white", self.isActive);
+        header.classList.toggle("bg-gradient-to-b", !self.isActive);
+        header.classList.toggle("from-black", !self.isActive);
+        header.classList.toggle("to-transparent", !self.isActive);
+        // nav link colors
+        navLinks.forEach(link => {
+            link.classList.toggle("text-black", self.isActive);
+            link.classList.toggle("text-white", !self.isActive);
+        });
+        // whatsapp icon color toggle
+        whatsappIcon.classList.toggle("text-black", self.isActive);
+        whatsappIcon.classList.toggle("text-white", !self.isActive);
+        phoneIcon.classList.toggle("text-black", self.isActive);
+        phoneIcon.classList.toggle("text-white", !self.isActive);
+        // menu icon color toggle
+        menuIcon.classList.toggle("text-black", self.isActive);
+        menuIcon.classList.toggle("text-white", !self.isActive);
+    }
 });
 
 // handle hover only when NOT scrolled past 350px
 header.addEventListener('mouseleave', () => {
-  const isScrolled = ScrollTrigger.isInViewport(header, "1200px top"); 
-  // or track state yourself with a variable
+    const isScrolled = ScrollTrigger.isInViewport(header, "1200px top");
+    // or track state yourself with a variable
 
-  navLinks.forEach(link => {
-    if (isScrolled) {
-      // keep black if scrolled
-      link.classList.remove('text-white');
-      link.classList.add('text-black');
-    } else {
-      // revert to white if not scrolled
-      link.classList.remove('text-black');
-      link.classList.add('text-white');
-    }
-  });
+    navLinks.forEach(link => {
+        if (isScrolled) {
+            // keep black if scrolled
+            link.classList.remove('text-white');
+            link.classList.add('text-black');
+        } else {
+            // revert to white if not scrolled
+            link.classList.remove('text-black');
+            link.classList.add('text-white');
+        }
+    });
 });
 
 header.addEventListener('mouseenter', () => {
@@ -623,33 +663,36 @@ const logo = document.getElementById("site-logo");
 const whiteLogo = logo.src;
 const blackLogo = logo.dataset.altSrc;
 
+if (document.body.classList.contains("about-page")) {
+    startValue = "300px top"
+}
+
 ScrollTrigger.create({
-  start: "1300px top",
-  onEnter: () => {
-    gsap.to(logo, {
-      opacity: 0,
-      duration: 0.1,
-      onComplete: () => {
-        logo.src = blackLogo;
-        gsap.to(logo, { opacity: 1, duration: 0.1 });
-      }
-    });
-  },
-  onLeaveBack: () => {
-    gsap.to(logo, {
-      opacity: 0,
-      duration: 0.1,
-      onComplete: () => {
-        logo.src = whiteLogo;
-        gsap.to(logo, { opacity: 1, duration: 0.1 });
-      }
-    });
-  }
+    start: startValue,
+    onEnter: () => {
+        gsap.to(logo, {
+            opacity: 0,
+            duration: 0.1,
+            onComplete: () => {
+                logo.src = blackLogo;
+                gsap.to(logo, { opacity: 1, duration: 0.1 });
+            }
+        });
+    },
+    onLeaveBack: () => {
+        gsap.to(logo, {
+            opacity: 0,
+            duration: 0.1,
+            onComplete: () => {
+                logo.src = whiteLogo;
+                gsap.to(logo, { opacity: 1, duration: 0.1 });
+            }
+        });
+    }
 });
 
 
 /////////////////////////////////////////////////////////////////////////////////Pinned intro aimation
-gsap.registerPlugin(ScrollTrigger)
 
 ScrollTrigger.create({
     trigger: ".pinned-section",
@@ -675,26 +718,43 @@ gsap.from(".pinned-section .tekhive-icon", {
 
 
 gsap.from(".logo-part", {
-  opacity: 0,
-  y: 20,
-  scale: 0.8,
-  rotate: 5,
-  filter: "blur(6px)",
-  duration: 1.2,
-  ease: "expo.out",
-  delay: 1.5,
-  stagger: {
-    each: 0.12,
-    from: "start"
-  },
-  scrollTrigger: {
-    trigger: ".tekhive-text",
-    start: "top top",
-    end: "9999999",
-    scrub: false,
-  }
+    opacity: 0,
+    y: 20,
+    scale: 0.8,
+    rotate: 5,
+    filter: "blur(6px)",
+    duration: 1.2,
+    ease: "expo.out",
+    delay: 1.5,
+    stagger: {
+        each: 0.12,
+        from: "start"
+    },
+    scrollTrigger: {
+        trigger: ".tekhive-text",
+        start: "top top",
+        end: "9999999",
+        scrub: false,
+    }
 });
 
 
-////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////split text
+const split = new SplitType("#tektext", { types: "lines" });
 
+gsap.from(split.lines, {
+    scrollTrigger: {
+        trigger: "#tektext",
+        start: "top 80%",
+        toggleActions: "play none none reset"
+    },
+    yPercent: 100,
+    opacity: 0,
+    duration: 0.8,
+    stagger: 0.15,
+    ease: "power4.out",
+    delay: 1
+});
+
+
+///////////////////////////////////////////////////////////////////////////Text Parallax

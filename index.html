@@ -63,7 +63,7 @@
 </head>
 
 <body
-    class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white font-display antialiased overflow-x-hidden">
+    class="home-page bg-background-light dark:bg-background-dark text-slate-900 dark:text-white font-display antialiased overflow-x-hidden">
     <!-- Top App Bar -->
     <header id="site-header" class="fixed w-full top-0 z-50 bg-gradient-to-b from-black to-transparent hover:bg-white hover:bg-none hover:from-transparent hover:to-transparent hover:transition-all hover:duration-300 hover:duration-0 dark:bg-slate-900/80
          dark:border-slate-800">
@@ -345,8 +345,7 @@
 
             <!-- ITEM -->
             <div class="nav-item w-full group flex flex-col gap-6 active">
-                <span
-                    class="text-white text-sm md:text-base opacity-60  group-[.active]:opacity-100">
+                <span class="text-white text-sm md:text-base opacity-60  group-[.active]:opacity-100">
                     01 Web Development
                 </span>
                 <div class="relative overflow-hidden w-full h-[3px] bg-white/40
@@ -360,8 +359,7 @@
             </div>
 
             <div class="nav-item w-full group flex flex-col gap-6">
-                <span
-                    class="text-white text-sm md:text-base opacity-60 group-[.active]:opacity-100">
+                <span class="text-white text-sm md:text-base opacity-60 group-[.active]:opacity-100">
                     02 App Development
                 </span>
                 <div class="relative overflow-hidden w-full h-[3px] bg-white/40
@@ -375,8 +373,7 @@
             </div>
 
             <div class="nav-item w-full group flex flex-col gap-6">
-                <span
-                    class="text-white text-sm md:text-base opacity-60 group-[.active]:opacity-100">
+                <span class="text-white text-sm md:text-base opacity-60 group-[.active]:opacity-100">
                     03 CMS Development
                 </span>
                 <div class="relative overflow-hidden w-full h-[3px] bg-white/40
@@ -390,8 +387,7 @@
             </div>
 
             <div class="nav-item w-full group flex flex-col gap-6">
-                <span
-                    class="text-white text-sm md:text-base opacity-60 group-[.active]:opacity-100">
+                <span class="text-white text-sm md:text-base opacity-60 group-[.active]:opacity-100">
                     04 Digital Marketing
                 </span>
                 <div class="relative overflow-hidden w-full h-[3px] bg-white/40
@@ -540,9 +536,10 @@
             <div class="flex justify-center">
                 <img class="tekhive-icon w-1/4 h-auto" src="/assets/tekhive-icon.svg" alt="icon">
                 <!-- <img class="tekhive-text w-1/2 h-auto" src="/assets/tekhive-text.svg" alt="text"> -->
-                <svg class="tekhive-text w-1/2 h-auto" id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 300.3 48.4">
-                    <polygon class="logo-part" points="12.5 48.4 12.5 5.7 0 5.7 0 0 38 0 38 5.7 25.6 5.7 25.6 48.4 12.5 48.4"
+                <svg class="tekhive-text w-1/2 h-auto" id="Layer_1" data-name="Layer 1"
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300.3 48.4">
+                    <polygon class="logo-part"
+                        points="12.5 48.4 12.5 5.7 0 5.7 0 0 38 0 38 5.7 25.6 5.7 25.6 48.4 12.5 48.4"
                         style="fill: #fff; stroke-width: 0px;" />
                     <polygon class="logo-part"
                         points="44.9 48.4 44.9 0 81.2 0 81.2 5.7 57.8 5.7 57.8 19.2 80.5 19.2 80.5 26 57.8 26 57.8 42.8 81.8 42.8 81.8 48.4 44.9 48.4"
@@ -553,7 +550,8 @@
                     <polygon class="logo-part"
                         points="138.4 48.4 138.4 0 151.4 0 151.4 20.7 168.3 20.7 168.3 0 181.2 0 181.2 48.4 168.3 48.4 168.3 26.9 151.4 26.9 151.4 48.4 138.4 48.4"
                         style="fill: #fff; stroke-width: 0px;" />
-                    <polygon class="logo-part" points="210.2 0 216 0 233.4 37.8 243.2 0 257 0 243.2 48.4 223.5 48.4 210.2 0"
+                    <polygon class="logo-part"
+                        points="210.2 0 216 0 233.4 37.8 243.2 0 257 0 243.2 48.4 223.5 48.4 210.2 0"
                         style="fill: #fff; stroke-width: 0px;" />
                     <polygon class="logo-part"
                         points="263.4 48.4 263.4 0 299.8 0 299.8 5.7 276.4 5.7 276.4 19.2 299.1 19.2 299.1 26 276.4 26 276.4 42.8 300.3 42.8 300.3 48.4 263.4 48.4"
@@ -565,7 +563,8 @@
             <div class="flex items-center gap-4">
                 <div class="w-[0.5px] h-40 bg-gradient-to-b from-black via-white to-black"></div>
                 <div class="relative text-white max-w-xl text-start">
-                    <p>At Tekhive, we don’t just develop software—we engineer possibility. Our teams thrive on solving
+                    <p id="tektext" class="text-lg leading-relaxed">At Tekhive, we don’t just develop software—we
+                        engineer possibility. Our teams thrive on solving
                         complex problems, crafting elegant solutions, and pushing boundaries in every line of code.</p>
                 </div>
             </div>
@@ -574,7 +573,7 @@
 
 
 
-    <section class="py-12">
+    <section id="about" class="py-12">
         <div class="max-w-7xl mx-auto px-4 space-y-6">
             <div class="flex flex-col md:flex-row justify-between gap-8 mb-12">
                 <div class="flex gap-8">
@@ -840,7 +839,7 @@ z
                             <div class="relative z-10 h-full px-4 text-[11px] text-white
                              flex items-center justify-between">
                                 <span>NEW TECHNOLOGIES</span>
-                                <span id="progrss-count2" class="text-[#499BD5]">85%</span>
+                                <span id="progress-count2" class="text-[#499BD5]">85%</span>
                             </div>
                         </div>
 
@@ -1625,6 +1624,7 @@ z
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/MorphSVGPlugin.min.js"></script>
     <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.11/dist/dotlottie-wc.js" type="module"></script>
     <script src="https://unpkg.com/lottie-web/build/player/lottie.min.js"></script>
+    <script src="https://unpkg.com/split-type@0.3.4/umd/index.min.js"></script>
     <script src="script.js"></script>
     <script src="Slider1.js"></script>
 </body>
