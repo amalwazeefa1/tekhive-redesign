@@ -78,55 +78,55 @@ document.fonts.ready.then(() => {
 
 ////////////////////////////////////////////////////////////////////////////////////card drag and slide
 if (document.body.classList.contains('home-page')) {
-    
+    const slider = document.getElementById("services-track");
+
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+
+    /* -------- Mouse Events -------- */
+    slider.addEventListener("mousedown", (e) => {
+        isDown = true;
+        slider.classList.add("cursor-grabbing");
+
+        startX = e.pageX - slider.offsetLeft;
+        scrollLeft = slider.scrollLeft;
+    });
+
+    slider.addEventListener("mouseleave", () => {
+        isDown = false;
+        slider.classList.remove("cursor-grabbing");
+    });
+
+    slider.addEventListener("mouseup", () => {
+        isDown = false;
+        slider.classList.remove("cursor-grabbing");
+    });
+
+    slider.addEventListener("mousemove", (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+
+        const x = e.pageX - slider.offsetLeft;
+        const walk = (x - startX) * 1.4; // speed
+        slider.scrollLeft = scrollLeft - walk;
+    });
+
+    /* -------- Touch Events -------- */
+    slider.addEventListener("touchstart", (e) => {
+        startX = e.touches[0].pageX;
+        scrollLeft = slider.scrollLeft;
+    });
+
+    slider.addEventListener("touchmove", (e) => {
+        const x = e.touches[0].pageX;
+        const walk = (x - startX) * 1.4;
+        slider.scrollLeft = scrollLeft - walk;
+    });
 }
 
 
-const slider = document.getElementById("services-track");
 
-let isDown = false;
-let startX;
-let scrollLeft;
-
-/* -------- Mouse Events -------- */
-slider.addEventListener("mousedown", (e) => {
-    isDown = true;
-    slider.classList.add("cursor-grabbing");
-
-    startX = e.pageX - slider.offsetLeft;
-    scrollLeft = slider.scrollLeft;
-});
-
-slider.addEventListener("mouseleave", () => {
-    isDown = false;
-    slider.classList.remove("cursor-grabbing");
-});
-
-slider.addEventListener("mouseup", () => {
-    isDown = false;
-    slider.classList.remove("cursor-grabbing");
-});
-
-slider.addEventListener("mousemove", (e) => {
-    if (!isDown) return;
-    e.preventDefault();
-
-    const x = e.pageX - slider.offsetLeft;
-    const walk = (x - startX) * 1.4; // speed
-    slider.scrollLeft = scrollLeft - walk;
-});
-
-/* -------- Touch Events -------- */
-slider.addEventListener("touchstart", (e) => {
-    startX = e.touches[0].pageX;
-    scrollLeft = slider.scrollLeft;
-});
-
-slider.addEventListener("touchmove", (e) => {
-    const x = e.touches[0].pageX;
-    const walk = (x - startX) * 1.4;
-    slider.scrollLeft = scrollLeft - walk;
-});
 ///////////////////////////////////////////////////////////////////////
 // AUTO CARD SLIDE + GSAP SCROLL TRIGGER
 ///////////////////////////////////////////////////////////////////////
@@ -182,9 +182,6 @@ function resumeAutoSlide() {
     isPaused = false;
     startAutoSlide();
 }
-
-
-
 ///////////////////////////////////////////////////////////////////////
 // PAUSE ON HOVER / TOUCH
 ///////////////////////////////////////////////////////////////////////
