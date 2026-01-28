@@ -22,6 +22,9 @@
             darkMode: "class",
             theme: {
                 extend: {
+                    backgroundImage: {
+                        'about': "url('/assets/about-img.png')"
+                    },
                     keyframes: {
                         fill: {
                             '0%': { width: '0%' },
@@ -395,23 +398,26 @@
 
 
 
-    <section id="about-hero" class="relative h-[50vh] bg-black text-white py-12 flex items-end overflow-hidden">
-        <div class="w-full mx-auto bg-no-repeat bg-cover bg-center"
+    <section id="about-hero" class="relative bg-black text-white flex items-end overflow-hidden">
+        <div class="h-[50vh] w-full flex items-end py-12 z-10 mx-auto bg-no-repeat bg-cover bg-center"
             style="background-image: url(/assets/gradients.png);">
-            <div class="max-w-7xl px-4 pb-12 mx-auto">
+            <div class="max-w-7xl w-full px-4 pb-10 mx-auto">
                 <div class="flex flex-row gap-6 items-center relative">
                     <!-- Line element -->
-                    <div class="w-[100px] h-[0.5px] bg-white order-2 sm:order-1"></div>
+                    <div class="w-[100px] h-[0.25px] opacity-50 bg-white order-2 sm:order-1"></div>
 
                     <!-- Text content -->
                     <div class="flex flex-col relative z-10 order-1 sm:order-2">
-                        <h1 class="text-4xl sm:text-7xl font-semibold">About Company</h1>
+                        <h1 class="text-5xl sm:text-7xl font-semibold">About Company</h1>
 
                         <nav class="flex font-semibold mt-2">
                             <span class="cursor-pointer">Home</span>
                             <span class="mx-4">|</span>
-                            <span class="text-gray-300">About Us</span>
+                            <span class="text-white/50">About Us</span>
                         </nav>
+                    </div>
+                    <div class="flex pt-12">
+
                     </div>
                 </div>
             </div>
@@ -429,7 +435,7 @@
 
     <div class="section bg-gray-100 h-screen py-12">
         <div class="max-w-7xl px-4 mx-auto">
-            <div class="bg-white w-full h-[350px]">
+            <div class="bg-white bg-about bg-cover bg-center w-full h-[350px]">
 
             </div>
         </div>

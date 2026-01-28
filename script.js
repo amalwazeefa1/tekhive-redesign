@@ -509,7 +509,7 @@ window.addEventListener("load", () => {
 
 
 
-////////////////////////////////////////////////////////////////////////////icon when hover gsap animation
+////////////////////////////////////////////////////////////////////////////cursor icon when hover gsap animation
 document.addEventListener("DOMContentLoaded", () => {
     if (!document.body.classList.contains("home-page")) return;
 
