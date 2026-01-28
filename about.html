@@ -396,14 +396,16 @@
 
 
     <section id="about-hero" class="relative h-[50vh] bg-black text-white py-12 flex items-end overflow-hidden">
-        <div class="w-full mx-auto bg-no-repeat bg-cover bg-center" style="background-image: url(/assets/gradients.png);">
+        <div class="w-full mx-auto bg-no-repeat bg-cover bg-center"
+            style="background-image: url(/assets/gradients.png);">
             <div class="max-w-7xl px-4 pb-12 mx-auto">
-                <div class="flex sm:flex-row-reverse items-center space-x-6 relative">
+                <div class="flex flex-row gap-6 items-center relative">
+                    <!-- Line element -->
+                    <div class="w-[100px] h-[0.5px] bg-white order-2 sm:order-1"></div>
 
-                    <div class="w-[100px] h-[0.5px] bg-white"></div>
-
-                    <div class="flex-col relative z-10">
-                        <h1 class="text-4xl sm:text-7xl font-bold">About Company</h1>
+                    <!-- Text content -->
+                    <div class="flex flex-col relative z-10 order-1 sm:order-2">
+                        <h1 class="text-4xl sm:text-7xl font-semibold">About Company</h1>
 
                         <nav class="flex font-semibold mt-2">
                             <span class="cursor-pointer">Home</span>
@@ -428,7 +430,7 @@
     <div class="section bg-gray-100 h-screen py-12">
         <div class="max-w-7xl px-4 mx-auto">
             <div class="bg-white w-full h-[350px]">
-                
+
             </div>
         </div>
     </div>
