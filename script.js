@@ -768,4 +768,34 @@ gsap.from(split.lines, {
 });
 
 
-///////////////////////////////////////////////////////////////////////////Text Parallax
+
+//////////////////////////////////////////////////////////////////////////////blured ball
+
+const aboutSection = document.getElementById("about-hero");
+const ball = document.querySelector(".ball");
+
+let isHovering = false;
+
+// Track hover state
+aboutSection.addEventListener("mouseenter", () => {
+  isHovering = true;
+});
+aboutSection.addEventListener("mouseleave", () => {
+  isHovering = false;
+});
+
+// Create quick setters
+const setX = gsap.quickTo(ball, "x", { duration: 1, ease: "power3.out" });
+const setY = gsap.quickTo(ball, "y", { duration: 1, ease: "power3.out" });
+
+aboutSection.addEventListener("mousemove", (e) => {
+  if (!isHovering) return;
+
+  const rect = aboutSection.getBoundingClientRect();
+  const x = e.clientX - rect.left - ball.offsetWidth / 1;
+  const y = e.clientY - rect.top - ball.offsetHeight / 2;
+
+  setX(x);
+  setY(y);
+});
+
