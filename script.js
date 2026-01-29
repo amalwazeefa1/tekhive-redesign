@@ -171,15 +171,15 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function resumeAutoSlide() {
-    isPaused = false;
-    startAutoSlide();
-}
+        isPaused = false;
+        startAutoSlide();
+    }
 
-function stopAutoSlide() {
-    isPaused = true;
-    clearInterval(interval);
-    interval = null;
-}
+    function stopAutoSlide() {
+        isPaused = true;
+        clearInterval(interval);
+        interval = null;
+    }
 
 
     // Buttons
@@ -674,7 +674,7 @@ if (document.body.classList.contains("home-page")) {
     const whiteLogo = logo.src;
     const blackLogo = logo.dataset.altSrc;
 
-  
+
 
     ScrollTrigger.create({
         start: startValue,
@@ -778,10 +778,10 @@ let isHovering = false;
 
 // Track hover state
 aboutSection.addEventListener("mouseenter", () => {
-  isHovering = true;
+    isHovering = true;
 });
 aboutSection.addEventListener("mouseleave", () => {
-  isHovering = false;
+    isHovering = false;
 });
 
 // Create quick setters
@@ -789,13 +789,26 @@ const setX = gsap.quickTo(ball, "x", { duration: 1, ease: "power3.out" });
 const setY = gsap.quickTo(ball, "y", { duration: 1, ease: "power3.out" });
 
 aboutSection.addEventListener("mousemove", (e) => {
-  if (!isHovering) return;
+    if (!isHovering) return;
 
-  const rect = aboutSection.getBoundingClientRect();
-  const x = e.clientX - rect.left - ball.offsetWidth / 1;
-  const y = e.clientY - rect.top - ball.offsetHeight / 2;
+    const rect = aboutSection.getBoundingClientRect();
+    const x = e.clientX - rect.left - ball.offsetWidth / 1;
+    const y = e.clientY - rect.top - ball.offsetHeight / 2;
 
-  setX(x);
-  setY(y);
+    setX(x);
+    setY(y);
 });
 
+///////////////////////////////////////////////////////about section
+gsap.set(".mask", { xPercent: 0 });
+
+gsap.timeline()
+  .to(".mask", {
+    xPercent: -100,
+    duration: 1,
+    ease: "power4.inOut",
+    stagger: 0.35
+  });
+
+
+/////////////////////////////////////////////////////////////fade in text effect
