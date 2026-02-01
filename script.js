@@ -807,7 +807,7 @@ gsap.timeline()
         xPercent: -100,
         duration: 1,
         ease: "power4.inOut",
-        stagger: 0.35
+        stagger: 0.15
     });
 
 

@@ -61,8 +61,9 @@
         }
     </style>
 </head>
+
 <body
-    class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white font-display antialiased overflow-x-hidden">
+    class="bg-black dark:bg-background-dark text-slate-900 dark:text-white font-display antialiased overflow-x-hidden">
     <!-- Top App Bar -->
     <header id="site-header" class="fixed w-full top-0 z-50 bg-gradient-to-b from-black to-transparent hover:bg-white hover:bg-none hover:from-transparent hover:to-transparent hover:transition-all hover:duration-300 hover:duration-0 dark:bg-slate-900/80
          dark:border-slate-800">
@@ -388,7 +389,153 @@
             <a href="">Let's Talk</a>
         </button> -->
     </div>
-    
+
+    <section id="about-hero" class="relative bg-black text-white flex items-end overflow-hidden">
+        <div class="h-[50vh] w-full flex items-end py-12 z-10 mx-auto bg-no-repeat bg-cover bg-center"
+            style="background-image: url(/assets/gradients.png);">
+            <div class="max-w-7xl w-full px-4 pb-10 mx-auto">
+                <div class="flex flex-row gap-6 items-center relative">
+                    <!-- Line element -->
+                    <div class="w-[100px] h-[0.25px] opacity-50 bg-[#09aeb8] order-2 sm:order-1"></div>
+
+                    <!-- Text content -->
+                    <div class="flex flex-col relative z-10 order-1 sm:order-2">
+                        <h1 class="text-5xl sm:text-7xl font-semibold">Services</h1>
+
+                        <nav class="flex font-semibold mt-2">
+                            <span class="cursor-pointer">Home</span>
+                            <span class="mx-4">|</span>
+                            <span class="text-white/50">About Us</span>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Glass blur circle -->
+        <div class="ball absolute top-0 right-[-100px]
+            w-[700px] h-[700px]
+            bg-[#499BD5] border-[90px] border-[#57BF93]
+            opacity-70 blur-[100px]
+            rounded-full">
+        </div>
+    </section>
+
+    <section id="parallax-section">
+        <div class="relative overflow-hidden h-screen" id="parallax-container">
+            <img src="/assets/about-img.png" class="parallax-img absolute inset-0 w-full h-full object-cover z-0"
+                alt="" />
+            <div class="absolute inset-0 bg-black opacity-70 z-10"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-white to-transparent opacity-75 z-20"></div>
+
+            <!-- TEXT -->
+            <div class="relative z-30 max-w-7xl px-4 py-12 mx-auto h-full flex items-start justify-end">
+                <h1 class="text-5xl flex flex-col font-thin py-12">
+                    <span class="line h-18 relative inline-block overflow-hidden">
+                        <span class="text-white relative inline-block overflow-hidden">We craft <span
+                                class="bg-gradient-to-r from-[#499BD5] to-[#57BF93] bg-clip-text text-transparent italic font-semibold">solutions</span>
+                            to</span>
+                        <span class="mask absolute inset-0 bg-white"></span>
+                    </span>
+                    <span class="line h-18 relative inline-block overflow-hidden">
+                        <span class="text-white relative inline-block overflow-hidden">make our customers'</span>
+                        <span class="mask absolute inset-0 bg-white"></span>
+                    </span>
+                    <span class="line h-18 relative inline-block overflow-hidden">
+                        <span class="text-white relative inline-block overflow-hidden">live more manegeable</span>
+                        <span class="mask absolute inset-0 bg-white"></span>
+                    </span>
+                </h1>
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- Sticky Bottom Nav / FAB Area -->
+    <div class="fixed bottom-0 right-0 p-4 pt-8 pointer-events-none z-40">
+        <button id="pop-up"
+            class="w-[230px] flex items-center justify-between rounded-full h-14 pl-6 pr-2 bg-slate-900 dark:bg-white text-white dark:text-black shadow-xl hover:scale-[1.02] active:scale-[0.98] transition-all">
+            <span class="text-sm">Let's build together</span>
+            <div class="flex items-center justify-center size-10 rounded-full bg-primary text-black">
+                <span class="material-symbols-outlined cursor-poiner">arrow_outward</span>
+            </div>
+        </button>
+    </div>
+
+    <footer id="footer" class="relative bg-slate-950 text-slate-300 mt-[10rem]">
+        <img class="max-w-7xl px-4 mx-auto" src="/assets/tekhive_logo_white.svg" alt="">
+        <div class="max-w-7xl mx-auto px-4 py-16">
+
+            <div class="grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
+
+                <div>
+                    <h3 class="text-2xl font-bold text-white">Tekhive</h3>
+                    <p class="mt-4 text-sm leading-relaxed text-slate-400">
+                        Gearing your company through an innovative strategy.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="text-sm font-semibold text-white uppercase tracking-wider">
+                        Company
+                    </h4>
+                    <ul class="mt-4 space-y-3 text-sm">
+                        <li><a href="#" class="hover:text-white transition">About</a></li>
+                        <li><a href="#" class="hover:text-white transition">Careers</a></li>
+                        <li><a href="#" class="hover:text-white transition">Blog</a></li>
+                        <li><a href="#" class="hover:text-white transition">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-sm font-semibold text-white uppercase tracking-wider">
+                        Services
+                    </h4>
+                    <ul class="mt-4 space-y-3 text-sm">
+                        <li><a href="#" class="hover:text-white transition">Web Development</a></li>
+                        <li><a href="#" class="hover:text-white transition">UI/UX Design</a></li>
+                        <li><a href="#" class="hover:text-white transition">SEO</a></li>
+                        <li><a href="#" class="hover:text-white transition">Branding</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-sm font-semibold text-white uppercase tracking-wider">
+                        Subscribe
+                    </h4>
+                    <p class="mt-4 text-sm text-slate-400">
+                        Get product updates and insights.
+                    </p>
+
+                    <form class="mt-4 flex gap-2">
+                        <input type="email" placeholder="Email address" class="w-full rounded-lg bg-slate-900 border border-slate-800 px-4 py-2 text-sm
+                        focus:outline-none focus:ring-2 focus:ring-indigo-500" />
+                        <button class="rounded-lg bg-indigo-600 px-4 py-2 text-sm font-medium text-white
+                        hover:bg-indigo-500 transition">
+                            →
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Divider -->
+            <div class="mt-12 border-t border-slate-800 pt-8 flex flex-col sm:flex-row
+                items-center justify-between gap-4 text-sm">
+
+                <p class="text-slate-500">
+                    © 2026 Tekhive. All rights reserved.
+                </p>
+
+                <!-- Socials -->
+                <div class="flex items-center gap-5">
+                    <a href="#" class="hover:text-white transition">Twitter</a>
+                    <a href="#" class="hover:text-white transition">LinkedIn</a>
+                    <a href="#" class="hover:text-white transition">GitHub</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
     <!-- GSAP and Plugins -->
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/ScrollTrigger.min.js"></script>
@@ -398,4 +545,5 @@
     <script src="https://unpkg.com/lottie-web/build/player/lottie.min.js"></script>
     <script src="script.js"></script>
 </body>
+
 </html>
