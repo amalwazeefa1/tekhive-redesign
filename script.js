@@ -803,12 +803,30 @@ aboutSection.addEventListener("mousemove", (e) => {
 gsap.set(".mask", { xPercent: 0 });
 
 gsap.timeline()
-  .to(".mask", {
-    xPercent: -100,
-    duration: 1,
-    ease: "power4.inOut",
-    stagger: 0.35
-  });
+    .to(".mask", {
+        xPercent: -100,
+        duration: 1,
+        ease: "power4.inOut",
+        stagger: 0.35
+    });
 
 
-/////////////////////////////////////////////////////////////fade in text effect
+/////////////////////////////////////////////////////////////parallax image effect
+const container = document.querySelector("#parallax-container");
+const image = container.querySelector(".parallax-img");
+
+gsap.fromTo(
+    image, {
+    yPercent: -30, //start higher
+},
+    {
+        yPercent: 20,
+        ease: "none",
+        scrollTrigger: {
+            trigger: container,
+            start: "top bottom",
+            end: "bottom top",
+            scrub: true
+        },
+    }
+)
