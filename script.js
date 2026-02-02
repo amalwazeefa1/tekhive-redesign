@@ -833,7 +833,6 @@ gsap.fromTo(
 
 
 //////////////////////////////////////////////////////////////sliced boxes reveal animation
-if (document.body.classList.contains('home-page')) {
 gsap.set(".sliced-box", {
     y: 0
 });
@@ -850,4 +849,3 @@ tl.to (".sliced-box", {
     ease: "power4.inOut"
 })
 .set(".slice-section", {display: "none"})
-}
