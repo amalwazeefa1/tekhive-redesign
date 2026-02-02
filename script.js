@@ -830,3 +830,22 @@ gsap.fromTo(
         },
     }
 )
+
+
+//////////////////////////////////////////////////////////////sliced box
+gsap.set(".sliced-box", {
+    y: 0
+});
+
+tl.clear()
+
+tl.to (".sliced-box", {
+    y: "-100%",
+    duration: 1.2,
+    stagger: {
+        each: 0.08,
+        from: "start"
+    },
+    ease: "power4.inOut"
+})
+.set(".slice-section", {display: "none"})
