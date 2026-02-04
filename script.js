@@ -839,7 +839,7 @@ gsap.set(".sliced-box", {
 
 tl.clear()
 
-tl.to (".sliced-box", {
+tl.to(".sliced-box", {
     y: "-100%",
     duration: 1.2,
     stagger: {
@@ -848,4 +848,8 @@ tl.to (".sliced-box", {
     },
     ease: "power4.inOut"
 })
-.set(".slice-section", {display: "none"})
+    .set(".slice-section", { display: "none" })
+
+///////////////////////////////////////////////////////////////////////////////////////service page morph animation
+   
+
