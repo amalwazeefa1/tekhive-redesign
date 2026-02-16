@@ -28,9 +28,14 @@
                             '0%': { width: '0%' },
                             '100%': { width: '98%' },
                         },
+                        marquee: {
+                            '0%' : { transform: 'translateX(0%)' },
+                            '100%' : { transform: 'translateX(-100%)' },
+                        }
                     },
                     animation: {
                         fill: 'fill 3s ease-out forwards',
+                        marquee: 'marquee 20s linear infinite',
                     },
                     screens: {
                         "xs": "380px",
@@ -506,34 +511,37 @@
                                     </p>
                                 </div>
                                 <div class="bg-white rounded-xl p-6">
-                                    <img class="h-16 w-16 mb-4" src="/assets/glass-icon-chip.svg" alt="">
-                                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor explicabo iure
-                                        magni vero nisi, eveniet esse, molestias, nam at odit veritatis ipsam delectus
-                                        nostrum? Provident commodi omnis eligendi molestias praesentium.
+                                    <div class="flex items-center gap-4 mb-4">
+                                        <img class="h-16 w-16 mb-4" src="/assets/glass-icon-app-development.svg" alt="">
+                                        <h1 class="text-green-950 text-lg font-bold">Third Party Apps Integration</h1>
+                                    </div>
+                                    <p>Tekhive has proven track record in delivering successful API projects across
+                                        diverse industries. We are committed to foster innovation through highly
+                                        effective API development and integration strategies.
+                                    </p>
+                                </div>
+                                <div class="bg-white rounded-xl p-6">
+                                    <div class="flex items-center gap-4 mb-4">
+                                        <img class="h-16 w-16 mb-4" src="/assets/glass-icon-app-development.svg" alt="">
+                                        <h1 class="text-green-950 text-lg font-bold">CMS Development</h1>
+                                    </div>
+                                    <p>Ensure a competitive advantage in the digital age with the right CMS solution.
+                                        Our professionals can develop a fully functional CMS Platform to meet your
+                                        specific needs.
+                                    </p>
+                                </div>
+                                <div class="bg-white rounded-xl p-6">
+                                    <div class="flex items-center gap-4 mb-4">
+                                        <img class="h-16 w-16 mb-4" src="/assets/glass-icon-app-development.svg" alt="">
+                                        <h1 class="text-green-950 text-lg font-bold">Digital Marketing</h1>
+                                    </div>
+                                    <p>Customized digital marketing strategies, experienced digital marketers, and
+                                        innovative approach, we harness the potential of digital ways that makes your
+                                        brand supreme in the online space.
                                     </p>
                                 </div>
 
-                                <div class="bg-white rounded-xl p-6">
-                                    <img class="h-16 w-16 mb-4" src="/assets/glass-icon-security.svg" alt="">
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint nesciunt quisquam
-                                        ipsum voluptates incidunt, magnam architecto cumque quo molestiae repudiandae
-                                        beatae corporis veritatis sapiente quod magni. Similique totam voluptatibus
-                                        iste!</p>
-                                </div>
-
-                                <div class="bg-white rounded-xl p-6">
-                                    <img class="h-16 w-16 mb-4" src="/assets/glass-icon-team-support.svg" alt="">
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut sequi iusto atque
-                                        consequuntur molestiae esse nisi necessitatibus, dolore suscipit, eligendi
-                                        voluptas minus vitae et facilis adipisci quibusdam optio sint rem!
-                                    </p>
-                                </div>
-
-                                <div class="bg-sky-50 rounded-xl p-6 lg:col-span-2">
-                                    <h1 class="text-3xl text-black">Something will appear here</h1>
-                                    <h1 class="text-3xl mt-2 text-black/65">Something will appear here</h1>
-                                    <h1 class="text-3xl mt-2 text-black/40">Something</h1>
-                                </div>
+                                
 
                                 <!-- Repeat other cards -->
                             </div>
@@ -570,6 +578,11 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="bg-sky-50 rounded-xl p-6 lg:col-span-2">
+                                    <h1 class="text-3xl text-black">Something will appear here</h1>
+                                    <h1 class="text-3xl mt-2 text-black/65">Something will appear here</h1>
+                                    <h1 class="text-3xl mt-2 text-black/40">Something</h1>
+                                </div>
 
                         <button class="bg-[#2f2f2f] rounded-md px-6 py-3 w-auto self-start">
                             <span
@@ -583,17 +596,34 @@
             </div>
         </div>
     </section>
-    <section class="w-screen h-16 bg-[#f2f2f2] relative z-10 overflow-auto">
-        <div class="absolute left-0 bg-gradient-to-r from-[#f8f8f8] to-transparent z-50 w-[35vw] h-full"></div>
-        <div class="absolute right-0 bg-gradient-to-l from-[#f8f8f8] to-transparent z-50 w-[35vw] h-full"></div>
-        <div class="absolute inset-0 w-screen h-full z-20 flex items-center justify-center">
-            <span class="inline-block font-medium text-black text-xl px-4">WEB Design & Development</span>
-            <span class="inline-block font-medium text-black text-xl px-4">WEB Design & Development</span>
-            <span class="inline-block font-medium text-black text-xl px-4">WEB Design & Development</span>
-            <span class="inline-block font-medium text-black text-xl px-4">WEB Design & Development</span>
-            <span class="inline-block font-medium text-black text-xl px-4">WEB Design & Development</span>
-        </div>
-    </section>
+    <section class="w-screen h-16 bg-[#f2f2f2] relative z-10 overflow-hidden">
+  <!-- Gradient masks -->
+  <div class="absolute left-0 bg-gradient-to-r from-[#f8f8f8] to-transparent z-50 w-[35vw] h-full"></div>
+  <div class="absolute right-0 bg-gradient-to-l from-[#f8f8f8] to-transparent z-50 w-[35vw] h-full"></div>
+
+  <!-- Scrolling content -->
+  <div class="absolute inset-0 w-screen h-full z-20 flex items-center">
+    <div class="flex items-center whitespace-nowrap animate-marquee">
+      <!-- First set -->
+      <span class="inline-block font-medium text-black text-xl px-4">WEB Design & Development</span>
+      <span class="text-xs">•</span>
+      <span class="inline-block font-medium text-black text-xl px-4">UI/UX Design</span>
+      <span class="text-xs">•</span>
+      <span class="inline-block font-medium text-black text-xl px-4">Brand Identity</span>
+      <span class="text-xs">•</span>
+      <span class="inline-block font-medium text-black text-xl px-4">Code Customization</span>
+      <span class="text-xs">•</span>
+      <span class="inline-block font-medium text-black text-xl px-4">Ecommerce Solutions</span>
+      <span class="text-xs">•</span>
+      <span class="inline-block font-medium text-black text-xl px-4">SEO Optimization</span>
+      <span class="text-xs">•</span>
+      <span class="inline-block font-medium text-black text-xl px-4">Digital Marketing</span>
+
+    </div>
+  </div>
+</section>
+
+
 
     <section class="bg-[#f8f8f8] h-full w-screen py-16">
         <div class="max-w-7xl px-4 m-auto">
@@ -624,11 +654,12 @@
                     <div class="absolute inset-0 flex flex-col justify-start items-start p-6">
                         <h1 class="text-white text-3xl font-bold mb-3">Mobile-First Design</h1>
                         <p class="text-[#c2c2c2] text-[18px] text-start font-semibold">
-                            Every layout is designed for <span class="text-white">seamless mobile-first experiences,</span>  ensuring performance across
+                            Every layout is designed for <span class="text-white">seamless mobile-first
+                                experiences,</span> ensuring performance across
                             all devices.
                         </p>
-                        <img src="/assets/phone1.avif" class="w-1/2 absolute bottom-[-30px]" alt=""> 
-                        <img src="/assets/phone2.avif" class="w-1/2 absolute bottom-[-50px] right-6" alt=""> 
+                        <img src="/assets/phone1.avif" class="w-1/2 absolute bottom-[-30px]" alt="">
+                        <img src="/assets/phone2.avif" class="w-1/2 absolute bottom-[-50px] right-6" alt="">
                     </div>
                 </div>
                 <div class="p-6 bg-[#f1f1f1] col-span-2 text-center w-full border border-gray-300 rounded-xl">
