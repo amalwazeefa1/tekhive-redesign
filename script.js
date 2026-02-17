@@ -159,8 +159,11 @@ document.addEventListener("DOMContentLoaded", () => {
         scrollToIndex(index - 1);
     }
 
+
+    let isPaused = false;
+
     function startAutoSlide() {
-        if (interval) return;
+        if (interval || isPaused) return; // Don't start if paused
         interval = setInterval(slideNext, delay);
     }
 
@@ -175,10 +178,9 @@ document.addEventListener("DOMContentLoaded", () => {
         startAutoSlide();
     }
 
-    function stopAutoSlide() {
+    function pauseAutoSlide() {
         isPaused = true;
-        clearInterval(interval);
-        interval = null;
+        stopAutoSlide();
     }
 
 
@@ -199,11 +201,12 @@ document.addEventListener("DOMContentLoaded", () => {
     [track, prevBtn, nextBtn].forEach(el => {
         if (!el) return;
 
-        el.addEventListener("mouseenter", stopAutoSlide);
-        el.addEventListener("mouseleave", startAutoSlide);
+        // Use pauseAutoSlide/resumeAutoSlide for manual interaction
+        el.addEventListener("mouseenter", pauseAutoSlide);
+        el.addEventListener("mouseleave", resumeAutoSlide);
 
-        el.addEventListener("touchstart", stopAutoSlide, { passive: true });
-        el.addEventListener("touchend", startAutoSlide);
+        el.addEventListener("touchstart", pauseAutoSlide, { passive: true });
+        el.addEventListener("touchend", resumeAutoSlide);
     });
 
     startAutoSlide();
@@ -214,15 +217,16 @@ document.addEventListener("DOMContentLoaded", () => {
         end: "bottom 30%",
 
         onEnter: () => {
-            resumeAutoSlide();
+            // resumeAutoSlide(); // Ensure it runs when in view
+            if (!isPaused) startAutoSlide();
         },
 
         onEnterBack: () => {
-            resumeAutoSlide();
+            if (!isPaused) startAutoSlide();
         },
 
         onLeave: () => {
-            stopAutoSlide();
+            stopAutoSlide(); // Fully stop when out of view
         },
 
         onLeaveBack: () => {
@@ -367,15 +371,21 @@ const morphPairs = [
     { from: "#boost-morph-1", to: "#boost-morph-2" }
 ];
 
-const tl = gsap.timeline({ repeat: -1, yoyo: true });
+// Check if elements exist before creating animation
+if (document.querySelector("#grow-morph-1")) {
+    const tl = gsap.timeline({ repeat: -1, yoyo: true });
 
-morphPairs.forEach(pair => {
-    tl.to(pair.from, {
-        morphSVG: pair.to,
-        duration: 0.8,
-        ease: "expo.inOut"
+    morphPairs.forEach(pair => {
+        // Double check existence
+        if (document.querySelector(pair.from) && document.querySelector(pair.to)) {
+            tl.to(pair.from, {
+                morphSVG: pair.to,
+                duration: 0.8,
+                ease: "expo.inOut"
+            })
+        }
     })
-})
+}
 
 
 ////////////////////////////////////////////////////////////////////////////lottie animation
@@ -751,21 +761,23 @@ gsap.from(".logo-part", {
 
 
 ////////////////////////////////////////////////////////////////////////////////split text
-const split = new SplitType("#tektext", { types: "lines" });
+if (document.getElementById("tektext") && typeof SplitType !== 'undefined') {
+    const split = new SplitType("#tektext", { types: "lines" });
 
-gsap.from(split.lines, {
-    scrollTrigger: {
-        trigger: "#tektext",
-        start: "top 80%",
-        toggleActions: "play none none reset"
-    },
-    yPercent: 100,
-    opacity: 0,
-    duration: 0.8,
-    stagger: 0.15,
-    ease: "power4.out",
-    delay: 1
-});
+    gsap.from(split.lines, {
+        scrollTrigger: {
+            trigger: "#tektext",
+            start: "top 80%",
+            toggleActions: "play none none reset"
+        },
+        yPercent: 100,
+        opacity: 0,
+        duration: 0.8,
+        stagger: 0.15,
+        ease: "power4.out",
+        delay: 1
+    });
+}
 
 
 

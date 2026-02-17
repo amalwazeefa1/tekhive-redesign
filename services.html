@@ -29,8 +29,8 @@
                             '100%': { width: '98%' },
                         },
                         marquee: {
-                            '0%' : { transform: 'translateX(0%)' },
-                            '100%' : { transform: 'translateX(-100%)' },
+                            '0%': { transform: 'translateX(0%)' },
+                            '100%': { transform: 'translateX(-100%)' },
                         }
                     },
                     animation: {
@@ -541,7 +541,7 @@
                                     </p>
                                 </div>
 
-                                
+
 
                                 <!-- Repeat other cards -->
                             </div>
@@ -579,12 +579,13 @@
                             </div>
                         </div>
                         <div class="bg-sky-50 rounded-xl p-6 lg:col-span-2">
-                                    <h1 class="text-3xl text-black">Something will appear here</h1>
-                                    <h1 class="text-3xl mt-2 text-black/65">Something will appear here</h1>
-                                    <h1 class="text-3xl mt-2 text-black/40">Something</h1>
-                                </div>
+                            <h1 class="text-3xl text-black">Something will appear here</h1>
+                            <h1 class="text-3xl mt-2 text-black/65">Something will appear here</h1>
+                            <h1 class="text-3xl mt-2 text-black/40">Something</h1>
+                        </div>
 
-                        <button class="bg-[#2f2f2f] rounded-md px-6 py-3 w-auto self-start">
+                        <button
+                            class="bg-[#2f2f2f] hover:bg-black transition-all ease duration-300 rounded-md px-6 py-3 w-auto self-start">
                             <span
                                 class="bg-gradient-to-r from-blue-400 to-green-400 bg-clip-text text-transparent font-bold self-center md:self-start">Get
                                 Started</span>
@@ -597,31 +598,31 @@
         </div>
     </section>
     <section class="w-screen h-16 bg-[#f2f2f2] relative z-10 overflow-hidden">
-  <!-- Gradient masks -->
-  <div class="absolute left-0 bg-gradient-to-r from-[#f8f8f8] to-transparent z-50 w-[35vw] h-full"></div>
-  <div class="absolute right-0 bg-gradient-to-l from-[#f8f8f8] to-transparent z-50 w-[35vw] h-full"></div>
+        <!-- Gradient masks -->
+        <div class="absolute left-0 bg-gradient-to-r from-[#f8f8f8] to-transparent z-50 w-[35vw] h-full"></div>
+        <div class="absolute right-0 bg-gradient-to-l from-[#f8f8f8] to-transparent z-50 w-[35vw] h-full"></div>
 
-  <!-- Scrolling content -->
-  <div class="absolute inset-0 w-screen h-full z-20 flex items-center">
-    <div class="flex items-center whitespace-nowrap animate-marquee">
-      <!-- First set -->
-      <span class="inline-block font-medium text-black text-xl px-4">WEB Design & Development</span>
-      <span class="text-xs">•</span>
-      <span class="inline-block font-medium text-black text-xl px-4">UI/UX Design</span>
-      <span class="text-xs">•</span>
-      <span class="inline-block font-medium text-black text-xl px-4">Brand Identity</span>
-      <span class="text-xs">•</span>
-      <span class="inline-block font-medium text-black text-xl px-4">Code Customization</span>
-      <span class="text-xs">•</span>
-      <span class="inline-block font-medium text-black text-xl px-4">Ecommerce Solutions</span>
-      <span class="text-xs">•</span>
-      <span class="inline-block font-medium text-black text-xl px-4">SEO Optimization</span>
-      <span class="text-xs">•</span>
-      <span class="inline-block font-medium text-black text-xl px-4">Digital Marketing</span>
+        <!-- Scrolling content -->
+        <div class="absolute inset-0 w-screen h-full z-20 flex items-center">
+            <div class="flex items-center whitespace-nowrap animate-marquee">
+                <!-- First set -->
+                <span class="inline-block font-medium text-black text-xl px-4">WEB Design & Development</span>
+                <span class="text-xs">•</span>
+                <span class="inline-block font-medium text-black text-xl px-4">UI/UX Design</span>
+                <span class="text-xs">•</span>
+                <span class="inline-block font-medium text-black text-xl px-4">Brand Identity</span>
+                <span class="text-xs">•</span>
+                <span class="inline-block font-medium text-black text-xl px-4">Code Customization</span>
+                <span class="text-xs">•</span>
+                <span class="inline-block font-medium text-black text-xl px-4">Ecommerce Solutions</span>
+                <span class="text-xs">•</span>
+                <span class="inline-block font-medium text-black text-xl px-4">SEO Optimization</span>
+                <span class="text-xs">•</span>
+                <span class="inline-block font-medium text-black text-xl px-4">Digital Marketing</span>
 
-    </div>
-  </div>
-</section>
+            </div>
+        </div>
+    </section>
 
 
 
@@ -630,12 +631,20 @@
             <h1 class="text-5xl font-bold mb-12">Our Approach</h1>
             <div class="grid grid-cols-1 sm:grid-cols-5 gap-4 mt-">
                 <div
-                    class="bg-[#f1f1f1] col-span-3 text-center w-full border border-gray-300 rounded-xl overflow-hidden">
-                    <h1 class="text-black text-3xl p-6 text-start font-bold mb-3">Discovery First</h1>
-                    <p class="text-start text-[18px] p-6 font-semibold text-[#808080]">We begin by <span
+                    class="bg-[#f1f1f1] p-10 col-span-3 text-center w-full border border-gray-300 rounded-xl overflow-hidden">
+                    <h1 class="text-black text-3xl text-start font-bold mb-3">Discovery First</h1>
+                    <p class="text-start text-[18px] font-semibold text-[#808080]">We begin by <span
                             class="text-[#383838]">defining clear goals,</span> understanding your audience, and
                         aligning with your brand voice to set a strong foundation.</p>
-                    <div class="flex gap-4 py-8 ms-6">
+                    <div class="flex gap-4 pt-8 horizontal-wrapper">
+                        <img class="h-[350px] rounded-md"
+                            src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/2e948896757753.5eb58c727d672.png"
+                            alt="">
+                        <img class="h-[350px] rounded-md"
+                            src="https://bst.icons8.com/wp-content/uploads/2020/03/game-design-dashboard.jpg" alt="">
+                        <img class="h-[350px] rounded-md"
+                            src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/2e948896757753.5eb58c727d672.png"
+                            alt="">
                         <img class="h-[350px] rounded-md"
                             src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/2e948896757753.5eb58c727d672.png"
                             alt="">
@@ -651,24 +660,24 @@
                     <img src="/assets/vertical-line-pattern.png" class="w-full h-full rounded-xl" alt="">
 
                     <!-- Overlay content -->
-                    <div class="absolute inset-0 flex flex-col justify-start items-start p-6">
-                        <h1 class="text-white text-3xl font-bold mb-3">Mobile-First Design</h1>
+                    <div class="absolute inset-0 flex flex-col justify-start items-start p-10">
+                        <h1 class="text-white text-start text-3xl font-bold mb-3">Mobile-First Design</h1>
                         <p class="text-[#c2c2c2] text-[18px] text-start font-semibold">
                             Every layout is designed for <span class="text-white">seamless mobile-first
                                 experiences,</span> ensuring performance across
                             all devices.
                         </p>
-                        <img src="/assets/phone1.avif" class="w-1/2 absolute bottom-[-30px]" alt="">
-                        <img src="/assets/phone2.avif" class="w-1/2 absolute bottom-[-50px] right-6" alt="">
+                        <img src="/assets/phone1.avif" class="w-1/2 absolute bottom-[-40px]" alt="">
+                        <img src="/assets/phone2.avif" class="w-1/2 absolute bottom-[-60px] right-6" alt="">
                     </div>
                 </div>
-                <div class="p-6 bg-[#f1f1f1] col-span-2 text-center w-full border border-gray-300 rounded-xl">
+                <div class="p-10 bg-[#f1f1f1] col-span-2 text-center w-full border border-gray-300 rounded-xl">
                     <h1 class="text-black text-3xl text-start font-bold mb-3">
                         Conversion-Driven</h1>
                     <p class="text-gray-500 text-start text-[18px] font-semibold">Every layout is designed for seamless
                         mobile-first experiences, ensuring performance across all devices.</p>
                 </div>
-                <div class="p-6 bg-[#f1f1f1] col-span-2 text-center w-full border border-gray-300 rounded-xl">
+                <div class="p-10 bg-[#f1f1f1] col-span-2 text-center w-full border border-gray-300 rounded-xl">
                     <h1 class="text-black text-3xl text-start font-bold mb-3">
                         Pixel-Perfect Development</h1>
                     <p class="text-gray-500 text-start text-[18px] font-semibold">Designed and developed with
@@ -723,7 +732,6 @@
                         <li><a href="#" class="hover:text-white transition">Contact</a></li>
                     </ul>
                 </div>
-
                 <div>
                     <h4 class="text-sm font-semibold text-white uppercase tracking-wider">
                         Services
@@ -786,20 +794,46 @@
     <script src="script.js"></script>
 
     <script>
-        gsap.registerPlugin(MorphSVGPlugin);
+        try {
+            if (typeof MorphSVGPlugin !== 'undefined') {
+                gsap.registerPlugin(MorphSVGPlugin);
+
+                if (document.querySelector("#hexagon-shape")) {
+                    const timeline = gsap.timeline({
+                        repeat: -1,
+                        repeatDelay: 0,
+                        yoyo: true,
+                        defaults: { duration: 1, ease: "power2.inOut" }
+                    });
+
+                    timeline
+                        .to("#hexagon-shape", { morphSVG: "#plus-shape" })
+                        .to("#hexagon-shape", { morphSVG: "#diamond-shape" })
+                        .to("#hexagon-shape", { morphSVG: "#hexagon-shape" });
+                }
+            } else {
+                console.warn("MorphSVGPlugin is not defined. Skipping animation.");
+            }
+        } catch (e) {
+            console.error("Error initializing GSAP animation:", e);
+        }
 
 
-        const timeline = gsap.timeline({
-            repeat: -1,
-            repeatDelay: 0,
-            yoyo: true,
-            defaults: { duration: 1, ease: "power2.inOut" }
+
+        gsap.registerPlugin(ScrollTrigger);
+
+        const wrapper = document.querySelector(".horizontal-wrapper");
+
+        gsap.to(wrapper, {
+            x: () => -(wrapper.scrollWidth - window.innerWidth),
+            ease: "none",
+            scrollTrigger: {
+                trigger: wrapper,
+                start: "top 100%",
+                end: () => "+=" + wrapper.scrollWidth,
+                scrub: 1,
+            }
         });
-
-        timeline
-            .to("#hexagon-shape", { morphSVG: "#plus-shape" })
-            .to("#hexagon-shape", { morphSVG: "#diamond-shape" })
-            .to("#hexagon-shape", { morphSVG: "#hexagon-shape" });
 
     </script>
 </body>
