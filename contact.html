@@ -433,7 +433,9 @@
                         <h1 class="text-5xl sm:text-7xl font-semibold">Contact</h1>
 
                         <nav class="flex font-semibold mt-2">
-                            <span class="cursor-pointer">Home</span>
+                            <span class="cursor-pointer">
+                                <a href="/index.html">Home</a>
+                            </span>
                             <span class="mx-4">|</span>
                             <span class="text-white/50">Contact Us</span>
                         </nav>
@@ -465,59 +467,51 @@
     <section class="py-12 bg-white">
         <div class="max-w-7xl w-full px-4 pb-10 mx-auto">
             <div class="flex flex-col md:flex-row gap-6">
-                <div class="p-12 bg-gray-100 w-full md:w-1/2 rounded-md">
-                    <h1 class="text-2xl font-extrabold mb-6">Contact Us</h1>
-                    <p class="mb-12 leading-relaxed">Let’s Connect and Make IT Happen! Have a question or a project in mind? Reach out
+                <div class="p-12 bg-transparent w-full md:w-1/2 rounded-md">
+                    <p class="mb-12 leading-relaxed">Let’s Connect and Make IT Happen! Have a question or a project in
+                        mind? Reach out
                         to us today.
                         Our dedicated team is here to assist you every step of the way.</p>
 
                     <div class="">
                         <form class="space-y-4">
                             <!-- First Name -->
-                            <div class="flex gap-4">
                                 <div class="w-full">
-                                    <label for="firstName" class="block text-sm font-medium text-gray-700">First
-                                        name</label>
+                                    <label for="firstName" class="block text-sm font-bold text-gray-700 after:content-['*'] after:text-red-500 after:ml-1">FIRST NAME</label>
                                     <input type="text" id="firstName" name="firstName"
-                                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" />
+                                        class="bg-gray-100 py-4 mt-1 block w-full rounded-md border-0 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" />
                                 </div>
-
-                                <!-- Last Name -->
-                                <div class="w-full">
-                                    <label for="lastName" class="block text-sm font-medium text-gray-700">Last
-                                        name</label>
-                                    <input type="text" id="lastName" name="lastName"
-                                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" />
-                                </div>
+                            <!-- Last Name -->
+                            <div class="w-full">
+                                <label for="lastName" class="block text-sm font-bold text-gray-700 after:content-['*'] after:text-red-500 after:ml-1">LAST NAME</label>
+                                <input type="text" id="lastName" name="lastName"
+                                    class="bg-gray-100 py-4 mt-1 block w-full rounded-md border-0 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" />
                             </div>
-
                             <!-- Email -->
                             <div>
-                                <label for="email" class="block text-sm font-medium text-gray-700">Enter email
-                                    address</label>
+                                <label for="email" class="block text-sm font-bold text-gray-700 after:content-['*'] after:text-red-500 after:ml-1">EMAIL ADDRESS</label>
                                 <input type="email" id="email" name="email"
-                                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" />
+                                    class="bg-gray-100 py-4 mt-1 block w-full rounded-md border-0 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" />
                             </div>
 
                             <!-- Phone -->
                             <div>
-                                <label for="phone" class="block text-sm font-medium text-gray-700">Phone number</label>
+                                <label for="phone" class="block text-sm font-bold text-gray-700 after:content-['*'] after:text-red-500 after:ml-1">PHONE NUMBER</label>
                                 <input type="tel" id="phone" name="phone"
-                                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" />
+                                    class="bg-gray-100 py-4 mt-1 block w-full rounded-md border-0 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" />
                             </div>
 
                             <!-- Message -->
                             <div>
-                                <label for="message" class="block text-sm font-medium text-gray-700">Enter your
-                                    message</label>
+                                <label for="message" class="block text-sm font-bold text-gray-700 after:content-['*'] after:text-red-500 after:ml-1">MESSAGE</label>
                                 <textarea id="message" name="message" rows="4"
-                                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"></textarea>
+                                    class="bg-gray-100 mt-1 block w-full rounded-md border-0 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"></textarea>
                             </div>
 
                             <!-- Submit Button -->
                             <div>
                                 <button type="submit"
-                                    class="w-full inline-flex justify-center rounded-md border border-transparent bg-[#09aeb8] px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                                    class="w-full inline-flex justify-center rounded-md border border-transparent bg-[#09aeb8] hover:bg-[#008c85] transition-all px-4 py-4 font-medium text-white shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
                                     Submit
                                 </button>
                             </div>
@@ -526,8 +520,91 @@
 
 
                 </div>
-                <div class="p-6 bg-gray-50 w-full md:w-1/2 rounded-md">
-
+                <div class="flex flex-col p-12 w-full md:w-1/2 gap-12">
+                    <div class="flex flex-col">
+                        <h1 class="text-6xl">Tell us about</h1>
+                        <h1 class="text-6xl text-[#858585]">the project</h1>
+                    </div>
+                    <div class="p-12 bg-[#def1ff] w-full rounded-3xl text-[#1a1a1a]">
+                        <p class="font-bold text-xs">CONTACT US</p>
+                        <div class="flex flex-col mt-6 mb-12 text-2xl font-bold">
+                            <a href="">+91 - 487 - 2970765</a>
+                            <a href="">hello@gmail.com</a>
+                        </div>
+                        <p class="font-bold text-xs">WHERE TO FIND US</p>
+                        <div class="flex flex-col mt-6 mb-12 text-2xl">
+                            <a href="">Infopark Koratty</a>
+                            <a href="">Kerala, India</a>
+                        </div>
+                        <div class="flex items-center mb-12 text-white">
+                            <button class="font-bold py-3 px-6 rounded-full bg-[#499BD5]">
+                                Get directions
+                            </button>
+                            <button class="py-3 px-3 bg-[#499BD5] rounded-full h-full">
+                                <svg class="w-4 h-4 text-white" xmlns="http://www.w3.org/2000/svg" version="1.1"
+                                    xmlns:xlink="http://www.w3.org/1999/xlink" width="512" height="512" x="0" y="0"
+                                    viewBox="0 0 512 512" style="enable-background:new 0 0 512 512" xml:space="preserve"
+                                    class="">
+                                    <g>
+                                        <path
+                                            d="M479 0H92.1c-18.2 0-33 14.8-33 33s14.8 33 33 33h307.1L9.7 455.6c-12.9 12.9-12.9 33.8 0 46.7s33.8 12.9 46.7 0l389.5-389.6v307.1c0 18.2 14.8 33 33 33s33-14.8 33-33V33C512 14.8 497.2 0 479 0z"
+                                            fill="currentColor" opacity="1" data-original="#000000" class=""></path>
+                                    </g>
+                                </svg>
+                            </button>
+                        </div>
+                        <p class="font-bold text-xs">FOLLOW US</p>
+                        <div class="flex gap-4 mt-6">
+                            <span><svg class="w-5 h-5 hover:text-[#499BD5]" xmlns="http://www.w3.org/2000/svg" version="1.1"
+                                    xmlns:xlink="http://www.w3.org/1999/xlink" width="512" height="512" x="0" y="0"
+                                    viewBox="0 0 511 511.9" style="enable-background:new 0 0 512 512"
+                                    xml:space="preserve" class="">
+                                    <g>
+                                        <path
+                                            d="M510.95 150.5c-1.2-27.2-5.598-45.898-11.9-62.102-6.5-17.199-16.5-32.597-29.6-45.398-12.802-13-28.302-23.102-45.302-29.5-16.296-6.3-34.898-10.7-62.097-11.898C334.648.3 325.949 0 256.449 0s-78.199.3-105.5 1.5c-27.199 1.2-45.898 5.602-62.097 11.898-17.204 6.5-32.602 16.5-45.403 29.602-13 12.8-23.097 28.3-29.5 45.3-6.3 16.302-10.699 34.9-11.898 62.098C.75 177.801.449 186.5.449 256s.301 78.2 1.5 105.5c1.2 27.2 5.602 45.898 11.903 62.102 6.5 17.199 16.597 32.597 29.597 45.398 12.801 13 28.301 23.102 45.301 29.5 16.3 6.3 34.898 10.7 62.102 11.898 27.296 1.204 36 1.5 105.5 1.5s78.199-.296 105.5-1.5c27.199-1.199 45.898-5.597 62.097-11.898a130.934 130.934 0 0 0 74.903-74.898c6.296-16.301 10.699-34.903 11.898-62.102 1.2-27.3 1.5-36 1.5-105.5s-.102-78.2-1.3-105.5zm-46.098 209c-1.102 25-5.301 38.5-8.801 47.5-8.602 22.3-26.301 40-48.602 48.602-9 3.5-22.597 7.699-47.5 8.796-27 1.204-35.097 1.5-103.398 1.5s-76.5-.296-103.403-1.5c-25-1.097-38.5-5.296-47.5-8.796C94.551 451.5 84.45 445 76.25 436.5c-8.5-8.3-15-18.3-19.102-29.398-3.5-9-7.699-22.602-8.796-47.5-1.204-27-1.5-35.102-1.5-103.403s.296-76.5 1.5-103.398c1.097-25 5.296-38.5 8.796-47.5C61.25 94.199 67.75 84.1 76.352 75.898c8.296-8.5 18.296-15 29.398-19.097 9-3.5 22.602-7.7 47.5-8.801 27-1.2 35.102-1.5 103.398-1.5 68.403 0 76.5.3 103.403 1.5 25 1.102 38.5 5.3 47.5 8.8 11.097 4.098 21.199 10.598 29.398 19.098 8.5 8.301 15 18.301 19.102 29.403 3.5 9 7.699 22.597 8.8 47.5 1.2 27 1.5 35.097 1.5 103.398s-.3 76.301-1.5 103.301zm0 0"
+                                            fill="currentColor" opacity="1" data-original="#000000" class=""></path>
+                                        <path
+                                            d="M256.45 124.5c-72.598 0-131.5 58.898-131.5 131.5s58.902 131.5 131.5 131.5c72.6 0 131.5-58.898 131.5-131.5s-58.9-131.5-131.5-131.5zm0 216.8c-47.098 0-85.302-38.198-85.302-85.3s38.204-85.3 85.301-85.3c47.102 0 85.301 38.198 85.301 85.3s-38.2 85.3-85.3 85.3zM423.852 119.3c0 16.954-13.747 30.7-30.704 30.7-16.953 0-30.699-13.746-30.699-30.7 0-16.956 13.746-30.698 30.7-30.698 16.956 0 30.703 13.742 30.703 30.699zm0 0"
+                                            fill="currentColor" opacity="1" data-original="#000000" class=""></path>
+                                    </g>
+                                </svg></span>
+                            <span><svg class="w-5 h-5 hover:text-[#499BD5]" xmlns="http://www.w3.org/2000/svg" version="1.1"
+                                    xmlns:xlink="http://www.w3.org/1999/xlink" width="512" height="512" x="0" y="0"
+                                    viewBox="0 0 512 512" style="enable-background:new 0 0 512 512" xml:space="preserve"
+                                    class="">
+                                    <g>
+                                        <path
+                                            d="M512 256C512 114.6 397.4 0 256 0S0 114.6 0 256s114.6 256 256 256c1.5 0 3 0 4.5-.1V312.7h-55v-64.1h55v-47.2c0-54.7 33.4-84.5 82.2-84.5 23.4 0 43.5 1.7 49.3 2.5v57.2h-33.6c-26.5 0-31.7 12.6-31.7 31.1v40.8h63.5l-8.3 64.1h-55.2v189.5C433.7 471.4 512 372.9 512 256z"
+                                            fill="currentColor" opacity="1" data-original="#000000" class=""></path>
+                                    </g>
+                                </svg></span>
+                            <span>
+                                <svg class="w-5 h-5 hover:text-[#499BD5]" xmlns="http://www.w3.org/2000/svg" version="1.1"
+                                    xmlns:xlink="http://www.w3.org/1999/xlink" width="512" height="512" x="0" y="0"
+                                    viewBox="0 0 1226.37 1226.37" style="enable-background:new 0 0 512 512"
+                                    xml:space="preserve" class="">
+                                    <g>
+                                        <path
+                                            d="M727.348 519.284 1174.075 0h-105.86L680.322 450.887 370.513 0H13.185l468.492 681.821L13.185 1226.37h105.866l409.625-476.152 327.181 476.152h357.328L727.322 519.284zM582.35 687.828l-47.468-67.894-377.686-540.24H319.8l304.797 435.991 47.468 67.894 396.2 566.721H905.661L582.35 687.854z"
+                                            fill="currentColor" opacity="1" data-original="#000000" class=""></path>
+                                    </g>
+                                </svg>
+                            </span>
+                            <span>
+                                <svg class="w-5 h-5 hover:text-[#499BD5]" xmlns="http://www.w3.org/2000/svg" version="1.1"
+                            xmlns:xlink="http://www.w3.org/1999/xlink" width="512" height="512" x="0" y="0"
+                            viewBox="0 0 176 176" style="enable-background:new 0 0 512 512" xml:space="preserve"
+                            class="">
+                            <g>
+                                <path
+                                    d="M152 0H24A24 24 0 0 0 0 24v128a24 24 0 0 0 24 24h128a24 24 0 0 0 24-24V24a24 24 0 0 0-24-24zM60 139.28a3.71 3.71 0 0 1-3.71 3.72H40.48a3.71 3.71 0 0 1-3.72-3.72V73a3.72 3.72 0 0 1 3.72-3.72h15.81A3.72 3.72 0 0 1 60 73zM48.38 63a15 15 0 1 1 15-15 15 15 0 0 1-15 15zm94.26 76.54a3.41 3.41 0 0 1-3.42 3.42h-17a3.41 3.41 0 0 1-3.42-3.42v-31.05c0-4.64 1.36-20.32-12.13-20.32-10.45 0-12.58 10.73-13 15.55v35.86A3.42 3.42 0 0 1 90.3 143H73.88a3.41 3.41 0 0 1-3.41-3.42V72.71a3.41 3.41 0 0 1 3.41-3.42H90.3a3.42 3.42 0 0 1 3.42 3.42v5.78c3.88-5.83 9.63-10.31 21.9-10.31 27.18 0 27 25.38 27 39.32z"
+                                    data-name="Layer 2" fill="currentColor" opacity="1" data-original="#000000"
+                                    class=""></path>
+                            </g>
+                        </svg>
+                            </span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -538,7 +615,8 @@
             <h1 class="text-4xl md:text-6xl font-bold mb-8">
                 Design. Deliver. Distinguish.
             </h1>
-            <button
+            <div class="flex flex-wrap justify-center gap-2">
+                <button
                 class="bg-[#0000001a] text-sm hover:bg-black hover:text-white transition-all ease duration-300 rounded-full px-6 py-2 w-auto self-start">
                 <span class="font-medium">See
                     our work</span>
@@ -548,6 +626,7 @@
                 <span class="bg-gradient-to-r from-blue-400 to-green-400 bg-clip-text text-transparent font-medium">Get
                     Started</span>
             </button>
+            </div>
         </div>
         <img class="m-auto mb-[-190px] w-[300px]" src="/assets/tekhive_blur_logo.png" alt="">
         <footer class="bg-transparent border-t-2 border-[#ededed] text-sm font-medium">
