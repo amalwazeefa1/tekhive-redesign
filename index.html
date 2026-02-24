@@ -27,9 +27,14 @@
                             '0%': { width: '0%' },
                             '100%': { width: '98%' },
                         },
+                        'bounce-down': {
+                            '0%, 100%' : { transform: 'translateY(0)' },
+                            '50%' : { transform: 'translateY(8px)' }
+                        },
                     },
                     animation: {
                         fill: 'fill 3s ease-out forwards',
+                        'bounce-down' : 'bounce-down 1s infinite ease-in-out'
                     },
                     screens: {
                         "xs": "380px",
@@ -130,7 +135,7 @@
                                                         </h1>
                                                         <div class="flex gap-10">
                                                             <div class="flex flex-col gap-3">
-                                                                <a href="#" class="dropdown-link text-black"
+                                                                <a href="/website-development.html" class="dropdown-link text-black"
                                                                     data-lottie="/assets/business-strategy.json">Web
                                                                     Development</a>
                                                                 <a href="#" class="dropdown-link text-black"
@@ -609,7 +614,7 @@
     </div> -->
 
 
-    <section id="about" class="py-12">
+    <section id="about" class="py-12 bg-[#f6f6f6]">
         <div class="max-w-7xl mx-auto px-4 space-y-6">
             <div class="flex flex-col md:flex-row justify-between gap-8 mb-12">
                 <div class="flex gap-8">
@@ -898,7 +903,7 @@ z
 
 
 
-    <section class="py-12">
+    <section class="py-12 bg-[#f6f6f6]">
         <div class="max-w-7xl mx-auto px-4 space-y-6">
 
             <!-- Section Header -->
@@ -1402,7 +1407,7 @@ z
     </section>
 
 
-    <section class="px-4 py-12 mb-6 relative overflow-hidden">
+    <section class="px-4 py-12 mb-6 relative overflow-hidden bg-[#f6f6f6]">
         <div class="max-w-7xl mx-auto px-4 space-y-6">
             <h2 class="text-4xl font-bold tracking-tight text-center">
                 Customer Response
@@ -1533,7 +1538,7 @@ z
 
 
     <!-- Why Choose Us -->
-    <section class="px-4 py-12">
+    <section class="px-4 py-12 bg-[#f6f6f6]">
         <div
             class="fade-up2 opacity-0 translate-y-8 rounded-2xl max-w-md mx-auto bg-surface-dark p-6 relative overflow-hidden">
             <!-- Background decorative elements -->

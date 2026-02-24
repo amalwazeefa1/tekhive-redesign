@@ -28,6 +28,10 @@
                             '0%': { width: '0%' },
                             '100%': { width: '98%' },
                         },
+                        'bounce-down': {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(8px)' }
+                        },
                         marquee: {
                             '0%': { transform: 'translateX(0%)' },
                             '100%': { transform: 'translateX(-100%)' },
@@ -36,6 +40,7 @@
                     animation: {
                         fill: 'fill 3s ease-out forwards',
                         marquee: 'marquee 20s linear infinite',
+                        'bounce-down': 'bounce-down 1s infinite ease-in-out'
                     },
                     screens: {
                         "xs": "380px",
@@ -423,7 +428,7 @@
     <section id="about-hero" class="relative bg-black text-white flex items-end overflow-hidden">
         <div class="h-[50vh] w-full flex items-end py-12 z-10 mx-auto bg-no-repeat bg-cover bg-center"
             style="background-image: url(/assets/gradients.png);">
-            <div class="max-w-7xl w-full px-4 pb-10 mx-auto">
+            <div class="max-w-7xl w-full px-4 mx-auto">
                 <div class="flex flex-row gap-6 items-center relative">
                     <!-- Line element -->
                     <div class="w-[100px] h-[0.25px] opacity-50 bg-[#09aeb8] order-2 sm:order-1"></div>
@@ -433,13 +438,15 @@
                         <h1 class="text-5xl sm:text-7xl font-semibold">Website Development</h1>
 
                         <nav class="flex font-normal mt-2">
-                            <span class="cursor-pointer">
+                            <span class="cursor-pointer text-white/50">
                                 <a href="/index.html">Home</a>
                             </span>
-                            <span class="mx-4">|</span>
-                            <span>Services</span>
-                            <span class="mx-4">|</span>
-                            <span class="text-white/50">Website Development</span>
+                            <span class="mx-4">/</span>
+                            <span class="cursor-pointer text-white/50">
+                                <a href="/services.html">Services</a>
+                            </span>
+                            <span class="mx-4">/</span>
+                            <span class="">Website Development</span>
                         </nav>
                     </div>
                 </div>
@@ -455,6 +462,88 @@
         </div>
     </section>
 
+    <section class="py-12 bg-[#f6f6f6]">
+        <div class="max-w-7xl w-full px-4 pb-10 mx-auto flex flex-col items-end">
+            <div
+                class="hidden md:block w-full h-5 border-[#222f30] opacity-10 my-12 border-l-[1px] border-t-[1px] border-r-[1px] rounded-tl-2xl rounded-tr-2xl">
+            </div>
+            <div class="flex mb-12 w-full justify-between">
+                <!-- From Uiverse.io by softwarelab7 -->
+                <button
+                    class="hidden group relative md:flex items-center justify-center w-14 h-14 rounded-2xl overflow-hidden transition-all duration-500 cubic-bezier(0.175, 0.885, 0.32, 1.275) bg-[#333333] z-50"
+                    onclick="document.getElementById('what-we-do').scrollIntoView({ behavior: 'smooth' })">
+                    <div
+                        class="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-20 transition-opacity duration-300">
+                    </div>
+
+                    <div
+                        class="relative flex flex-col items-center transition-transform duration-500 group-hover:-translate-y-[-150%]">
+
+                        <svg class="text-white my-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" version="1.1"
+                            xmlns:xlink="http://www.w3.org/1999/xlink" width="512" height="512" x="0" y="0"
+                            viewBox="0 0 24 24" style="enable-background:new 0 0 512 512" xml:space="preserve"
+                            class="hovered-paths">
+                            <g>
+                                <path fill="currentColor"
+                                    d="M13 4a1 1 0 1 0-2 0v13.586l-5.293-5.293a1 1 0 0 0-1.414 1.414l7 7a1 1 0 0 0 1.414 0l7-7a1 1 0 0 0-1.414-1.414L13 17.586z"
+                                    opacity="1" data-original="#000000" class="hovered-path"></path>
+                            </g>
+                        </svg>
+
+
+                        <svg class="text-white my-2 h-5 w-5 absolute top-[-150%]" xmlns="http://www.w3.org/2000/svg"
+                            version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="512" height="512" x="0"
+                            y="0" viewBox="0 0 24 24" style="enable-background:new 0 0 512 512" xml:space="preserve"
+                            class="hovered-paths">
+                            <g>
+                                <path fill="currentColor"
+                                    d="M13 4a1 1 0 1 0-2 0v13.586l-5.293-5.293a1 1 0 0 0-1.414 1.414l7 7a1 1 0 0 0 1.414 0l7-7a1 1 0 0 0-1.414-1.414L13 17.586z"
+                                    opacity="1" data-original="#000000" class="hovered-path"></path>
+                            </g>
+                        </svg>
+                    </div>
+                </button>
+
+                <h1 class="text-md md:text-2xl max-w-lg">At Tekhive, we empower your business to access new
+                    opportunities in the digital space.</h1>
+            </div>
+            <div class="image-banner w-full">
+                <img class="w-full h-[400px] object-cover rounded"
+                    src="https://integratedbiosciences.com/wp-content/uploads/2025/09/m0m1y8bh1zst4kghdbq7_0.jpg"
+                    alt="">
+            </div>
+        </div>
+    </section>
+
+    <section id="what-we-do" class="bg-[#f6f6f6] scroll-mt-20"
+        style="min-height: 100vh; display: flex; align-items: center;">
+        <div class="max-w-7xl w-full px-4 py-12 mx-auto flex flex-col items-start gap-12">
+            <div class="flex flex-col md:flex-row justify-between w-full">
+                <span
+                    class="text-sm flex items-center mb-12 px-3 py-2 rounded-xl bg-white self-start before:content-[''] before:inline-block before:w-[8px] before:h-[8px] before:bg-[#09aeb8] before:mr-4">WHAT
+                    WE DO</span>
+                <div class="relative">
+                    <div class="flex flex-col">
+                        <h1 class="para leading-relaxed text-2xl md:text-3xl max-w-2xl">A visually stunning, responsive
+                        website that
+                        represent your brand
+                        identity is indispensable. Our web development professionals help you build best-in-class
+                        websites for your business to accelerate growth.</h1>
+                    <h1 class="para leading-relaxed text-2xl md:text-3xl max-w-2xl absolute top-0 left-0 opacity-0"
+                        style="transform: translateY(30px);">Centered on your
+                        business ethics, objectives, and target audience, we
+                        harness our website development talent to craft customer-centric, responsive, and intuitive
+                        website solutions, incorporating innovative web technologies and frameworks.</h1>
+                    </div>
+                    <button class="m-auto mt-14 px-6 py-2 bg-white rounded-2xl">
+                        <span class="font-medium">See
+                            our work</span>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </section>
 
 
     <!-- Sticky Bottom Nav / FAB Area -->
@@ -684,7 +773,36 @@
     <script src="https://unpkg.com/lottie-web/build/player/lottie.min.js"></script>
     <script src="script.js"></script>
 
-    
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+        const paras = gsap.utils.toArray(".para");
+
+        const tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: "#what-we-do",
+                start: "top top",
+                end: "+=100%",
+                pin: true,
+                scrub: 1,
+                pinSpacing: true,
+                anticipatePin: 1,
+            }
+        });
+
+        // first paragraph fade out
+        tl.to(paras[0], {
+            opacity: 0,
+            y: -20,
+            duration: 0.5,
+        })
+            // second paragraph fade in
+            .to(paras[1], {
+                opacity: 1,
+                y: 0,
+                duration: 0.5
+            }, ">")
+    </script>
+
 </body>
 
 </html>
