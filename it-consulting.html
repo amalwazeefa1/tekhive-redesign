@@ -435,7 +435,7 @@
 
                     <!-- Text content -->
                     <div class="flex flex-col relative z-10 order-1 sm:order-2">
-                        <h1 class="text-5xl sm:text-7xl font-semibold">SAP Business One</h1>
+                        <h1 class="text-5xl sm:text-7xl font-semibold">IT Consulting</h1>
 
                         <!-- Breadcrumb menu -->
                         <nav class="hidden sm:flex font-normal mt-2">
@@ -447,7 +447,7 @@
                                 <a href="/services.html">Services</a>
                             </span>
                             <span class="mx-2 md:mx-4">/</span>
-                            <span class=" text-sm md:text-base">SAP Business One</span>
+                            <span class=" text-sm md:text-base">IT Consulting</span>
                         </nav>
                     </div>
                 </div>
@@ -460,7 +460,7 @@
                         <a href="/services.html">Services</a>
                     </span>
                     <span class="mx-2 md:mx-4">/</span>
-                    <span class=" text-sm md:text-base font-semibold">SAP Business One</span>
+                    <span class=" text-sm md:text-base font-semibold">IT Consulting</span>
                 </nav>
             </div>
         </div>
@@ -515,8 +515,9 @@
                     </div>
                 </button>
 
-                <h1 class="text-md md:text-2xl max-w-lg">Bring revolutionary transformation within business with
-                    powerful ERP system</h1>
+                <h1 class="text-md md:text-2xl max-w-lg">Make Change Possible, Enabled by Right Consulting and
+                    Technology
+                </h1>
             </div>
             <div class="image-banner w-full">
                 <img class="w-full h-[200px] md:h-[400px] object-cover rounded-md"
@@ -536,19 +537,22 @@
                     <div class="flex flex-col">
                         <div class="para">
                             <h1 class="leading-[130%] md:leading-relaxed text-2xl md:text-3xl md:max-w-md lg:max-w-2xl">
-                                SAP Business One is an ERP software designed for small and midsize companies. SAP
-                                Business One efficiently connects people, technology, and processes such as finance,
-                                sales, customer service, and purchase and inventory, enabling cohesive operations – all
-                                within a single platform.</h1>
+                                In the modern-day business landscape, sustainable growth is essentially connected to
+                                technology. To realize your organizational objectives and establish a robust foundation
+                                for future expansion, it is vital to make strategic investments in latest technology
+                                solutions and cutting-edge tools.</h1>
                         </div>
                         <div class="para absolute top-0 left-0 opacity-0" style="transform: translateY(30px);">
-                            <h1 class="leading-[130%] md:leading-relaxed text-2xl md:text-3xl max-w-2xl">Tekhive, a
-                                leading SAP Business One partner, leads the transformation by delivering end-to-end SAP
-                                Business One implementation services, helping organizations streamline and optimize
-                                their business operations. Our SAP professionals adopt a comprehensive approach,
-                                covering every phase from thorough assessment and customization to seamless data
-                                migration, testing, implementation, user adoption, ongoing support, and extensive
-                                training.
+                            <h1 class="leading-[130%] md:leading-relaxed text-2xl md:text-3xl max-w-2xl">Tekhive’s
+                                technology consulting empowers you to harness the optimal technology solutions for
+                                advancing your business. Our distinctive transformation approach centers on maximizing
+                                the value from your technology investments, which is where our core proficiency resides.
+                            </h1>
+                        </div>
+                        <div class="para absolute top-0 left-0 opacity-0" style="transform: translateY(30px);">
+                            <h1 class="leading-[130%] md:leading-relaxed text-2xl md:text-3xl max-w-2xl">Tekhive’s
+                                technology strategy and consulting helps companies adopt the right technology to bring
+                                their technology visions to life and initiate their digital transformation journey.
                             </h1>
                             <button class="m-auto mt-8 px-6 py-4 bg-[#333333] rounded-xl">
                                 <span class="font-medium text-white">See
@@ -571,20 +575,19 @@
             <div class="flex flex-col lg:flex-row justify-between gap-16">
                 <img class="rounded-xl object-cover max-h-full w-[600px]" src="/assets/why_choose_us.jpg" alt="">
                 <div>
-                    <h1 class="text-4xl font-semibold text-[#3a3a3a]">Why Tekhive for SAP Business One?</h1>
+                    <h1 class="text-4xl font-semibold text-[#3a3a3a]">Why Tekhive for IT Consulting Services?</h1>
                     <div class="flex flex-col md:flex-row items-start gap-0 md:gap-4 mt-6 text-base">
                         <p class="w-full md:w-1/2">
-                            Accelerate Business Transformation through Tekhive In addition to its software modules for
-                            core business process management, SAP Business One incorporates business intelligence and
-                            analytics capabilities. For effective integration of these functionalities into your
-                            business, proper implementation, customization, and robust support are imperative.
+                            Capitalize on Modern Technology, Optimize Operations, and Fuel Growth Tekhive, a foremost IT
+                            consulting partner, provides businesses access to diverse technologies and strategic
+                            insights. We offer cutting-edge IT consulting services that combines knowledge of emerging
+                            technology trends with the necessary infrastructure to meet your requirements.
                         </p>
                         <br>
-                        <p class="w-full md:w-1/2">Tekhive customizes and implements ERP solution to perfectly match
-                            your unique business requirements, enabling you to achieve business efficiency across your
-                            finance, sales, customer service, purchase and inventory processes. Choosing our ERP
-                            professionals for SAP implementation ensures that the full potential of SAP Business One is
-                            harnessed to your business advantage.</p>
+                        <p class="w-full md:w-1/2">Our team, consisting of IT experts and strategists, leads the way in
+                            transformation through a comprehensive suite of advisory services, encompassing IT
+                            assessment, planning, business continuity, disaster recovery planning, data migration, and
+                            beyond.</p>
                     </div>
 
                     <!-- Morph Button -->
@@ -909,18 +912,19 @@
             }
         });
 
-        // first paragraph fade out
-        tl.to(paras[0], {
-            opacity: 0,
-            y: -20,
-            duration: 0.5,
-        })
-            // second paragraph fade in
-            .to(paras[1], {
-                opacity: 1,
-                y: 0,
-                duration: 0.5
-            }, ">")
+        tl.to(paras[0], { opacity: 0, y: -20 })
+
+            .fromTo(paras[1],
+                { opacity: 0, y: 30 },
+                { opacity: 1, y: 0, duration: 0.5 }
+            )
+
+            .to(paras[1], { opacity: 0, y: -20, duration: 0.5 })
+
+            .fromTo(paras[2],
+                { opacity: 0, y: 30 },
+                { opacity: 1, y: 0, duration: 0.5 }
+            )
     </script>
 
 </body>
