@@ -14,6 +14,8 @@
         rel="stylesheet" />
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <!-- Lenis Scroll -->
+    <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
     <!-- Theme Config -->
     <script id="tailwind-config">
         tailwind.config = {
@@ -71,6 +73,27 @@
         #lottiePreview svg {
             margin: auto !important;
             width: full !important;
+        }
+
+        html.lenis,
+        html.lenis body {
+            height: auto;
+        }
+
+        .lenis.lenis-smooth {
+            scroll-behavior: auto !important;
+        }
+
+        .lenis.lenis-smooth [data-lenis-prevent] {
+            overscroll-behavior: contain;
+        }
+
+        .lenis.lenis-stopped {
+            overflow: hidden;
+        }
+
+        .lenis.lenis-scrolling iframe {
+            pointer-events: none;
         }
     </style>
 </head>
@@ -535,7 +558,8 @@
                 <div class="relative">
                     <div class="flex flex-col">
                         <div class="para">
-                            <h1 class="leading-[130%] md:leading-relaxed text-2xl md:text-3xl md:max-w-md lg:max-w-2xl">A visually
+                            <h1 class="leading-[130%] md:leading-relaxed text-2xl md:text-3xl md:max-w-md lg:max-w-2xl">
+                                A visually
                                 stunning, responsive
                                 website that
                                 represent your brand
@@ -544,7 +568,8 @@
                                 websites for your business to accelerate growth.</h1>
                         </div>
                         <div class="para absolute top-0 left-0 opacity-0" style="transform: translateY(30px);">
-                            <h1 class="leading-[130%] md:leading-relaxed text-2xl md:text-3xl max-w-2xl">Centered on your
+                            <h1 class="leading-[130%] md:leading-relaxed text-2xl md:text-3xl max-w-2xl">Centered on
+                                your
                                 business ethics, objectives, and target audience, we
                                 harness our website development talent to craft customer-centric, responsive, and
                                 intuitive

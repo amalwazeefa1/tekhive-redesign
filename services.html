@@ -14,6 +14,8 @@
         rel="stylesheet" />
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <!-- Lenis Scroll -->
+    <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
     <!-- Theme Config -->
     <script id="tailwind-config">
         tailwind.config = {
@@ -66,6 +68,27 @@
         #lottiePreview svg {
             margin: auto !important;
             width: full !important;
+        }
+
+        html.lenis,
+        html.lenis body {
+            height: auto;
+        }
+
+        .lenis.lenis-smooth {
+            scroll-behavior: auto !important;
+        }
+
+        .lenis.lenis-smooth [data-lenis-prevent] {
+            overscroll-behavior: contain;
+        }
+
+        .lenis.lenis-stopped {
+            overflow: hidden;
+        }
+
+        .lenis.lenis-scrolling iframe {
+            pointer-events: none;
         }
     </style>
 </head>
@@ -811,148 +834,160 @@
                             </a>
 
                             <a href="business-process-automation.html" class="h-full">
-                            <div class="h-full bg-white rounded-xl group p-6 flex flex-col justify-between">
-                                <div class="flex items-center gap-4 mb-4">
-                                    <img class="h-16 w-16 mb-4"
-                                        src="/assets/icons/glass-icon-business-process-automation.svg" alt="">
-                                    <h1 class="text-green-950 text-lg font-bold">Business Process Automation</h1>
+                                <div class="h-full bg-white rounded-xl group p-6 flex flex-col justify-between">
+                                    <div class="flex items-center gap-4 mb-4">
+                                        <img class="h-16 w-16 mb-4"
+                                            src="/assets/icons/glass-icon-business-process-automation.svg" alt="">
+                                        <h1 class="text-green-950 text-lg font-bold">Business Process Automation</h1>
+                                    </div>
+                                    <p>In modern times it is important to keep your business moving forward with the
+                                        latest
+                                        technology solutions. Tekhive’s business process automation drives innovation,
+                                        efficiency and insights.
+                                    </p>
+                                    <div class="flex justify-end">
+                                        <span class="group-hover:bg-[#f3fff4] rounded-full transition-all">
+                                            <svg class="w-4 h-4 m-4 text-[#adadad]/40 group-hover:text-[#57bf93] transition-all"
+                                                xmlns="http://www.w3.org/2000/svg" version="1.1"
+                                                xmlns:xlink="http://www.w3.org/1999/xlink" width="512" height="512"
+                                                x="0" y="0" viewBox="0 0 512 512"
+                                                style="enable-background:new 0 0 512 512" xml:space="preserve" class="">
+                                                <g>
+                                                    <path
+                                                        d="M479 0H92.1c-18.2 0-33 14.8-33 33s14.8 33 33 33h307.1L9.7 455.6c-12.9 12.9-12.9 33.8 0 46.7s33.8 12.9 46.7 0l389.5-389.6v307.1c0 18.2 14.8 33 33 33s33-14.8 33-33V33C512 14.8 497.2 0 479 0z"
+                                                        fill="currentColor" opacity="1" data-original="#000000"
+                                                        class="">
+                                                    </path>
+                                                </g>
+                                            </svg>
+                                        </span>
+                                    </div>
                                 </div>
-                                <p>In modern times it is important to keep your business moving forward with the latest
-                                    technology solutions. Tekhive’s business process automation drives innovation,
-                                    efficiency and insights.
-                                </p>
-                                <div class="flex justify-end">
-                                    <span class="group-hover:bg-[#f3fff4] rounded-full transition-all">
-                                        <svg class="w-4 h-4 m-4 text-[#adadad]/40 group-hover:text-[#57bf93] transition-all"
-                                            xmlns="http://www.w3.org/2000/svg" version="1.1"
-                                            xmlns:xlink="http://www.w3.org/1999/xlink" width="512" height="512" x="0"
-                                            y="0" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512"
-                                            xml:space="preserve" class="">
-                                            <g>
-                                                <path
-                                                    d="M479 0H92.1c-18.2 0-33 14.8-33 33s14.8 33 33 33h307.1L9.7 455.6c-12.9 12.9-12.9 33.8 0 46.7s33.8 12.9 46.7 0l389.5-389.6v307.1c0 18.2 14.8 33 33 33s33-14.8 33-33V33C512 14.8 497.2 0 479 0z"
-                                                    fill="currentColor" opacity="1" data-original="#000000" class="">
-                                                </path>
-                                            </g>
-                                        </svg>
-                                    </span>
-                                </div>
-                            </div>
                             </a>
 
                             <a href="it-consulting.html" class="h-full">
-                            <div class="h-full bg-white rounded-xl group p-6 flex flex-col justify-between">
-                                <div class="flex items-center gap-4 mb-4">
-                                    <img class="h-16 w-16 mb-4" src="/assets/icons/glass-icon-it-consulting.svg" alt="">
-                                    <h1 class="text-green-950 text-lg font-bold">IT Consulting</h1>
+                                <div class="h-full bg-white rounded-xl group p-6 flex flex-col justify-between">
+                                    <div class="flex items-center gap-4 mb-4">
+                                        <img class="h-16 w-16 mb-4" src="/assets/icons/glass-icon-it-consulting.svg"
+                                            alt="">
+                                        <h1 class="text-green-950 text-lg font-bold">IT Consulting</h1>
+                                    </div>
+                                    <p>In the era where adoption of cutting-edge technology becomes the core of success,
+                                        IT
+                                        consulting services play a crucial role in supporting the right technologies,
+                                        tools
+                                        and capabilities. Stay ahead with the right combination of solutions.
+                                    </p>
+                                    <div class="flex justify-end">
+                                        <span class="group-hover:bg-[#f3fff4] rounded-full transition-all">
+                                            <svg class="w-4 h-4 m-4 text-[#adadad]/40 group-hover:text-[#57bf93] transition-all"
+                                                xmlns="http://www.w3.org/2000/svg" version="1.1"
+                                                xmlns:xlink="http://www.w3.org/1999/xlink" width="512" height="512"
+                                                x="0" y="0" viewBox="0 0 512 512"
+                                                style="enable-background:new 0 0 512 512" xml:space="preserve" class="">
+                                                <g>
+                                                    <path
+                                                        d="M479 0H92.1c-18.2 0-33 14.8-33 33s14.8 33 33 33h307.1L9.7 455.6c-12.9 12.9-12.9 33.8 0 46.7s33.8 12.9 46.7 0l389.5-389.6v307.1c0 18.2 14.8 33 33 33s33-14.8 33-33V33C512 14.8 497.2 0 479 0z"
+                                                        fill="currentColor" opacity="1" data-original="#000000"
+                                                        class="">
+                                                    </path>
+                                                </g>
+                                            </svg>
+                                        </span>
+                                    </div>
                                 </div>
-                                <p>In the era where adoption of cutting-edge technology becomes the core of success, IT
-                                    consulting services play a crucial role in supporting the right technologies, tools
-                                    and capabilities. Stay ahead with the right combination of solutions.
-                                </p>
-                                <div class="flex justify-end">
-                                    <span class="group-hover:bg-[#f3fff4] rounded-full transition-all">
-                                        <svg class="w-4 h-4 m-4 text-[#adadad]/40 group-hover:text-[#57bf93] transition-all"
-                                            xmlns="http://www.w3.org/2000/svg" version="1.1"
-                                            xmlns:xlink="http://www.w3.org/1999/xlink" width="512" height="512" x="0"
-                                            y="0" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512"
-                                            xml:space="preserve" class="">
-                                            <g>
-                                                <path
-                                                    d="M479 0H92.1c-18.2 0-33 14.8-33 33s14.8 33 33 33h307.1L9.7 455.6c-12.9 12.9-12.9 33.8 0 46.7s33.8 12.9 46.7 0l389.5-389.6v307.1c0 18.2 14.8 33 33 33s33-14.8 33-33V33C512 14.8 497.2 0 479 0z"
-                                                    fill="currentColor" opacity="1" data-original="#000000" class="">
-                                                </path>
-                                            </g>
-                                        </svg>
-                                    </span>
-                                </div>
-                            </div>
                             </a>
 
                             <a href="it-support.html" class="h-full">
-                            <div class="h-full bg-white rounded-xl group p-6 flex flex-col justify-between">
-                                <div class="flex items-center gap-4 mb-4">
-                                    <img class="h-16 w-16 mb-4" src="/assets/icons/glass-icon-it-support.svg" alt="">
-                                    <h1 class="text-green-950 text-lg font-bold">IT support</h1>
+                                <div class="h-full bg-white rounded-xl group p-6 flex flex-col justify-between">
+                                    <div class="flex items-center gap-4 mb-4">
+                                        <img class="h-16 w-16 mb-4" src="/assets/icons/glass-icon-it-support.svg"
+                                            alt="">
+                                        <h1 class="text-green-950 text-lg font-bold">IT support</h1>
+                                    </div>
+                                    <p>Tekhive’s IT support quickly resolve technical issues, get your business back on
+                                        track, all without the need for your in-house IT teams to be physically present.
+                                    </p>
+                                    <div class="flex justify-end">
+                                        <span class="group-hover:bg-[#f3fff4] rounded-full transition-all">
+                                            <svg class="w-4 h-4 m-4 text-[#adadad]/40 group-hover:text-[#57bf93] transition-all"
+                                                xmlns="http://www.w3.org/2000/svg" version="1.1"
+                                                xmlns:xlink="http://www.w3.org/1999/xlink" width="512" height="512"
+                                                x="0" y="0" viewBox="0 0 512 512"
+                                                style="enable-background:new 0 0 512 512" xml:space="preserve" class="">
+                                                <g>
+                                                    <path
+                                                        d="M479 0H92.1c-18.2 0-33 14.8-33 33s14.8 33 33 33h307.1L9.7 455.6c-12.9 12.9-12.9 33.8 0 46.7s33.8 12.9 46.7 0l389.5-389.6v307.1c0 18.2 14.8 33 33 33s33-14.8 33-33V33C512 14.8 497.2 0 479 0z"
+                                                        fill="currentColor" opacity="1" data-original="#000000"
+                                                        class="">
+                                                    </path>
+                                                </g>
+                                            </svg>
+                                        </span>
+                                    </div>
                                 </div>
-                                <p>Tekhive’s IT support quickly resolve technical issues, get your business back on
-                                    track, all without the need for your in-house IT teams to be physically present.
-                                </p>
-                                <div class="flex justify-end">
-                                    <span class="group-hover:bg-[#f3fff4] rounded-full transition-all">
-                                        <svg class="w-4 h-4 m-4 text-[#adadad]/40 group-hover:text-[#57bf93] transition-all"
-                                            xmlns="http://www.w3.org/2000/svg" version="1.1"
-                                            xmlns:xlink="http://www.w3.org/1999/xlink" width="512" height="512" x="0"
-                                            y="0" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512"
-                                            xml:space="preserve" class="">
-                                            <g>
-                                                <path
-                                                    d="M479 0H92.1c-18.2 0-33 14.8-33 33s14.8 33 33 33h307.1L9.7 455.6c-12.9 12.9-12.9 33.8 0 46.7s33.8 12.9 46.7 0l389.5-389.6v307.1c0 18.2 14.8 33 33 33s33-14.8 33-33V33C512 14.8 497.2 0 479 0z"
-                                                    fill="currentColor" opacity="1" data-original="#000000" class="">
-                                                </path>
-                                            </g>
-                                        </svg>
-                                    </span>
-                                </div>
-                            </div>
                             </a>
 
                             <a href="back-office-support.html" class="h-full">
-                            <div class="h-full bg-white rounded-xl group p-6 flex flex-col justify-between">
-                                <div class="flex items-center gap-4 mb-4">
-                                    <img class="h-16 w-16 mb-4" src="/assets/icons/glass-icon-back-office-support.svg"
-                                        alt="">
-                                    <h1 class="text-green-950 text-lg font-bold">Back Office Support</h1>
+                                <div class="h-full bg-white rounded-xl group p-6 flex flex-col justify-between">
+                                    <div class="flex items-center gap-4 mb-4">
+                                        <img class="h-16 w-16 mb-4"
+                                            src="/assets/icons/glass-icon-back-office-support.svg" alt="">
+                                        <h1 class="text-green-950 text-lg font-bold">Back Office Support</h1>
+                                    </div>
+                                    <p>Tekhive's comprehensive back-office support ensures the smooth operation of your
+                                        business without the need for your in-house IT teams to be physically present.
+                                    </p>
+                                    <div class="flex justify-end">
+                                        <span class="group-hover:bg-[#f3fff4] rounded-full transition-all">
+                                            <svg class="w-4 h-4 m-4 text-[#adadad]/40 group-hover:text-[#57bf93] transition-all"
+                                                xmlns="http://www.w3.org/2000/svg" version="1.1"
+                                                xmlns:xlink="http://www.w3.org/1999/xlink" width="512" height="512"
+                                                x="0" y="0" viewBox="0 0 512 512"
+                                                style="enable-background:new 0 0 512 512" xml:space="preserve" class="">
+                                                <g>
+                                                    <path
+                                                        d="M479 0H92.1c-18.2 0-33 14.8-33 33s14.8 33 33 33h307.1L9.7 455.6c-12.9 12.9-12.9 33.8 0 46.7s33.8 12.9 46.7 0l389.5-389.6v307.1c0 18.2 14.8 33 33 33s33-14.8 33-33V33C512 14.8 497.2 0 479 0z"
+                                                        fill="currentColor" opacity="1" data-original="#000000"
+                                                        class="">
+                                                    </path>
+                                                </g>
+                                            </svg>
+                                        </span>
+                                    </div>
                                 </div>
-                                <p>Tekhive's comprehensive back-office support ensures the smooth operation of your
-                                    business without the need for your in-house IT teams to be physically present.
-                                </p>
-                                <div class="flex justify-end">
-                                    <span class="group-hover:bg-[#f3fff4] rounded-full transition-all">
-                                        <svg class="w-4 h-4 m-4 text-[#adadad]/40 group-hover:text-[#57bf93] transition-all"
-                                            xmlns="http://www.w3.org/2000/svg" version="1.1"
-                                            xmlns:xlink="http://www.w3.org/1999/xlink" width="512" height="512" x="0"
-                                            y="0" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512"
-                                            xml:space="preserve" class="">
-                                            <g>
-                                                <path
-                                                    d="M479 0H92.1c-18.2 0-33 14.8-33 33s14.8 33 33 33h307.1L9.7 455.6c-12.9 12.9-12.9 33.8 0 46.7s33.8 12.9 46.7 0l389.5-389.6v307.1c0 18.2 14.8 33 33 33s33-14.8 33-33V33C512 14.8 497.2 0 479 0z"
-                                                    fill="currentColor" opacity="1" data-original="#000000" class="">
-                                                </path>
-                                            </g>
-                                        </svg>
-                                    </span>
-                                </div>
-                            </div>
                             </a>
 
-                            <div class="bg-white rounded-xl group p-6 flex flex-col justify-between">
-                                <div class="flex items-center gap-4 mb-4">
-                                    <img class="h-16 w-16 mb-4"
-                                        src="/assets/icons/glass-icon-domain-and-web-hosting.svg" alt="">
-                                    <h1 class="text-green-950 text-lg font-bold">Domain and Web Hosting</h1>
+                            <a href="domain-and-web-hosting.html" class="h-full">
+                                <div class="h-full bg-white rounded-xl group p-6 flex flex-col justify-between">
+                                    <div class="flex items-center gap-4 mb-4">
+                                        <img class="h-16 w-16 mb-4"
+                                            src="/assets/icons/glass-icon-domain-and-web-hosting.svg" alt="">
+                                        <h1 class="text-green-950 text-lg font-bold">Domain and Web Hosting</h1>
+                                    </div>
+                                    <p>Creating a greater online space is the gateway to success for your business.
+                                        Recognizing this, Tekhive paves the path for future growth and a greater online
+                                        presence by offering affordable domain and web hosting services.
+                                    </p>
+                                    <div class="flex justify-end">
+                                        <span class="group-hover:bg-[#f3fff4] rounded-full transition-all">
+                                            <svg class="w-4 h-4 m-4 text-[#adadad]/40 group-hover:text-[#57bf93] transition-all"
+                                                xmlns="http://www.w3.org/2000/svg" version="1.1"
+                                                xmlns:xlink="http://www.w3.org/1999/xlink" width="512" height="512"
+                                                x="0" y="0" viewBox="0 0 512 512"
+                                                style="enable-background:new 0 0 512 512" xml:space="preserve" class="">
+                                                <g>
+                                                    <path
+                                                        d="M479 0H92.1c-18.2 0-33 14.8-33 33s14.8 33 33 33h307.1L9.7 455.6c-12.9 12.9-12.9 33.8 0 46.7s33.8 12.9 46.7 0l389.5-389.6v307.1c0 18.2 14.8 33 33 33s33-14.8 33-33V33C512 14.8 497.2 0 479 0z"
+                                                        fill="currentColor" opacity="1" data-original="#000000"
+                                                        class="">
+                                                    </path>
+                                                </g>
+                                            </svg>
+                                        </span>
+                                    </div>
                                 </div>
-                                <p>Creating a greater online space is the gateway to success for your business.
-                                    Recognizing this, Tekhive paves the path for future growth and a greater online
-                                    presence by offering affordable domain and web hosting services.
-                                </p>
-                                <div class="flex justify-end">
-                                    <span class="group-hover:bg-[#f3fff4] rounded-full transition-all">
-                                        <svg class="w-4 h-4 m-4 text-[#adadad]/40 group-hover:text-[#57bf93] transition-all"
-                                            xmlns="http://www.w3.org/2000/svg" version="1.1"
-                                            xmlns:xlink="http://www.w3.org/1999/xlink" width="512" height="512" x="0"
-                                            y="0" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512"
-                                            xml:space="preserve" class="">
-                                            <g>
-                                                <path
-                                                    d="M479 0H92.1c-18.2 0-33 14.8-33 33s14.8 33 33 33h307.1L9.7 455.6c-12.9 12.9-12.9 33.8 0 46.7s33.8 12.9 46.7 0l389.5-389.6v307.1c0 18.2 14.8 33 33 33s33-14.8 33-33V33C512 14.8 497.2 0 479 0z"
-                                                    fill="currentColor" opacity="1" data-original="#000000" class="">
-                                                </path>
-                                            </g>
-                                        </svg>
-                                    </span>
-                                </div>
-                            </div>
+                            </a>
 
 
 
@@ -988,6 +1023,20 @@
         <!-- Scrolling content -->
         <div class="absolute inset-0 w-screen h-full z-20 flex items-center">
             <div class="flex items-center whitespace-nowrap animate-marquee">
+                <!-- First set -->
+                <span class="inline-block font-medium text-black text-xl px-4">WEB Design & Development</span>
+                <span class="text-xs">•</span>
+                <span class="inline-block font-medium text-black text-xl px-4">UI/UX Design</span>
+                <span class="text-xs">•</span>
+                <span class="inline-block font-medium text-black text-xl px-4">Brand Identity</span>
+                <span class="text-xs">•</span>
+                <span class="inline-block font-medium text-black text-xl px-4">Code Customization</span>
+                <span class="text-xs">•</span>
+                <span class="inline-block font-medium text-black text-xl px-4">Ecommerce Solutions</span>
+                <span class="text-xs">•</span>
+                <span class="inline-block font-medium text-black text-xl px-4">SEO Optimization</span>
+                <span class="text-xs">•</span>
+                <span class="inline-block font-medium text-black text-xl px-4">Digital Marketing</span>
                 <!-- First set -->
                 <span class="inline-block font-medium text-black text-xl px-4">WEB Design & Development</span>
                 <span class="text-xs">•</span>

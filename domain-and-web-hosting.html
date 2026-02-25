@@ -14,8 +14,6 @@
         rel="stylesheet" />
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <!-- Lenis Scroll -->
-    <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
     <!-- Theme Config -->
     <script id="tailwind-config">
         tailwind.config = {
@@ -30,6 +28,10 @@
                             '0%': { width: '0%' },
                             '100%': { width: '98%' },
                         },
+                        'bounce-down': {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(8px)' }
+                        },
                         marquee: {
                             '0%': { transform: 'translateX(0%)' },
                             '100%': { transform: 'translateX(-100%)' },
@@ -38,6 +40,7 @@
                     animation: {
                         fill: 'fill 3s ease-out forwards',
                         marquee: 'marquee 20s linear infinite',
+                        'bounce-down': 'bounce-down 1s infinite ease-in-out'
                     },
                     screens: {
                         "xs": "380px",
@@ -68,27 +71,6 @@
         #lottiePreview svg {
             margin: auto !important;
             width: full !important;
-        }
-
-        html.lenis,
-        html.lenis body {
-            height: auto;
-        }
-
-        .lenis.lenis-smooth {
-            scroll-behavior: auto !important;
-        }
-
-        .lenis.lenis-smooth [data-lenis-prevent] {
-            overscroll-behavior: contain;
-        }
-
-        .lenis.lenis-stopped {
-            overflow: hidden;
-        }
-
-        .lenis.lenis-scrolling iframe {
-            pointer-events: none;
         }
     </style>
 </head>
@@ -446,24 +428,40 @@
     <section id="about-hero" class="relative bg-black text-white flex items-end overflow-hidden">
         <div class="h-[50vh] w-full flex items-end py-12 z-10 mx-auto bg-no-repeat bg-cover bg-center"
             style="background-image: url(/assets/gradients.png);">
-            <div class="max-w-7xl w-full px-4 pb-10 mx-auto">
+            <div class="max-w-7xl w-full px-4 mx-auto">
                 <div class="flex flex-row gap-6 items-center relative">
                     <!-- Line element -->
                     <div class="w-[100px] h-[0.25px] opacity-50 bg-[#09aeb8] order-2 sm:order-1"></div>
 
                     <!-- Text content -->
                     <div class="flex flex-col relative z-10 order-1 sm:order-2">
-                        <h1 class="text-5xl sm:text-7xl font-semibold">Contact</h1>
+                        <h1 class="text-5xl sm:text-7xl font-semibold">Domain & Web Hosting</h1>
 
-                        <nav class="flex font-semibold mt-2">
-                            <span class="cursor-pointer">
+                        <!-- Breadcrumb menu -->
+                        <nav class="hidden sm:flex font-normal mt-2">
+                            <span class="cursor-pointer text-white/50 text-sm md:text-base">
                                 <a href="/index.html">Home</a>
                             </span>
-                            <span class="mx-4">|</span>
-                            <span class="text-white/50">Contact Us</span>
+                            <span class="mx-2 md:mx-4">/</span>
+                            <span class="cursor-pointer text-white/50 text-sm md:text-base">
+                                <a href="/services.html">Services</a>
+                            </span>
+                            <span class="mx-2 md:mx-4">/</span>
+                            <span class=" text-sm md:text-base">Domain & Web Hosting</span>
                         </nav>
                     </div>
                 </div>
+                <nav class="flex sm:hidden font-normal mt-2">
+                    <span class="cursor-pointer text-white/50 text-sm md:text-base">
+                        <a href="/index.html">Home</a>
+                    </span>
+                    <span class="mx-2 md:mx-4">/</span>
+                    <span class="cursor-pointer text-white/50 text-sm md:text-base">
+                        <a href="/services.html">Services</a>
+                    </span>
+                    <span class="mx-2 md:mx-4">/</span>
+                    <span class=" text-sm md:text-base font-semibold">Domain & Web Hosting</span>
+                </nav>
             </div>
         </div>
 
@@ -476,6 +474,200 @@
         </div>
     </section>
 
+    <section class="py-12 bg-[#f6f6f6]">
+        <div class="max-w-7xl w-full px-4 pb-10 mx-auto flex flex-col items-end">
+            <div
+                class="hidden md:block w-full h-5 border-[#222f30] opacity-10 my-12 border-l-[1px] border-t-[1px] border-r-[1px] rounded-tl-2xl rounded-tr-2xl">
+            </div>
+            <div class="flex mb-12 w-full justify-between">
+                <button
+                    class="hidden group relative md:flex items-center justify-center w-14 h-14 rounded-2xl overflow-hidden transition-all duration-500 cubic-bezier(0.175, 0.885, 0.32, 1.275) bg-[#333333] z-50"
+                    onclick="document.getElementById('what-we-do').scrollIntoView({ behavior: 'smooth' })">
+                    <div
+                        class="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-20 transition-opacity duration-300">
+                    </div>
+
+                    <div
+                        class="relative flex flex-col items-center transition-transform duration-500 group-hover:-translate-y-[-150%]">
+
+                        <svg class="text-white my-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" version="1.1"
+                            xmlns:xlink="http://www.w3.org/1999/xlink" width="512" height="512" x="0" y="0"
+                            viewBox="0 0 24 24" style="enable-background:new 0 0 512 512" xml:space="preserve"
+                            class="hovered-paths">
+                            <g>
+                                <path fill="currentColor"
+                                    d="M13 4a1 1 0 1 0-2 0v13.586l-5.293-5.293a1 1 0 0 0-1.414 1.414l7 7a1 1 0 0 0 1.414 0l7-7a1 1 0 0 0-1.414-1.414L13 17.586z"
+                                    opacity="1" data-original="#000000" class="hovered-path"></path>
+                            </g>
+                        </svg>
+
+
+                        <svg class="text-white my-2 h-5 w-5 absolute top-[-150%]" xmlns="http://www.w3.org/2000/svg"
+                            version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="512" height="512" x="0"
+                            y="0" viewBox="0 0 24 24" style="enable-background:new 0 0 512 512" xml:space="preserve"
+                            class="hovered-paths">
+                            <g>
+                                <path fill="currentColor"
+                                    d="M13 4a1 1 0 1 0-2 0v13.586l-5.293-5.293a1 1 0 0 0-1.414 1.414l7 7a1 1 0 0 0 1.414 0l7-7a1 1 0 0 0-1.414-1.414L13 17.586z"
+                                    opacity="1" data-original="#000000" class="hovered-path"></path>
+                            </g>
+                        </svg>
+                    </div>
+                </button>
+
+                <h1 class="text-md md:text-2xl max-w-lg">Create a remarkable online presence.
+                </h1>
+            </div>
+            <div class="image-banner w-full">
+                <img class="w-full h-[200px] md:h-[400px] object-cover rounded-md"
+                    src="https://integratedbiosciences.com/wp-content/uploads/2025/09/m0m1y8bh1zst4kghdbq7_0.jpg"
+                    alt="">
+            </div>
+        </div>
+    </section>
+
+    <section id="what-we-do" class="bg-[#f6f6f6]" style="min-height: 100vh; display: flex; align-items: center;">
+        <div class="max-w-7xl w-full px-4 py-12 mx-auto flex flex-col items-start gap-12">
+            <div class="flex flex-col md:flex-row justify-between w-full">
+                <span
+                    class="text-sm flex items-center mb-12 px-3 py-2 rounded-xl bg-white self-start before:content-[''] before:inline-block before:w-[8px] before:h-[8px] before:bg-[#09aeb8] before:mr-4">WHAT
+                    WE DO</span>
+                <div class="relative">
+                    <div class="flex flex-col">
+                        <div class="para">
+                            <h1 class="leading-[130%] md:leading-relaxed text-2xl md:text-3xl md:max-w-md lg:max-w-2xl">
+                                Establishing an online presence is essential to business success, and the two most
+                                important aspects of this process are domain name and web hosting. A domain name sets
+                                your business identity apart on the Internet. Meanwhile, web hosting makes your website
+                                secure and accessible to people around the world.</h1>
+                        </div>
+                        <div class="para absolute top-0 left-0 opacity-0" style="transform: translateY(30px);">
+                            <h1 class="leading-[130%] md:leading-relaxed text-2xl md:text-3xl max-w-2xl">Tekhive helps
+                                your business stand out with exceptional domain and web hosting services. Offering
+                                reasonably priced hosting plans with rich features, we ensure both the security and
+                                optimal performance of your website, making hosting accessible to businesses of all
+                                sizes. Our domain and web hosting services are crafted to easily scale with your
+                                business, adapting to growth and increased website traffic. Our service provides access
+                                to best security tools and Domains that you will need to effectively run your business
+                                online.
+                            </h1>
+                            <button class="m-auto mt-8 px-6 py-4 bg-[#333333] rounded-xl">
+                                <span class="font-medium text-white">See
+                                    our work</span>
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="py-12 bg-[#f6f6f6] pt-[100px] md:pt-[200px]">
+        <div class="max-w-7xl w-full px-4 mx-auto flex flex-col">
+            <div
+                class="block w-full h-5 border-[#222f30] opacity-10 my-6 border-l-[1px] border-t-[1px] border-r-[1px] rounded-tl-2xl rounded-tr-2xl">
+            </div>
+            <div class="flex flex-col lg:flex-row justify-between gap-16">
+                <img class="rounded-xl object-cover max-h-full w-[600px]" src="/assets/why_choose_us.jpg" alt="">
+                <div>
+                    <h1 class="text-4xl font-semibold text-[#3a3a3a]">Why Tekhive for Domain & Web Hosting Service?</h1>
+                    <div class="flex flex-col md:flex-row items-start gap-0 md:gap-4 mt-6 text-base">
+                        <p class="w-full md:w-1/2">
+                            One-stop Destination for All Your Domain and Hosting Needs Tekhive excels at guiding you
+                            through the process of selecting the perfect domain name extension and web hosting plans
+                            that not only align with your brand identity but also cater to your specific needs.
+                        </p>
+                        <br>
+                        <p class="w-full md:w-1/2">Our comprehensive support extends to every aspect of domain name
+                            registration and web hosting services. Whether it’s the initial domain name registration,
+                            smooth domain transfers, domain protection or making informed choices among hosting
+                            solutions, including shared hosting, VPS hosting, cloud hosting, and dedicated hosting, we
+                            are your dedicated partner at every step of your journey. With Tekhive, you have a trusted
+                            partner to ensure your online presence is secure, efficient, and aligned with your business
+                            goals.</p>
+                    </div>
+
+                    <!-- Morph Button -->
+                    <div class="flex mt-6 gap-10">
+                        <!-- morph button 1 -->
+                        <div class="flex items-end">
+                            <div class="relative inline-block">
+                                <!-- start shape -->
+                                <svg class="h-12" id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 165.81 58.9">
+                                    <defs>
+                                        <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+                                            <stop offset="0%" style="stop-color:#499BD5; stop-opacity:1" />
+                                            <stop offset="100%" style="stop-color:#216494; stop-opacity:1" />
+                                        </linearGradient>
+                                    </defs>
+                                    <path id="morphBtn1-shape1"
+                                        d="m153.61,58.9H12.18c-6.73,0-12.18-5.45-12.18-12.18V12.18C0,5.45,5.45,0,12.18,0h126.97c4.91,0,9.34,2.95,11.24,7.48l14.46,34.54c3.36,8.03-2.54,16.88-11.24,16.88Z"
+                                        style="fill: url(#grad1); stroke-width: 0px;" />
+                                </svg>
+                                <h1
+                                    class="absolute inset-0 flex items-center justify-center text-white font-sans text-md font-medium">
+                                    Get Started</h1>
+                            </div>
+                            <div class="relative inline-block ml-[-5px]">
+                                <!-- start shape -->
+                                <svg class="h-12" id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 72.33 58.9">
+                                    <defs>
+                                        <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+                                            <stop offset="0%" style="stop-color:#499BD5; stop-opacity:1" />
+                                            <stop offset="100%" style="stop-color:#216494; stop-opacity:1" />
+                                        </linearGradient>
+                                    </defs>
+                                    <path
+                                        d="m12.19,0h47.96c6.73,0,12.18,5.45,12.18,12.18v34.54c0,6.73-5.45,12.18-12.18,12.18H26.65c-4.91,0-9.34-2.95-11.24-7.48L.96,16.88C-2.4,8.86,3.49,0,12.19,0Z"
+                                        style="fill: url(#grad1); stroke-width: 0px;" />
+                                </svg>
+                            </div>
+                        </div>
+                        <!-- morph button 2 -->
+                        <div class="hidden md:flex items-end">
+                            <div class="relative inline-block">
+                                <!-- target shape -->
+                                <svg class="h-12" id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 165.81 58.9">
+                                    <defs>
+                                        <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+                                            <stop offset="0%" style="stop-color:#499BD5; stop-opacity:1" />
+                                            <stop offset="100%" style="stop-color:#216494; stop-opacity:1" />
+                                        </linearGradient>
+                                    </defs>
+                                    <path id="morphBtn2-shape1"
+                                        d="m153.61,0H12.18C5.45,0,0,5.45,0,12.18v34.54c0,6.73,5.45,12.18,12.18,12.18h126.97c4.91,0,9.34-2.95,11.24-7.48l14.46-34.54c3.36-8.03-2.54-16.88-11.24-16.88Z"
+                                        style="fill: url(#grad1); stroke-width: 0px;" />
+                                </svg>
+                            </div>
+                            <div class="relative inline-block ml-[-8px]">
+                                <!-- target shape -->
+                                <svg class="h-12" id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 72.33 58.9">
+                                    <defs>
+                                        <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+                                            <stop offset="0%" style="stop-color:#499BD5; stop-opacity:1" />
+                                            <stop offset="100%" style="stop-color:#216494; stop-opacity:1" />
+                                        </linearGradient>
+                                    </defs>
+                                    <path
+                                        d="m12.19,58.9h47.96c6.73,0,12.18-5.45,12.18-12.18V12.18C72.33,5.45,66.88,0,60.15,0H26.65c-4.91,0-9.34,2.95-11.24,7.48L.96,42.02c-3.36,8.03,2.54,16.88,11.24,16.88Z"
+                                        style="fill: url(#grad1); stroke-width: 0px;" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
     <!-- Sticky Bottom Nav / FAB Area -->
     <div class="fixed bottom-0 right-0 p-4 pt-8 pointer-events-none z-40">
         <button id="pop-up"
@@ -487,179 +679,24 @@
         </button>
     </div>
 
-    <section class="py-12 bg-white">
-        <div class="max-w-7xl w-full px-4 pb-10 mx-auto">
-            <div class="flex flex-col md:flex-row gap-28 lg:gap-6">
-                <div class="lg:p-12 bg-transparent w-full md:w-1/2 rounded-md">
-                    <p class="mb-12 leading-relaxed">Let’s Connect and Make IT Happen! Have a question or a project in
-                        mind? Reach out
-                        to us today.
-                        Our dedicated team is here to assist you every step of the way.</p>
-
-                    <div class="">
-                        <form class="space-y-4">
-                            <!-- First Name -->
-                            <div class="w-full">
-                                <label for="firstName"
-                                    class="block text-sm font-bold text-gray-700 after:content-['*'] after:text-red-500 after:ml-1">FIRST
-                                    NAME</label>
-                                <input type="text" id="firstName" name="firstName"
-                                    class="bg-gray-100 py-4 mt-1 block w-full rounded-md border-0 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" />
-                            </div>
-                            <!-- Last Name -->
-                            <div class="w-full">
-                                <label for="lastName"
-                                    class="block text-sm font-bold text-gray-700 after:content-['*'] after:text-red-500 after:ml-1">LAST
-                                    NAME</label>
-                                <input type="text" id="lastName" name="lastName"
-                                    class="bg-gray-100 py-4 mt-1 block w-full rounded-md border-0 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" />
-                            </div>
-                            <!-- Email -->
-                            <div>
-                                <label for="email"
-                                    class="block text-sm font-bold text-gray-700 after:content-['*'] after:text-red-500 after:ml-1">EMAIL
-                                    ADDRESS</label>
-                                <input type="email" id="email" name="email"
-                                    class="bg-gray-100 py-4 mt-1 block w-full rounded-md border-0 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" />
-                            </div>
-
-                            <!-- Phone -->
-                            <div>
-                                <label for="phone"
-                                    class="block text-sm font-bold text-gray-700 after:content-['*'] after:text-red-500 after:ml-1">PHONE
-                                    NUMBER</label>
-                                <input type="tel" id="phone" name="phone"
-                                    class="bg-gray-100 py-4 mt-1 block w-full rounded-md border-0 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" />
-                            </div>
-
-                            <!-- Message -->
-                            <div>
-                                <label for="message"
-                                    class="block text-sm font-bold text-gray-700 after:content-['*'] after:text-red-500 after:ml-1">MESSAGE</label>
-                                <textarea id="message" name="message" rows="4"
-                                    class="bg-gray-100 mt-1 block w-full rounded-md border-0 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"></textarea>
-                            </div>
-
-                            <!-- Submit Button -->
-                            <div>
-                                <button type="submit"
-                                    class="w-full inline-flex justify-center rounded-md border border-transparent bg-[#09aeb8] hover:bg-[#008c85] transition-all px-4 py-4 font-medium text-white shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
-                                    Submit
-                                </button>
-                            </div>
-                        </form>
-                    </div>
 
 
-                </div>
-                <div class="flex flex-col lg:p-12 w-full md:w-1/2 gap-12">
-                    <div class="flex flex-col">
-                        <h1 class="text-6xl">Tell us about</h1>
-                        <h1 class="text-6xl text-[#858585]">the project</h1>
-                    </div>
-                    <div class="p-12 bg-[#def1ff] w-full rounded-3xl text-[#1a1a1a]">
-                        <p class="font-bold text-xs">CONTACT US</p>
-                        <div class="flex flex-col mt-6 mb-12 text-2xl font-bold">
-                            <a href="">+91 - 487 - 2970765</a>
-                            <a href="">hello@gmail.com</a>
-                        </div>
-                        <p class="font-bold text-xs">WHERE TO FIND US</p>
-                        <div class="flex flex-col mt-6 mb-12 text-2xl">
-                            <a href="">Infopark Koratty</a>
-                            <a href="">Kerala, India</a>
-                        </div>
-                        <div class="flex items-center mb-12 text-white">
-                            <button class="font-bold py-3 px-6 rounded-full bg-[#499BD5]">
-                                Get directions
-                            </button>
-                            <button class="py-3 px-3 bg-[#499BD5] rounded-full h-full">
-                                <svg class="w-4 h-4 text-white" xmlns="http://www.w3.org/2000/svg" version="1.1"
-                                    xmlns:xlink="http://www.w3.org/1999/xlink" width="512" height="512" x="0" y="0"
-                                    viewBox="0 0 512 512" style="enable-background:new 0 0 512 512" xml:space="preserve"
-                                    class="">
-                                    <g>
-                                        <path
-                                            d="M479 0H92.1c-18.2 0-33 14.8-33 33s14.8 33 33 33h307.1L9.7 455.6c-12.9 12.9-12.9 33.8 0 46.7s33.8 12.9 46.7 0l389.5-389.6v307.1c0 18.2 14.8 33 33 33s33-14.8 33-33V33C512 14.8 497.2 0 479 0z"
-                                            fill="currentColor" opacity="1" data-original="#000000" class=""></path>
-                                    </g>
-                                </svg>
-                            </button>
-                        </div>
-                        <p class="font-bold text-xs">FOLLOW US</p>
-                        <div class="flex gap-4 mt-6">
-                            <span><svg class="w-5 h-5 hover:text-[#499BD5]" xmlns="http://www.w3.org/2000/svg"
-                                    version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="512" height="512"
-                                    x="0" y="0" viewBox="0 0 511 511.9" style="enable-background:new 0 0 512 512"
-                                    xml:space="preserve" class="">
-                                    <g>
-                                        <path
-                                            d="M510.95 150.5c-1.2-27.2-5.598-45.898-11.9-62.102-6.5-17.199-16.5-32.597-29.6-45.398-12.802-13-28.302-23.102-45.302-29.5-16.296-6.3-34.898-10.7-62.097-11.898C334.648.3 325.949 0 256.449 0s-78.199.3-105.5 1.5c-27.199 1.2-45.898 5.602-62.097 11.898-17.204 6.5-32.602 16.5-45.403 29.602-13 12.8-23.097 28.3-29.5 45.3-6.3 16.302-10.699 34.9-11.898 62.098C.75 177.801.449 186.5.449 256s.301 78.2 1.5 105.5c1.2 27.2 5.602 45.898 11.903 62.102 6.5 17.199 16.597 32.597 29.597 45.398 12.801 13 28.301 23.102 45.301 29.5 16.3 6.3 34.898 10.7 62.102 11.898 27.296 1.204 36 1.5 105.5 1.5s78.199-.296 105.5-1.5c27.199-1.199 45.898-5.597 62.097-11.898a130.934 130.934 0 0 0 74.903-74.898c6.296-16.301 10.699-34.903 11.898-62.102 1.2-27.3 1.5-36 1.5-105.5s-.102-78.2-1.3-105.5zm-46.098 209c-1.102 25-5.301 38.5-8.801 47.5-8.602 22.3-26.301 40-48.602 48.602-9 3.5-22.597 7.699-47.5 8.796-27 1.204-35.097 1.5-103.398 1.5s-76.5-.296-103.403-1.5c-25-1.097-38.5-5.296-47.5-8.796C94.551 451.5 84.45 445 76.25 436.5c-8.5-8.3-15-18.3-19.102-29.398-3.5-9-7.699-22.602-8.796-47.5-1.204-27-1.5-35.102-1.5-103.403s.296-76.5 1.5-103.398c1.097-25 5.296-38.5 8.796-47.5C61.25 94.199 67.75 84.1 76.352 75.898c8.296-8.5 18.296-15 29.398-19.097 9-3.5 22.602-7.7 47.5-8.801 27-1.2 35.102-1.5 103.398-1.5 68.403 0 76.5.3 103.403 1.5 25 1.102 38.5 5.3 47.5 8.8 11.097 4.098 21.199 10.598 29.398 19.098 8.5 8.301 15 18.301 19.102 29.403 3.5 9 7.699 22.597 8.8 47.5 1.2 27 1.5 35.097 1.5 103.398s-.3 76.301-1.5 103.301zm0 0"
-                                            fill="currentColor" opacity="1" data-original="#000000" class=""></path>
-                                        <path
-                                            d="M256.45 124.5c-72.598 0-131.5 58.898-131.5 131.5s58.902 131.5 131.5 131.5c72.6 0 131.5-58.898 131.5-131.5s-58.9-131.5-131.5-131.5zm0 216.8c-47.098 0-85.302-38.198-85.302-85.3s38.204-85.3 85.301-85.3c47.102 0 85.301 38.198 85.301 85.3s-38.2 85.3-85.3 85.3zM423.852 119.3c0 16.954-13.747 30.7-30.704 30.7-16.953 0-30.699-13.746-30.699-30.7 0-16.956 13.746-30.698 30.7-30.698 16.956 0 30.703 13.742 30.703 30.699zm0 0"
-                                            fill="currentColor" opacity="1" data-original="#000000" class=""></path>
-                                    </g>
-                                </svg></span>
-                            <span><svg class="w-5 h-5 hover:text-[#499BD5]" xmlns="http://www.w3.org/2000/svg"
-                                    version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="512" height="512"
-                                    x="0" y="0" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512"
-                                    xml:space="preserve" class="">
-                                    <g>
-                                        <path
-                                            d="M512 256C512 114.6 397.4 0 256 0S0 114.6 0 256s114.6 256 256 256c1.5 0 3 0 4.5-.1V312.7h-55v-64.1h55v-47.2c0-54.7 33.4-84.5 82.2-84.5 23.4 0 43.5 1.7 49.3 2.5v57.2h-33.6c-26.5 0-31.7 12.6-31.7 31.1v40.8h63.5l-8.3 64.1h-55.2v189.5C433.7 471.4 512 372.9 512 256z"
-                                            fill="currentColor" opacity="1" data-original="#000000" class=""></path>
-                                    </g>
-                                </svg></span>
-                            <span>
-                                <svg class="w-5 h-5 hover:text-[#499BD5]" xmlns="http://www.w3.org/2000/svg"
-                                    version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="512" height="512"
-                                    x="0" y="0" viewBox="0 0 1226.37 1226.37" style="enable-background:new 0 0 512 512"
-                                    xml:space="preserve" class="">
-                                    <g>
-                                        <path
-                                            d="M727.348 519.284 1174.075 0h-105.86L680.322 450.887 370.513 0H13.185l468.492 681.821L13.185 1226.37h105.866l409.625-476.152 327.181 476.152h357.328L727.322 519.284zM582.35 687.828l-47.468-67.894-377.686-540.24H319.8l304.797 435.991 47.468 67.894 396.2 566.721H905.661L582.35 687.854z"
-                                            fill="currentColor" opacity="1" data-original="#000000" class=""></path>
-                                    </g>
-                                </svg>
-                            </span>
-                            <span>
-                                <svg class="w-5 h-5 hover:text-[#499BD5]" xmlns="http://www.w3.org/2000/svg"
-                                    version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="512" height="512"
-                                    x="0" y="0" viewBox="0 0 176 176" style="enable-background:new 0 0 512 512"
-                                    xml:space="preserve" class="">
-                                    <g>
-                                        <path
-                                            d="M152 0H24A24 24 0 0 0 0 24v128a24 24 0 0 0 24 24h128a24 24 0 0 0 24-24V24a24 24 0 0 0-24-24zM60 139.28a3.71 3.71 0 0 1-3.71 3.72H40.48a3.71 3.71 0 0 1-3.72-3.72V73a3.72 3.72 0 0 1 3.72-3.72h15.81A3.72 3.72 0 0 1 60 73zM48.38 63a15 15 0 1 1 15-15 15 15 0 0 1-15 15zm94.26 76.54a3.41 3.41 0 0 1-3.42 3.42h-17a3.41 3.41 0 0 1-3.42-3.42v-31.05c0-4.64 1.36-20.32-12.13-20.32-10.45 0-12.58 10.73-13 15.55v35.86A3.42 3.42 0 0 1 90.3 143H73.88a3.41 3.41 0 0 1-3.41-3.42V72.71a3.41 3.41 0 0 1 3.41-3.42H90.3a3.42 3.42 0 0 1 3.42 3.42v5.78c3.88-5.83 9.63-10.31 21.9-10.31 27.18 0 27 25.38 27 39.32z"
-                                            data-name="Layer 2" fill="currentColor" opacity="1" data-original="#000000"
-                                            class=""></path>
-                                    </g>
-                                </svg>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <div class="bg-[#f6f6f6] pt-12">
         <div class="text-center mb-8 max-w-[450px] m-auto">
             <h1 class="text-4xl md:text-6xl font-bold mb-8">
                 Design. Deliver. Distinguish.
             </h1>
-            <div class="flex flex-wrap justify-center gap-2">
-                <button
-                    class="bg-[#0000001a] text-sm hover:bg-black hover:text-white transition-all ease duration-300 rounded-full px-6 py-2 w-auto self-start">
-                    <span class="font-medium">See
-                        our work</span>
-                </button>
-                <button
-                    class="bg-[#2f2f2f] text-sm hover:bg-black transition-all ease duration-300 rounded-full px-6 py-2 w-auto self-start">
-                    <span
-                        class="bg-gradient-to-r from-blue-400 to-green-400 bg-clip-text text-transparent font-medium">Get
-                        Started</span>
-                </button>
-            </div>
+            <button
+                class="bg-[#0000001a] text-sm hover:bg-black hover:text-white transition-all ease duration-300 rounded-full px-6 py-2 w-auto self-start">
+                <span class="font-medium">See
+                    our work</span>
+            </button>
+            <button
+                class="bg-[#2f2f2f] text-sm hover:bg-black transition-all ease duration-300 rounded-full px-6 py-2 w-auto self-start">
+                <span class="bg-gradient-to-r from-blue-400 to-green-400 bg-clip-text text-transparent font-medium">Get
+                    Started</span>
+            </button>
         </div>
         <img class="m-auto mb-[-190px] w-[300px]" src="/assets/tekhive_blur_logo.png" alt="">
         <footer class="bg-transparent border-t-2 border-[#ededed] text-sm font-medium">
@@ -859,75 +896,35 @@
     <script src="script.js"></script>
 
     <script>
-        try {
-            if (typeof MorphSVGPlugin !== 'undefined') {
-                gsap.registerPlugin(MorphSVGPlugin);
-
-                if (document.querySelector("#hexagon-shape")) {
-                    const timeline = gsap.timeline({
-                        repeat: -1,
-                        repeatDelay: 0,
-                        yoyo: true,
-                        defaults: { duration: 1, ease: "power2.inOut" }
-                    });
-
-                    timeline
-                        .to("#hexagon-shape", { morphSVG: "#plus-shape" })
-                        .to("#hexagon-shape", { morphSVG: "#diamond-shape" })
-                        .to("#hexagon-shape", { morphSVG: "#hexagon-shape" });
-                }
-            } else {
-                console.warn("MorphSVGPlugin is not defined. Skipping animation.");
-            }
-        } catch (e) {
-            console.error("Error initializing GSAP animation:", e);
-        }
-
-
-
         gsap.registerPlugin(ScrollTrigger);
+        const paras = gsap.utils.toArray(".para");
 
-        const wrapper = document.querySelector(".horizontal-wrapper");
-
-        gsap.to(wrapper, {
-            x: () => -(wrapper.scrollWidth - window.innerWidth),
-            ease: "none",
+        const tl = gsap.timeline({
             scrollTrigger: {
-                trigger: wrapper,
-                start: "top 100%",
-                end: () => "+=" + wrapper.scrollWidth,
+                trigger: "#what-we-do",
+                start: "top top",
+                end: "+=100%",
+                pin: true,
                 scrub: 1,
+                pinSpacing: true,
+                anticipatePin: 1,
             }
         });
 
-        gsap.set("#phoneImage1", { opacity: 0, y: 100 });
-        gsap.to("#phoneImage1", {
-            opacity: 1,
-            y: 0,
-            duration: 1.2,
-            ease: "power3.out",
-            scrollTrigger: {
-                trigger: "#phoneImage1",
-                start: "top center+=20%",
-                toggleActions: "play none none reverse",
-            }
+        // first paragraph fade out
+        tl.to(paras[0], {
+            opacity: 0,
+            y: -20,
+            duration: 0.5,
         })
-        gsap.set("#phoneImage2", { opacity: 0, y: 100 });
-        gsap.to("#phoneImage2", {
-            opacity: 1,
-            y: 0,
-            duration: 1.2,
-            delay: 0.3,
-            ease: "power3.out",
-            scrollTrigger: {
-                trigger: "#phoneImage2",
-                start: "top center+=20%",
-                toggleActions: "play none none reverse",
-            }
-        })
-
-
+            // second paragraph fade in
+            .to(paras[1], {
+                opacity: 1,
+                y: 0,
+                duration: 0.5
+            }, ">")
     </script>
+
 </body>
 
 </html>
