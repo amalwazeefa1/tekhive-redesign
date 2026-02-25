@@ -466,7 +466,7 @@ if (document.body.classList.contains("home-page")) {
 
 }
 
-///////////////////////////////////////////////////////////////////////////////popup button gsap animation
+///////////////////////////////////////////////////////////////////////////////popup button gsap animation - sticky button
 window.addEventListener("load", () => {
     gsap.from("#pop-up", {
         scale: 0.6,
