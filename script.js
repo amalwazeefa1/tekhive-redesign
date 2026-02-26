@@ -7,6 +7,10 @@ const lenis = new Lenis({
     infinite: false,
 });
 
+if (typeof ScrollTrigger !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
+}
+
 // Sync Lenis with GSAP ScrollTrigger
 lenis.on('scroll', ScrollTrigger.update);
 

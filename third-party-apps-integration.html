@@ -571,46 +571,54 @@
                     <div class="w-full mt-12 md:mt-0 md:w-1/2">
                         <div class="faq-item border-b border-dashed border-gray-400 pb-2">
                             <button class="faq-toggle gap-8 w-full flex justify-between items-center text-left">
-                                <h3 class="text-lg md:text-2xl font-bold">API Development & Integration</h3>
+                                <h3 class="text-lg md:text-2xl font-bold">
+                                    Scalability and Performance</h3>
                                 <span class="faq-icon text-4xl font-light transition-transform duration-300">+</span>
                             </button>
                             <div class="faq-content overflow-hidden h-0">
-                                <p class="my-4 text-gray-700 leading-relaxed">We build and integrate custom REST and
-                                    SOAP APIs to seamlessly connect your platforms with leading third-party services and
-                                    applications.</p>
+                                <p class="my-4 text-gray-700 leading-relaxed">We prioritize scalability and performance
+                                    in our API designs, enabling your systems to expand smoothly and efficiently manage
+                                    increasing workloads.</p>
                             </div>
                         </div>
                         <div class="faq-item pb-2 border-b border-dashed border-gray-400 py-6">
                             <button class="faq-toggle gap-8 w-full flex justify-between items-center text-left">
-                                <h3 class="text-lg md:text-2xl font-bold">ERP & CRM Integration</h3>
+                                <h3 class="text-lg md:text-2xl font-bold">
+                                    Customization</h3>
                                 <span class="faq-icon text-4xl font-light transition-transform duration-300">+</span>
                             </button>
                             <div class="faq-content overflow-hidden h-0">
-                                <p class="my-4 text-gray-700 leading-relaxed">We connect your ERP and CRM systems with
-                                    business tools like Salesforce, HubSpot, and SAP to create a unified, streamlined
-                                    operational ecosystem.</p>
+                                <p class="my-4 text-gray-700 leading-relaxed">Our API developers customize APIs to fit
+                                    your unique requirements, offering flexibility in managing data and functionality.
+                                </p>
                             </div>
                         </div>
                         <div class="faq-item pb-2 border-b border-dashed border-gray-400 py-6">
                             <button class="faq-toggle gap-8 w-full flex justify-between items-center text-left">
-                                <h3 class="text-lg md:text-2xl font-bold">Payment & E-commerce Integration</h3>
+                                <h3 class="text-lg md:text-2xl font-bold">
+                                    Cross-Platform Compatibility</h3>
                                 <span class="faq-icon text-4xl font-light transition-transform duration-300">+</span>
                             </button>
                             <div class="faq-content overflow-hidden h-0">
-                                <p class="my-4 text-gray-700 leading-relaxed">We integrate payment gateways, shipping
-                                    providers, and e-commerce tools with your existing systems for a frictionless
-                                    customer and business experience.</p>
+                                <p class="my-4 text-gray-700 leading-relaxed">
+                                    Our Expertise
+                                    Scalability and Performance
+                                    Customization
+                                    Cross-Platform Compatibility
+                                    Our expertise in cross-platform API development ensures that your APIs works on a
+                                    wide range of devices, operating systems, and applications.</p>
                             </div>
                         </div>
                         <div class="faq-item border-b border-dashed border-gray-400 py-6 pb-2">
                             <button class="faq-toggle gap-8 w-full flex justify-between items-center text-left">
-                                <h3 class="text-lg md:text-2xl font-bold">Workflow Automation via Integrations</h3>
+                                <h3 class="text-lg md:text-2xl font-bold">
+                                    Comprehensive Integration Solutions</h3>
                                 <span class="faq-icon text-4xl font-light transition-transform duration-300">+</span>
                             </button>
                             <div class="faq-content overflow-hidden h-0">
-                                <p class="my-4 text-gray-700 leading-relaxed">We automate cross-platform workflows using
-                                    tools like Zapier, Make, and custom middleware solutions, eliminating manual tasks
-                                    and improving efficiency.</p>
+                                <p class="my-4 text-gray-700 leading-relaxed">We leverage our deep understanding of your
+                                    needs to seamlessly integrate developed APIs, harmonizing diverse systems and
+                                    enhancing your business processes.</p>
                             </div>
                         </div>
                         <div class="pt-6">
@@ -992,6 +1000,47 @@
                 y: 0,
                 duration: 0.5
             }, ">")
+
+
+            document.querySelectorAll(".faq-item").forEach((item) => {
+            const button = item.querySelector(".faq-toggle");
+            const content = item.querySelector(".faq-content");
+            const icon = item.querySelector(".faq-icon");
+
+            let isOpen = false;
+
+            button.addEventListener("click", () => {
+
+                if (!isOpen) {
+                    // Open
+                    gsap.to(content, {
+                        height: content.scrollHeight,
+                        duration: 0.4,
+                        ease: "power2.out"
+                    });
+
+                    gsap.to(icon, {
+                        rotate: 45, // + becomes ×
+                        duration: 0.3
+                    });
+
+                } else {
+                    // Close
+                    gsap.to(content, {
+                        height: 0,
+                        duration: 0.4,
+                        ease: "power2.inOut"
+                    });
+
+                    gsap.to(icon, {
+                        rotate: 0,
+                        duration: 0.3
+                    });
+                }
+
+                isOpen = !isOpen;
+            });
+        });
     </script>
 
 </body>

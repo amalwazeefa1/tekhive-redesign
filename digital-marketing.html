@@ -564,7 +564,7 @@
     </section>
 
     <!-- Our Expertise -->
-    <section class="bg-[#f6f6f6]">
+    <section class="bg-[#f6f6f6] pt-[200px]">
         <div class="max-w-7xl mx-auto py-16 px-6">
             <div class="space-y-8">
                 <div class="flex flex-col md:flex-row justify-between">
@@ -572,13 +572,14 @@
                     <div class="w-full mt-12 md:mt-0 md:w-1/2">
                         <div class="faq-item border-b border-dashed border-gray-400 pb-2">
                             <button class="faq-toggle gap-8 w-full flex justify-between items-center text-left">
-                                <h3 class="text-lg md:text-2xl font-bold">SEO & Content Strategy</h3>
+                                <h3 class="text-lg md:text-2xl font-bold">Search Engine Optimization</h3>
                                 <span class="faq-icon text-4xl font-light transition-transform duration-300">+</span>
                             </button>
                             <div class="faq-content overflow-hidden h-0">
-                                <p class="my-4 text-gray-700 leading-relaxed">We craft data-driven SEO strategies and
-                                    compelling content that improve your search rankings, drive organic traffic, and
-                                    build lasting brand authority.</p>
+                                <p class="my-4 text-gray-700 leading-relaxed">Our team is skilled in optimizing websites
+                                    through a blend of on-page and off-page SEO strategies, designed to improve your
+                                    search engine rankings across major platforms like Google, Bing, Yandex, and enhance
+                                    your online visibility.</p>
                             </div>
                         </div>
                         <div class="faq-item pb-2 border-b border-dashed border-gray-400 py-6">
@@ -587,20 +588,29 @@
                                 <span class="faq-icon text-4xl font-light transition-transform duration-300">+</span>
                             </button>
                             <div class="faq-content overflow-hidden h-0">
-                                <p class="my-4 text-gray-700 leading-relaxed">Our social media experts manage your brand
-                                    presence across platforms, creating engaging campaigns that grow your audience and
-                                    generate leads.</p>
+                                <p class="my-4 text-gray-700 leading-relaxed">Harnessing the power of social media
+                                    through both organic (SMO) and paid approaches, we expertly craft engaging social
+                                    media marketing strategies that target diverse audiences, expanding your reach and
+                                    driving conversions.</p>
+                                <p class="my-4 text-gray-700 leading-relaxed">Social Media Marketing (SMM) encompasses a
+                                    wide range of activities, leveraging
+                                    social media platforms as a versatile marketing channel that encompasses both
+                                    organic (unpaid) and paid marketing efforts. Social Media Optimization (SMO) is a
+                                    strategic approach designed to enhance brand visibility and attract organic traffic
+                                    by optimizing social media profiles and content across a wide array of platforms,
+                                    including Facebook, Instagram, Twitter, LinkedIn, and more.</p>
                             </div>
                         </div>
                         <div class="faq-item pb-2 border-b border-dashed border-gray-400 py-6">
                             <button class="faq-toggle gap-8 w-full flex justify-between items-center text-left">
-                                <h3 class="text-lg md:text-2xl font-bold">Pay-Per-Click Advertising</h3>
+                                <h3 class="text-lg md:text-2xl font-bold">PPC Advertising</h3>
                                 <span class="faq-icon text-4xl font-light transition-transform duration-300">+</span>
                             </button>
                             <div class="faq-content overflow-hidden h-0">
-                                <p class="my-4 text-gray-700 leading-relaxed">We manage highly targeted PPC campaigns on
-                                    Google, Meta, and other platforms to maximize your ROI and drive qualified traffic
-                                    to your business.</p>
+                                <p class="my-4 text-gray-700 leading-relaxed">Our team plans and executes effective
+                                    Pay-Per-Click (PPC) advertising campaigns across platforms such as Google Ads,
+                                    Facebook Ads, Instagram Ads, and more. Our goal is to attract web visitors while
+                                    maximizing return on investment (ROI) and overall value.</p>
                             </div>
                         </div>
                         <div class="faq-item border-b border-dashed border-gray-400 py-6 pb-2">
@@ -993,6 +1003,47 @@
                 y: 0,
                 duration: 0.5
             }, ">")
+
+
+        document.querySelectorAll(".faq-item").forEach((item) => {
+            const button = item.querySelector(".faq-toggle");
+            const content = item.querySelector(".faq-content");
+            const icon = item.querySelector(".faq-icon");
+
+            let isOpen = false;
+
+            button.addEventListener("click", () => {
+
+                if (!isOpen) {
+                    // Open
+                    gsap.to(content, {
+                        height: content.scrollHeight,
+                        duration: 0.4,
+                        ease: "power2.out"
+                    });
+
+                    gsap.to(icon, {
+                        rotate: 45, // + becomes ×
+                        duration: 0.3
+                    });
+
+                } else {
+                    // Close
+                    gsap.to(content, {
+                        height: 0,
+                        duration: 0.4,
+                        ease: "power2.inOut"
+                    });
+
+                    gsap.to(icon, {
+                        rotate: 0,
+                        duration: 0.3
+                    });
+                }
+
+                isOpen = !isOpen;
+            });
+        });
     </script>
 
 </body>

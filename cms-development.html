@@ -569,46 +569,47 @@
                     <div class="w-full mt-12 md:mt-0 md:w-1/2">
                         <div class="faq-item border-b border-dashed border-gray-400 pb-2">
                             <button class="faq-toggle gap-8 w-full flex justify-between items-center text-left">
-                                <h3 class="text-lg md:text-2xl font-bold">WordPress & Drupal Development</h3>
+                                <h3 class="text-lg md:text-2xl font-bold">Custom CMS Development</h3>
                                 <span class="faq-icon text-4xl font-light transition-transform duration-300">+</span>
                             </button>
                             <div class="faq-content overflow-hidden h-0">
-                                <p class="my-4 text-gray-700 leading-relaxed">We develop robust, scalable CMS websites
-                                    on WordPress, Drupal, Joomla, and Magento, customized to fit your unique business
-                                    content management needs.</p>
+                                <p class="my-4 text-gray-700 leading-relaxed">We create bespoke Content Management
+                                    Systems (CMS) to align with your business, giving you full control over content and
+                                    functionality management.</p>
                             </div>
                         </div>
                         <div class="faq-item pb-2 border-b border-dashed border-gray-400 py-6">
                             <button class="faq-toggle gap-8 w-full flex justify-between items-center text-left">
-                                <h3 class="text-lg md:text-2xl font-bold">Custom Theme & Plugin Development</h3>
+                                <h3 class="text-lg md:text-2xl font-bold">User-Centric Design</h3>
                                 <span class="faq-icon text-4xl font-light transition-transform duration-300">+</span>
                             </button>
                             <div class="faq-content overflow-hidden h-0">
-                                <p class="my-4 text-gray-700 leading-relaxed">Our developers build bespoke themes and
-                                    plugins that extend CMS functionality, giving your website a unique look and
-                                    powerful capabilities.</p>
+                                <p class="my-4 text-gray-700 leading-relaxed">Our design prioritizes user experience,
+                                    ensuring that your CMS solution is intuitive, user-friendly, and finely tuned for
+                                    efficient content management.</p>
                             </div>
                         </div>
                         <div class="faq-item pb-2 border-b border-dashed border-gray-400 py-6">
                             <button class="faq-toggle gap-8 w-full flex justify-between items-center text-left">
-                                <h3 class="text-lg md:text-2xl font-bold">Content Migration & Integration</h3>
+                                <h3 class="text-lg md:text-2xl font-bold">
+                                    E-commerce Integration</h3>
                                 <span class="faq-icon text-4xl font-light transition-transform duration-300">+</span>
                             </button>
                             <div class="faq-content overflow-hidden h-0">
-                                <p class="my-4 text-gray-700 leading-relaxed">We safely migrate your existing website
-                                    content to modern CMS platforms and integrate third-party tools to enhance
-                                    functionality.</p>
+                                <p class="my-4 text-gray-700 leading-relaxed">We provide seamless integration of
+                                    e-commerce capabilities into CMS website, allowing you to manage products, sales,
+                                    and customer data efficiently.</p>
                             </div>
                         </div>
                         <div class="faq-item border-b border-dashed border-gray-400 py-6 pb-2">
                             <button class="faq-toggle gap-8 w-full flex justify-between items-center text-left">
-                                <h3 class="text-lg md:text-2xl font-bold">CMS Training & Support</h3>
+                                <h3 class="text-lg md:text-2xl font-bold">Scalability and Performance</h3>
                                 <span class="faq-icon text-4xl font-light transition-transform duration-300">+</span>
                             </button>
                             <div class="faq-content overflow-hidden h-0">
-                                <p class="my-4 text-gray-700 leading-relaxed">We empower your team with comprehensive
-                                    CMS training and provide ongoing technical support to keep your website performing
-                                    at its best.</p>
+                                <p class="my-4 text-gray-700 leading-relaxed">Our CMS development focuses on delivering
+                                    scalable solutions, enabling you to establish a robust digital presence with
+                                    exceptional performance.</p>
                             </div>
                         </div>
                         <div class="pt-6">
@@ -990,6 +991,47 @@
                 y: 0,
                 duration: 0.5
             }, ">")
+
+
+            document.querySelectorAll(".faq-item").forEach((item) => {
+            const button = item.querySelector(".faq-toggle");
+            const content = item.querySelector(".faq-content");
+            const icon = item.querySelector(".faq-icon");
+
+            let isOpen = false;
+
+            button.addEventListener("click", () => {
+
+                if (!isOpen) {
+                    // Open
+                    gsap.to(content, {
+                        height: content.scrollHeight,
+                        duration: 0.4,
+                        ease: "power2.out"
+                    });
+
+                    gsap.to(icon, {
+                        rotate: 45, // + becomes ×
+                        duration: 0.3
+                    });
+
+                } else {
+                    // Close
+                    gsap.to(content, {
+                        height: 0,
+                        duration: 0.4,
+                        ease: "power2.inOut"
+                    });
+
+                    gsap.to(icon, {
+                        rotate: 0,
+                        duration: 0.3
+                    });
+                }
+
+                isOpen = !isOpen;
+            });
+        });
     </script>
 
 </body>
