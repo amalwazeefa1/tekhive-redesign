@@ -131,16 +131,19 @@ document.addEventListener("DOMContentLoaded", () => {
     navItems.forEach((item, index) => {
         item.addEventListener("click", () => {
             stopAutoSlide();
-            gotoSlideDirect(index);
+            const direction = index > currentIndex ? 1 : -1;
+            if (index !== currentIndex && !isAnimating) gotoSlide(direction);
             startAutoSlide();
         });
     });
 
-    nextBtn.addEventListener("click", () => {
-        stopAutoSlide();
-        gotoSlide(1);
-        startAutoSlide();
-    });
+    if (nextBtn) {
+        nextBtn.addEventListener("click", () => {
+            stopAutoSlide();
+            gotoSlide(1);
+            startAutoSlide();
+        });
+    }
 
     // /* ------------------------
     //    PAUSE ON NAV HOVER
