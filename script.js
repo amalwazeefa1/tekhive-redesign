@@ -8,7 +8,7 @@ const lenis = new Lenis({
 });
 
 if (typeof ScrollTrigger !== "undefined") {
-  gsap.registerPlugin(ScrollTrigger);
+    gsap.registerPlugin(ScrollTrigger);
 }
 
 // Sync Lenis with GSAP ScrollTrigger
@@ -602,12 +602,36 @@ if (document.body.classList.contains("about-page")) {
     startValue = "300px top";
 }
 
+// Track whether we are past the scroll threshold
+let isHeaderScrolled = false;
+
+// Logo swap (all pages)
+const logo = document.getElementById("site-logo");
+const whiteLogo = logo ? logo.src : null;
+const blackLogo = logo ? logo.dataset.altSrc : null;
+
+function swapLogo(toBlack) {
+    if (!logo || !whiteLogo || !blackLogo) return;
+    gsap.to(logo, {
+        opacity: 0,
+        duration: 0.1,
+        onComplete: () => {
+            logo.src = toBlack ? blackLogo : whiteLogo;
+            gsap.to(logo, { opacity: 1, duration: 0.1 });
+        }
+    });
+}
+
 ScrollTrigger.create({
     start: startValue,
     end: endValue,
     onToggle: (self) => {
-        // header background
+        isHeaderScrolled = self.isActive;
+        swapLogo(self.isActive);   // black when scrolled, white when at top
+        // header background + shadow
         header.classList.toggle("bg-white", self.isActive);
+        header.classList.toggle("shadow-xl", self.isActive);
+        header.classList.toggle("shadow-gray-300/20", self.isActive);
         header.classList.toggle("bg-gradient-to-b", !self.isActive);
         header.classList.toggle("from-black", !self.isActive);
         header.classList.toggle("to-transparent", !self.isActive);
@@ -627,65 +651,51 @@ ScrollTrigger.create({
     }
 });
 
-// handle hover only when NOT scrolled past 350px
-header.addEventListener('mouseleave', () => {
-    const isScrolled = ScrollTrigger.isInViewport(header, "1200px top");
-    // or track state yourself with a variable
-
-    navLinks.forEach(link => {
-        if (isScrolled) {
-            // keep black if scrolled
-            link.classList.remove('text-white');
-            link.classList.add('text-black');
-        } else {
-            // revert to white if not scrolled
-            link.classList.remove('text-black');
-            link.classList.add('text-white');
-        }
-    });
-});
-
+// ── Single mouseenter: always force black text while hovering ──────────────
 header.addEventListener('mouseenter', () => {
+    // swap logo image
     document.querySelectorAll('img[data-alt-src]').forEach(img => {
         const current = img.src;
         img.src = img.dataset.altSrc;
-        img.dataset.altSrc = current; // swap back reference
+        img.dataset.altSrc = current;
     });
-});
-
-header.addEventListener('mouseleave', () => {
-    document.querySelectorAll('img[data-alt-src]').forEach(img => {
-        const current = img.src;
-        img.src = img.dataset.altSrc;
-        img.dataset.altSrc = current; // swap back again
-    });
-});
-
-header.addEventListener('mouseenter', () => {
+    // force black text on hover
     navLinks.forEach(link => {
         link.classList.remove('text-white');
-        link.classList.add('text-black')
-    })
-    menuIcon.classList.remove('text-white');
-    menuIcon.classList.add('text-black')
-    whatsappIcon.classList.remove('text-white')
-    whatsappIcon.classList.add('text-black')
-    phoneIcon.classList.remove('text-white')
-    phoneIcon.classList.add('text-black')
-})
+        link.classList.add('text-black');
+    });
+    menuIcon.classList.remove('text-white'); menuIcon.classList.add('text-black');
+    whatsappIcon.classList.remove('text-white'); whatsappIcon.classList.add('text-black');
+    phoneIcon.classList.remove('text-white'); phoneIcon.classList.add('text-black');
+});
 
+// ── Single mouseleave: restore based on whether page is scrolled ───────────
 header.addEventListener('mouseleave', () => {
-    navLinks.forEach(link => {
-        link.classList.remove('text-black')
-        link.classList.add('text-white')
-    })
-    menuIcon.classList.remove('text-black');
-    menuIcon.classList.add('text-white');
-    whatsappIcon.classList.remove('text-black')
-    whatsappIcon.classList.add('text-white')
-    phoneIcon.classList.remove('text-black')
-    phoneIcon.classList.add('text-white')
-})
+    // swap logo image back
+    document.querySelectorAll('img[data-alt-src]').forEach(img => {
+        const current = img.src;
+        img.src = img.dataset.altSrc;
+        img.dataset.altSrc = current;
+    });
+    // if scrolled past threshold → keep black; otherwise revert to white
+    if (isHeaderScrolled) {
+        navLinks.forEach(link => {
+            link.classList.remove('text-white');
+            link.classList.add('text-black');
+        });
+        menuIcon.classList.remove('text-white'); menuIcon.classList.add('text-black');
+        whatsappIcon.classList.remove('text-white'); whatsappIcon.classList.add('text-black');
+        phoneIcon.classList.remove('text-white'); phoneIcon.classList.add('text-black');
+    } else {
+        navLinks.forEach(link => {
+            link.classList.remove('text-black');
+            link.classList.add('text-white');
+        });
+        menuIcon.classList.remove('text-black'); menuIcon.classList.add('text-white');
+        whatsappIcon.classList.remove('text-black'); whatsappIcon.classList.add('text-white');
+        phoneIcon.classList.remove('text-black'); phoneIcon.classList.add('text-white');
+    }
+});
 
 
 // header.addEventListener('mouseenter', () => {
@@ -702,38 +712,7 @@ header.addEventListener('mouseleave', () => {
 //   });
 // });
 
-/////////////////////////////////////////////////////////////////////////////logo
-if (document.body.classList.contains("home-page")) {
-    const logo = document.getElementById("site-logo");
-    const whiteLogo = logo.src;
-    const blackLogo = logo.dataset.altSrc;
-
-
-
-    ScrollTrigger.create({
-        start: startValue,
-        onEnter: () => {
-            gsap.to(logo, {
-                opacity: 0,
-                duration: 0.1,
-                onComplete: () => {
-                    logo.src = blackLogo;
-                    gsap.to(logo, { opacity: 1, duration: 0.1 });
-                }
-            });
-        },
-        onLeaveBack: () => {
-            gsap.to(logo, {
-                opacity: 0,
-                duration: 0.1,
-                onComplete: () => {
-                    logo.src = whiteLogo;
-                    gsap.to(logo, { opacity: 1, duration: 0.1 });
-                }
-            });
-        }
-    });
-}
+// Logo swap is now handled by the ScrollTrigger above (all pages)
 
 
 
@@ -888,4 +867,3 @@ tl.to(".sliced-box", {
 
 ///////////////////////////////////////////////////////////////////////////////////////Faq gsap aniamtion
 
- 
