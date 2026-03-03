@@ -779,7 +779,7 @@ if (document.querySelector(".sliced-box")) {
         .set(".slice-section", { display: "none" })
 }
 
-///////////////////////////////////////////////////////////////////////////////////////active lottie animation on mega navbar
+///////////////////////////////////////////////////////////////////////////////////////active lottie animation on mega navbar - common for all pages
 document.addEventListener("DOMContentLoaded", () => {
 
     const preview = document.getElementById("lottiePreview");
@@ -813,3 +813,46 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 });
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////scroll triggered text swap + parallax image - common for all pages [services section]
+const paras = gsap.utils.toArray(".para");
+
+const tl = gsap.timeline({
+    scrollTrigger: {
+        trigger: "#what-we-do",
+        start: "top top",
+        end: "+=100%",
+        pin: true,
+        scrub: 1,
+        pinSpacing: true,
+        anticipatePin: 1,
+    }
+});
+
+// first paragraph fade out
+tl.to(paras[0], {
+    opacity: 0,
+    y: -20,
+    duration: 0.5,
+})
+    // second paragraph fade in
+    .to(paras[1], {
+        opacity: 1,
+        y: 0,
+        duration: 0.5
+    }, ">")
+
+//parallax image movement
+gsap.fromTo(".parallax-img",
+    { yPercent: -20 },
+    {
+        yPercent: 20,
+        ease: "none",
+        scrollTrigger: {
+            trigger: ".image-banner",
+            start: "top bottom",
+            end: "bottom top",
+            scrub: true,
+        }
+    }
+);

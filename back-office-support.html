@@ -142,8 +142,7 @@
                                                         </h1>
                                                         <div class="flex gap-10">
                                                             <div class="flex flex-col gap-3">
-                                                                <a href="/website-development.html"
-                                                                id="defaultLottie"
+                                                                <a href="/website-development.html" id="defaultLottie"
                                                                     class="dropdown-link text-black"
                                                                     data-lottie="assets/business-strategy.json">Web
                                                                     Development</a>
@@ -533,8 +532,8 @@
                 <h1 class="text-md md:text-2xl max-w-lg">Achieve excellence through excellent operational support.
                 </h1>
             </div>
-            <div class="image-banner w-full">
-                <img class="w-full h-[200px] md:h-[400px] object-cover rounded-md"
+            <div class="image-banner w-full overflow-hidden rounded-md">
+                <img class="parallax-img w-full h-[200px] md:h-[400px] object-cover scale-125"
                     src="https://integratedbiosciences.com/wp-content/uploads/2025/09/m0m1y8bh1zst4kghdbq7_0.jpg"
                     alt="">
             </div>
@@ -971,35 +970,7 @@
     <script src="https://unpkg.com/lottie-web/build/player/lottie.min.js"></script>
     <script src="script.js"></script>
 
-    <script>
-        gsap.registerPlugin(ScrollTrigger);
-        const paras = gsap.utils.toArray(".para");
-
-        const tl = gsap.timeline({
-            scrollTrigger: {
-                trigger: "#what-we-do",
-                start: "top top",
-                end: "+=100%",
-                pin: true,
-                scrub: 1,
-                pinSpacing: true,
-                anticipatePin: 1,
-            }
-        });
-
-        // first paragraph fade out
-        tl.to(paras[0], {
-            opacity: 0,
-            y: -20,
-            duration: 0.5,
-        })
-            // second paragraph fade in
-            .to(paras[1], {
-                opacity: 1,
-                y: 0,
-                duration: 0.5
-            }, ">")
-    </script>
+   
 
 </body>
 
