@@ -432,37 +432,6 @@ if (document.querySelector("#grow-morph-1")) {
 // });
 
 
-const navItems = document.querySelectorAll(".dropdown-link");
-const lottieContainer = document.getElementById("lottiePreview");
-
-let currentAnimation = null;
-
-navItems.forEach(item => {
-    item.addEventListener("mouseenter", () => {
-        const path = item.dataset.lottie;
-        if (!path) return;
-
-        // Destroy previous animation
-        if (currentAnimation) {
-            currentAnimation.destroy();
-        }
-
-        // Load new animation
-        currentAnimation = lottie.loadAnimation({
-            container: lottieContainer,
-            renderer: "svg",
-            loop: true,
-            autoplay: true,
-            path: path
-        });
-    });
-
-    item.addEventListener("mouseleave", () => {
-        if (currentAnimation) {
-            currentAnimation.stop();
-        }
-    });
-});
 
 
 
@@ -810,5 +779,37 @@ if (document.querySelector(".sliced-box")) {
         .set(".slice-section", { display: "none" })
 }
 
-///////////////////////////////////////////////////////////////////////////////////////Faq gsap aniamtion
+///////////////////////////////////////////////////////////////////////////////////////active lottie animation on mega navbar
+document.addEventListener("DOMContentLoaded", () => {
 
+    const preview = document.getElementById("lottiePreview");
+    const links = document.querySelectorAll(".dropdown-link");
+    const defaultLink = document.getElementById("defaultLottie");
+
+    if (!preview || !defaultLink || links.length === 0 || typeof lottie === "undefined") return;
+
+    let currentAnimation;
+
+    function loadLottie(path) {
+        if (currentAnimation) {
+            currentAnimation.destroy();
+        }
+
+        currentAnimation = lottie.loadAnimation({
+            container: preview,
+            renderer: "svg",
+            loop: true,
+            autoplay: true,
+            path: path
+        });
+    }
+
+    loadLottie(defaultLink.dataset.lottie);
+
+    links.forEach(link => {
+        link.addEventListener("mouseenter", () => {
+            loadLottie(link.dataset.lottie);
+        });
+    });
+
+});

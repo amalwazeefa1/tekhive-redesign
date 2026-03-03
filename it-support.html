@@ -14,6 +14,8 @@
         rel="stylesheet" />
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <!-- Lenis Scroll -->
+    <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
     <!-- Theme Config -->
     <script id="tailwind-config">
         tailwind.config = {
@@ -112,7 +114,7 @@
                                 </span>
                             </a>
 
-                            <!-- Mega menu -->
+                           <!-- Mega menu -->
                             <div class="absolute left-0 shadow-sm top-full w-screen
             bg-white dark:bg-slate-800
             border border-slate-100 dark:border-slate-700
@@ -127,7 +129,7 @@
                 group-hover:translate-y-0
                 transition-transform duration-500 ease-out">
 
-                                    <div class="flex justify-between py-12">
+                                    <div class="flex justify-between py-16">
                                         <div class="flex flex-col justify-around">
                                             <div class="flex px-4 w-[60%]">
                                                 <h1 class="text-4xl leading-[45px]">Building Strong Capabilities to
@@ -143,26 +145,33 @@
                                                         </h1>
                                                         <div class="flex gap-10">
                                                             <div class="flex flex-col gap-3">
-                                                                <a href="#" class="dropdown-link text-black"
-                                                                    data-lottie="/assets/business-strategy.json">Web
+                                                                <a href="/website-development.html"
+                                                                id="defaultLottie"
+                                                                    class="dropdown-link text-black"
+                                                                    data-lottie="assets/business-strategy.json">Web
                                                                     Development</a>
-                                                                <a href="#" class="dropdown-link text-black"
-                                                                    data-lottie="/assets/ecommerce-solutions.json">Ecommerce
+                                                                <a href="e-commerce.html"
+                                                                    class="dropdown-link text-black"
+                                                                    data-lottie="assets/ecommerce-solutions.json">Ecommerce
                                                                     Solutions</a>
-                                                                <a href="#" class="dropdown-link text-black"
-                                                                    data-lottie="/assets/app-development.json">Mobile
+                                                                <a href="mobile-app-development.html"
+                                                                    class="dropdown-link text-black"
+                                                                    data-lottie="assets/app-development.json">Mobile
                                                                     App
                                                                     Development</a>
                                                             </div>
                                                             <div class="flex flex-col gap-3">
-                                                                <a href="#" class="dropdown-link text-black"
-                                                                    data-lottie="/assets/cms.json">CMS
+                                                                <a href="cms-development.html"
+                                                                    class="dropdown-link text-black"
+                                                                    data-lottie="assets/cms.json">CMS
                                                                     Development</a>
-                                                                <a href="#" class="dropdown-link text-black"
-                                                                    data-lottie="/assets/digital-marketing.json">Digital
+                                                                <a href="digital-marketing.html"
+                                                                    class="dropdown-link text-black"
+                                                                    data-lottie="assets/digital-marketing.json">Digital
                                                                     Marketing</a>
-                                                                <a href="#" class="dropdown-link text-black"
-                                                                    data-lottie="/assets/domain-hosting.json">Domain
+                                                                <a href="domain-and-web-hosting.html"
+                                                                    class="dropdown-link text-black"
+                                                                    data-lottie="assets/domain-hosting.json">Domain
                                                                     Hosting</a>
                                                             </div>
                                                         </div>
@@ -174,34 +183,41 @@
 
                                                         <div class="flex gap-10">
                                                             <div class="flex flex-col gap-3">
-                                                                <a href="#" class="dropdown-link text-black"
-                                                                    data-lottie="/assets/sap.json">SAP
+                                                                <a href="sap-business-one.html"
+                                                                    class="dropdown-link text-black"
+                                                                    data-lottie="assets/sap.json">SAP
                                                                     BUSINESS
                                                                     ONE</a>
-                                                                <a href="#" class="dropdown-link text-black"
-                                                                    data-lottie="/assets/business-growth.json">Business
+                                                                <a href="business-intelligence-tool.html"
+                                                                    class="dropdown-link text-black"
+                                                                    data-lottie="assets/business-growth.json">Business
                                                                     Intelligence
                                                                     Tool</a>
-                                                                <a href="#" class="dropdown-link text-black"
-                                                                    data-lottie="/assets/api-integration.json">Third
+                                                                <a href="third-party-app-integration.html"
+                                                                    class="dropdown-link text-black"
+                                                                    data-lottie="assets/api-integration.json">Third
                                                                     Party
                                                                     App
                                                                     Integration</a>
-                                                                <a href="#" class="dropdown-link text-black"
-                                                                    data-lottie="/assets/crm.json">CRM</a>
+                                                                <a href="crm.html" class="dropdown-link text-black"
+                                                                    data-lottie="assets/crm.json">CRM</a>
                                                             </div>
                                                             <div class="flex flex-col gap-3">
-                                                                <a href="#" class="dropdown-link text-black"
-                                                                    data-lottie="/assets/business-process-automation.json">Business
+                                                                <a href="business-process-automation.html"
+                                                                    class="dropdown-link text-black"
+                                                                    data-lottie="assets/business-process-automation.json">Business
                                                                     Process Automation</a>
-                                                                <a href="#" class="dropdown-link text-black"
-                                                                    data-lottie="/assets/it-support.json">IT
+                                                                <a href="it-support.html"
+                                                                    class="dropdown-link text-black"
+                                                                    data-lottie="assets/it-support.json">IT
                                                                     Support</a>
-                                                                <a href="#" class="dropdown-link text-black"
-                                                                    data-lottie="/assets/it-consulting.json">IT
+                                                                <a href="it-consulting.html"
+                                                                    class="dropdown-link text-black"
+                                                                    data-lottie="assets/it-consulting.json">IT
                                                                     Consulting</a>
-                                                                <a href="#" class="dropdown-link text-black"
-                                                                    data-lottie="/assets/back-office-service.json">Back
+                                                                <a href="back-office-support.html"
+                                                                    class="dropdown-link text-black"
+                                                                    data-lottie="assets/back-office-service.json">Back
                                                                     Office
                                                                     Support</a>
                                                             </div>
@@ -483,7 +499,7 @@
             </div>
             <div class="flex mb-12 w-full justify-between">
                 <button
-                    class="hidden group relative md:flex items-center justify-center w-14 h-14 rounded-2xl overflow-hidden transition-all duration-500 cubic-bezier(0.175, 0.885, 0.32, 1.275) bg-[#333333] z-50"
+                    class="hidden group relative md:flex items-center justify-center w-14 h-14 rounded-2xl overflow-hidden transition-all duration-500 cubic-bezier(0.175, 0.885, 0.32, 1.275) bg-[#333333] z-10"
                     onclick="document.getElementById('what-we-do').scrollIntoView({ behavior: 'smooth' })">
                     <div
                         class="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-20 transition-opacity duration-300">
