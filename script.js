@@ -856,3 +856,73 @@ gsap.fromTo(".parallax-img",
         }
     }
 );
+
+
+////////////////////////////////////////////////////////////////////////faq section toggle animation
+document.querySelectorAll(".faq-item").forEach((item) => {
+    const button = item.querySelector(".faq-toggle");
+    const content = item.querySelector(".faq-content");
+    const icon = item.querySelector(".faq-icon");
+
+    let isOpen = false;
+
+    button.addEventListener("click", () => {
+        if (!isOpen) {
+            gsap.to(content, {
+                height: content.scrollHeight,
+                opacity: 1,
+                duration: 0.4,
+                ease: "power2.out"
+            });
+
+            gsap.to(icon, {
+                rotate: 45,
+                duration: 0.3
+            });
+
+        } else {
+            gsap.to(content, {
+                height: 0,
+                opacity: 0,
+                duration: 0.4,
+                ease: "power2.inOut"
+            });
+
+            gsap.to(icon, {
+                rotate: 0,
+                duration: 0.3
+            });
+        }
+
+        isOpen = !isOpen;
+    });
+});
+
+
+
+///////////////////////////////////////////////////
+const shape = document.querySelector("#shape1");
+
+const morphBtn = document.querySelector("#shape1");
+const hoverShape = document.querySelector("#shape2");
+
+if (morphBtn && hoverShape) {
+
+    const tl = gsap.timeline({ paused: true });
+
+    tl.to(morphBtn, {
+        duration: 0.5,
+        morphSVG: hoverShape,
+        ease: "power2.out"
+    });
+
+    // Hover on parent wrapper (better UX)
+    morphBtn.closest(".relative").addEventListener("mouseenter", () => {
+        tl.play();
+    });
+
+    morphBtn.closest(".relative").addEventListener("mouseleave", () => {
+        tl.reverse();
+    });
+
+}

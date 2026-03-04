@@ -166,8 +166,7 @@
                                                         </h1>
                                                         <div class="flex gap-10">
                                                             <div class="flex flex-col gap-3">
-                                                                <a href="/website-development.html"
-                                                                id="defaultLottie"
+                                                                <a href="/website-development.html" id="defaultLottie"
                                                                     class="dropdown-link text-black"
                                                                     data-lottie="assets/business-strategy.json">Web
                                                                     Development</a>
@@ -743,9 +742,15 @@
                                             <stop offset="100%" style="stop-color:#216494; stop-opacity:1" />
                                         </linearGradient>
                                     </defs>
-                                    <path id="morphBtn1-shape1"
+                                    <path id="shape1"
                                         d="m153.61,58.9H12.18c-6.73,0-12.18-5.45-12.18-12.18V12.18C0,5.45,5.45,0,12.18,0h126.97c4.91,0,9.34,2.95,11.24,7.48l14.46,34.54c3.36,8.03-2.54,16.88-11.24,16.88Z"
                                         style="fill: url(#grad1); stroke-width: 0px;" />
+                                    <path id="shape2"
+                                        d="m153.61,0H12.18C5.45,0,0,5.45,0,12.18v34.54c0,6.73,5.45,12.18,12.18,12.18h126.97c4.91,0,9.34-2.95,11.24-7.48l14.46-34.54c3.36-8.03-2.54-16.88-11.24-16.88Z"
+                                        style="fill: url(#grad1); stroke-width: 0px; visibility: hidden;" />
+                                        <path id="shape2"
+                                        d="m12.19,58.9h47.96c6.73,0,12.18-5.45,12.18-12.18V12.18C72.33,5.45,66.88,0,60.15,0H26.65c-4.91,0-9.34,2.95-11.24,7.48L.96,42.02c-3.36,8.03,2.54,16.88,11.24,16.88Z"
+                                        style="fill: url(#grad1); stroke-width: 0px; visibility: hidden;" />
                                 </svg>
                                 <h1
                                     class="absolute inset-0 flex items-center justify-center text-white font-sans text-md font-medium">
@@ -761,9 +766,12 @@
                                             <stop offset="100%" style="stop-color:#216494; stop-opacity:1" />
                                         </linearGradient>
                                     </defs>
-                                    <path
+                                    <path id="shape1"
                                         d="m12.19,0h47.96c6.73,0,12.18,5.45,12.18,12.18v34.54c0,6.73-5.45,12.18-12.18,12.18H26.65c-4.91,0-9.34-2.95-11.24-7.48L.96,16.88C-2.4,8.86,3.49,0,12.19,0Z"
                                         style="fill: url(#grad1); stroke-width: 0px;" />
+                                    <path id="shape2"
+                                        d="m12.19,58.9h47.96c6.73,0,12.18-5.45,12.18-12.18V12.18C72.33,5.45,66.88,0,60.15,0H26.65c-4.91,0-9.34,2.95-11.24,7.48L.96,42.02c-3.36,8.03,2.54,16.88,11.24,16.88Z"
+                                        style="fill: url(#grad1); stroke-width: 0px; visibility: hidden;" />
                                 </svg>
                             </div>
                         </div>
@@ -1034,77 +1042,6 @@
     <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.11/dist/dotlottie-wc.js" type="module"></script>
     <script src="https://unpkg.com/lottie-web/build/player/lottie.min.js"></script>
     <script src="script.js"></script>
-
-    <script>
-        gsap.registerPlugin(ScrollTrigger);
-        const paras = gsap.utils.toArray(".para");
-
-        const tl = gsap.timeline({
-            scrollTrigger: {
-                trigger: "#what-we-do",
-                start: "top top",
-                end: "+=100%",
-                pin: true,
-                scrub: 1,
-                pinSpacing: true,
-                anticipatePin: 1,
-            }
-        });
-
-        // first paragraph fade out
-        tl.to(paras[0], {
-            opacity: 0,
-            y: -20,
-            duration: 0.5,
-        })
-            // second paragraph fade in
-            .to(paras[1], {
-                opacity: 1,
-                y: 0,
-                duration: 0.5
-            }, ">")
-
-
-        document.querySelectorAll(".faq-item").forEach((item) => {
-            const button = item.querySelector(".faq-toggle");
-            const content = item.querySelector(".faq-content");
-            const icon = item.querySelector(".faq-icon");
-
-            let isOpen = false;
-
-            button.addEventListener("click", () => {
-
-                if (!isOpen) {
-                    // Open
-                    gsap.to(content, {
-                        height: content.scrollHeight,
-                        duration: 0.4,
-                        ease: "power2.out"
-                    });
-
-                    gsap.to(icon, {
-                        rotate: 45, // + becomes ×
-                        duration: 0.3
-                    });
-
-                } else {
-                    // Close
-                    gsap.to(content, {
-                        height: 0,
-                        duration: 0.4,
-                        ease: "power2.inOut"
-                    });
-
-                    gsap.to(icon, {
-                        rotate: 0,
-                        duration: 0.3
-                    });
-                }
-
-                isOpen = !isOpen;
-            });
-        });
-    </script>
 
 </body>
 
