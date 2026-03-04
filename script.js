@@ -901,28 +901,39 @@ document.querySelectorAll(".faq-item").forEach((item) => {
 
 
 ///////////////////////////////////////////////////
-const shape = document.querySelector("#shape1");
-
-const morphBtn = document.querySelector("#shape1");
+const bigMorphBtn = document.querySelector("#shape1");
 const hoverShape = document.querySelector("#shape2");
+const smallMorphBtn = document.querySelector("#small-shape1");
+const smallHoverShape = document.querySelector("#small-shape2");
 
-if (morphBtn && hoverShape) {
+// Select the parent wrapper by explicit id
+const parentWrapper = document.querySelector("#morph-button-blue");
+
+
+if (bigMorphBtn && hoverShape && smallMorphBtn && smallHoverShape) {
 
     const tl = gsap.timeline({ paused: true });
 
-    tl.to(morphBtn, {
+    tl.to(bigMorphBtn, {
         duration: 0.5,
         morphSVG: hoverShape,
         ease: "power2.out"
     });
+    tl.to(smallMorphBtn, {
+        duration: 0.5,
+        morphSVG: smallHoverShape,
+        ease: "power2.out"
+    }, 0);
 
-    // Hover on parent wrapper (better UX)
-    morphBtn.closest(".relative").addEventListener("mouseenter", () => {
-        tl.play();
-    });
+    // Hover on parent wrapper
+    if (parentWrapper) {
+        parentWrapper.addEventListener("mouseenter", () => {
+            tl.play();
+        });
 
-    morphBtn.closest(".relative").addEventListener("mouseleave", () => {
-        tl.reverse();
-    });
+        parentWrapper.addEventListener("mouseleave", () => {
+            tl.reverse();
+        });
+    }
 
 }
