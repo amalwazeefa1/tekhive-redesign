@@ -1,4 +1,4 @@
-﻿// Initialize Lenis
+// Initialize Lenis
 const lenis = new Lenis({
     duration: 1.2,
     easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -65,7 +65,7 @@ menu.querySelectorAll("a").forEach(link => {
 });
 
 function closeMenuFn() {
-    // disable transition → instant close
+    // disable transition ? instant close
     menu.classList.remove("transition-opacity", "duration-300", "ease-in-out");
     menu.classList.add("opacity-0", "pointer-events-none");
     document.body.classList.remove("overflow-hidden");
@@ -226,7 +226,7 @@ document.addEventListener("DOMContentLoaded", () => {
         startAutoSlide();
     });
 
-    // 🔥 PAUSE ON HOVER / TOUCH (single system)
+    // ?? PAUSE ON HOVER / TOUCH (single system)
     [track, prevBtn, nextBtn].forEach(el => {
         if (!el) return;
 
@@ -459,7 +459,7 @@ window.addEventListener("load", () => {
 
     const tl = gsap.timeline({ delay: 0.3 })
 
-    // 1️⃣ Pop-in animation
+    // 1?? Pop-in animation
     tl.from(button, {
         scale: 0.6,
         opacity: 0,
@@ -469,7 +469,7 @@ window.addEventListener("load", () => {
         ease: "back.out(1.7)"
     })
 
-    // 2️⃣ Fade + slide text out
+    // 2?? Fade + slide text out
     tl.to(text, {
         opacity: 0,
         x: -20,
@@ -478,7 +478,7 @@ window.addEventListener("load", () => {
         ease: "power2.out"
     }, "+=0.6")
 
-    // 3️⃣ Shrink button to icon size
+    // 3?? Shrink button to icon size
     tl.to(button, {
         width: finalWidth,
         paddingLeft: 0,
@@ -901,16 +901,15 @@ document.querySelectorAll(".faq-item").forEach((item) => {
 
 
 ///////////////////////////////////////////////////
-const bigMorphBtn = document.querySelector("#shape1");
-const hoverShape = document.querySelector("#shape2");
-const smallMorphBtn = document.querySelector("#small-shape1");
-const smallHoverShape = document.querySelector("#small-shape2");
+const morphWrappers = document.querySelectorAll('[id="morph-button-blue"]');
 
-// Select the parent wrapper by explicit id
-const parentWrapper = document.querySelector("#morph-button-blue");
+morphWrappers.forEach((wrapper) => {
+    const bigMorphBtn = wrapper.querySelector('[id="shape1"]');
+    const hoverShape = wrapper.querySelector('[id="shape2"]');
+    const smallMorphBtn = wrapper.querySelector('[id="small-shape1"]');
+    const smallHoverShape = wrapper.querySelector('[id="small-shape2"]');
 
-
-if (bigMorphBtn && hoverShape && smallMorphBtn && smallHoverShape) {
+    if (!bigMorphBtn || !hoverShape || !smallMorphBtn || !smallHoverShape) return;
 
     const tl = gsap.timeline({ paused: true });
 
@@ -919,21 +918,18 @@ if (bigMorphBtn && hoverShape && smallMorphBtn && smallHoverShape) {
         morphSVG: hoverShape,
         ease: "power2.out"
     });
+
     tl.to(smallMorphBtn, {
         duration: 0.5,
         morphSVG: smallHoverShape,
         ease: "power2.out"
     }, 0);
 
-    // Hover on parent wrapper
-    if (parentWrapper) {
-        parentWrapper.addEventListener("mouseenter", () => {
-            tl.play();
-        });
+    wrapper.addEventListener("mouseenter", () => {
+        tl.play();
+    });
 
-        parentWrapper.addEventListener("mouseleave", () => {
-            tl.reverse();
-        });
-    }
-
-}
+    wrapper.addEventListener("mouseleave", () => {
+        tl.reverse();
+    });
+});
