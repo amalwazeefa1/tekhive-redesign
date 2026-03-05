@@ -68,6 +68,16 @@
             margin: auto !important;
             width: full !important;
         }
+
+        .inverted {
+            position: relative;
+            z-index: 0;
+            clip-path: polygon(100% 0, 100% calc(100% - 75px), calc(100% - 75px) calc(100% - 75px), calc(100% - 79px) 100%, 0 100%, 0 0);
+            width: 100%;
+            height: auto;
+            background-color: #fff;
+            aspect-ratio: 1 / 1;
+        }
     </style>
 </head>
 
@@ -139,8 +149,7 @@
                                                         </h1>
                                                         <div class="flex gap-10">
                                                             <div class="flex flex-col gap-3">
-                                                                <a href="/website-development.html"
-                                                                id="defaultLottie"
+                                                                <a href="/website-development.html" id="defaultLottie"
                                                                     class="dropdown-link text-black"
                                                                     data-lottie="assets/business-strategy.json">Web
                                                                     Development</a>
@@ -985,6 +994,46 @@ z
                         </div>
                     </div>
 
+                    <div class="relative card h-full">
+                        <div class="inverted bg-[#fff] rounded-xl group">
+                            <div class="card group flex-shrink-0 snap-start w-[280px] sm:w-[320px] md:w-[360px]">
+                                <div class="h-40 w-full bg-cover bg-center"
+                                    style='background-image:url("assets/ecommerce_development.svg");'>
+                                </div>
+                                <div class="flex flex-col gap-3 p-5">
+                                    <div class="flex items-center gap-3">
+                                        <div class="size-10 rounded-full bg-primary/10 flex items-center justify-center">
+                                            <span class="material-symbols-outlined text-primary">cloud</span>
+                                        </div>
+                                        <h3 class="text-lg font-bold text-slate-900 dark:text-white">
+                                            Ecommerce Solutions
+                                        </h3>
+                                    </div>
+                                    <p class="text-sm text-slate-600 dark:text-slate-300">
+                                        With extensive expertise in e-commerce development, Tekhive is a reliable
+                                        partner for
+                                        your various ecommerce web development needs. We create a perfect platform with
+                                        a blend
+                                        of compelling design and modern features.
+                                    </p>
+                                    <button class="mt-1 flex items-center gap-2 text-sm font-bold
+                                   text-slate-900 dark:text-white
+                                   group-hover:text-primary transition-colors">
+                                        <a href="e-commerce.html">Learn More</a>
+                                        <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <svg class="absolute h-24 w-24 bottom-0 right-0 z-20" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 84 90">
+                            <path
+                                d="m35.43,45.1l-11.72,36.47c-1.61,5.02-6.29,8.43-11.56,8.43-6.71,0-12.15-5.44-12.15-12.15V16C0,7.16,7.16,0,16,0h55c8.84,0,16,7.16,16,16v2c0,8.84-7.16,16-16,16h-20.34c-6.95,0-13.11,4.49-15.23,11.1h0Z"
+                                fill="#fff" />
+                        </svg>
+                    </div>
+
                     <!-- Card 2: Mobile Apps -->
                     <div class="card group flex-shrink-0 snap-start w-[280px] sm:w-[320px] md:w-[360px]
                           flex flex-col overflow-hidden rounded-xl
@@ -1822,7 +1871,7 @@ z
     <script src="script.js"></script>
     <script src="Slider1.js"></script>
 
-    
+
 </body>
 
 </html>
