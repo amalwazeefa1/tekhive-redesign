@@ -158,112 +158,112 @@ if (document.body.classList.contains('home-page')) {
 
 ///////////////////////////////////////////////////////////////////////// AUTO CARD SLIDE + GSAP SCROLL TRIGGER
 
-// document.addEventListener("DOMContentLoaded", () => {
-//     if (!document.body.classList.contains("home-page")) return;
+document.addEventListener("DOMContentLoaded", () => {
+    if (!document.body.classList.contains("home-page")) return;
 
-//     const track = document.getElementById("services-track");
-//     if (!track) return;
+    const track = document.getElementById("services-track");
+    if (!track) return;
 
-//     const cards = track.querySelectorAll(".card");
-//     const prevBtn = document.getElementById("previous-btn");
-//     const nextBtn = document.getElementById("next-btn");
+    const cards = track.querySelectorAll(".card");
+    const prevBtn = document.getElementById("previous-btn");
+    const nextBtn = document.getElementById("next-btn");
 
-//     let index = 0;
-//     let interval = null;
-//     const delay = 2000;
+    let index = 0;
+    let interval = null;
+    const delay = 2000;
 
-//     function scrollToIndex(i) {
-//         index = (i + cards.length) % cards.length;
-//         track.scrollTo({
-//             left: cards[index].offsetLeft,
-//             behavior: "smooth",
-//         });
-//     }
+    function scrollToIndex(i) {
+        index = (i + cards.length) % cards.length;
+        track.scrollTo({
+            left: cards[index].offsetLeft,
+            behavior: "smooth",
+        });
+    }
 
-//     function slideNext() {
-//         scrollToIndex(index + 1);
-//     }
+    function slideNext() {
+        scrollToIndex(index + 1);
+    }
 
-//     function slidePrev() {
-//         scrollToIndex(index - 1);
-//     }
-
-
-//     let isPaused = false;
-
-//     function startAutoSlide() {
-//         if (interval || isPaused) return; // Don't start if paused
-//         interval = setInterval(slideNext, delay);
-//     }
-
-//     function stopAutoSlide() {
-//         if (!interval) return;
-//         clearInterval(interval);
-//         interval = null;
-//     }
-
-//     function resumeAutoSlide() {
-//         isPaused = false;
-//         startAutoSlide();
-//     }
-
-//     function pauseAutoSlide() {
-//         isPaused = true;
-//         stopAutoSlide();
-//     }
+    function slidePrev() {
+        scrollToIndex(index - 1);
+    }
 
 
-//     // Buttons
-//     nextBtn?.addEventListener("click", () => {
-//         stopAutoSlide();
-//         slideNext();
-//         startAutoSlide();
-//     });
+    let isPaused = false;
 
-//     prevBtn?.addEventListener("click", () => {
-//         stopAutoSlide();
-//         slidePrev();
-//         startAutoSlide();
-//     });
+    function startAutoSlide() {
+        if (interval || isPaused) return; // Don't start if paused
+        interval = setInterval(slideNext, delay);
+    }
 
-//     // ?? PAUSE ON HOVER / TOUCH (single system)
-//     [track, prevBtn, nextBtn].forEach(el => {
-//         if (!el) return;
+    function stopAutoSlide() {
+        if (!interval) return;
+        clearInterval(interval);
+        interval = null;
+    }
 
-//         // Use pauseAutoSlide/resumeAutoSlide for manual interaction
-//         el.addEventListener("mouseenter", pauseAutoSlide);
-//         el.addEventListener("mouseleave", resumeAutoSlide);
+    function resumeAutoSlide() {
+        isPaused = false;
+        startAutoSlide();
+    }
 
-//         el.addEventListener("touchstart", pauseAutoSlide, { passive: true });
-//         el.addEventListener("touchend", resumeAutoSlide);
-//     });
+    function pauseAutoSlide() {
+        isPaused = true;
+        stopAutoSlide();
+    }
 
-//     startAutoSlide();
 
-//     ScrollTrigger.create({
-//         trigger: "#services-slider",
-//         start: "top",
-//         end: "bottom 30%",
+    // Buttons
+    nextBtn?.addEventListener("click", () => {
+        stopAutoSlide();
+        slideNext();
+        startAutoSlide();
+    });
 
-//         onEnter: () => {
-//             // resumeAutoSlide(); // Ensure it runs when in view
-//             if (!isPaused) startAutoSlide();
-//         },
+    prevBtn?.addEventListener("click", () => {
+        stopAutoSlide();
+        slidePrev();
+        startAutoSlide();
+    });
 
-//         onEnterBack: () => {
-//             if (!isPaused) startAutoSlide();
-//         },
+    // ?? PAUSE ON HOVER / TOUCH (single system)
+    [track, prevBtn, nextBtn].forEach(el => {
+        if (!el) return;
 
-//         onLeave: () => {
-//             stopAutoSlide(); // Fully stop when out of view
-//         },
+        // Use pauseAutoSlide/resumeAutoSlide for manual interaction
+        el.addEventListener("mouseenter", pauseAutoSlide);
+        el.addEventListener("mouseleave", resumeAutoSlide);
 
-//         onLeaveBack: () => {
-//             stopAutoSlide();
-//         }
-//     });
+        el.addEventListener("touchstart", pauseAutoSlide, { passive: true });
+        el.addEventListener("touchend", resumeAutoSlide);
+    });
 
-// });
+    startAutoSlide();
+
+    ScrollTrigger.create({
+        trigger: "#services-slider",
+        start: "top",
+        end: "bottom 30%",
+
+        onEnter: () => {
+            // resumeAutoSlide(); // Ensure it runs when in view
+            if (!isPaused) startAutoSlide();
+        },
+
+        onEnterBack: () => {
+            if (!isPaused) startAutoSlide();
+        },
+
+        onLeave: () => {
+            stopAutoSlide(); // Fully stop when out of view
+        },
+
+        onLeaveBack: () => {
+            stopAutoSlide();
+        }
+    });
+
+});
 
 
 ///////////////////////////////////////////////////////////////////////// GSAP SCROLL TRIGGER (START / STOP ON VIEW)
