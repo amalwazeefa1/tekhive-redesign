@@ -963,37 +963,45 @@ z
                        [&::-webkit-scrollbar]:hidden select-none">
 
                     <!-- Card 1: Web Development -->
-                    <div class="card group flex-shrink-0 snap-start w-[280px] sm:w-[320px] md:w-[360px]
-                               flex flex-col overflow-hidden rounded-xl
-                                    bg-surface-light dark:bg-surface-dark
-                                       shadow-sm border border-slate-100 dark:border-slate-800/60
-                                              transition-all hover:shadow-md">
-                        <div class="h-40 w-full bg-cover bg-center"
-                            style='background-image:url("assets/web_development.svg");'>
-                        </div>
-                        <div class="flex flex-col gap-3 p-5">
-                            <div class="flex items-center gap-3">
-                                <div class="size-10 rounded-full bg-primary/10 flex items-center justify-center">
-                                    <span class="material-symbols-outlined text-primary">html</span>
+                    <div class="relative card h-full">
+                        <div class="inverted bg-[#fff] rounded-xl group">
+                            <div class="card group flex-shrink-0 snap-start w-[280px] sm:w-[320px] md:w-[360px]">
+                                <div class="h-40 w-full bg-cover bg-center"
+                                    style='background-image:url("assets/web_development.svg");'>
                                 </div>
-                                <h3 class="text-lg font-bold text-slate-900 dark:text-white">
-                                    Web Development
-                                </h3>
-                            </div>
-                            <p class="text-sm text-slate-600 dark:text-slate-300">
-                                Put your business at the forefront with an impressive website. Our web development
+                                <div class="flex flex-col gap-3 p-5">
+                                    <div class="flex items-center gap-3">
+                                        <div class="size-14 rounded-full bg-primary/10 flex items-center justify-center">
+                                            <img class="h-16 w-16" src="assets/glass-icon-webdevelopment.svg" alt="">
+                                        </div>
+                                        <h3 class="text-lg font-bold text-slate-900 dark:text-white">
+                                            Web Development
+                                        </h3>
+                                    </div>
+                                    <p class="text-sm text-slate-600 dark:text-slate-300">
+                                        Put your business at the forefront with an impressive website. Our web development
                                 services give you a competitive edge, helping you drive traffic, convert visitors into
                                 customers, and elevate your business to new heights.
-                            </p>
-                            <button class="mt-1 flex items-center gap-2 text-sm font-bold
-                                       text-slate-900 dark:text-white
-                                      group-hover:text-primary transition-colors">
-                                <a href="website-development.html">Learn More</a>
-                                <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
-                            </button>
+                                    </p>
+                                    <button class="mt-1 flex items-center gap-2 text-sm font-bold
+                                   text-slate-900 dark:text-white
+                                   group-hover:text-primary transition-colors">
+                                        <a href="website-development.html">Learn More</a>
+                                        <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+                                    </button>
+                                </div>
+                            </div>
                         </div>
+
+                        <svg class="absolute h-24 w-24 bottom-0 right-0 z-20" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 84 90">
+                            <path
+                                d="m35.43,45.1l-11.72,36.47c-1.61,5.02-6.29,8.43-11.56,8.43-6.71,0-12.15-5.44-12.15-12.15V16C0,7.16,7.16,0,16,0h55c8.84,0,16,7.16,16,16v2c0,8.84-7.16,16-16,16h-20.34c-6.95,0-13.11,4.49-15.23,11.1h0Z"
+                                fill="#fff" />
+                        </svg>
                     </div>
 
+                    <!-- Card 2: Ecommerce Solutions -->
                     <div class="relative card h-full">
                         <div class="inverted bg-[#fff] rounded-xl group">
                             <div class="card group flex-shrink-0 snap-start w-[280px] sm:w-[320px] md:w-[360px]">
@@ -1002,19 +1010,17 @@ z
                                 </div>
                                 <div class="flex flex-col gap-3 p-5">
                                     <div class="flex items-center gap-3">
-                                        <div class="size-10 rounded-full bg-primary/10 flex items-center justify-center">
-                                            <span class="material-symbols-outlined text-primary">cloud</span>
+                                        <div class="size-14 rounded-full bg-primary/10 flex items-center justify-center">
+                                            <img class="h-16 w-16" src="assets/glass-icon-ecommerce-solutions.svg" alt="">
                                         </div>
                                         <h3 class="text-lg font-bold text-slate-900 dark:text-white">
                                             Ecommerce Solutions
                                         </h3>
                                     </div>
                                     <p class="text-sm text-slate-600 dark:text-slate-300">
-                                        With extensive expertise in e-commerce development, Tekhive is a reliable
-                                        partner for
-                                        your various ecommerce web development needs. We create a perfect platform with
-                                        a blend
-                                        of compelling design and modern features.
+                                        With extensive expertise in e-commerce development, Tekhive is a reliable partner for
+                                your various ecommerce web development needs. We create a perfect platform with a blend
+                                of compelling design and modern features.
                                     </p>
                                     <button class="mt-1 flex items-center gap-2 text-sm font-bold
                                    text-slate-900 dark:text-white
@@ -1034,203 +1040,246 @@ z
                         </svg>
                     </div>
 
-                    <!-- Card 2: Mobile Apps -->
-                    <div class="card group flex-shrink-0 snap-start w-[280px] sm:w-[320px] md:w-[360px]
-                          flex flex-col overflow-hidden rounded-xl
-                           bg-surface-light dark:bg-surface-dark
-                            shadow-sm border border-slate-100 dark:border-slate-800/60
-                             transition-all hover:shadow-md">
-                        <div class="h-40 w-full bg-cover bg-center"
-                            style='background-image:url("assets/ecommerce_development.svg");'>
-                        </div>
-                        <div class="flex flex-col gap-3 p-5">
-                            <div class="flex items-center gap-3">
-                                <div class="size-10 rounded-full bg-primary/10 flex items-center justify-center">
-                                    <span class="material-symbols-outlined text-primary">cloud</span>
+                    <!-- Card 3: Mobile Apps -->
+                    <div class="relative card h-full">
+                        <div class="inverted bg-[#fff] rounded-xl group">
+                            <div class="card group flex-shrink-0 snap-start w-[280px] sm:w-[320px] md:w-[360px]">
+                                <div class="h-40 w-full bg-cover bg-center"
+                                    style='background-image:url("assets/app_development.svg");'>
                                 </div>
-                                <h3 class="text-lg font-bold text-slate-900 dark:text-white">
-                                    Ecommerce Solutions
-                                </h3>
-                            </div>
-                            <p class="text-sm text-slate-600 dark:text-slate-300">
-                                With extensive expertise in e-commerce development, Tekhive is a reliable partner for
-                                your various ecommerce web development needs. We create a perfect platform with a blend
-                                of compelling design and modern features.
-                            </p>
-                            <button class="mt-1 flex items-center gap-2 text-sm font-bold
+                                <div class="flex flex-col gap-3 p-5">
+                                    <div class="flex items-center gap-3">
+                                        <div class="size-14 rounded-full bg-primary/10 flex items-center justify-center">
+                                            <img class="h-16 w-16" src="assets/glass-icon-app-development.svg" alt="">
+                                        </div>
+                                        <h3 class="text-lg font-bold text-slate-900 dark:text-white">
+                                            Mobile Apps
+                                        </h3>
+                                    </div>
+                                    <p class="text-sm text-slate-600 dark:text-slate-300">
+                                        By prioritizing your business objectives and enhancing user engagement, our experts
+                                specialize in developing mobile applications for both iOS and Android operating systems.
+                                    </p>
+                                    <button class="mt-1 flex items-center gap-2 text-sm font-bold
                                    text-slate-900 dark:text-white
                                    group-hover:text-primary transition-colors">
-                                <a href="e-commerce.html">Learn More</a>
-                                <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Card 3: Ecommerce Solutions -->
-                    <div class="card group flex-shrink-0 snap-start w-[280px] sm:w-[320px] md:w-[360px]
-               flex flex-col overflow-hidden rounded-xl
-               bg-surface-light dark:bg-surface-dark
-               shadow-sm border border-slate-100 dark:border-slate-800/60
-               transition-all hover:shadow-md">
-                        <div class="h-40 w-full bg-cover bg-center"
-                            style='background-image:url("assets/app_development.svg");'>
-                        </div>
-                        <div class="flex flex-col gap-3 p-5">
-                            <div class="flex items-center gap-3">
-                                <div class="size-10 rounded-full bg-primary/10 flex items-center justify-center">
-                                    <span class="material-symbols-outlined text-primary">smartphone</span>
+                                        <a href="e-commerce.html">Learn More</a>
+                                        <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+                                    </button>
                                 </div>
-                                <h3 class="text-lg font-bold text-slate-900 dark:text-white">
-                                    Mobile Apps
-                                </h3>
                             </div>
-                            <p class="text-sm text-slate-600 dark:text-slate-300">
-                                By prioritizing your business objectives and enhancing user engagement, our experts
-                                specialize in developing mobile applications for both iOS and Android operating systems.
-                            </p>
-                            <button class="mt-1 flex items-center gap-2 text-sm font-bold
-                   text-slate-900 dark:text-white
-                   group-hover:text-primary transition-colors">
-                                <a href="mobile-app-development.html">Learn More</a>
-                                <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
-                            </button>
                         </div>
+
+                        <svg class="absolute h-24 w-24 bottom-0 right-0 z-20" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 84 90">
+                            <path
+                                d="m35.43,45.1l-11.72,36.47c-1.61,5.02-6.29,8.43-11.56,8.43-6.71,0-12.15-5.44-12.15-12.15V16C0,7.16,7.16,0,16,0h55c8.84,0,16,7.16,16,16v2c0,8.84-7.16,16-16,16h-20.34c-6.95,0-13.11,4.49-15.23,11.1h0Z"
+                                fill="#fff" />
+                        </svg>
                     </div>
 
                     <!-- Card 4: Third Party Apps Integration -->
-                    <div class="card group flex-shrink-0 snap-start w-[280px] sm:w-[320px] md:w-[360px]
-                          flex flex-col overflow-hidden rounded-xl
-                           bg-surface-light dark:bg-surface-dark
-                            shadow-sm border border-slate-100 dark:border-slate-800/60
-                             transition-all hover:shadow-md">
-                        <div class="h-40 w-full bg-cover bg-center"
-                            style='background-image:url("assets/third_party_integration.svg");'>
-                        </div>
-                        <div class="flex flex-col gap-3 p-5">
-                            <div class="flex items-center gap-3">
-                                <div class="size-10 rounded-full bg-primary/10 flex items-center justify-center">
-                                    <span class="material-symbols-outlined text-primary">cloud</span>
+                    <div class="relative card h-full">
+                        <div class="inverted bg-[#fff] rounded-xl group">
+                            <div class="card group flex-shrink-0 snap-start w-[280px] sm:w-[320px] md:w-[360px]">
+                                <div class="h-40 w-full bg-cover bg-center"
+                                    style='background-image:url("assets/third_party_integration.svg");'>
                                 </div>
-                                <h3 class="text-lg font-bold text-slate-900 dark:text-white">
-                                    Third Party Apps Integration
-                                </h3>
-                            </div>
-                            <p class="text-sm text-slate-600 dark:text-slate-300">
-                                Tekhive has proven track record in delivering successful API projects across diverse
+                                <div class="flex flex-col gap-3 p-5">
+                                    <div class="flex items-center gap-3">
+                                        <div class="size-14 rounded-full bg-primary/10 flex items-center justify-center">
+                                            <img class="h-16 w-16" src="assets/icons/glass-icon-third-party-integration.svg" alt="">
+                                        </div>
+                                        <h3 class="text-lg font-bold text-slate-900 dark:text-white">
+                                            Third Party Apps Integration
+                                        </h3>
+                                    </div>
+                                    <p class="text-sm text-slate-600 dark:text-slate-300">
+                                        Tekhive has proven track record in delivering successful API projects across diverse
                                 industries. We are committed to foster innovation through highly effective API
                                 development and integration strategies.
-                            </p>
-                            <button class="mt-1 flex items-center gap-2 text-sm font-bold
+                                    </p>
+                                    <button class="mt-1 flex items-center gap-2 text-sm font-bold
                                    text-slate-900 dark:text-white
                                    group-hover:text-primary transition-colors">
-                                <a href="third-party-apps-integration.html">Learn More</a>
-                                <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
-                            </button>
-                        </div>
-                    </div>
-                    <!-- Card 5: CMS Development -->
-                    <div class="card group flex-shrink-0 snap-start w-[280px] sm:w-[320px] md:w-[360px]
-                          flex flex-col overflow-hidden rounded-xl
-                           bg-surface-light dark:bg-surface-dark
-                            shadow-sm border border-slate-100 dark:border-slate-800/60
-                             transition-all hover:shadow-md">
-                        <div class="h-40 w-full bg-cover bg-center"
-                            style='background-image:url("assets/cms_development.svg");'>
-                        </div>
-                        <div class="flex flex-col gap-3 p-5">
-                            <div class="flex items-center gap-3">
-                                <div class="size-10 rounded-full bg-primary/10 flex items-center justify-center">
-                                    <span class="material-symbols-outlined text-primary">cloud</span>
+                                        <a href="third-party-apps-integration.html">Learn More</a>
+                                        <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+                                    </button>
                                 </div>
-                                <h3 class="text-lg font-bold text-slate-900 dark:text-white">
-                                    CMS Development
-                                </h3>
                             </div>
-                            <p class="text-sm text-slate-600 dark:text-slate-300">
-                                Ensure a competitive advantage in the digital age with the right CMS solution. Our
+                        </div>
+
+                        <svg class="absolute h-24 w-24 bottom-0 right-0 z-20" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 84 90">
+                            <path
+                                d="m35.43,45.1l-11.72,36.47c-1.61,5.02-6.29,8.43-11.56,8.43-6.71,0-12.15-5.44-12.15-12.15V16C0,7.16,7.16,0,16,0h55c8.84,0,16,7.16,16,16v2c0,8.84-7.16,16-16,16h-20.34c-6.95,0-13.11,4.49-15.23,11.1h0Z"
+                                fill="#fff" />
+                        </svg>
+                    </div>
+
+                    <!-- Card 5: CMS Development -->
+                    <div class="relative card h-full">
+                        <div class="inverted bg-[#fff] rounded-xl group">
+                            <div class="card group flex-shrink-0 snap-start w-[280px] sm:w-[320px] md:w-[360px]">
+                                <div class="h-40 w-full bg-cover bg-center"
+                                    style='background-image:url("assets/cms_development.svg");'>
+                                </div>
+                                <div class="flex flex-col gap-3 p-5">
+                                    <div class="flex items-center gap-3">
+                                        <div class="size-14 rounded-full bg-primary/10 flex items-center justify-center">
+                                            <img class="h-16 w-16" src="assets/icons/glass-icon-cms-development.svg" alt="">
+                                        </div>
+                                        <h3 class="text-lg font-bold text-slate-900 dark:text-white">
+                                            CMS Development
+                                        </h3>
+                                    </div>
+                                    <p class="text-sm text-slate-600 dark:text-slate-300">
+                                        Ensure a competitive advantage in the digital age with the right CMS solution. Our
                                 professionals can develop a fully functional CMS Platform to meet your specific needs.
-                            </p>
-                            <button class="mt-1 flex items-center gap-2 text-sm font-bold
+                                    </p>
+                                    <button class="mt-1 flex items-center gap-2 text-sm font-bold
                                    text-slate-900 dark:text-white
                                    group-hover:text-primary transition-colors">
-                                <a href="cms-development.html">Learn More</a>
-                                <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
-                            </button>
+                                        <a href="cms-development.html">Learn More</a>
+                                        <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+                                    </button>
+                                </div>
+                            </div>
                         </div>
+
+                        <svg class="absolute h-24 w-24 bottom-0 right-0 z-20" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 84 90">
+                            <path
+                                d="m35.43,45.1l-11.72,36.47c-1.61,5.02-6.29,8.43-11.56,8.43-6.71,0-12.15-5.44-12.15-12.15V16C0,7.16,7.16,0,16,0h55c8.84,0,16,7.16,16,16v2c0,8.84-7.16,16-16,16h-20.34c-6.95,0-13.11,4.49-15.23,11.1h0Z"
+                                fill="#fff" />
+                        </svg>
                     </div>
 
                     <!-- Card 6: Digital Marketing -->
-                    <div class="card group flex-shrink-0 snap-start w-[280px] sm:w-[320px] md:w-[360px]
-                          flex flex-col overflow-hidden rounded-xl
-                           bg-surface-light dark:bg-surface-dark
-                            shadow-sm border border-slate-100 dark:border-slate-800/60
-                             transition-all hover:shadow-md">
-                        <div class="h-40 w-full bg-cover bg-center"
-                            style='background-image:url("assets/digital_marketing.svg");'>
-                        </div>
-                        <div class="flex flex-col gap-3 p-5">
-                            <div class="flex items-center gap-3">
-                                <div class="size-10 rounded-full bg-primary/10 flex items-center justify-center">
-                                    <span class="material-symbols-outlined text-primary">cloud</span>
+                    <div class="relative card h-full">
+                        <div class="inverted bg-[#fff] rounded-xl group">
+                            <div class="card group flex-shrink-0 snap-start w-[280px] sm:w-[320px] md:w-[360px]">
+                                <div class="h-40 w-full bg-cover bg-center"
+                                    style='background-image:url("assets/digital_marketing.svg");'>
                                 </div>
-                                <h3 class="text-lg font-bold text-slate-900 dark:text-white">
-                                    Digital Marketing
-                                </h3>
-                            </div>
-                            <p class="text-sm text-slate-600 dark:text-slate-300">
-                                Customized digital marketing strategies, experienced digital marketers, and innovative
+                                <div class="flex flex-col gap-3 p-5">
+                                    <div class="flex items-center gap-3">
+                                        <div class="size-14 rounded-full bg-primary/10 flex items-center justify-center">
+                                            <img class="h-16 w-16" src="assets/icons/glass-icon-digital-marketing.svg" alt="">
+                                        </div>
+                                        <h3 class="text-lg font-bold text-slate-900 dark:text-white">
+                                            Digital Marketing
+                                        </h3>
+                                    </div>
+                                    <p class="text-sm text-slate-600 dark:text-slate-300">
+                                        Customized digital marketing strategies, experienced digital marketers, and innovative
                                 approach, we harness the potential of digital ways that makes your brand supreme in the
                                 online space.
-                            </p>
-                            <button class="mt-1 flex items-center gap-2 text-sm font-bold
+                                    </p>
+                                    <button class="mt-1 flex items-center gap-2 text-sm font-bold
                                    text-slate-900 dark:text-white
                                    group-hover:text-primary transition-colors">
-                                <a href="digital-marketing.html">Learn More</a>
-                                <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
-                            </button>
+                                        <a href="digital-marketing.html">Learn More</a>
+                                        <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+                                    </button>
+                                </div>
+                            </div>
                         </div>
+
+                        <svg class="absolute h-24 w-24 bottom-0 right-0 z-20" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 84 90">
+                            <path
+                                d="m35.43,45.1l-11.72,36.47c-1.61,5.02-6.29,8.43-11.56,8.43-6.71,0-12.15-5.44-12.15-12.15V16C0,7.16,7.16,0,16,0h55c8.84,0,16,7.16,16,16v2c0,8.84-7.16,16-16,16h-20.34c-6.95,0-13.11,4.49-15.23,11.1h0Z"
+                                fill="#fff" />
+                        </svg>
                     </div>
 
                     <!-- Card 7: SAP Business One -->
-                    <div class="card group flex-shrink-0 snap-start w-[280px] sm:w-[320px] md:w-[360px]
-                          flex flex-col overflow-hidden rounded-xl
-                           bg-surface-light dark:bg-surface-dark
-                            shadow-sm border border-slate-100 dark:border-slate-800/60
-                             transition-all hover:shadow-md">
-                        <div class="h-40 w-full bg-cover bg-center"
-                            style='background-image:url("assets/sap_business.svg");'>
-                        </div>
-                        <div class="flex flex-col gap-3 p-5">
-                            <div class="flex items-center gap-3">
-                                <div class="size-10 rounded-full bg-primary/10 flex items-center justify-center">
-                                    <span class="material-symbols-outlined text-primary">cloud</span>
+                    <div class="relative card h-full">
+                        <div class="inverted bg-[#fff] rounded-xl group">
+                            <div class="card group flex-shrink-0 snap-start w-[280px] sm:w-[320px] md:w-[360px]">
+                                <div class="h-40 w-full bg-cover bg-center"
+                                    style='background-image:url("assets/sap_business.svg");'>
                                 </div>
-                                <h3 class="text-lg font-bold text-slate-900 dark:text-white">
-                                    SAP Business One
-                                </h3>
-                            </div>
-                            <p class="text-sm text-slate-600 dark:text-slate-300">
-                                The modern business environment requires a robust solution that empowers organizations
+                                <div class="flex flex-col gap-3 p-5">
+                                    <div class="flex items-center gap-3">
+                                        <div class="size-14 rounded-full bg-primary/10 flex items-center justify-center">
+                                            <img class="h-16 w-16" src="assets/icons/glass-icon-sap-business-one.svg" alt="">
+                                        </div>
+                                        <h3 class="text-lg font-bold text-slate-900 dark:text-white">
+                                            SAP Business One
+                                        </h3>
+                                    </div>
+                                    <p class="text-sm text-slate-600 dark:text-slate-300">
+                                        The modern business environment requires a robust solution that empowers organizations
                                 to thrive. We offer bespoke ERP solution that easily adapts to ever-evolving market
                                 challenges and demands.
-                            </p>
-                            <button class="mt-1 flex items-center gap-2 text-sm font-bold
+                                    </p>
+                                    <button class="mt-1 flex items-center gap-2 text-sm font-bold
                                    text-slate-900 dark:text-white
                                    group-hover:text-primary transition-colors">
-                                <a href="sap-business-one.html">Learn More</a>
-                                <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
-                            </button>
+                                        <a href="sap-business-one.html">Learn More</a>
+                                        <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+                                    </button>
+                                </div>
+                            </div>
                         </div>
+
+                        <svg class="absolute h-24 w-24 bottom-0 right-0 z-20" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 84 90">
+                            <path
+                                d="m35.43,45.1l-11.72,36.47c-1.61,5.02-6.29,8.43-11.56,8.43-6.71,0-12.15-5.44-12.15-12.15V16C0,7.16,7.16,0,16,0h55c8.84,0,16,7.16,16,16v2c0,8.84-7.16,16-16,16h-20.34c-6.95,0-13.11,4.49-15.23,11.1h0Z"
+                                fill="#fff" />
+                        </svg>
                     </div>
 
                     <!-- Card 8: Business Intelligence Tools -->
+                    <div class="relative card h-full">
+                        <div class="inverted bg-[#fff] rounded-xl group">
+                            <div class="card group flex-shrink-0 snap-start w-[280px] sm:w-[320px] md:w-[360px]">
+                                <div class="h-40 w-full bg-cover bg-center"
+                                    style='background-image:url("assets/business_intelligence_tool.svg");'>
+                                </div>
+                                <div class="flex flex-col gap-3 p-5">
+                                    <div class="flex items-center gap-3">
+                                        <div class="size-14 rounded-full bg-primary/10 flex items-center justify-center">
+                                            <img class="h-16 w-16" src="assets/icons/glass-icon-business-intelligence-tool.svg" alt="">
+                                        </div>
+                                        <h3 class="text-lg font-bold text-slate-900 dark:text-white">
+                                            Business Intelligence Tools
+                                        </h3>
+                                    </div>
+                                    <p class="text-sm text-slate-600 dark:text-slate-300">
+                                        In times of transformation, organizations need to equip themselves with robust solutions
+                                that ease the way of doing business. At Tekhive, we help you achieve your goals by
+                                harnessing the power of your business data.
+                                    </p>
+                                    <button class="mt-1 flex items-center gap-2 text-sm font-bold
+                                   text-slate-900 dark:text-white
+                                   group-hover:text-primary transition-colors">
+                                        <a href="business-intelligence-tools.html">Learn More</a>
+                                        <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <svg class="absolute h-24 w-24 bottom-0 right-0 z-20" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 84 90">
+                            <path
+                                d="m35.43,45.1l-11.72,36.47c-1.61,5.02-6.29,8.43-11.56,8.43-6.71,0-12.15-5.44-12.15-12.15V16C0,7.16,7.16,0,16,0h55c8.84,0,16,7.16,16,16v2c0,8.84-7.16,16-16,16h-20.34c-6.95,0-13.11,4.49-15.23,11.1h0Z"
+                                fill="#fff" />
+                        </svg>
+                    </div>
+
+                    <!-- Card 9: CRM -->
                     <div class="card group flex-shrink-0 snap-start w-[280px] sm:w-[320px] md:w-[360px]
                           flex flex-col overflow-hidden rounded-xl
                            bg-surface-light dark:bg-surface-dark
                             shadow-sm border border-slate-100 dark:border-slate-800/60
                              transition-all hover:shadow-md">
                         <div class="h-40 w-full bg-cover bg-center"
-                            style='background-image:url("assets/business_intelligence_tool.svg");'>
+                            style='background-image:url("assets/crm.svg");'>
                         </div>
                         <div class="flex flex-col gap-3 p-5">
                             <div class="flex items-center gap-3">
@@ -1238,13 +1287,13 @@ z
                                     <span class="material-symbols-outlined text-primary">cloud</span>
                                 </div>
                                 <h3 class="text-lg font-bold text-slate-900 dark:text-white">
-                                    Business Intelligence Tools
+                                    CRM
                                 </h3>
                             </div>
                             <p class="text-sm text-slate-600 dark:text-slate-300">
-                                In times of transformation, organizations need to equip themselves with robust solutions
-                                that ease the way of doing business. At Tekhive, we help you achieve your goals by
-                                harnessing the power of your business data.
+                                Your business can't overlook the need for an efficient CRM software, as it is the
+                                cornerstone of customer management and business success. Embark on a journey of business
+                                success with us.
                             </p>
                             <button class="mt-1 flex items-center gap-2 text-sm font-bold
                                    text-slate-900 dark:text-white
