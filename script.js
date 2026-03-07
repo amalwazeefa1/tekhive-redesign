@@ -164,7 +164,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const track = document.getElementById("services-track");
     if (!track) return;
 
-    const cards = track.querySelectorAll(".card");
+    const cards = Array.from(track.children).filter(child => child.classList.contains("card"));
     const prevBtn = document.getElementById("previous-btn");
     const nextBtn = document.getElementById("next-btn");
 
@@ -631,61 +631,57 @@ if (header) {
 // })
 
 if (document.body.classList.contains("home-page")) {
-    gsap.from(".pinned-section .tekhive-icon", {
-        scale: 0.6,
-        opacity: 0,
-        delay: 0.7,
-        duration: 2,
+    const pinTl = gsap.timeline({
         scrollTrigger: {
             trigger: ".pinned-section",
             start: "top top",
-            end: "+=200%",
+            end: "+=150%",
             pin: true,
-            toggleActions: "play reverse play reverse",
+            toggleActions: "play none none reverse",
         }
+    });
+
+    pinTl.from(".pinned-section .tekhive-icon", {
+        opacity: 0,
+        scale: 0.5,
+        rotation: -45,
+        duration: 1,
+        ease: "back.out(1.7)"
     })
+        .from(".logo-part", {
+            opacity: 0,
+            y: 40,
+            scale: 0.8,
+            rotate: 15,
+            filter: "blur(10px)",
+            duration: 0.8,
+            ease: "back.out(1.7)",
+            stagger: 0.05
+        }, "-=0.6")
+        .from(".animated-divider", {
+            scaleY: 0,
+            transformOrigin: "top",
+            duration: 0.8,
+            ease: "expo.out"
+        }, "-=0.3");
 
-
-    gsap.from(".logo-part", {
-        opacity: 0,
-        y: 20,
-        scale: 0.8,
-        rotate: 5,
-        filter: "blur(6px)",
-        duration: 1.2,
-        ease: "expo.out",
-        delay: 1.5,
-        stagger: {
-            each: 0.12,
-            from: "start"
-        },
-        scrollTrigger: {
-            trigger: ".tekhive-text",
-            start: "top top",
-            end: "9999999",
-            scrub: false,
-        }
-    });
-}
-
-
-////////////////////////////////////////////////////////////////////////////////split text
-if (document.getElementById("tektext") && typeof SplitType !== 'undefined') {
-    const split = new SplitType("#tektext", { types: "lines" });
-
-    gsap.from(split.lines, {
-        scrollTrigger: {
-            trigger: "#tektext",
-            start: "top 80%",
-            toggleActions: "play none none reset"
-        },
-        yPercent: 100,
-        opacity: 0,
-        duration: 0.8,
-        stagger: 0.15,
-        ease: "power4.out",
-        delay: 1
-    });
+    if (document.getElementById("tektext") && typeof SplitType !== 'undefined') {
+        const split = new SplitType("#tektext", { types: "lines" });
+        pinTl.from(split.lines, {
+            y: 30,
+            opacity: 0,
+            duration: 0.8,
+            stagger: 0.1,
+            ease: "power3.out"
+        }, "-=0.5");
+    } else {
+        pinTl.from("#tektext", {
+            opacity: 0,
+            y: 20,
+            duration: 0.8,
+            ease: "power3.out"
+        }, "-=0.5");
+    }
 }
 
 

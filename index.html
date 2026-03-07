@@ -584,42 +584,49 @@
     </div>
 
 
-    <section class="pinned-section relative">
-        <div class="h-screen bg-black flex items-center justify-center text-center">
-            <div class="flex justify-center">
-                <img class="tekhive-icon w-1/4 h-auto" src="assets/tekhive-icon.svg" alt="icon">
-                <!-- <img class="tekhive-text w-1/2 h-auto" src="assets/tekhive-text.svg" alt="text"> -->
-                <svg class="tekhive-text w-1/2 h-auto" id="Layer_1" data-name="Layer 1"
-                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300.3 48.4">
-                    <polygon class="logo-part"
-                        points="12.5 48.4 12.5 5.7 0 5.7 0 0 38 0 38 5.7 25.6 5.7 25.6 48.4 12.5 48.4"
-                        style="fill: #fff; stroke-width: 0px;" />
-                    <polygon class="logo-part"
-                        points="44.9 48.4 44.9 0 81.2 0 81.2 5.7 57.8 5.7 57.8 19.2 80.5 19.2 80.5 26 57.8 26 57.8 42.8 81.8 42.8 81.8 48.4 44.9 48.4"
-                        style="fill: #fff; stroke-width: 0px;" />
-                    <polygon class="logo-part"
-                        points="89.9 48.4 89.9 0 102.9 0 102.9 18.2 103.9 18.2 120.9 0 131 0 115 23.5 132.6 48.4 122.1 48.4 103.8 29.1 102.9 29.1 102.9 48.4 89.9 48.4"
-                        style="fill: #fff; stroke-width: 0px;" />
-                    <polygon class="logo-part"
-                        points="138.4 48.4 138.4 0 151.4 0 151.4 20.7 168.3 20.7 168.3 0 181.2 0 181.2 48.4 168.3 48.4 168.3 26.9 151.4 26.9 151.4 48.4 138.4 48.4"
-                        style="fill: #fff; stroke-width: 0px;" />
-                    <polygon class="logo-part"
-                        points="210.2 0 216 0 233.4 37.8 243.2 0 257 0 243.2 48.4 223.5 48.4 210.2 0"
-                        style="fill: #fff; stroke-width: 0px;" />
-                    <polygon class="logo-part"
-                        points="263.4 48.4 263.4 0 299.8 0 299.8 5.7 276.4 5.7 276.4 19.2 299.1 19.2 299.1 26 276.4 26 276.4 42.8 300.3 42.8 300.3 48.4 263.4 48.4"
-                        style="fill: #fff; stroke-width: 0px;" />
-                    <path class="logo-part" d="m203.6,0v48.4h-13.1V10.2l3.6-2.7,9.5,9.7v-.4L190.5,0h13.1Z"
-                        style="fill: #fff; stroke-width: 0px;" />
-                </svg>
+    <!-- pinned section -->
+    <section
+        class="pinned-section relative bg-black min-h-screen py-20 flex flex-col md:flex-row items-center justify-center gap-12 md:gap-24 px-6 md:px-16 lg:px-24">
+        <!-- Left: Logo -->
+        <div class="flex items-center justify-center w-full md:w-1/2 max-w-lg">
+            <img class="tekhive-icon w-20 md:w-28 lg:w-32 h-auto mr-4 md:mr-8" src="assets/tekhive-icon.svg" alt="icon">
+            <svg class="tekhive-text w-full max-w-[180px] md:max-w-[260px] lg:max-w-[320px] h-auto" id="Layer_1"
+                data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300.3 48.4">
+                <polygon class="logo-part"
+                    points="12.5 48.4 12.5 5.7 0 5.7 0 0 38 0 38 5.7 25.6 5.7 25.6 48.4 12.5 48.4"
+                    style="fill: #fff; stroke-width: 0px;" />
+                <polygon class="logo-part"
+                    points="44.9 48.4 44.9 0 81.2 0 81.2 5.7 57.8 5.7 57.8 19.2 80.5 19.2 80.5 26 57.8 26 57.8 42.8 81.8 42.8 81.8 48.4 44.9 48.4"
+                    style="fill: #fff; stroke-width: 0px;" />
+                <polygon class="logo-part"
+                    points="89.9 48.4 89.9 0 102.9 0 102.9 18.2 103.9 18.2 120.9 0 131 0 115 23.5 132.6 48.4 122.1 48.4 103.8 29.1 102.9 29.1 102.9 48.4 89.9 48.4"
+                    style="fill: #fff; stroke-width: 0px;" />
+                <polygon class="logo-part"
+                    points="138.4 48.4 138.4 0 151.4 0 151.4 20.7 168.3 20.7 168.3 0 181.2 0 181.2 48.4 168.3 48.4 168.3 26.9 151.4 26.9 151.4 48.4 138.4 48.4"
+                    style="fill: #fff; stroke-width: 0px;" />
+                <polygon class="logo-part" points="210.2 0 216 0 233.4 37.8 243.2 0 257 0 243.2 48.4 223.5 48.4 210.2 0"
+                    style="fill: #fff; stroke-width: 0px;" />
+                <polygon class="logo-part"
+                    points="263.4 48.4 263.4 0 299.8 0 299.8 5.7 276.4 5.7 276.4 19.2 299.1 19.2 299.1 26 276.4 26 276.4 42.8 300.3 42.8 300.3 48.4 263.4 48.4"
+                    style="fill: #fff; stroke-width: 0px;" />
+                <path class="logo-part" d="m203.6,0v48.4h-13.1V10.2l3.6-2.7,9.5,9.7v-.4L190.5,0h13.1Z"
+                    style="fill: #fff; stroke-width: 0px;" />
+            </svg>
+        </div>
+
+        <!-- Right: Text -->
+        <div class="flex items-stretch text-left w-full md:w-1/2 max-w-xl">
+            <div
+                class="animated-divider w-[2px] min-h-[100px] bg-gradient-to-b from-transparent via-[#57BF93] to-transparent mr-6 md:mr-10 drop-shadow-[0_0_8px_rgba(87,191,147,0.6)]">
             </div>
-            <div class="flex items-center gap-4">
-                <div class="w-[0.5px] h-40 bg-gradient-to-b from-black via-white to-black"></div>
-                <div class="relative text-white max-w-xl text-start">
-                    <p id="tektext" class="text-lg leading-relaxed">At Tekhive, we don’t just develop software—we
-                        engineer possibility. Our teams thrive on solving
-                        complex problems, crafting elegant solutions, and pushing boundaries in every line of code.</p>
-                </div>
+            <div class="relative text-white flex items-center">
+                <p id="tektext"
+                    class="text-xl md:text-2xl lg:text-3xl font-light leading-relaxed tracking-wide text-slate-300">
+                    At Tekhive, we don’t just develop software—we <span
+                        class="bg-clip-text text-transparent bg-gradient-to-r from-[#499bd5] to-[#57BF93] font-medium">engineer
+                        possibility</span>. Our teams thrive on solving complex problems, crafting elegant solutions,
+                    and pushing boundaries in every line of code.
+                </p>
             </div>
         </div>
     </section>
@@ -971,7 +978,8 @@ z
                                 </div>
                                 <div class="flex flex-col gap-3 p-5">
                                     <div class="flex items-center gap-3">
-                                        <div class="size-14 rounded-full bg-primary/10 flex items-center justify-center">
+                                        <div
+                                            class="size-14 rounded-full bg-primary/10 flex items-center justify-center">
                                             <img class="h-16 w-16" src="assets/glass-icon-webdevelopment.svg" alt="">
                                         </div>
                                         <h3 class="text-lg font-bold text-slate-900 dark:text-white">
@@ -979,9 +987,11 @@ z
                                         </h3>
                                     </div>
                                     <p class="text-sm text-slate-600 dark:text-slate-300">
-                                        Put your business at the forefront with an impressive website. Our web development
-                                services give you a competitive edge, helping you drive traffic, convert visitors into
-                                customers, and elevate your business to new heights.
+                                        Put your business at the forefront with an impressive website. Our web
+                                        development
+                                        services give you a competitive edge, helping you drive traffic, convert
+                                        visitors into
+                                        customers, and elevate your business to new heights.
                                     </p>
                                     <button class="mt-1 flex items-center gap-2 text-sm font-bold
                                    text-slate-900 dark:text-white
@@ -1010,17 +1020,21 @@ z
                                 </div>
                                 <div class="flex flex-col gap-3 p-5">
                                     <div class="flex items-center gap-3">
-                                        <div class="size-14 rounded-full bg-primary/10 flex items-center justify-center">
-                                            <img class="h-16 w-16" src="assets/glass-icon-ecommerce-solutions.svg" alt="">
+                                        <div
+                                            class="size-14 rounded-full bg-primary/10 flex items-center justify-center">
+                                            <img class="h-16 w-16" src="assets/glass-icon-ecommerce-solutions.svg"
+                                                alt="">
                                         </div>
                                         <h3 class="text-lg font-bold text-slate-900 dark:text-white">
                                             Ecommerce Solutions
                                         </h3>
                                     </div>
                                     <p class="text-sm text-slate-600 dark:text-slate-300">
-                                        With extensive expertise in e-commerce development, Tekhive is a reliable partner for
-                                your various ecommerce web development needs. We create a perfect platform with a blend
-                                of compelling design and modern features.
+                                        With extensive expertise in e-commerce development, Tekhive is a reliable
+                                        partner for
+                                        your various ecommerce web development needs. We create a perfect platform with
+                                        a blend
+                                        of compelling design and modern features.
                                     </p>
                                     <button class="mt-1 flex items-center gap-2 text-sm font-bold
                                    text-slate-900 dark:text-white
@@ -1049,7 +1063,8 @@ z
                                 </div>
                                 <div class="flex flex-col gap-3 p-5">
                                     <div class="flex items-center gap-3">
-                                        <div class="size-14 rounded-full bg-primary/10 flex items-center justify-center">
+                                        <div
+                                            class="size-14 rounded-full bg-primary/10 flex items-center justify-center">
                                             <img class="h-16 w-16" src="assets/glass-icon-app-development.svg" alt="">
                                         </div>
                                         <h3 class="text-lg font-bold text-slate-900 dark:text-white">
@@ -1057,8 +1072,10 @@ z
                                         </h3>
                                     </div>
                                     <p class="text-sm text-slate-600 dark:text-slate-300">
-                                        By prioritizing your business objectives and enhancing user engagement, our experts
-                                specialize in developing mobile applications for both iOS and Android operating systems.
+                                        By prioritizing your business objectives and enhancing user engagement, our
+                                        experts
+                                        specialize in developing mobile applications for both iOS and Android operating
+                                        systems.
                                     </p>
                                     <button class="mt-1 flex items-center gap-2 text-sm font-bold
                                    text-slate-900 dark:text-white
@@ -1087,17 +1104,20 @@ z
                                 </div>
                                 <div class="flex flex-col gap-3 p-5">
                                     <div class="flex items-center gap-3">
-                                        <div class="size-14 rounded-full bg-primary/10 flex items-center justify-center">
-                                            <img class="h-16 w-16" src="assets/icons/glass-icon-third-party-integration.svg" alt="">
+                                        <div
+                                            class="size-14 rounded-full bg-primary/10 flex items-center justify-center">
+                                            <img class="h-16 w-16"
+                                                src="assets/icons/glass-icon-third-party-integration.svg" alt="">
                                         </div>
                                         <h3 class="text-lg font-bold text-slate-900 dark:text-white">
                                             Third Party Apps Integration
                                         </h3>
                                     </div>
                                     <p class="text-sm text-slate-600 dark:text-slate-300">
-                                        Tekhive has proven track record in delivering successful API projects across diverse
-                                industries. We are committed to foster innovation through highly effective API
-                                development and integration strategies.
+                                        Tekhive has proven track record in delivering successful API projects across
+                                        diverse
+                                        industries. We are committed to foster innovation through highly effective API
+                                        development and integration strategies.
                                     </p>
                                     <button class="mt-1 flex items-center gap-2 text-sm font-bold
                                    text-slate-900 dark:text-white
@@ -1126,16 +1146,20 @@ z
                                 </div>
                                 <div class="flex flex-col gap-3 p-5">
                                     <div class="flex items-center gap-3">
-                                        <div class="size-14 rounded-full bg-primary/10 flex items-center justify-center">
-                                            <img class="h-16 w-16" src="assets/icons/glass-icon-cms-development.svg" alt="">
+                                        <div
+                                            class="size-14 rounded-full bg-primary/10 flex items-center justify-center">
+                                            <img class="h-16 w-16" src="assets/icons/glass-icon-cms-development.svg"
+                                                alt="">
                                         </div>
                                         <h3 class="text-lg font-bold text-slate-900 dark:text-white">
                                             CMS Development
                                         </h3>
                                     </div>
                                     <p class="text-sm text-slate-600 dark:text-slate-300">
-                                        Ensure a competitive advantage in the digital age with the right CMS solution. Our
-                                professionals can develop a fully functional CMS Platform to meet your specific needs.
+                                        Ensure a competitive advantage in the digital age with the right CMS solution.
+                                        Our
+                                        professionals can develop a fully functional CMS Platform to meet your specific
+                                        needs.
                                     </p>
                                     <button class="mt-1 flex items-center gap-2 text-sm font-bold
                                    text-slate-900 dark:text-white
@@ -1164,17 +1188,21 @@ z
                                 </div>
                                 <div class="flex flex-col gap-3 p-5">
                                     <div class="flex items-center gap-3">
-                                        <div class="size-14 rounded-full bg-primary/10 flex items-center justify-center">
-                                            <img class="h-16 w-16" src="assets/icons/glass-icon-digital-marketing.svg" alt="">
+                                        <div
+                                            class="size-14 rounded-full bg-primary/10 flex items-center justify-center">
+                                            <img class="h-16 w-16" src="assets/icons/glass-icon-digital-marketing.svg"
+                                                alt="">
                                         </div>
                                         <h3 class="text-lg font-bold text-slate-900 dark:text-white">
                                             Digital Marketing
                                         </h3>
                                     </div>
                                     <p class="text-sm text-slate-600 dark:text-slate-300">
-                                        Customized digital marketing strategies, experienced digital marketers, and innovative
-                                approach, we harness the potential of digital ways that makes your brand supreme in the
-                                online space.
+                                        Customized digital marketing strategies, experienced digital marketers, and
+                                        innovative
+                                        approach, we harness the potential of digital ways that makes your brand supreme
+                                        in the
+                                        online space.
                                     </p>
                                     <button class="mt-1 flex items-center gap-2 text-sm font-bold
                                    text-slate-900 dark:text-white
@@ -1203,17 +1231,21 @@ z
                                 </div>
                                 <div class="flex flex-col gap-3 p-5">
                                     <div class="flex items-center gap-3">
-                                        <div class="size-14 rounded-full bg-primary/10 flex items-center justify-center">
-                                            <img class="h-16 w-16" src="assets/icons/glass-icon-sap-business-one.svg" alt="">
+                                        <div
+                                            class="size-14 rounded-full bg-primary/10 flex items-center justify-center">
+                                            <img class="h-16 w-16" src="assets/icons/glass-icon-sap-business-one.svg"
+                                                alt="">
                                         </div>
                                         <h3 class="text-lg font-bold text-slate-900 dark:text-white">
                                             SAP Business One
                                         </h3>
                                     </div>
                                     <p class="text-sm text-slate-600 dark:text-slate-300">
-                                        The modern business environment requires a robust solution that empowers organizations
-                                to thrive. We offer bespoke ERP solution that easily adapts to ever-evolving market
-                                challenges and demands.
+                                        The modern business environment requires a robust solution that empowers
+                                        organizations
+                                        to thrive. We offer bespoke ERP solution that easily adapts to ever-evolving
+                                        market
+                                        challenges and demands.
                                     </p>
                                     <button class="mt-1 flex items-center gap-2 text-sm font-bold
                                    text-slate-900 dark:text-white
@@ -1242,17 +1274,21 @@ z
                                 </div>
                                 <div class="flex flex-col gap-3 p-5">
                                     <div class="flex items-center gap-3">
-                                        <div class="size-14 rounded-full bg-primary/10 flex items-center justify-center">
-                                            <img class="h-16 w-16" src="assets/icons/glass-icon-business-intelligence-tool.svg" alt="">
+                                        <div
+                                            class="size-14 rounded-full bg-primary/10 flex items-center justify-center">
+                                            <img class="h-16 w-16"
+                                                src="assets/icons/glass-icon-business-intelligence-tool.svg" alt="">
                                         </div>
                                         <h3 class="text-lg font-bold text-slate-900 dark:text-white">
                                             Business Intelligence Tools
                                         </h3>
                                     </div>
                                     <p class="text-sm text-slate-600 dark:text-slate-300">
-                                        In times of transformation, organizations need to equip themselves with robust solutions
-                                that ease the way of doing business. At Tekhive, we help you achieve your goals by
-                                harnessing the power of your business data.
+                                        In times of transformation, organizations need to equip themselves with robust
+                                        solutions
+                                        that ease the way of doing business. At Tekhive, we help you achieve your goals
+                                        by
+                                        harnessing the power of your business data.
                                     </p>
                                     <button class="mt-1 flex items-center gap-2 text-sm font-bold
                                    text-slate-900 dark:text-white
@@ -1281,7 +1317,8 @@ z
                                 </div>
                                 <div class="flex flex-col gap-3 p-5">
                                     <div class="flex items-center gap-3">
-                                        <div class="size-14 rounded-full bg-primary/10 flex items-center justify-center">
+                                        <div
+                                            class="size-14 rounded-full bg-primary/10 flex items-center justify-center">
                                             <img class="h-16 w-16" src="assets/icons/glass-icon-crm.svg" alt="CRM">
                                         </div>
                                         <h3 class="text-lg font-bold text-slate-900 dark:text-white">
@@ -1289,9 +1326,11 @@ z
                                         </h3>
                                     </div>
                                     <p class="text-sm text-slate-600 dark:text-slate-300">
-                                        In times of transformation, organizations need to equip themselves with robust solutions
-                                that ease the way of doing business. At Tekhive, we help you achieve your goals by
-                                harnessing the power of your business data.
+                                        In times of transformation, organizations need to equip themselves with robust
+                                        solutions
+                                        that ease the way of doing business. At Tekhive, we help you achieve your goals
+                                        by
+                                        harnessing the power of your business data.
                                     </p>
                                     <button class="mt-1 flex items-center gap-2 text-sm font-bold
                                    text-slate-900 dark:text-white
@@ -1320,17 +1359,21 @@ z
                                 </div>
                                 <div class="flex flex-col gap-3 p-5">
                                     <div class="flex items-center gap-3">
-                                        <div class="size-14 rounded-full bg-primary/10 flex items-center justify-center">
-                                            <img class="h-16 w-16" src="assets/icons/glass-icon-business-process-automation.svg" alt="Business Process Automation">
+                                        <div
+                                            class="size-14 rounded-full bg-primary/10 flex items-center justify-center">
+                                            <img class="h-16 w-16"
+                                                src="assets/icons/glass-icon-business-process-automation.svg"
+                                                alt="Business Process Automation">
                                         </div>
                                         <h3 class="text-lg font-bold text-slate-900 dark:text-white">
                                             Business Process Automation
                                         </h3>
                                     </div>
                                     <p class="text-sm text-slate-600 dark:text-slate-300">
-                                        In modern times it is important to keep your business moving forward with the latest
-                                technology solutions. Tekhive’s business process automation drives innovation,
-                                efficiency and insights.
+                                        In modern times it is important to keep your business moving forward with the
+                                        latest
+                                        technology solutions. Tekhive’s business process automation drives innovation,
+                                        efficiency and insights.
                                     </p>
                                     <button class="mt-1 flex items-center gap-2 text-sm font-bold
                                    text-slate-900 dark:text-white
@@ -1351,7 +1394,7 @@ z
                     </div>
 
                     <!-- Card 11: IT Consulting -->
-                     <div class="relative card h-full">
+                    <div class="relative card h-full">
                         <div class="inverted bg-[#fff] rounded-xl group">
                             <div class="card group flex-shrink-0 snap-start w-[280px] sm:w-[320px] md:w-[360px]">
                                 <div class="h-40 w-full bg-cover bg-center"
@@ -1359,17 +1402,21 @@ z
                                 </div>
                                 <div class="flex flex-col gap-3 p-5">
                                     <div class="flex items-center gap-3">
-                                        <div class="size-14 rounded-full bg-primary/10 flex items-center justify-center">
-                                            <img class="h-16 w-16" src="assets/icons/glass-icon-it-consulting.svg" alt="IT Consulting">
+                                        <div
+                                            class="size-14 rounded-full bg-primary/10 flex items-center justify-center">
+                                            <img class="h-16 w-16" src="assets/icons/glass-icon-it-consulting.svg"
+                                                alt="IT Consulting">
                                         </div>
                                         <h3 class="text-lg font-bold text-slate-900 dark:text-white">
                                             IT Consulting
                                         </h3>
                                     </div>
                                     <p class="text-sm text-slate-600 dark:text-slate-300">
-                                        In the era where adoption of cutting-edge technology becomes the core of success, IT
-                                consulting services play a crucial role in supporting the right technologies, tools and
-                                capabilities. Stay ahead with the right combination of solutions.
+                                        In the era where adoption of cutting-edge technology becomes the core of
+                                        success, IT
+                                        consulting services play a crucial role in supporting the right technologies,
+                                        tools and
+                                        capabilities. Stay ahead with the right combination of solutions.
                                     </p>
                                     <button class="mt-1 flex items-center gap-2 text-sm font-bold
                                    text-slate-900 dark:text-white
@@ -1390,7 +1437,7 @@ z
                     </div>
 
                     <!-- Card 12: IT Support -->
-                     <div class="relative card h-full">
+                    <div class="relative card h-full">
                         <div class="inverted bg-[#fff] rounded-xl group">
                             <div class="card group flex-shrink-0 snap-start w-[280px] sm:w-[320px] md:w-[360px]">
                                 <div class="h-40 w-full bg-cover bg-center"
@@ -1398,16 +1445,19 @@ z
                                 </div>
                                 <div class="flex flex-col gap-3 p-5">
                                     <div class="flex items-center gap-3">
-                                        <div class="size-14 rounded-full bg-primary/10 flex items-center justify-center">
-                                            <img class="h-16 w-16" src="assets/icons/glass-icon-it-support.svg" alt="IT Support">
+                                        <div
+                                            class="size-14 rounded-full bg-primary/10 flex items-center justify-center">
+                                            <img class="h-16 w-16" src="assets/icons/glass-icon-it-support.svg"
+                                                alt="IT Support">
                                         </div>
                                         <h3 class="text-lg font-bold text-slate-900 dark:text-white">
                                             IT Support
                                         </h3>
                                     </div>
                                     <p class="text-sm text-slate-600 dark:text-slate-300">
-                                        Tekhive’s IT support quickly resolve technical issues, get your business back on track,
-                                all without the need for your in-house IT teams to be physically present.
+                                        Tekhive’s IT support quickly resolve technical issues, get your business back on
+                                        track,
+                                        all without the need for your in-house IT teams to be physically present.
                                     </p>
                                     <button class="mt-1 flex items-center gap-2 text-sm font-bold
                                    text-slate-900 dark:text-white
@@ -1428,7 +1478,7 @@ z
                     </div>
 
                     <!-- Card 13: Back Office Support -->
-                     <div class="relative card h-full">
+                    <div class="relative card h-full">
                         <div class="inverted bg-[#fff] rounded-xl group">
                             <div class="card group flex-shrink-0 snap-start w-[280px] sm:w-[320px] md:w-[360px]">
                                 <div class="h-40 w-full bg-cover bg-center"
@@ -1436,8 +1486,10 @@ z
                                 </div>
                                 <div class="flex flex-col gap-3 p-5">
                                     <div class="flex items-center gap-3">
-                                        <div class="size-14 rounded-full bg-primary/10 flex items-center justify-center">
-                                            <img class="h-16 w-16" src="assets/icons/glass-icon-back-office-support.svg" alt="Back Office Support">
+                                        <div
+                                            class="size-14 rounded-full bg-primary/10 flex items-center justify-center">
+                                            <img class="h-16 w-16" src="assets/icons/glass-icon-back-office-support.svg"
+                                                alt="Back Office Support">
                                         </div>
                                         <h3 class="text-lg font-bold text-slate-900 dark:text-white">
                                             Back Office Support
@@ -1445,7 +1497,7 @@ z
                                     </div>
                                     <p class="text-sm text-slate-600 dark:text-slate-300">
                                         Tekhive's comprehensive back-office support ensures the smooth operation of your
-                                business without the need for your in-house IT teams to be physically present.
+                                        business without the need for your in-house IT teams to be physically present.
                                     </p>
                                     <button class="mt-1 flex items-center gap-2 text-sm font-bold
                                    text-slate-900 dark:text-white
@@ -1466,7 +1518,7 @@ z
                     </div>
 
                     <!-- Card 14: Domain and Web Hosting -->
-                     <div class="relative card h-full">
+                    <div class="relative card h-full">
                         <div class="inverted bg-[#fff] rounded-xl group">
                             <div class="card group flex-shrink-0 snap-start w-[280px] sm:w-[320px] md:w-[360px]">
                                 <div class="h-40 w-full bg-cover bg-center"
@@ -1474,17 +1526,22 @@ z
                                 </div>
                                 <div class="flex flex-col gap-3 p-5">
                                     <div class="flex items-center gap-3">
-                                        <div class="size-14 rounded-full bg-primary/10 flex items-center justify-center">
-                                            <img class="h-16 w-16" src="assets/icons/glass-icon-domain-and-web-hosting.svg" alt="Domain and Web Hosting">
+                                        <div
+                                            class="size-14 rounded-full bg-primary/10 flex items-center justify-center">
+                                            <img class="h-16 w-16"
+                                                src="assets/icons/glass-icon-domain-and-web-hosting.svg"
+                                                alt="Domain and Web Hosting">
                                         </div>
                                         <h3 class="text-lg font-bold text-slate-900 dark:text-white">
                                             Domain and Web Hosting
                                         </h3>
                                     </div>
                                     <p class="text-sm text-slate-600 dark:text-slate-300">
-                                            Creating a greater online space is the gateway to success for your business. Recognizing
-                                this, Tekhive paves the path for future growth and a greater online presence by offering
-                                affordable domain and web hosting services.
+                                        Creating a greater online space is the gateway to success for your business.
+                                        Recognizing
+                                        this, Tekhive paves the path for future growth and a greater online presence by
+                                        offering
+                                        affordable domain and web hosting services.
                                     </p>
                                     <button class="mt-1 flex items-center gap-2 text-sm font-bold
                                    text-slate-900 dark:text-white
@@ -1504,7 +1561,7 @@ z
                         </svg>
                     </div>
 
-                    
+
                     <div id="cursor-icon" class="shadow-lg pointer-events-none fixed top-[-10px] left-[-13px] z-50
          flex items-center justify-center
          w-20 h-20 rounded-full
