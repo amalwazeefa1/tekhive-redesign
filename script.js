@@ -299,11 +299,16 @@ gsap.utils.toArray(".fade-up, .fade-up2").forEach((el, i) => {
 ////////////////////////////////////////////////////////////////////////////////progress bar animation
 if (document.body.classList.contains("home-page")) {
 
-    const aboutSection = document.getElementById("about-us");
+    const aboutSection = document.querySelector("#about, #about-us");
     const progress1 = document.getElementById("progress-fill1");
     const progress2 = document.getElementById("progress-fill2");
 
     if (aboutSection && progress1 && progress2) {
+        const progressTrigger = {
+            trigger: aboutSection,
+            start: "center center",
+            toggleActions: "play none none reset"
+        };
 
         gsap.fromTo(
             progress1,
@@ -312,11 +317,7 @@ if (document.body.classList.contains("home-page")) {
                 scaleX: 0.98,
                 duration: 3,
                 ease: "power2.out",
-                scrollTrigger: {
-                    trigger: aboutSection,
-                    start: "top center",
-                    toggleActions: "play none none reset"
-                }
+                scrollTrigger: { ...progressTrigger }
             }
         );
 
@@ -327,11 +328,7 @@ if (document.body.classList.contains("home-page")) {
                 scaleX: 0.85,
                 duration: 3,
                 ease: "power2.out",
-                scrollTrigger: {
-                    trigger: aboutSection,
-                    start: "top center",
-                    toggleActions: "play none none reset"
-                }
+                scrollTrigger: { ...progressTrigger }
             }
         );
 
@@ -929,3 +926,37 @@ morphWrappers.forEach((wrapper) => {
         tl.reverse();
     });
 });
+ment.querySelectorAll('[id="morph-button-blue"]');
+
+morphWrappers.forEach((wrapper) => {
+    const bigMorphBtn = wrapper.querySelector('#shape1');
+    const hoverShape = wrapper.querySelector('#shape2');
+    const smallMorphBtn = wrapper.querySelector('#small-shape1');
+    const smallHoverShape = wrapper.querySelector('#small-shape2');
+
+    if (!bigMorphBtn || !hoverShape || !smallMorphBtn || !smallHoverShape) return;
+
+    const tl = gsap.timeline({ paused: true });
+
+    tl.to(bigMorphBtn, {
+        duration: 0.5,
+        morphSVG: hoverShape,
+        ease: "power2.out"
+    });
+
+    tl.to(smallMorphBtn, {
+        duration: 0.5,
+        morphSVG: smallHoverShape,
+        ease: "power2.out"
+    }, 0);
+
+    wrapper.addEventListener("mouseenter", () => {
+        tl.play();
+    });
+
+    wrapper.addEventListener("mouseleave", () => {
+        tl.reverse();
+    });
+});
+
+
