@@ -1025,8 +1025,8 @@ z
                        [&::-webkit-scrollbar]:hidden select-none">
 
                     <!-- Card 1: Web Development -->
-                    <div class="relative card h-full">
-                        <div class="inverted bg-[#fff] rounded-xl group">
+                    <div class="relative card h-full group">
+                        <div class="inverted relative z-30 bg-[#fff] rounded-xl group">
                             <div class="card group flex-shrink-0 snap-start w-[280px] sm:w-[320px] md:w-[360px]">
                                 <div class="h-40 w-full bg-cover bg-center"
                                     style='background-image:url("assets/web_development.svg");'>
@@ -1035,7 +1035,8 @@ z
                                     <div class="flex items-center gap-3">
                                         <div
                                             class="size-14 rounded-full bg-primary/10 flex items-center justify-center">
-                    <img class="h-16 w-16" src="assets/icons/glass-icon-webdevelopment.svg" alt="">
+                                            <img class="h-16 w-16" src="assets/icons/glass-icon-webdevelopment.svg"
+                                                alt="">
                                         </div>
                                         <h3 class="text-lg font-bold text-slate-900 dark:text-white">
                                             Web Development
@@ -1058,16 +1059,39 @@ z
                             </div>
                         </div>
 
+                        <!-- Decorative SVG -->
                         <svg class="absolute h-24 w-24 bottom-0 right-0 z-20" xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 84 90">
                             <path
                                 d="m35.43,45.1l-11.72,36.47c-1.61,5.02-6.29,8.43-11.56,8.43-6.71,0-12.15-5.44-12.15-12.15V16C0,7.16,7.16,0,16,0h55c8.84,0,16,7.16,16,16v2c0,8.84-7.16,16-16,16h-20.34c-6.95,0-13.11,4.49-15.23,11.1h0Z"
                                 fill="#fff" />
                         </svg>
+                        
+                        <!-- Card Arrow button -->
+                        <div class="absolute bottom-0 right-0 z-30 inline-block">
+                            <svg class="relative block h-12" xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 72.33 58.9">
+                                <defs>
+                                    <linearGradient id="grad2-card1" x1="0%" y1="0%" x2="100%" y2="0%">
+                                        <stop offset="0%" style="stop-color:#57BF93; stop-opacity:1" />
+                                        <stop offset="100%" style="stop-color:#57BF93; stop-opacity:1" />
+                                    </linearGradient>
+                                </defs>
+                                <path
+                                    d="m12.19,58.9h47.96c6.73,0,12.18-5.45,12.18-12.18V12.18C72.33,5.45,66.88,0,60.15,0H26.65c-4.91,0-9.34,2.95-11.24,7.48L.96,42.02c-3.36,8.03,2.54,16.88,11.24,16.88Z"
+                                    style="fill:url(#grad2-card1); stroke-width:2px;" />
+                            </svg>
+                            <svg class="absolute inset-0 m-auto h-4 w-4 text-white pointer-events-none transition-transform duration-300 group-hover:translate-x-1"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M5 12h14" />
+                                <path d="M13 6l6 6-6 6" />
+                            </svg>
+                        </div>
                     </div>
 
                     <!-- Card 2: Ecommerce Solutions -->
-                    <div class="relative card h-full">
+                    <div class="relative card h-full group">
                         <div class="inverted bg-[#fff] rounded-xl group">
                             <div class="card group flex-shrink-0 snap-start w-[280px] sm:w-[320px] md:w-[360px]">
                                 <div class="h-40 w-full bg-cover bg-center"
@@ -1077,7 +1101,7 @@ z
                                     <div class="flex items-center gap-3">
                                         <div
                                             class="size-14 rounded-full bg-primary/10 flex items-center justify-center">
-                    <img class="h-16 w-16" src="assets/icons/glass-icon-ecommerce-solutions.svg"
+                                            <img class="h-16 w-16" src="assets/icons/glass-icon-ecommerce-solutions.svg"
                                                 alt="">
                                         </div>
                                         <h3 class="text-lg font-bold text-slate-900 dark:text-white">
@@ -1107,10 +1131,32 @@ z
                                 d="m35.43,45.1l-11.72,36.47c-1.61,5.02-6.29,8.43-11.56,8.43-6.71,0-12.15-5.44-12.15-12.15V16C0,7.16,7.16,0,16,0h55c8.84,0,16,7.16,16,16v2c0,8.84-7.16,16-16,16h-20.34c-6.95,0-13.11,4.49-15.23,11.1h0Z"
                                 fill="#fff" />
                         </svg>
+
+                        <!-- Card Arrow button -->
+                        <div class="absolute bottom-0 right-0 z-30 inline-block">
+                            <svg class="relative block h-12" xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 72.33 58.9">
+                                <defs>
+                                    <linearGradient id="grad2-card1" x1="0%" y1="0%" x2="100%" y2="0%">
+                                        <stop offset="0%" style="stop-color:#57BF93; stop-opacity:1" />
+                                        <stop offset="100%" style="stop-color:#57BF93; stop-opacity:1" />
+                                    </linearGradient>
+                                </defs>
+                                <path
+                                    d="m12.19,58.9h47.96c6.73,0,12.18-5.45,12.18-12.18V12.18C72.33,5.45,66.88,0,60.15,0H26.65c-4.91,0-9.34,2.95-11.24,7.48L.96,42.02c-3.36,8.03,2.54,16.88,11.24,16.88Z"
+                                    style="fill:url(#grad2-card1); stroke-width:2px;" />
+                            </svg>
+                            <svg class="absolute inset-0 m-auto h-4 w-4 text-white pointer-events-none transition-transform duration-300 group-hover:translate-x-1"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M5 12h14" />
+                                <path d="M13 6l6 6-6 6" />
+                            </svg>
+                        </div>
                     </div>
 
                     <!-- Card 3: App Development -->
-                    <div class="relative card h-full">
+                    <div class="relative card h-full group">
                         <div class="inverted bg-[#fff] rounded-xl group">
                             <div class="card group flex-shrink-0 snap-start w-[280px] sm:w-[320px] md:w-[360px]">
                                 <div class="h-40 w-full bg-cover bg-center"
@@ -1120,7 +1166,8 @@ z
                                     <div class="flex items-center gap-3">
                                         <div
                                             class="size-14 rounded-full bg-primary/10 flex items-center justify-center">
-                    <img class="h-16 w-16" src="assets/icons/glass-icon-app-development.svg" alt="">
+                                            <img class="h-16 w-16" src="assets/icons/glass-icon-app-development.svg"
+                                                alt="">
                                         </div>
                                         <h3 class="text-lg font-bold text-slate-900 dark:text-white">
                                             App Development
@@ -1148,10 +1195,32 @@ z
                                 d="m35.43,45.1l-11.72,36.47c-1.61,5.02-6.29,8.43-11.56,8.43-6.71,0-12.15-5.44-12.15-12.15V16C0,7.16,7.16,0,16,0h55c8.84,0,16,7.16,16,16v2c0,8.84-7.16,16-16,16h-20.34c-6.95,0-13.11,4.49-15.23,11.1h0Z"
                                 fill="#fff" />
                         </svg>
+                        
+                        <!-- Card Arrow button -->
+                        <div class="absolute bottom-0 right-0 z-30 inline-block">
+                            <svg class="relative block h-12" xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 72.33 58.9">
+                                <defs>
+                                    <linearGradient id="grad2-card1" x1="0%" y1="0%" x2="100%" y2="0%">
+                                        <stop offset="0%" style="stop-color:#57BF93; stop-opacity:1" />
+                                        <stop offset="100%" style="stop-color:#57BF93; stop-opacity:1" />
+                                    </linearGradient>
+                                </defs>
+                                <path
+                                    d="m12.19,58.9h47.96c6.73,0,12.18-5.45,12.18-12.18V12.18C72.33,5.45,66.88,0,60.15,0H26.65c-4.91,0-9.34,2.95-11.24,7.48L.96,42.02c-3.36,8.03,2.54,16.88,11.24,16.88Z"
+                                    style="fill:url(#grad2-card1); stroke-width:2px;" />
+                            </svg>
+                            <svg class="absolute inset-0 m-auto h-4 w-4 text-white pointer-events-none transition-transform duration-300 group-hover:translate-x-1"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M5 12h14" />
+                                <path d="M13 6l6 6-6 6" />
+                            </svg>
+                        </div>
                     </div>
 
                     <!-- Card 4: Third Party Apps Integration -->
-                    <div class="relative card h-full">
+                    <div class="relative card h-full group">
                         <div class="inverted bg-[#fff] rounded-xl group">
                             <div class="card group flex-shrink-0 snap-start w-[280px] sm:w-[320px] md:w-[360px]">
                                 <div class="h-40 w-full bg-cover bg-center"
@@ -1190,10 +1259,32 @@ z
                                 d="m35.43,45.1l-11.72,36.47c-1.61,5.02-6.29,8.43-11.56,8.43-6.71,0-12.15-5.44-12.15-12.15V16C0,7.16,7.16,0,16,0h55c8.84,0,16,7.16,16,16v2c0,8.84-7.16,16-16,16h-20.34c-6.95,0-13.11,4.49-15.23,11.1h0Z"
                                 fill="#fff" />
                         </svg>
+                        
+                        <!-- Card Arrow button -->
+                        <div class="absolute bottom-0 right-0 z-30 inline-block">
+                            <svg class="relative block h-12" xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 72.33 58.9">
+                                <defs>
+                                    <linearGradient id="grad2-card1" x1="0%" y1="0%" x2="100%" y2="0%">
+                                        <stop offset="0%" style="stop-color:#57BF93; stop-opacity:1" />
+                                        <stop offset="100%" style="stop-color:#57BF93; stop-opacity:1" />
+                                    </linearGradient>
+                                </defs>
+                                <path
+                                    d="m12.19,58.9h47.96c6.73,0,12.18-5.45,12.18-12.18V12.18C72.33,5.45,66.88,0,60.15,0H26.65c-4.91,0-9.34,2.95-11.24,7.48L.96,42.02c-3.36,8.03,2.54,16.88,11.24,16.88Z"
+                                    style="fill:url(#grad2-card1); stroke-width:2px;" />
+                            </svg>
+                            <svg class="absolute inset-0 m-auto h-4 w-4 text-white pointer-events-none transition-transform duration-300 group-hover:translate-x-1"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M5 12h14" />
+                                <path d="M13 6l6 6-6 6" />
+                            </svg>
+                        </div>
                     </div>
 
                     <!-- Card 5: CMS Development -->
-                    <div class="relative card h-full">
+                    <div class="relative card h-full group">
                         <div class="inverted bg-[#fff] rounded-xl group">
                             <div class="card group flex-shrink-0 snap-start w-[280px] sm:w-[320px] md:w-[360px]">
                                 <div class="h-40 w-full bg-cover bg-center"
@@ -1232,10 +1323,32 @@ z
                                 d="m35.43,45.1l-11.72,36.47c-1.61,5.02-6.29,8.43-11.56,8.43-6.71,0-12.15-5.44-12.15-12.15V16C0,7.16,7.16,0,16,0h55c8.84,0,16,7.16,16,16v2c0,8.84-7.16,16-16,16h-20.34c-6.95,0-13.11,4.49-15.23,11.1h0Z"
                                 fill="#fff" />
                         </svg>
+
+                        <!-- Card Arrow button -->
+                        <div class="absolute bottom-0 right-0 z-30 inline-block">
+                            <svg class="relative block h-12" xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 72.33 58.9">
+                                <defs>
+                                    <linearGradient id="grad2-card1" x1="0%" y1="0%" x2="100%" y2="0%">
+                                        <stop offset="0%" style="stop-color:#57BF93; stop-opacity:1" />
+                                        <stop offset="100%" style="stop-color:#57BF93; stop-opacity:1" />
+                                    </linearGradient>
+                                </defs>
+                                <path
+                                    d="m12.19,58.9h47.96c6.73,0,12.18-5.45,12.18-12.18V12.18C72.33,5.45,66.88,0,60.15,0H26.65c-4.91,0-9.34,2.95-11.24,7.48L.96,42.02c-3.36,8.03,2.54,16.88,11.24,16.88Z"
+                                    style="fill:url(#grad2-card1); stroke-width:2px;" />
+                            </svg>
+                            <svg class="absolute inset-0 m-auto h-4 w-4 text-white pointer-events-none transition-transform duration-300 group-hover:translate-x-1"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M5 12h14" />
+                                <path d="M13 6l6 6-6 6" />
+                            </svg>
+                        </div>
                     </div>
 
                     <!-- Card 6: Digital Marketing -->
-                    <div class="relative card h-full">
+                    <div class="relative card h-full group">
                         <div class="inverted bg-[#fff] rounded-xl group">
                             <div class="card group flex-shrink-0 snap-start w-[280px] sm:w-[320px] md:w-[360px]">
                                 <div class="h-40 w-full bg-cover bg-center"
@@ -1275,10 +1388,24 @@ z
                                 d="m35.43,45.1l-11.72,36.47c-1.61,5.02-6.29,8.43-11.56,8.43-6.71,0-12.15-5.44-12.15-12.15V16C0,7.16,7.16,0,16,0h55c8.84,0,16,7.16,16,16v2c0,8.84-7.16,16-16,16h-20.34c-6.95,0-13.11,4.49-15.23,11.1h0Z"
                                 fill="#fff" />
                         </svg>
+                        <div class="absolute bottom-4 right-4 z-30 inline-block">
+                            <svg class="relative block h-12 w-[72px]" xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 72.33 58.9">
+                                <path
+                                    d="m12.19,0h47.96c6.73,0,12.18,5.45,12.18,12.18v34.54c0,6.73-5.45,12.18-12.18,12.18H26.65c-4.91,0-9.34-2.95-11.24-7.48L.96,16.88C-2.4,8.86,3.49,0,12.19,0Z"
+                                    fill="#57BF93" />
+                            </svg>
+                            <svg class="absolute inset-0 m-auto h-4 w-4 text-white pointer-events-none transition-transform duration-300 group-hover:translate-x-1"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M5 12h14" />
+                                <path d="M13 6l6 6-6 6" />
+                            </svg>
+                        </div>
                     </div>
 
                     <!-- Card 7: SAP Business One -->
-                    <div class="relative card h-full">
+                    <div class="relative card h-full group">
                         <div class="inverted bg-[#fff] rounded-xl group">
                             <div class="card group flex-shrink-0 snap-start w-[280px] sm:w-[320px] md:w-[360px]">
                                 <div class="h-40 w-full bg-cover bg-center"
@@ -1318,10 +1445,24 @@ z
                                 d="m35.43,45.1l-11.72,36.47c-1.61,5.02-6.29,8.43-11.56,8.43-6.71,0-12.15-5.44-12.15-12.15V16C0,7.16,7.16,0,16,0h55c8.84,0,16,7.16,16,16v2c0,8.84-7.16,16-16,16h-20.34c-6.95,0-13.11,4.49-15.23,11.1h0Z"
                                 fill="#fff" />
                         </svg>
+                        <div class="absolute bottom-4 right-4 z-30 inline-block">
+                            <svg class="relative block h-12 w-[72px]" xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 72.33 58.9">
+                                <path
+                                    d="m12.19,0h47.96c6.73,0,12.18,5.45,12.18,12.18v34.54c0,6.73-5.45,12.18-12.18,12.18H26.65c-4.91,0-9.34-2.95-11.24-7.48L.96,16.88C-2.4,8.86,3.49,0,12.19,0Z"
+                                    fill="#57BF93" />
+                            </svg>
+                            <svg class="absolute inset-0 m-auto h-4 w-4 text-white pointer-events-none transition-transform duration-300 group-hover:translate-x-1"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M5 12h14" />
+                                <path d="M13 6l6 6-6 6" />
+                            </svg>
+                        </div>
                     </div>
 
                     <!-- Card 8: Business Intelligence Tools -->
-                    <div class="relative card h-full">
+                    <div class="relative card h-full group">
                         <div class="inverted bg-[#fff] rounded-xl group">
                             <div class="card group flex-shrink-0 snap-start w-[280px] sm:w-[320px] md:w-[360px]">
                                 <div class="h-40 w-full bg-cover bg-center"
@@ -1361,10 +1502,24 @@ z
                                 d="m35.43,45.1l-11.72,36.47c-1.61,5.02-6.29,8.43-11.56,8.43-6.71,0-12.15-5.44-12.15-12.15V16C0,7.16,7.16,0,16,0h55c8.84,0,16,7.16,16,16v2c0,8.84-7.16,16-16,16h-20.34c-6.95,0-13.11,4.49-15.23,11.1h0Z"
                                 fill="#fff" />
                         </svg>
+                        <div class="absolute bottom-4 right-4 z-30 inline-block">
+                            <svg class="relative block h-12 w-[72px]" xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 72.33 58.9">
+                                <path
+                                    d="m12.19,0h47.96c6.73,0,12.18,5.45,12.18,12.18v34.54c0,6.73-5.45,12.18-12.18,12.18H26.65c-4.91,0-9.34-2.95-11.24-7.48L.96,16.88C-2.4,8.86,3.49,0,12.19,0Z"
+                                    fill="#57BF93" />
+                            </svg>
+                            <svg class="absolute inset-0 m-auto h-4 w-4 text-white pointer-events-none transition-transform duration-300 group-hover:translate-x-1"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M5 12h14" />
+                                <path d="M13 6l6 6-6 6" />
+                            </svg>
+                        </div>
                     </div>
 
                     <!-- Card 9: CRM -->
-                    <div class="relative card h-full">
+                    <div class="relative card h-full group">
                         <div class="inverted bg-[#fff] rounded-xl group">
                             <div class="card group flex-shrink-0 snap-start w-[280px] sm:w-[320px] md:w-[360px]">
                                 <div class="h-40 w-full bg-cover bg-center"
@@ -1403,10 +1558,24 @@ z
                                 d="m35.43,45.1l-11.72,36.47c-1.61,5.02-6.29,8.43-11.56,8.43-6.71,0-12.15-5.44-12.15-12.15V16C0,7.16,7.16,0,16,0h55c8.84,0,16,7.16,16,16v2c0,8.84-7.16,16-16,16h-20.34c-6.95,0-13.11,4.49-15.23,11.1h0Z"
                                 fill="#fff" />
                         </svg>
+                        <div class="absolute bottom-4 right-4 z-30 inline-block">
+                            <svg class="relative block h-12 w-[72px]" xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 72.33 58.9">
+                                <path
+                                    d="m12.19,0h47.96c6.73,0,12.18,5.45,12.18,12.18v34.54c0,6.73-5.45,12.18-12.18,12.18H26.65c-4.91,0-9.34-2.95-11.24-7.48L.96,16.88C-2.4,8.86,3.49,0,12.19,0Z"
+                                    fill="#57BF93" />
+                            </svg>
+                            <svg class="absolute inset-0 m-auto h-4 w-4 text-white pointer-events-none transition-transform duration-300 group-hover:translate-x-1"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M5 12h14" />
+                                <path d="M13 6l6 6-6 6" />
+                            </svg>
+                        </div>
                     </div>
 
                     <!-- Card 10: Business Process Automation -->
-                    <div class="relative card h-full">
+                    <div class="relative card h-full group">
                         <div class="inverted bg-[#fff] rounded-xl group">
                             <div class="card group flex-shrink-0 snap-start w-[280px] sm:w-[320px] md:w-[360px]">
                                 <div class="h-40 w-full bg-cover bg-center"
@@ -1446,10 +1615,24 @@ z
                                 d="m35.43,45.1l-11.72,36.47c-1.61,5.02-6.29,8.43-11.56,8.43-6.71,0-12.15-5.44-12.15-12.15V16C0,7.16,7.16,0,16,0h55c8.84,0,16,7.16,16,16v2c0,8.84-7.16,16-16,16h-20.34c-6.95,0-13.11,4.49-15.23,11.1h0Z"
                                 fill="#fff" />
                         </svg>
+                        <div class="absolute bottom-4 right-4 z-30 inline-block">
+                            <svg class="relative block h-12 w-[72px]" xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 72.33 58.9">
+                                <path
+                                    d="m12.19,0h47.96c6.73,0,12.18,5.45,12.18,12.18v34.54c0,6.73-5.45,12.18-12.18,12.18H26.65c-4.91,0-9.34-2.95-11.24-7.48L.96,16.88C-2.4,8.86,3.49,0,12.19,0Z"
+                                    fill="#57BF93" />
+                            </svg>
+                            <svg class="absolute inset-0 m-auto h-4 w-4 text-white pointer-events-none transition-transform duration-300 group-hover:translate-x-1"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M5 12h14" />
+                                <path d="M13 6l6 6-6 6" />
+                            </svg>
+                        </div>
                     </div>
 
                     <!-- Card 11: IT Consulting -->
-                    <div class="relative card h-full">
+                    <div class="relative card h-full group">
                         <div class="inverted bg-[#fff] rounded-xl group">
                             <div class="card group flex-shrink-0 snap-start w-[280px] sm:w-[320px] md:w-[360px]">
                                 <div class="h-40 w-full bg-cover bg-center"
@@ -1489,10 +1672,24 @@ z
                                 d="m35.43,45.1l-11.72,36.47c-1.61,5.02-6.29,8.43-11.56,8.43-6.71,0-12.15-5.44-12.15-12.15V16C0,7.16,7.16,0,16,0h55c8.84,0,16,7.16,16,16v2c0,8.84-7.16,16-16,16h-20.34c-6.95,0-13.11,4.49-15.23,11.1h0Z"
                                 fill="#fff" />
                         </svg>
+                        <div class="absolute bottom-4 right-4 z-30 inline-block">
+                            <svg class="relative block h-12 w-[72px]" xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 72.33 58.9">
+                                <path
+                                    d="m12.19,0h47.96c6.73,0,12.18,5.45,12.18,12.18v34.54c0,6.73-5.45,12.18-12.18,12.18H26.65c-4.91,0-9.34-2.95-11.24-7.48L.96,16.88C-2.4,8.86,3.49,0,12.19,0Z"
+                                    fill="#57BF93" />
+                            </svg>
+                            <svg class="absolute inset-0 m-auto h-4 w-4 text-white pointer-events-none transition-transform duration-300 group-hover:translate-x-1"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M5 12h14" />
+                                <path d="M13 6l6 6-6 6" />
+                            </svg>
+                        </div>
                     </div>
 
                     <!-- Card 12: IT Support -->
-                    <div class="relative card h-full">
+                    <div class="relative card h-full group">
                         <div class="inverted bg-[#fff] rounded-xl group">
                             <div class="card group flex-shrink-0 snap-start w-[280px] sm:w-[320px] md:w-[360px]">
                                 <div class="h-40 w-full bg-cover bg-center"
@@ -1530,10 +1727,24 @@ z
                                 d="m35.43,45.1l-11.72,36.47c-1.61,5.02-6.29,8.43-11.56,8.43-6.71,0-12.15-5.44-12.15-12.15V16C0,7.16,7.16,0,16,0h55c8.84,0,16,7.16,16,16v2c0,8.84-7.16,16-16,16h-20.34c-6.95,0-13.11,4.49-15.23,11.1h0Z"
                                 fill="#fff" />
                         </svg>
+                        <div class="absolute bottom-4 right-4 z-30 inline-block">
+                            <svg class="relative block h-12 w-[72px]" xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 72.33 58.9">
+                                <path
+                                    d="m12.19,0h47.96c6.73,0,12.18,5.45,12.18,12.18v34.54c0,6.73-5.45,12.18-12.18,12.18H26.65c-4.91,0-9.34-2.95-11.24-7.48L.96,16.88C-2.4,8.86,3.49,0,12.19,0Z"
+                                    fill="#57BF93" />
+                            </svg>
+                            <svg class="absolute inset-0 m-auto h-4 w-4 text-white pointer-events-none transition-transform duration-300 group-hover:translate-x-1"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M5 12h14" />
+                                <path d="M13 6l6 6-6 6" />
+                            </svg>
+                        </div>
                     </div>
 
                     <!-- Card 13: Back Office Support -->
-                    <div class="relative card h-full">
+                    <div class="relative card h-full group">
                         <div class="inverted bg-[#fff] rounded-xl group">
                             <div class="card group flex-shrink-0 snap-start w-[280px] sm:w-[320px] md:w-[360px]">
                                 <div class="h-40 w-full bg-cover bg-center"
@@ -1570,10 +1781,24 @@ z
                                 d="m35.43,45.1l-11.72,36.47c-1.61,5.02-6.29,8.43-11.56,8.43-6.71,0-12.15-5.44-12.15-12.15V16C0,7.16,7.16,0,16,0h55c8.84,0,16,7.16,16,16v2c0,8.84-7.16,16-16,16h-20.34c-6.95,0-13.11,4.49-15.23,11.1h0Z"
                                 fill="#fff" />
                         </svg>
+                        <div class="absolute bottom-4 right-4 z-30 inline-block">
+                            <svg class="relative block h-12 w-[72px]" xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 72.33 58.9">
+                                <path
+                                    d="m12.19,0h47.96c6.73,0,12.18,5.45,12.18,12.18v34.54c0,6.73-5.45,12.18-12.18,12.18H26.65c-4.91,0-9.34-2.95-11.24-7.48L.96,16.88C-2.4,8.86,3.49,0,12.19,0Z"
+                                    fill="#57BF93" />
+                            </svg>
+                            <svg class="absolute inset-0 m-auto h-4 w-4 text-white pointer-events-none transition-transform duration-300 group-hover:translate-x-1"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M5 12h14" />
+                                <path d="M13 6l6 6-6 6" />
+                            </svg>
+                        </div>
                     </div>
 
                     <!-- Card 14: Domain and Web Hosting -->
-                    <div class="relative card h-full">
+                    <div class="relative card h-full group">
                         <div class="inverted bg-[#fff] rounded-xl group">
                             <div class="card group flex-shrink-0 snap-start w-[280px] sm:w-[320px] md:w-[360px]">
                                 <div class="h-40 w-full bg-cover bg-center"
@@ -1614,6 +1839,20 @@ z
                                 d="m35.43,45.1l-11.72,36.47c-1.61,5.02-6.29,8.43-11.56,8.43-6.71,0-12.15-5.44-12.15-12.15V16C0,7.16,7.16,0,16,0h55c8.84,0,16,7.16,16,16v2c0,8.84-7.16,16-16,16h-20.34c-6.95,0-13.11,4.49-15.23,11.1h0Z"
                                 fill="#fff" />
                         </svg>
+                        <div class="absolute bottom-4 right-4 z-30 inline-block">
+                            <svg class="relative block h-12 w-[72px]" xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 72.33 58.9">
+                                <path
+                                    d="m12.19,0h47.96c6.73,0,12.18,5.45,12.18,12.18v34.54c0,6.73-5.45,12.18-12.18,12.18H26.65c-4.91,0-9.34-2.95-11.24-7.48L.96,16.88C-2.4,8.86,3.49,0,12.19,0Z"
+                                    fill="#57BF93" />
+                            </svg>
+                            <svg class="absolute inset-0 m-auto h-4 w-4 text-white pointer-events-none transition-transform duration-300 group-hover:translate-x-1"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M5 12h14" />
+                                <path d="M13 6l6 6-6 6" />
+                            </svg>
+                        </div>
                     </div>
 
 
@@ -2042,7 +2281,7 @@ z
     <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.11/dist/dotlottie-wc.js" type="module"></script>
     <script src="https://unpkg.com/lottie-web/build/player/lottie.min.js"></script>
     <script src="https://unpkg.com/split-type@0.3.4/umd/index.min.js"></script>
-    <script src="script.js"></script>
+    <!-- <script src="script.js"></script> -->
     <script src="Slider1.js"></script>
 
 
