@@ -273,9 +273,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 ///////////////////////////////////////////////////////////////////////////////fade in gsap animation
-gsap.utils.toArray(".fade-up, .fade-up2").forEach((el, i) => {
+gsap.utils.toArray(".fade-up, .fade-up2").filter((el) => !el.closest("#testimonials")).forEach((el, i) => {
     const isFadeUp2 = el.classList.contains("fade-up2");
     const isFadeUp = el.classList.contains("fade-up");
+    const isCardElement = el.classList.contains("card");
+    const triggerElement = isCardElement ? el : (el.closest("section") || el);
+    const startValue = isCardElement
+        ? "top 88%"
+        : (isFadeUp2 ? "top 70%" : "top 80%");
 
     gsap.to(el, {
         opacity: 1,
@@ -283,9 +288,8 @@ gsap.utils.toArray(".fade-up, .fade-up2").forEach((el, i) => {
         duration: 1,
         ease: "power1.out",
         scrollTrigger: {
-            trigger: "#about",
-            start: isFadeUp2 ? "top 70%" : "top 80%",
-            // toggleActions: isFadeUp2 ? "play reverse play reverse" : "play reverse play reverse",
+            trigger: triggerElement,
+            start: startValue,
             toggleActions: "play none none reset",
         },
         delay: isFadeUp2
@@ -296,78 +300,196 @@ gsap.utils.toArray(".fade-up, .fade-up2").forEach((el, i) => {
     })
 })
 
+///////////////////////////////////////////////////////////////////////////////testimonial scroll trigger animation
+const testimonialSection = document.getElementById("testimonials");
+
+if (testimonialSection) {
+    const testimonialCards = [
+        "#testimonial-card-1",
+        "#testimonial-card-2",
+        "#testimonial-card-3",
+        "#testimonial-card-4",
+    ]
+        .map((selector) => document.querySelector(selector))
+        .filter(Boolean);
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const mm = gsap.matchMedia();
+
+    gsap.set(testimonialCards, {
+        transformPerspective: 1000,
+        transformOrigin: "center bottom",
+    });
+
+    mm.add(
+        {
+            isMobile: "(max-width: 767px)",
+            isDesktop: "(min-width: 768px)",
+        },
+        (context) => {
+            const start = "top top +=200"; // trigger a bit later for better timing
+
+            testimonialCards.forEach((card, index) => {
+                const quote = card.querySelector("p");
+                const badge = card.querySelector(".small-card");
+                const avatar = card.querySelector(".avatar");
+                const stars = card.querySelectorAll(".small-card .fade-up");
+
+                if (prefersReducedMotion) {
+                    gsap.set([card, quote, badge, avatar, stars], {
+                        clearProps: "all",
+                        opacity: 1,
+                        y: 0,
+                        x: 0,
+                        scale: 1,
+                        rotateX: 0,
+                    });
+                    return;
+                }
+
+                gsap.set(card, {
+                    opacity: 0,
+                    y: 80,
+                    rotateX: context.conditions.isMobile ? 0 : -10,
+                    scale: 0.96,
+                });
+
+                gsap.set(quote, {
+                    opacity: 0,
+                    y: 28,
+                });
+
+                gsap.set(badge, {
+                    opacity: 0,
+                    y: 24,
+                    x: context.conditions.isMobile ? 0 : -16,
+                    scale: 0.94,
+                });
+
+                gsap.set(avatar, {
+                    opacity: 0,
+                    scale: 0.75,
+                });
+
+                gsap.set(stars, {
+                    opacity: 0,
+                    y: 10,
+                    scale: 0.6,
+                    transformOrigin: "center center",
+                });
+
+                const tl = gsap.timeline({
+                    defaults: {
+                        ease: "power3.out",
+                    },
+                    scrollTrigger: {
+                        trigger: card,
+                        start,
+                        toggleActions: "play none none reset",
+                    }
+                });
+
+                tl.to(card, {
+                    opacity: 1,
+                    y: 0,
+                    rotateX: 0,
+                    scale: 1,
+                    duration: 0.9,
+                    delay: index * 0.12,
+                })
+                    .to(quote, {
+                        opacity: 1,
+                        y: 0,
+                        duration: 0.55,
+                    }, "-=0.52")
+                    .to(badge, {
+                        opacity: 1,
+                        y: 0,
+                        x: 0,
+                        scale: 1,
+                        duration: 0.5,
+                    }, "-=0.28")
+                    .to(avatar, {
+                        opacity: 1,
+                        scale: 1,
+                        duration: 0.35,
+                        ease: "back.out(1.8)",
+                    }, "-=0.25")
+                    .to(stars, {
+                        opacity: 1,
+                        y: 0,
+                        scale: 1,
+                        duration: 0.28,
+                        stagger: 0.06,
+                        ease: "back.out(1.7)",
+                    }, "-=0.18");
+
+                if (badge) {
+                    gsap.to(badge, {
+                        yPercent: -6,
+                        duration: 2.4 + index * 0.2,
+                        repeat: -1,
+                        yoyo: true,
+                        ease: "sine.inOut",
+                    });
+                }
+            });
+        }
+    );
+}
+
 ////////////////////////////////////////////////////////////////////////////////progress bar animation
 if (document.body.classList.contains("home-page")) {
 
-    const aboutSection = document.querySelector("#about-us");
     const progress1 = document.getElementById("progress-fill1");
     const progress2 = document.getElementById("progress-fill2");
 
-    if (aboutSection && progress1 && progress2) {
+    if (progress1 && progress2) {
 
         const mm = gsap.matchMedia();
-
-        //mobile devices - trigger when section is more visible
-        mm.add("(max-width: 767px"), () => {
-            const progressTrigger = {
-                trigger: aboutSection,
-                start: "top 80%",
-                toggleActions: "play none none reset"
-            }
+        const createProgressAnimation = (start) => {
+            gsap.fromTo(
+                progress1,
+                { scaleX: 0, transformOrigin: "left center" },
+                {
+                    scaleX: 0.98,
+                    duration: 3,
+                    ease: "power2.out",
+                    scrollTrigger: {
+                        trigger: progress1,
+                        start,
+                        toggleActions: "play none none reset"
+                    }
+                }
+            );
 
             gsap.fromTo(
-            progress1,
-            { scaleX: 0, transformOrigin: "left center" },
-            {
-                scaleX: 0.98,
-                duration: 3,
-                ease: "power2.out",
-                scrollTrigger: progressTrigger
-            }
-        );
-
-        gsap.fromTo(
-            progress2,
-            { scaleX: 0, transformOrigin: "left center" },
-            {
-                scaleX: 0.85,
-                duration: 3,
-                ease: "power2.out",
-                scrollTrigger: progressTrigger
-            }
-        );
-        }
-
-        const progressTrigger = {
-            trigger: aboutSection,
-            start: "center",
-            toggleActions: "play none none reset"
+                progress2,
+                { scaleX: 0, transformOrigin: "left center" },
+                {
+                    scaleX: 0.85,
+                    duration: 3,
+                    ease: "power2.out",
+                    scrollTrigger: {
+                        trigger: progress2,
+                        start,
+                        toggleActions: "play none none reset"
+                    }
+                }
+            );
         };
 
-        gsap.fromTo(
-            progress1,
-            { scaleX: 0, transformOrigin: "left center" },
-            {
-                scaleX: 0.98,
-                duration: 3,
-                ease: "power2.out",
-                scrollTrigger: { ...progressTrigger }
-            }
-        );
+        // Mobile devices should trigger later because the section is taller in view.
+        mm.add("(max-width: 767px)", () => {
+            createProgressAnimation("top 30%");
+        });
 
-        gsap.fromTo(
-            progress2,
-            { scaleX: 0, transformOrigin: "left center" },
-            {
-                scaleX: 0.85,
-                duration: 3,
-                ease: "power2.out",
-                scrollTrigger: { ...progressTrigger }
-            }
-        );
-
+        mm.add("(min-width: 768px)", () => {
+            createProgressAnimation("center");
+        });
     }
+
 }
+
 
 
 ////////////////////////////////////////////////////////////////////////////////////counter animation
@@ -960,7 +1082,7 @@ morphWrappers.forEach((wrapper) => {
         tl.reverse();
     });
 });
-ment.querySelectorAll('[id="morph-button-blue"]');
+document.querySelectorAll('[id="morph-button-blue"]');
 
 morphWrappers.forEach((wrapper) => {
     const bigMorphBtn = wrapper.querySelector('#shape1');
