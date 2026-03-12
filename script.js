@@ -299,14 +299,48 @@ gsap.utils.toArray(".fade-up, .fade-up2").forEach((el, i) => {
 ////////////////////////////////////////////////////////////////////////////////progress bar animation
 if (document.body.classList.contains("home-page")) {
 
-    const aboutSection = document.querySelector("#about, #about-us");
+    const aboutSection = document.querySelector("#about-us");
     const progress1 = document.getElementById("progress-fill1");
     const progress2 = document.getElementById("progress-fill2");
 
     if (aboutSection && progress1 && progress2) {
+
+        const mm = gsap.matchMedia();
+
+        //mobile devices - trigger when section is more visible
+        mm.add("(max-width: 767px"), () => {
+            const progressTrigger = {
+                trigger: aboutSection,
+                start: "top 80%",
+                toggleActions: "play none none reset"
+            }
+
+            gsap.fromTo(
+            progress1,
+            { scaleX: 0, transformOrigin: "left center" },
+            {
+                scaleX: 0.98,
+                duration: 3,
+                ease: "power2.out",
+                scrollTrigger: progressTrigger
+            }
+        );
+
+        gsap.fromTo(
+            progress2,
+            { scaleX: 0, transformOrigin: "left center" },
+            {
+                scaleX: 0.85,
+                duration: 3,
+                ease: "power2.out",
+                scrollTrigger: progressTrigger
+            }
+        );
+        }
+
         const progressTrigger = {
             trigger: aboutSection,
-            start: "center center",
+            start: "center",
             toggleActions: "play none none reset"
         };
 
@@ -349,7 +383,7 @@ if (document.body.classList.contains("home-page")) {
         ease: "power1.out",
         scrollTrigger: {
             trigger: "#about-us",
-            start: "top center",
+            start: "center",
             toggleActions: "play none none reset"
         },
         onUpdate: () => {
@@ -368,7 +402,7 @@ if (document.body.classList.contains("home-page")) {
         ease: "power1.out",
         scrollTrigger: {
             trigger: "#about-us",
-            start: "top center",
+            start: "center",
             toggleActions: "play none none reset"
         },
         onUpdate: () => {
