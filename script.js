@@ -861,8 +861,10 @@ if (aboutHero && ball) {
         if (!isHovering) return;
 
         const rect = aboutHero.getBoundingClientRect();
-        const x = e.clientX - rect.left - ball.offsetWidth / 1;
-        const y = e.clientY - rect.top - ball.offsetHeight / 3;
+        const maxX = rect.width - ball.offsetWidth;
+        const maxY = rect.height - ball.offsetHeight;
+        const x = gsap.utils.clamp(0, maxX, e.clientX - rect.left - ball.offsetWidth / 2);
+        const y = gsap.utils.clamp(0, maxY, e.clientY - rect.top - ball.offsetHeight / 2);
 
         setX(x);
         setY(y);
