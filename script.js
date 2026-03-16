@@ -818,14 +818,19 @@ if (document.body.classList.contains("home-page")) {
             ease: "expo.out"
         }, "-=0.3");
 
-    if (document.getElementById("tektext") && typeof SplitType !== 'undefined') {
-        const split = new SplitType("#tektext", { types: "lines" });
+    if (document.getElementById("tektext") && typeof SplitText !== "undefined") {
+        const split = SplitText.create("#tektext", {
+            type: "lines",
+            linesClass: "line",
+            mask: "lines",
+        });
+
         pinTl.from(split.lines, {
-            y: 30,
+            duration: 1.2,
+            yPercent: 100,
             opacity: 0,
-            duration: 0.8,
             stagger: 0.1,
-            ease: "power3.out"
+            ease: "expo.out",
         }, "-=0.5");
     } else {
         pinTl.from("#tektext", {
@@ -893,10 +898,10 @@ if (parallaxContainer) {
     if (image) {
         gsap.fromTo(
             image, {
-            yPercent: -30, //start higher
+            yPercent: -10,
         },
             {
-                yPercent: 20,
+                yPercent: 10,
                 ease: "none",
                 scrollTrigger: {
                     trigger: parallaxContainer,
@@ -993,20 +998,24 @@ tl.to(paras[0], {
         duration: 0.5
     }, ">")
 
-//parallax image movement
-gsap.fromTo(".parallax-img",
-    { yPercent: -20 },
-    {
-        yPercent: 20,
-        ease: "none",
-        scrollTrigger: {
-            trigger: ".image-banner",
-            start: "top bottom",
-            end: "bottom top",
-            scrub: true,
+//parallax image movement for service-page banners only
+const serviceBannerImages = gsap.utils.toArray(".image-banner .parallax-img");
+serviceBannerImages.forEach((image) => {
+    gsap.fromTo(
+        image,
+        { yPercent: -20 },
+        {
+            yPercent: 20,
+            ease: "none",
+            scrollTrigger: {
+                trigger: image.closest(".image-banner"),
+                start: "top bottom",
+                end: "bottom top",
+                scrub: true,
+            }
         }
-    }
-);
+    );
+});
 
 
 ////////////////////////////////////////////////////////////////////////faq section toggle animation
