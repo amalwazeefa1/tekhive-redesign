@@ -1084,7 +1084,7 @@ document.querySelectorAll(".faq-item").forEach((item) => {
 });
 
 
-///////////////////////////////////////////////////
+/////////////////////////////////////////////////// morph svg animation on button hover - common for all pages (services section)
 const morphWrappers = document.querySelectorAll('[id="morph-button-blue"]');
 
 morphWrappers.forEach((wrapper) => {
@@ -1151,3 +1151,34 @@ morphWrappers.forEach((wrapper) => {
 });
 
 
+///////////////////////////////////////////////////////////////////////////////////footer logo gsap animation
+
+document.addEventListener("DOMContentLoaded", function () {
+    gsap.registerPlugin(ScrollTrigger);
+
+    const footerLogo = document.querySelector("#footerLogo");
+
+    if (footerLogo) {
+        gsap.fromTo(
+            footerLogo,
+            { opacity: 0,
+                filter: "blur(3px)",
+                y: 15
+             },
+            {
+                opacity: 1,
+                filter: "blur(0px)",
+                y: 0,
+                ease: "power2.out",
+                delay: 0.5,
+                duration: 1.2,
+                scrollTrigger: {
+                    trigger: "footer",
+                    start: "top bottom",
+                    end: "top 65%",
+                    toggleActions: "play none none reverse"
+                }
+            }
+        );
+    }
+});

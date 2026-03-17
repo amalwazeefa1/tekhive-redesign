@@ -51,7 +51,8 @@
                         "surface-dark": "#1a2e1a",
                     },
                     fontFamily: {
-                        "display": ["Nunito Sans", "sans-serif"]
+                        "display": ["Nunito Sans", "sans-serif"],
+                        "funnel": ["Funnel Display", "sans-serif"],
                     },
                     borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px" },
                 },
@@ -64,6 +65,16 @@
         } */
 
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300..700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&display=swap');
+
+        @font-face {
+            font-family: 'Tenwork';
+            src: url('assets/gc-tenwork-demo.regular.ttf') format('woff2'),
+                url('assets/gc-tenwork-demo.regular.ttf') format('truetype');
+            font-weight: 400;
+            font-style: normal;
+        }
+
 
         #lottiePreview svg {
             margin: auto !important;
@@ -90,7 +101,6 @@
         .lenis.lenis-scrolling iframe {
             pointer-events: none;
         }
-
     </style>
 </head>
 
@@ -158,9 +168,8 @@
                                                 <div class="flex items-start gap-10">
                                                     <div class="flex flex-col gap-3 min-w-[200px]">
                                                         <div class="flex gap-4 mb-4">
-                                                                <img class="h-14 w-14"
-                                                                    src="assets/icons/it-service-icon.svg"
-                                                                    alt="">
+                                                            <img class="h-14 w-14"
+                                                                src="assets/icons/it-service-icon.svg" alt="">
                                                             <h1
                                                                 class="text-[#09aeb8] self-center text-sm font-semibold tracking-wide">
                                                                 IT SERVICES
@@ -201,8 +210,7 @@
                                                     <div class="flex flex-col gap-3 min-w-[200px]">
                                                         <div class="flex gap-4 mb-4">
                                                             <img class="h-14 w-14"
-                                                                    src="assets/icons/business-service-icon.svg"
-                                                                    alt="">
+                                                                src="assets/icons/business-service-icon.svg" alt="">
                                                             <h1
                                                                 class="text-[#09aeb8] self-center text-sm font-semibold tracking-wide">
                                                                 BUSINESS SOLUTIONS
@@ -456,7 +464,7 @@
                                 </div>
                             </div>
                         </div>
-                        <p class="block md:hidden">Copyright © 2026 Tekhive</p>
+                        <p class="block md:hidden">Copyright &copy; 2026 Tekhive</p>
                     </div>
                     <button
                         class="hidden md:block rounded bg-gradient-to-r from-[#499BD5] to-[#57BF93] text-white text-xl w-full p-4 m-auto">
@@ -535,7 +543,8 @@
                                     <div
                                         class="bg-white h-full rounded-xl group group p-6 flex flex-col justify-between">
                                         <div class="flex items-center gap-4 mb-4">
-              <img class="h-16 w-16" src="assets/icons/glass-icon-webdevelopment.svg" alt="">
+                                            <img class="h-16 w-16" src="assets/icons/glass-icon-webdevelopment.svg"
+                                                alt="">
                                             <h1 class="text-green-950 text-lg font-bold">Website Development</h1>
                                         </div>
                                         <p>Put your business at the forefront with an impressive website. Our web
@@ -566,8 +575,8 @@
                                 <a href="e-commerce.html" class="h-full">
                                     <div class="h-full bg-white rounded-xl group p-6 flex flex-col justify-between">
                                         <div class="flex items-center gap-4 mb-4">
-              <img class="h-16 w-16 mb-4" src="assets/icons/glass-icon-ecommerce-solutions.svg"
-                                                alt="">
+                                            <img class="h-16 w-16 mb-4"
+                                                src="assets/icons/glass-icon-ecommerce-solutions.svg" alt="">
                                             <h1 class="text-green-950 text-lg font-bold">Ecommerce Solutions</h1>
                                         </div>
                                         <p>With extensive expertise in e-commerce development, Tekhive is a reliable
@@ -599,8 +608,8 @@
                                 <a href="mobile-app-development.html" class="h-full">
                                     <div class="h-full bg-white rounded-xl group p-6 flex flex-col justify-between">
                                         <div class="flex items-center gap-4 mb-4">
-              <img class="h-16 w-16 mb-4" src="assets/icons/glass-icon-app-development.svg"
-                                                alt="">
+                                            <img class="h-16 w-16 mb-4"
+                                                src="assets/icons/glass-icon-app-development.svg" alt="">
                                             <h1 class="text-green-950 text-lg font-bold">Mobile App <br> Development
                                             </h1>
                                         </div>
@@ -771,7 +780,7 @@
             lg:grid-cols-4">
 
 
-                            
+
 
                             <a href="sap-business-one.html" class="h-full">
                                 <div class="h-full bg-white rounded-xl group p-6 flex flex-col justify-between">
@@ -1118,8 +1127,7 @@
                             alt="">
                     </div>
                 </div>
-                <div
-                    class="bg-[#f1f1f1] col-span-2 text-center w-full relative border rounded-xl overflow-hidden">
+                <div class="bg-[#f1f1f1] col-span-2 text-center w-full relative border rounded-xl overflow-hidden">
                     <img src="assets/vertical-line-pattern.png" class="w-full h-[500px] sm:h-full rounded-xl" alt="">
 
                     <!-- Overlay content -->
@@ -1180,8 +1188,9 @@
                     Started</span>
             </button>
         </div>
-        <img class="m-auto mb-[-190px] w-[300px]" src="assets/tekhive_blur_logo.png" alt="">
-        <footer class="bg-transparent border-t-2 border-[#ededed] text-sm font-medium">
+
+        <img id="footerLogo" class="relative z-0 m-auto mb-[-190px] w-[300px]" src="assets/tekhive_blur_logo.png" alt="">
+        <footer class="relative z-50 bg-transparent border-t-2 border-[#ededed] text-sm font-medium">
 
             <!-- SOCIAL GRID -->
             <div class="grid grid-cols-1 md:grid-cols-4 max-w-7xl px-4 m-auto text-[#333333]">
@@ -1326,7 +1335,8 @@
                         <li><a class="cursor-pointer" href="website-development.html">Web Development</a></li>
                         <li><a class="cursor-pointer" href="e-commerce.html">Ecommerce Solutions</a></li>
                         <li><a class="cursor-pointer" href="mobile-app-development.html">Mobile App Development</a></li>
-                        <li><a class="cursor-pointer" href="third-party-apps-integration.html">Third Party Apps Integration</a></li>
+                        <li><a class="cursor-pointer" href="third-party-app-integration.html">Third Party Apps
+                                Integration</a></li>
                     </ul>
                 </div>
 
@@ -1338,7 +1348,8 @@
                         <li><a class="cursor-pointer" href="cms-development.html">CMS Development</a></li>
                         <li><a class="cursor-pointer" href="digital-marketing.html">Digital Marketing</a></li>
                         <li><a class="cursor-pointer" href="sap-business-one.html">SAP Business One</a></li>
-                        <li><a class="cursor-pointer" href="business-intelligence-tool.html">Business Intelligence Tools</a></li>
+                        <li><a class="cursor-pointer" href="business-intelligence-tool.html">Business Intelligence
+                                Tools</a></li>
                     </ul>
                 </div>
 
@@ -1358,7 +1369,7 @@
 
             <!-- BOTTOM -->
             <div class="border-t-2 border-[#ededed] py-4 text-center text-gray-500">
-                <p class="text-xs">© 2026 Tekhive. All rights reserved.</p>
+                <p class="text-xs">&copy; 2026 Tekhive. All rights reserved.</p>
             </div>
 
         </footer>
@@ -1448,5 +1459,4 @@
 </body>
 
 </html>
-
 
