@@ -55,6 +55,9 @@
                         "surface-light": "#ffffff",
                         "surface-dark": "#1a2e1a",
                     },
+                    fontSize: {
+                        '18': '18px'
+                    },
                     fontFamily: {
                         "display": ["Nunito Sans", "sans-serif"]
                     },
@@ -498,7 +501,7 @@
         </div>
     </section>
 
-    <section class="py-12 bg-[#f6f6f6]">
+    <section class="py-12 pt-0 bg-[#f6f6f6]">
         <div class="max-w-7xl w-full px-4 pb-10 mx-auto flex flex-col items-end">
             <div
                 class="hidden md:block w-full h-5 border-[#222f30] opacity-10 my-12 border-l-[1px] border-t-[1px] border-r-[1px] rounded-tl-2xl rounded-tr-2xl">
@@ -605,7 +608,8 @@
 
                                     </div>
                                     <div class="relative inline-block ml-[-5px]">
-                                        <!-- base morph shape -->
+                                        <a href="contact.html">
+                                            <!-- base morph shape -->
                                         <svg class="h-12 relative block" xmlns="http://www.w3.org/2000/svg"
                                             viewBox="0 0 72.33 58.9">
                                             <defs>
@@ -630,6 +634,7 @@
                                             <path d="M5 12h14" />
                                             <path d="M13 6l6 6-6 6" />
                                         </svg>
+                                        </a>
                                     </div>
 
                                 </div>
@@ -646,14 +651,15 @@
     <!-- Our Expertise -->
     <section class="bg-[#f6f6f6]">
         <div class="max-w-7xl mx-auto py-16 px-6">
-            <div class="flex flex-col md:flex-row justify-between gap-12">
+            <div class="space-y-8">
+                <div class="flex flex-col md:flex-row justify-between gap-12">
                 <div class="w-full mt-12 md:mt-0 md:w-1/2">
                     <div class="faq-item border-b border-dashed border-gray-400 pb-2">
                         <div class="flex pb-12">
                             <h2 class="text-4xl font-bold">Our Expertise</h2>
                         </div>
                         <button class="faq-toggle gap-8 w-full flex justify-between items-center text-left">
-                            <h3 class="text-lg md:text-2xl font-bold">Data Warehousing & ETL</h3>
+                            <h3 class="text-lg md:text-2xl font-semibold">Data Warehousing & ETL</h3>
                             <span
                                 class="faq-icon text-[#d1d1d1] text-4xl font-light transition-transform duration-300">+</span>
                         </button>
@@ -666,7 +672,7 @@
 
                     <div class="faq-item pb-2 border-b border-dashed border-gray-400 py-6">
                         <button class="faq-toggle gap-8 w-full flex justify-between items-center text-left">
-                            <h3 class="text-lg md:text-2xl font-bold">Interactive Dashboards & Reporting</h3>
+                            <h3 class="text-lg md:text-2xl font-semibold">Interactive Dashboards & Reporting</h3>
                             <span
                                 class="faq-icon text-[#d1d1d1] text-4xl font-light transition-transform duration-300">+</span>
                         </button>
@@ -679,7 +685,7 @@
 
                     <div class="faq-item pb-2 border-b border-dashed border-gray-400 py-6">
                         <button class="faq-toggle gap-8 w-full flex justify-between items-center text-left">
-                            <h3 class="text-lg md:text-2xl font-bold">Predictive Analytics</h3>
+                            <h3 class="text-lg md:text-2xl font-semibold">Predictive Analytics</h3>
                             <span
                                 class="faq-icon text-[#d1d1d1] text-4xl font-light transition-transform duration-300">+</span>
                         </button>
@@ -692,7 +698,7 @@
 
                     <div class="faq-item border-b border-dashed border-gray-400 py-6 pb-2">
                         <button class="faq-toggle gap-8 w-full flex justify-between items-center text-left">
-                            <h3 class="text-lg md:text-2xl font-bold">KPI Monitoring & Alerts</h3>
+                            <h3 class="text-lg md:text-2xl font-semibold">KPI Monitoring & Alerts</h3>
                             <span
                                 class="faq-icon text-[#d1d1d1] text-4xl font-light transition-transform duration-300">+</span>
                         </button>
@@ -708,11 +714,11 @@
                         src="/assets/services-img.png" alt="image">
                 </div>
             </div>
-        </div>
+            </div>
         </div>
     </section>
 
-    <section class="py-12 bg-[#f6f6f6] pt-[150px]">
+    <section class="py-12 pt-0 bg-[#f6f6f6]">
         <div class="max-w-7xl w-full px-4 mx-auto flex flex-col">
             <div
                 class="block w-full h-5 border-[#222f30] opacity-10 my-6 border-l-[1px] border-t-[1px] border-r-[1px] rounded-tl-2xl rounded-tr-2xl">
@@ -759,13 +765,15 @@
                                                 style="fill: url(#grad1); stroke-width: 0px; visibility: hidden;" />
 
                                         </svg>
-                                        <h1
+                                        <a href="contact.html"
                                             class="absolute inset-0 flex items-center justify-center text-white font-sans text-md font-medium">
-                                            Contact Us</h1>
+                                            Contact Us
+                                        </a>
 
                                     </div>
                                     <div class="relative inline-block ml-[-5px]">
-                                        <!-- base morph shape -->
+                                        <a href="contact.html">
+                                            <!-- base morph shape -->
                                         <svg class="h-12 relative block" xmlns="http://www.w3.org/2000/svg"
                                             viewBox="0 0 72.33 58.9">
                                             <defs>
@@ -790,6 +798,7 @@
                                             <path d="M5 12h14" />
                                             <path d="M13 6l6 6-6 6" />
                                         </svg>
+                                        </a>
                                     </div>
 
                                 </div>
@@ -1067,6 +1076,12 @@
 </body>
 
 </html>
+
+
+
+
+
+
 
 
 
