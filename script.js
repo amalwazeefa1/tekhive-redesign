@@ -372,7 +372,7 @@ if (testimonialSection) {
 
                 gsap.set(stars, {
                     opacity: 0,
-                    y: 10,
+                    y: 5,
                     scale: 0.6,
                     transformOrigin: "center center",
                 });
