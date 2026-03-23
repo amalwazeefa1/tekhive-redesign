@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tekhive Services Screen</title>
+    <title>Contact Tekhive</title>
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap"
         rel="stylesheet" />
@@ -421,7 +421,7 @@
                     </div>
                     <div class="flex flex-col gap-1">
                         <div class="card relative flex md:hidden">
-                            <a href="" class="w-full">
+                            <a href="services.html" class="w-full">
                                 <img class="h-[200px] w-full object-cover rounded-md"
                                     src="assets/build-your-project.jpg" alt="Business demo">
                                 <div class="absolute inset-0 bg-black/50 rounded-md"></div>
@@ -433,7 +433,7 @@
                             </div>
                         </div>
                         <div class="card relative flex md:hidden">
-                            <a href="" class="w-full">
+                            <a href="#contact-form" class="w-full">
                                 <img class="h-[200px] w-full object-cover rounded-md" src="assets/connect-with-us.jpg"
                                     alt="Business demo">
                                 <div class="absolute inset-0 bg-black/50 rounded-md"></div>
@@ -458,17 +458,17 @@
                         </div>
                         <p class="block md:hidden">Copyright &copy; 2026 Tekhive</p>
                     </div>
-                    <button
-                        class="hidden md:block rounded bg-gradient-to-r from-[#499BD5] to-[#57BF93] text-white text-xl w-full p-4 m-auto">
-                        <a href="">Let's Talk</a>
-                    </button>
+                    <a href="#contact-form"
+                        class="hidden md:block rounded bg-gradient-to-r from-[#499BD5] to-[#57BF93] text-white text-xl w-full p-4 m-auto text-center">
+                        Let's Talk
+                    </a>
                 </div>
             </div>
         </nav>
-        <!-- <button
-            class="block md:hidden bottom-0 rounded bg-gradient-to-r from-[#499BD5] to-[#57BF93] text-white text-xl w-full p-4 m-4">
-            <a href="">Let's Talk</a>
-        </button> -->
+        <!-- <a href="#contact-form"
+            class="block md:hidden bottom-0 rounded bg-gradient-to-r from-[#499BD5] to-[#57BF93] text-white text-xl w-full p-4 m-4 text-center">
+            Let's Talk
+        </a> -->
     </div>
 
     <section id="about-hero" class="relative bg-black text-white flex items-end overflow-hidden">
@@ -514,11 +514,11 @@
         </button>
     </div>
 
-    <section class="py-12 bg-white">
+    <section id="contact-form" class="py-12 bg-white">
         <div class="max-w-7xl w-full px-4 pb-10 mx-auto">
             <div class="flex flex-col md:flex-row gap-28 lg:gap-6">
                 <div class="lg:p-12 bg-transparent w-full md:w-1/2 rounded-md">
-                    <p class="mb-12 leading-relaxed">Let’s Connect and Make IT Happen! Have a question or a project in
+                    <p class="mb-12 leading-relaxed">Let's Connect and Make IT Happen! Have a question or a project in
                         mind? Reach out
                         to us today.
                         Our dedicated team is here to assist you every step of the way.</p>
@@ -530,7 +530,7 @@
                                 <label for="firstName"
                                     class="block text-sm font-bold text-gray-700 after:content-['*'] after:text-red-500 after:ml-1">FIRST
                                     NAME</label>
-                                <input type="text" id="firstName" name="firstName"
+                                <input type="text" id="firstName" name="firstName" required
                                     class="bg-gray-100 py-4 mt-1 block w-full rounded-md border-0 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" />
                             </div>
                             <!-- Last Name -->
@@ -538,7 +538,7 @@
                                 <label for="lastName"
                                     class="block text-sm font-bold text-gray-700 after:content-['*'] after:text-red-500 after:ml-1">LAST
                                     NAME</label>
-                                <input type="text" id="lastName" name="lastName"
+                                <input type="text" id="lastName" name="lastName" required
                                     class="bg-gray-100 py-4 mt-1 block w-full rounded-md border-0 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" />
                             </div>
                             <!-- Email -->
@@ -546,7 +546,7 @@
                                 <label for="email"
                                     class="block text-sm font-bold text-gray-700 after:content-['*'] after:text-red-500 after:ml-1">EMAIL
                                     ADDRESS</label>
-                                <input type="email" id="email" name="email"
+                                <input type="email" id="email" name="email" required
                                     class="bg-gray-100 py-4 mt-1 block w-full rounded-md border-0 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" />
                             </div>
 
@@ -555,7 +555,7 @@
                                 <label for="phone"
                                     class="block text-sm font-bold text-gray-700 after:content-['*'] after:text-red-500 after:ml-1">PHONE
                                     NUMBER</label>
-                                <input type="tel" id="phone" name="phone"
+                                <input type="tel" id="phone" name="phone" required
                                     class="bg-gray-100 py-4 mt-1 block w-full rounded-md border-0 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" />
                             </div>
 
@@ -563,7 +563,7 @@
                             <div>
                                 <label for="message"
                                     class="block text-sm font-bold text-gray-700 after:content-['*'] after:text-red-500 after:ml-1">MESSAGE</label>
-                                <textarea id="message" name="message" rows="4" placeholder="To better assist you, please describe how we can help..."
+                                <textarea id="message" name="message" rows="4" required placeholder="To better assist you, please describe how we can help..."
                                     class="bg-gray-100 mt-1 p-4 block w-full rounded-md border-0 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"></textarea>
                             </div>
 
@@ -587,19 +587,21 @@
                     <div class="p-8 md:p-12 bg-[#def1ff] w-full rounded-3xl text-[#1a1a1a]">
                         <p class="font-bold text-xs">CONTACT US</p>
                         <div class="flex flex-col mt-6 mb-12 text-2xl font-bold">
-                            <a href="">+91 - 487 - 2970765</a>
-                            <a href="">hello@gmail.com</a>
+                            <a href="tel:+914872970765" class="transition hover:text-[#499BD5]">+91 487 297 0765</a>
+                            <a href="mailto:hello@gmail.com" class="transition hover:text-[#499BD5]">hello@gmail.com</a>
                         </div>
                         <p class="font-bold text-xs">WHERE TO FIND US</p>
                         <div class="flex flex-col mt-6 mb-12 text-2xl">
-                            <a href="">Infopark Koratty</a>
-                            <a href="">Kerala, India</a>
+                            <a href="https://maps.google.com/?q=Infopark+Koratty+Kerala+India" class="transition hover:text-[#499BD5]">Infopark Koratty</a>
+                            <span>Kerala, India</span>
                         </div>
                         <div class="flex items-center mb-12 text-white">
-                            <button class="font-bold py-3 px-6 rounded-full bg-[#499BD5]">
+                            <a href="https://maps.google.com/?q=Infopark+Koratty+Kerala+India"
+                                class="font-bold py-3 px-6 rounded-full bg-[#499BD5] hover:bg-[#3b88be] transition-colors">
                                 Get directions
-                            </button>
-                            <button class="py-3 px-3 bg-[#499BD5] rounded-full h-full">
+                            </a>
+                            <a href="https://maps.google.com/?q=Infopark+Koratty+Kerala+India"
+                                class="py-3 px-3 bg-[#499BD5] rounded-full h-full hover:bg-[#3b88be] transition-colors">
                                 <svg class="w-4 h-4 text-white" xmlns="http://www.w3.org/2000/svg" version="1.1"
                                     xmlns:xlink="http://www.w3.org/1999/xlink" width="512" height="512" x="0" y="0"
                                     viewBox="0 0 512 512" style="enable-background:new 0 0 512 512" xml:space="preserve"
@@ -610,7 +612,7 @@
                                             fill="currentColor" opacity="1" data-original="#000000" class=""></path>
                                     </g>
                                 </svg>
-                            </button>
+                            </a>
                         </div>
                         <p class="font-bold text-xs">FOLLOW US</p>
                         <div class="flex gap-4 mt-6">
@@ -669,29 +671,28 @@
         </div>
     </section>
 
-    <div class="bg-[#f6f6f6] pt-16">
+    <div class="relative bg-[#f6f6f6] pt-16">
         <div class="text-center mb-8 max-w-[450px] m-auto">
             <h1 class="text-4xl md:text-6xl font-bold mb-8">
                 Design. Deliver. Distinguish.
             </h1>
             <div class="flex flex-wrap justify-center gap-2">
-                <button
+                <a href="services.html"
                     class="bg-[#0000001a] text-sm hover:bg-black hover:text-white transition-all ease duration-300 rounded-full px-6 py-2 w-auto self-start">
                     <span class="font-medium">See
                         our work</span>
-                </button>
-                <button
+                </a>
+                <a href="#contact-form"
                     class="bg-[#2f2f2f] text-sm hover:bg-black transition-all ease duration-300 rounded-full px-6 py-2 w-auto self-start">
                     <span
                         class="bg-gradient-to-r from-blue-400 to-green-400 bg-clip-text text-transparent font-medium">Get
                         Started</span>
-                </button>
+                </a>
             </div>
         </div>
-        <img class="m-auto mb-[-190px] w-[300px]" src="assets/tekhive_blur_logo.png" alt="">
-        
-
-        <img id="footerLogo" class="relative z-0 m-auto mb-[-190px] w-[300px]" src="assets/tekhive_blur_logo.png" alt="">
+        <img id="footerLogo"
+            class="pointer-events-none absolute left-1/2 bottom-[calc(100%-150px)] z-0 w-[300px] -translate-x-1/2"
+            src="assets/tekhive_blur_logo.png" alt="Tekhive blur logo">
         <footer class="relative z-10 bg-transparent border-t-2 border-[#ededed] text-sm font-medium">
 
             <!-- SOCIAL GRID -->
@@ -822,10 +823,10 @@
                     class="p-6 pt-16 border border-l-2 border-r-2 md:border-r-0 border-t-2 border-b-0 border-[#ededed]">
                     <p class="text-gray-400 mb-3">Company</p>
                     <ul class="space-y-1">
-                        <li class="cursor-pointer">About</li>
-                        <li class="cursor-pointer">Approach</li>
-                        <li class="cursor-pointer">Work</li>
-                        <li class="cursor-pointer">Privacy Policy</li>
+                        <li><a class="cursor-pointer hover:text-black" href="about.html">About</a></li>
+                        <li><a class="cursor-pointer hover:text-black" href="services.html">Approach</a></li>
+                        <li><a class="cursor-pointer hover:text-black" href="services.html">Work</a></li>
+                        <li><span>Privacy Policy</span></li>
                     </ul>
                 </div>
 
@@ -859,10 +860,10 @@
                 <div class="p-6 pt-16 border border-r-2 border-l-2 border-t-2 border-b-0 border-[#ededed]">
                     <p class="text-gray-400 mb-3">Contact</p>
                     <ul class="space-y-1">
-                        <li class="cursor-pointer">About</li>
-                        <li class="cursor-pointer">Approach</li>
-                        <li class="cursor-pointer">Work</li>
-                        <li class="cursor-pointer">Privacy Policy</li>
+                        <li><a class="cursor-pointer hover:text-black" href="tel:+914872970765">+91 487 297 0765</a></li>
+                        <li><a class="cursor-pointer hover:text-black" href="mailto:hello@gmail.com">hello@gmail.com</a></li>
+                        <li><a class="cursor-pointer hover:text-black" href="https://maps.google.com/?q=Infopark+Koratty+Kerala+India">Infopark Koratty</a></li>
+                        <li><span>Kerala, India</span></li>
                     </ul>
                 </div>
 
@@ -890,79 +891,11 @@
     <script src="https://unpkg.com/lottie-web/build/player/lottie.min.js"></script>
     <script src="script.js"></script>
 
-    <script>
-        try {
-            if (typeof MorphSVGPlugin !== 'undefined') {
-                gsap.registerPlugin(MorphSVGPlugin);
-
-                if (document.querySelector("#hexagon-shape")) {
-                    const timeline = gsap.timeline({
-                        repeat: -1,
-                        repeatDelay: 0,
-                        yoyo: true,
-                        defaults: { duration: 1, ease: "power2.inOut" }
-                    });
-
-                    timeline
-                        .to("#hexagon-shape", { morphSVG: "#plus-shape" })
-                        .to("#hexagon-shape", { morphSVG: "#diamond-shape" })
-                        .to("#hexagon-shape", { morphSVG: "#hexagon-shape" });
-                }
-            } else {
-                console.warn("MorphSVGPlugin is not defined. Skipping animation.");
-            }
-        } catch (e) {
-            console.error("Error initializing GSAP animation:", e);
-        }
-
-
-
-        gsap.registerPlugin(ScrollTrigger);
-
-        const wrapper = document.querySelector(".horizontal-wrapper");
-
-        gsap.to(wrapper, {
-            x: () => -(wrapper.scrollWidth - window.innerWidth),
-            ease: "none",
-            scrollTrigger: {
-                trigger: wrapper,
-                start: "top 100%",
-                end: () => "+=" + wrapper.scrollWidth,
-                scrub: 1,
-            }
-        });
-
-        gsap.set("#phoneImage1", { opacity: 0, y: 100 });
-        gsap.to("#phoneImage1", {
-            opacity: 1,
-            y: 0,
-            duration: 1.2,
-            ease: "power3.out",
-            scrollTrigger: {
-                trigger: "#phoneImage1",
-                start: "top center+=20%",
-                toggleActions: "play none none reverse",
-            }
-        })
-        gsap.set("#phoneImage2", { opacity: 0, y: 100 });
-        gsap.to("#phoneImage2", {
-            opacity: 1,
-            y: 0,
-            duration: 1.2,
-            delay: 0.3,
-            ease: "power3.out",
-            scrollTrigger: {
-                trigger: "#phoneImage2",
-                start: "top center+=20%",
-                toggleActions: "play none none reverse",
-            }
-        })
-
-
-    </script>
+   
 </body>
 
 </html>
+
 
 
 
