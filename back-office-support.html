@@ -562,14 +562,14 @@
                 <div class="relative">
                     <div class="flex flex-col">
                         <div class="para">
-                            <h1 class="leading-[130%] md:leading-relaxed text-2xl md:text-3xl md:max-w-md lg:max-w-2xl">
+                            <h1 class="leading-[170%] md:leading-[200%] text-2xl md:max-w-md lg:max-w-2xl">
                                 Back office support is essential for achieving business excellence, laying the
                                 foundation for the smooth running of front-end processes. The industry is witnessing
                                 massive adoption of external back-office support services aimed at optimizing business
                                 operations.</h1>
                         </div>
                         <div class="para absolute top-0 left-0 opacity-0" style="transform: translateY(30px);">
-                            <div class="max-w-2xl text-2xl md:text-3xl leading-[130%] md:leading-relaxed space-y-4">
+                            <div class="max-w-2xl text-2xl leading-[170%] md:leading-[200%] space-y-4">
                                 <p>Tekhive is a leader in offering a range of comprehensive back office support
                                     services, enabling organizations to focus on their core competencies. Our support
                                     expertise, combined with industry knowledge, enables us to provide customized back
@@ -578,10 +578,10 @@
                             </div>
                         </div>
                         <div class="para absolute top-0 left-0 opacity-0" style="transform: translateY(30px);">
-                            <div class="max-w-2xl text-2xl md:text-3xl leading-[130%] md:leading-relaxed space-y-4">
-                                <p>that precisely align with our clients’ needs. From accounting and bookkeeping to
+                            <div class="max-w-2xl text-2xl leading-[170%] md:leading-[200%] space-y-4">
+                                <p>that precisely align with our clientsÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ needs. From accounting and bookkeeping to
                                     payroll management, recruitment, people
-                                    management, and various administrative functions, we’ve got you covered, helping
+                                    management, and various administrative functions, weÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ve got you covered, helping
                                     you save significantly on your operational costs.</p>
                             </div>
                             <!-- Morph Button -->
@@ -832,20 +832,37 @@
             <h1 class="text-4xl md:text-6xl font-bold mb-8">
                 Design. Deliver. Distinguish.
             </h1>
-            <button
-                class="bg-[#0000001a] text-sm hover:bg-black hover:text-white transition-all ease duration-300 rounded-full px-6 py-2 w-auto self-start">
+            <div class="flex items-center justify-center gap-2">
+                <button
+                class="bg-[#0000001a] h-12 px-8 text-sm hover:bg-black hover:text-white transition-all ease duration-300 rounded-full px-6 py-2 w-auto self-start">
                 <span class="font-medium">See
                     our work</span>
             </button>
-            <button
-                class="bg-[#2f2f2f] text-sm hover:bg-black transition-all ease duration-300 rounded-full px-6 py-2 w-auto self-start">
-                <span class="bg-gradient-to-r from-blue-400 to-green-400 bg-clip-text text-transparent font-medium">Get
-                    Started</span>
-            </button>
+            <a href="contact.html" class="flex items-center relative h-12 px-8 bg-[#2f2f2f] hover:bg-black transition-all ease duration-300 rounded-full text-white text-sm group">
+                <!-- TEXT MASK -->
+                <span class="relative block h-6 overflow-hidden">
+                    <!-- Default text -->
+                    <span class="block transition-transform duration-300 group-hover:-translate-y-full bg-gradient-to-r from-blue-400 to-green-400 bg-clip-text text-transparent font-medium">
+                        Get Started
+                    </span>
+
+                    <!-- Hover text -->
+                    <span
+                        class="absolute left-0 top-0 translate-y-full transition-transform duration-300 group-hover:translate-y-0 bg-gradient-to-r from-blue-400 to-green-400 bg-clip-text text-transparent font-medium">
+                        Get Started
+                    </span>
+                </span>
+            </a>
+            </div>
         </div>
 
 
-        <img id="footerLogo" class="relative z-0 m-auto mb-[-190px] w-[300px]" src="assets/tekhive_blur_logo.png"
+        '@
+
+$footerOpenPattern = '<footer class="relative z-10 bg-transparent border-t-2 border-\[#ededed\] text-sm font-medium">'
+$footerOpenReplacement = @'
+<footer class="relative z-10 bg-transparent border-t-2 border-[#ededed] text-sm font-medium">
+            <div class="bg-black w-full h-full"></div><img id="footerLogo" class="relative z-0 m-auto mb-[-190px] w-[300px]" src="assets/tekhive_blur_logo.png"
             alt="">
         <footer class="relative z-10 bg-transparent border-t-2 border-[#ededed] text-sm font-medium">
 
@@ -975,7 +992,7 @@
                 <!-- Column 1 -->
                 <div
                     class="p-6 pt-16 border border-l-2 border-r-2 md:border-r-0 border-t-2 border-b-0 border-[#ededed]">
-                    <p class="text-gray-400 mb-3">Company</p>
+                    <p class="text-gray-400 mb-3 text-[15px]">Company</p>
                     <ul class="space-y-1">
                         <li class="cursor-pointer">About</li>
                         <li class="cursor-pointer">Approach</li>
@@ -987,7 +1004,7 @@
                 <!-- Column 2 -->
                 <div
                     class="p-6 pt-16 border border-l-2 border-r-2 md:border-r-0 border-t-2 border-b-0 border-[#ededed]">
-                    <p class="text-gray-400 mb-3">Services</p>
+                    <p class="text-gray-400 mb-3 text-[15px]">Services</p>
                     <ul class="space-y-1">
                         <li><a class="cursor-pointer" href="website-development.html">Web Development</a></li>
                         <li><a class="cursor-pointer" href="e-commerce.html">Ecommerce Solutions</a></li>
@@ -1000,7 +1017,7 @@
                 <!-- Column 3 -->
                 <div
                     class="p-6 pt-16 border border-l-2 border-r-2 md:border-r-0 border-t-2 border-b-0 border-[#ededed]">
-                    <p class="text-gray-400 mb-3">Services</p>
+                    <p class="text-gray-400 mb-3 text-[15px]">Services</p>
                     <ul class="space-y-1">
                         <li><a class="cursor-pointer" href="cms-development.html">CMS Development</a></li>
                         <li><a class="cursor-pointer" href="digital-marketing.html">Digital Marketing</a></li>
@@ -1012,7 +1029,7 @@
 
                 <!-- Column 4 -->
                 <div class="p-6 pt-16 border border-r-2 border-l-2 border-t-2 border-b-0 border-[#ededed]">
-                    <p class="text-gray-400 mb-3">Contact</p>
+                    <p class="text-gray-400 mb-3 text-[15px]">Contact</p>
                     <ul class="space-y-1">
                         <li class="cursor-pointer">About</li>
                         <li class="cursor-pointer">Approach</li>
