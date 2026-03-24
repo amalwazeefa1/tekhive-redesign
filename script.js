@@ -692,6 +692,51 @@ const whatsappIcon = document.querySelector(".whatsapp-icon-white");
 const phoneIcon = document.querySelector(".phone-icon-white");
 const menuIcon = document.querySelector(".menu");
 
+const servicePages = new Set([
+    "services.html",
+    "website-development.html",
+    "e-commerce.html",
+    "mobile-app-development.html",
+    "cms-development.html",
+    "digital-marketing.html",
+    "domain-and-web-hosting.html",
+    "sap-business-one.html",
+    "business-intelligence-tool.html",
+    "third-party-app-integration.html",
+    "crm.html",
+    "business-process-automation.html",
+    "it-support.html",
+    "it-consulting.html",
+    "back-office-support.html",
+]);
+
+function normalizeNavHref(href) {
+    if (!href || href === "#") return href;
+    return href.split("/").pop().split("#")[0];
+}
+
+function getActiveNavHref() {
+    const currentFile = window.location.pathname.split("/").pop() || "index.html";
+
+    if (currentFile === "index.html") return "index.html";
+    if (currentFile === "about.html") return "about.html";
+    if (currentFile === "contact.html") return "contact.html";
+    if (servicePages.has(currentFile)) return "services.html";
+
+    return "";
+}
+
+function setActiveNavLink(activeHref = getActiveNavHref()) {
+    navLinks.forEach((link) => {
+        const href = normalizeNavHref(link.getAttribute("href"));
+        const isCurrent = href && href === activeHref;
+
+        link.dataset.active = isCurrent ? "true" : "false";
+        link.classList.toggle("font-bold", isCurrent);
+        link.style.color = isCurrent ? "#09aeb8" : "";
+    });
+}
+
 let startValue = "top top";
 let endValue = "99999";
 
@@ -720,6 +765,10 @@ function updateHeaderUI() {
     navLinks.forEach(link => {
         link.classList.toggle("text-black", isActive);
         link.classList.toggle("text-white", !isActive);
+
+        if (link.dataset.active === "true") {
+            link.style.color = "#09aeb8";
+        }
     });
 
     // Icon colors
@@ -745,6 +794,17 @@ function updateHeaderUI() {
         img.src = isActive ? blackSrc : whiteSrc;
     });
 }
+
+setActiveNavLink();
+
+navLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+        const href = normalizeNavHref(link.getAttribute("href"));
+        if (href && href !== "#") {
+            setActiveNavLink(href);
+        }
+    });
+});
 
 ScrollTrigger.create({
     start: startValue,
