@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sample</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link rel="icon" type="image/png" href="tekhive-icon.svg">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <!-- Lenis Scroll -->
+    <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/gsap.min.js"></script>
+    <!-- Theme Config -->
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    keyframes: {
+                        fill: {
+                            '0%': { width: '0%' },
+                            '100%': { width: '98%' },
+                        },
+                        'bounce-down': {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(8px)' }
+                        },
+                    },
+                    animation: {
+                        fill: 'fill 3s ease-out forwards',
+                        'bounce-down': 'bounce-down 1s infinite ease-in-out'
+                    },
+                    screens: {
+                        "xs": "380px",
+                    },
+                    colors: {
+                        "primary": "#13ec13",
+                        "primary-dark": "#0eb50e",
+                        "background-light": "#f6f8f6",
+                        "background-dark": "#102210",
+                        "surface-light": "#ffffff",
+                        "surface-dark": "#1a2e1a",
+                    },
+                    fontSize: {
+                        '18': '18px'
+                    },
+                    fontFamily: {
+                        "display": ["Nunito Sans", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+
+    </style>
+</head>
+
+<body class="min-h-screen bg-[#f6f6f6] text-black">
+
+    <!-- Button -->
+  <div class="p-6">
+    <button id="menuBtn" class="px-6 py-3 rounded-full bg-black text-white shadow-sm">
+      Open Menu
+    </button>
+  </div>
+
+  <!-- Menu Overlay -->
+  <div id="menu"
+    class="fixed inset-0 bg-black/95 z-50 hidden items-center justify-center">
+
+    <button id="closeBtn" class="absolute top-6 right-6 px-4 py-2 rounded-full border border-white/30 text-white">
+      Close
+    </button>
+
+    <!-- Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 w-3/4">
+
+      <!-- Card -->
+      <div class="card overflow-hidden">
+        <img src="https://picsum.photos/400/500?1"
+          class="w-full h-full object-cover" />
+      </div>
+
+      <div class="card overflow-hidden">
+        <img src="https://picsum.photos/400/500?2"
+          class="w-full h-full object-cover" />
+      </div>
+
+      <div class="card overflow-hidden">
+        <img src="https://picsum.photos/400/500?3"
+          class="w-full h-full object-cover" />
+      </div>
+
+    </div>
+  </div>
+
+
+  <script>
+  const menu = document.getElementById("menu");
+  const btn = document.getElementById("menuBtn");
+  const closeBtn = document.getElementById("closeBtn");
+
+  // Timeline
+  const tl = gsap.timeline({ paused: true });
+
+  // Step 1: show menu
+  tl.set(menu, { display: "flex" });
+
+  // Step 2: fade in overlay
+  tl.from(menu, {
+    opacity: 0,
+    duration: 0.4
+  });
+
+  // Step 3: animate images (clip + transform)
+  tl.fromTo(".card img",
+    {
+      y: 100,
+      scale: 1.2,
+      clipPath: "inset(100% 0 0 0)"
+    },
+    {
+      y: 0,
+      scale: 1,
+      clipPath: "inset(0% 0 0 0)",
+      duration: 1,
+      ease: "power4.out",
+      stagger: 0.15
+    },
+    "-=0.2"
+  );
+
+  // Button click
+  btn.addEventListener("click", () => {
+    tl.restart();
+  });
+
+  closeBtn.addEventListener("click", () => {
+    gsap.to(menu, {
+      opacity: 0,
+      duration: 0.25,
+      onComplete: () => {
+        menu.style.display = "none";
+        gsap.set(menu, { opacity: 1 });
+      }
+    });
+  });
+</script>
+
+</body>
+
+</html>
