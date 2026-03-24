@@ -1221,10 +1221,11 @@ document.addEventListener("DOMContentLoaded", function () {
     if (footerLogo) {
         gsap.fromTo(
             footerLogo,
-            { opacity: 0,
+            {
+                opacity: 0,
                 filter: "blur(3px)",
                 y: 15
-             },
+            },
             {
                 opacity: 1,
                 filter: "blur(0px)",
@@ -1248,14 +1249,20 @@ document.addEventListener("DOMContentLoaded", () => {
     const footerLinks = document.querySelectorAll("footer ul a");
 
     footerLinks.forEach((link) => {
+        const listItem = link.closest("li");
+
+        if (listItem) {
+            listItem.classList.add("group", "flex", "items-center", "gap-2");
+
+           
+        }
+
         link.classList.add(
             "relative",
             "inline-block",
             "text-[#333333]",
-            "transition-all",
-            "duration-300",
-            "ease-in-out",
-            "hover:ml-2",
+
+            // base
             "after:content-['']",
             "after:absolute",
             "after:left-0",
@@ -1263,11 +1270,13 @@ document.addEventListener("DOMContentLoaded", () => {
             "after:h-[1.5px]",
             "after:w-full",
             "after:bg-[#09aeb8]",
-            "after:origin-left",
+            "after:origin-right",
             "after:scale-x-0",
-            "after:transition-all",
+            "after:transition-transform",
             "after:duration-300",
-            "after:will-change-transform",
+
+            // hover in
+            "hover:after:origin-left",
             "hover:after:scale-x-100"
         );
     });
