@@ -1242,3 +1242,33 @@ document.addEventListener("DOMContentLoaded", function () {
         );
     }
 });
+
+///////////////////////////////////////////////////////////////////////////////////footer link hover animation
+document.addEventListener("DOMContentLoaded", () => {
+    const footerLinks = document.querySelectorAll("footer ul a");
+
+    footerLinks.forEach((link) => {
+        link.classList.add(
+            "relative",
+            "inline-block",
+            "text-[#333333]",
+            "transition-all",
+            "duration-300",
+            "ease-in-out",
+            "hover:ml-2",
+            "after:content-['']",
+            "after:absolute",
+            "after:left-0",
+            "after:bottom-0",
+            "after:h-[1.5px]",
+            "after:w-full",
+            "after:bg-[#09aeb8]",
+            "after:origin-left",
+            "after:scale-x-0",
+            "after:transition-all",
+            "after:duration-300",
+            "after:will-change-transform",
+            "hover:after:scale-x-100"
+        );
+    });
+});
