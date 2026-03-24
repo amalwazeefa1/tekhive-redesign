@@ -1253,8 +1253,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (listItem) {
             listItem.classList.add("group", "flex", "items-center", "gap-2");
-
-           
         }
 
         link.classList.add(
