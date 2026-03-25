@@ -936,17 +936,28 @@ if (aboutHero && ball) {
     });
 }
 
-///////////////////////////////////////////////////////about section mask animation
+///////////////////////////////////////////////////////about section mask animation - text reveal
 if (document.body.classList.contains("about-page")) {
-    gsap.set(".mask", { xPercent: 0 });
 
-    gsap.timeline()
-        .to(".mask", {
-            xPercent: -100,
+    const targets = [".text-mask-banner", ".text-mask-section"];
+
+    targets.forEach(selector => {
+        gsap.set(selector, { xPercent: 0 })
+        
+        gsap.timeline({
+            scrollTrigger: {
+                trigger: selector,
+                start: "top 80%",
+                toggleActions: "play none none reset",
+            }
+        })
+        .to(selector, {
+            xPercent: 100,
             duration: 1,
             ease: "power4.inOut",
             stagger: 0.15
-        });
+        })
+    })
 }
 
 
