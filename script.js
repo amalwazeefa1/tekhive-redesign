@@ -937,7 +937,7 @@ if (aboutHero && ball) {
 }
 
 ///////////////////////////////////////////////////////mask animation - text reveal
-const maskTargets = [".text-mask-banner", ".text-mask-section-about", ".text-mask1-section-home", ".text-mask2-section-home", ".text-mask-section-services", ".text-mask-testimonials", ".text-mask-approach", ".text-mask-contact", ".text-mask-about-label"];
+const maskTargets = [".text-mask-banner", ".text-mask-section-about", ".text-mask1-section-home", ".text-mask2-section-home", ".text-mask-section-services", ".text-mask-testimonials", ".text-mask-approach", ".text-mask-contact", ".text-mask-about-label", ".text-mask-agile"];
 
 maskTargets.forEach(selector => {
     const elements = gsap.utils.toArray(selector);
