@@ -936,29 +936,29 @@ if (aboutHero && ball) {
     });
 }
 
-///////////////////////////////////////////////////////about section mask animation - text reveal
-if (document.body.classList.contains("about-page")) {
+///////////////////////////////////////////////////////mask animation - text reveal
+const maskTargets = [".text-mask-banner", ".text-mask-section"];
 
-    const targets = [".text-mask-banner", ".text-mask-section"];
+maskTargets.forEach(selector => {
+    const elements = gsap.utils.toArray(selector);
+    if (!elements.length) return;
 
-    targets.forEach(selector => {
-        gsap.set(selector, { xPercent: 0 })
-        
-        gsap.timeline({
-            scrollTrigger: {
-                trigger: selector,
-                start: "top 80%",
-                toggleActions: "play none none reset",
-            }
-        })
-        .to(selector, {
+    gsap.set(elements, { xPercent: 0 });
+
+    gsap.timeline({
+        scrollTrigger: {
+            trigger: elements[0],
+            start: "top 80%",
+            toggleActions: "play none none reset",
+        }
+    })
+        .to(elements, {
             xPercent: 100,
             duration: 1,
             ease: "power4.inOut",
             stagger: 0.15
-        })
-    })
-}
+        });
+});
 
 
 /////////////////////////////////////////////////////////////parallax image effect
