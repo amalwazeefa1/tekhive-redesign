@@ -1291,3 +1291,19 @@ document.addEventListener("DOMContentLoaded", () => {
         );
     });
 });
+
+const lines = gsap.utils.toArray(".fill-line");
+
+lines.forEach((line, index) => {
+    gsap.to(line, {
+        color: "#ffffff",
+        ease: "none",
+        scrollTrigger: {
+            trigger: line.parentElement,
+            start: "top 80%",
+            scrub: true,
+            duration: 1,
+        },
+        delay: index * 0.15,
+    })
+})
