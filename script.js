@@ -1301,9 +1301,9 @@ lines.forEach((line, index) => {
         scrollTrigger: {
             trigger: line.parentElement,
             start: "top 80%",
-            scrub: true,
-            duration: 1,
+            toggleActions: "play none none reset",
+            duration: 1.5,
         },
-        delay: index * 0.15,
+        delay: index * 0.2, // stagger by 1.5 seconds
     })
 })
