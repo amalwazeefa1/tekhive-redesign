@@ -303,7 +303,7 @@ gsap.utils.toArray(".fade-up, .fade-up2").filter((el) => !el.closest("#testimoni
 ///////////////////////////////////////////////////////////////////////////////testimonial scroll trigger animation
 const testimonialSection = document.getElementById("testimonials");
 
-if (testimonialSection) {
+if (testimonialSection && typeof gsap !== "undefined" && typeof ScrollTrigger !== "undefined") {
     const testimonialCards = [
         "#testimonial-card-1",
         "#testimonial-card-2",
@@ -326,7 +326,7 @@ if (testimonialSection) {
             isDesktop: "(min-width: 768px)",
         },
         (context) => {
-            const start = "top top +=200"; // trigger a bit later for better timing
+            const start = context.conditions.isMobile ? "top 90%" : "top 80%";
 
             testimonialCards.forEach((card, index) => {
                 const quote = card.querySelector("p");
