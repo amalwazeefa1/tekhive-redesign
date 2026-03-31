@@ -1352,3 +1352,30 @@ lines.forEach((line, index) => {
         delay: index * 0.2, // stagger by 1.5 seconds
     })
 })
+
+
+//////////////////////////////////////////////////////////////////////////////////morph animation services inner pages
+if (document.querySelector("#website-dev-morph-1")) {
+    const websiteDevMorph = document.querySelector("#website-dev-morph-1");
+    const websiteDevMorphTargets = [
+        "#website-dev-morph-2",
+        "#website-dev-morph-3",
+        "#website-dev-morph-4",
+        "#website-dev-morph-1",
+    ]
+        .map((selector) => document.querySelector(selector))
+        .filter(Boolean);
+
+    if (websiteDevMorph && websiteDevMorphTargets.length && typeof MorphSVGPlugin !== "undefined") {
+        const websiteDevMorphTl = gsap.timeline({ repeat: -1 });
+
+        websiteDevMorphTargets.forEach((target) => {
+            websiteDevMorphTl.to(websiteDevMorph, {
+                morphSVG: target,
+                duration: 1.2,
+                ease: "expo.inOut",
+            });
+        });
+    }
+}
+
