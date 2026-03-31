@@ -1,11 +1,13 @@
-// Initialize Lenis
-const lenis = new Lenis({
-    duration: 1.2,
-    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-    smoothWheel: true,
-    wheelMultiplier: 1,
-    infinite: false,
-});
+// Initialize Lenis only when the CDN has loaded successfully.
+const lenis = typeof Lenis !== "undefined"
+    ? new Lenis({
+        duration: 1.2,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        smoothWheel: true,
+        wheelMultiplier: 1,
+        infinite: false,
+    })
+    : null;
 
 // GSAP Plugin Registration
 if (typeof gsap !== "undefined") {
@@ -29,7 +31,7 @@ if (typeof ScrollTrigger !== "undefined") {
 }
 
 // Sync Lenis with GSAP ScrollTrigger
-if (typeof lenis !== "undefined" && typeof ScrollTrigger !== "undefined") {
+if (lenis && typeof gsap !== "undefined" && typeof ScrollTrigger !== "undefined") {
     lenis.on('scroll', ScrollTrigger.update);
     gsap.ticker.add((time) => {
         lenis.raf(time * 1000);
@@ -51,20 +53,24 @@ const openMenu = document.getElementById("openMenu");
 const closeMenu = document.getElementById("closeMenu");
 const menu = document.getElementById("fullscreenMenu");
 
-openMenu.addEventListener("click", () => {
-    // enable smooth fade-in
-    menu.classList.add("transition-opacity", "duration-300", "ease-in-out");
-    menu.classList.remove("opacity-0", "pointer-events-none");
-    document.body.classList.add("overflow-hidden");
-});
+if (openMenu && closeMenu && menu) {
+    openMenu.addEventListener("click", () => {
+        // enable smooth fade-in
+        menu.classList.add("transition-opacity", "duration-300", "ease-in-out");
+        menu.classList.remove("opacity-0", "pointer-events-none");
+        document.body.classList.add("overflow-hidden");
+    });
 
-closeMenu.addEventListener("click", closeMenuFn);
+    closeMenu.addEventListener("click", closeMenuFn);
 
-menu.querySelectorAll("a").forEach(link => {
-    link.addEventListener("click", closeMenuFn);
-});
+    menu.querySelectorAll("a").forEach(link => {
+        link.addEventListener("click", closeMenuFn);
+    });
+}
 
 function closeMenuFn() {
+    if (!menu) return;
+
     // disable transition ? instant close
     menu.classList.remove("transition-opacity", "duration-300", "ease-in-out");
     menu.classList.add("opacity-0", "pointer-events-none");
@@ -74,84 +80,89 @@ function closeMenuFn() {
 
 
 /////////////////////////////////////////////////////////////////////////////////////split text animation
-document.fonts.ready.then(() => {
-    gsap.set(".split", { opacity: 1 });
+if (typeof document.fonts !== "undefined" && typeof gsap !== "undefined" && typeof SplitText !== "undefined") {
+    document.fonts.ready.then(() => {
+        gsap.set(".split", { opacity: 1 });
 
-    let split;
-    SplitText.create(".split", {
-        type: "words,lines",
-        linesClass: "line",
-        autoSplit: true,
-        mask: "lines",
-        onSplit: (self) => {
-            split = gsap.timeline({ paused: true })
-                .to({}, { duration: 0.3 }) // 1s delay before the reveal
-                .from(self.lines, {
-                    duration: 2,
-                    yPercent: 100,
-                    opacity: 0,
-                    stagger: 0.1,
-                    ease: "expo.out",
-                });
-            return split;
+        let split;
+        SplitText.create(".split", {
+            type: "words,lines",
+            linesClass: "line",
+            autoSplit: true,
+            mask: "lines",
+            onSplit: (self) => {
+                split = gsap.timeline({ paused: true })
+                    .to({}, { duration: 0.3 })
+                    .from(self.lines, {
+                        duration: 2,
+                        yPercent: 100,
+                        opacity: 0,
+                        stagger: 0.1,
+                        ease: "expo.out",
+                    });
+                return split;
+            }
+        });
+
+        const splitTriggerButton = document.querySelector("button");
+        if (splitTriggerButton && split) {
+            splitTriggerButton.addEventListener("click", () => {
+                split.timeScale(1).play(0);
+            });
         }
     });
-
-
-    document.querySelector("button").addEventListener("click", (e) => {
-        split.timeScale(1).play(0);
-    });
-});
+}
 
 
 
 ////////////////////////////////////////////////////////////////////////////////////card drag and slide
 if (document.body.classList.contains('home-page')) {
     const slider = document.getElementById("services-track");
+    if (slider) {
+        let isDown = false;
+        let startX;
+        let scrollLeft;
 
-    let isDown = false;
-    let startX;
-    let scrollLeft;
+        /* -------- Mouse Events -------- */
+        slider.addEventListener("mousedown", (e) => {
+            isDown = true;
+            slider.classList.add("cursor-grabbing");
 
-    /* -------- Mouse Events -------- */
-    slider.addEventListener("mousedown", (e) => {
-        isDown = true;
-        slider.classList.add("cursor-grabbing");
+            startX = e.pageX - slider.offsetLeft;
+            scrollLeft = slider.scrollLeft;
+        });
 
-        startX = e.pageX - slider.offsetLeft;
-        scrollLeft = slider.scrollLeft;
-    });
+        slider.addEventListener("mouseleave", () => {
+            isDown = false;
+            slider.classList.remove("cursor-grabbing");
+        });
 
-    slider.addEventListener("mouseleave", () => {
-        isDown = false;
-        slider.classList.remove("cursor-grabbing");
-    });
+        slider.addEventListener("mouseup", () => {
+            isDown = false;
+            slider.classList.remove("cursor-grabbing");
+        });
 
-    slider.addEventListener("mouseup", () => {
-        isDown = false;
-        slider.classList.remove("cursor-grabbing");
-    });
+        slider.addEventListener("mousemove", (e) => {
+            if (!isDown) return;
+            e.preventDefault();
 
-    slider.addEventListener("mousemove", (e) => {
-        if (!isDown) return;
-        e.preventDefault();
+            const x = e.pageX - slider.offsetLeft;
+            const walk = (x - startX) * 1.4; // speed
+            slider.scrollLeft = scrollLeft - walk;
+        });
 
-        const x = e.pageX - slider.offsetLeft;
-        const walk = (x - startX) * 1.4; // speed
-        slider.scrollLeft = scrollLeft - walk;
-    });
+        /* -------- Touch Events -------- */
+        slider.addEventListener("touchstart", (e) => {
+            startX = e.touches[0].pageX;
+            scrollLeft = slider.scrollLeft;
+        });
 
-    /* -------- Touch Events -------- */
-    slider.addEventListener("touchstart", (e) => {
-        startX = e.touches[0].pageX;
-        scrollLeft = slider.scrollLeft;
-    });
-
-    slider.addEventListener("touchmove", (e) => {
-        const x = e.touches[0].pageX;
-        const walk = (x - startX) * 1.4;
-        slider.scrollLeft = scrollLeft - walk;
-    });
+        slider.addEventListener("touchmove", (e) => {
+            const x = e.touches[0].pageX;
+            const walk = (x - startX) * 1.4;
+            slider.scrollLeft = scrollLeft - walk;
+        });
+    }
 }
 
 
@@ -172,12 +183,44 @@ document.addEventListener("DOMContentLoaded", () => {
     let interval = null;
     const delay = 2000;
 
+    function supportsNativeSmoothScroll() {
+        return "scrollBehavior" in document.documentElement.style;
+    }
+
+    function animateScrollLeft(element, targetLeft, duration = 450) {
+        const startLeft = element.scrollLeft;
+        const distance = targetLeft - startLeft;
+        const startTime = performance.now();
+
+        function step(now) {
+            const elapsed = now - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3);
+            element.scrollLeft = startLeft + (distance * eased);
+
+            if (progress < 1) {
+                window.requestAnimationFrame(step);
+            }
+        }
+
+        window.requestAnimationFrame(step);
+    }
+
     function scrollToIndex(i) {
+        if (!cards.length) return;
+
         index = (i + cards.length) % cards.length;
-        track.scrollTo({
-            left: cards[index].offsetLeft,
-            behavior: "smooth",
-        });
+        const targetLeft = cards[index].offsetLeft;
+
+        if (supportsNativeSmoothScroll()) {
+            track.scrollTo({
+                left: targetLeft,
+                behavior: "smooth",
+            });
+            return;
+        }
+
+        animateScrollLeft(track, targetLeft);
     }
 
     function slideNext() {
@@ -240,28 +283,29 @@ document.addEventListener("DOMContentLoaded", () => {
 
     startAutoSlide();
 
-    ScrollTrigger.create({
-        trigger: "#services-slider",
-        start: "top",
-        end: "bottom 30%",
+    if (typeof ScrollTrigger !== "undefined") {
+        ScrollTrigger.create({
+            trigger: "#services-slider",
+            start: "top",
+            end: "bottom 30%",
 
-        onEnter: () => {
-            // resumeAutoSlide(); // Ensure it runs when in view
-            if (!isPaused) startAutoSlide();
-        },
+            onEnter: () => {
+                if (!isPaused) startAutoSlide();
+            },
 
-        onEnterBack: () => {
-            if (!isPaused) startAutoSlide();
-        },
+            onEnterBack: () => {
+                if (!isPaused) startAutoSlide();
+            },
 
-        onLeave: () => {
-            stopAutoSlide(); // Fully stop when out of view
-        },
+            onLeave: () => {
+                stopAutoSlide();
+            },
 
-        onLeaveBack: () => {
-            stopAutoSlide();
-        }
-    });
+            onLeaveBack: () => {
+                stopAutoSlide();
+            }
+        });
+    }
 
 });
 
@@ -326,7 +370,7 @@ if (testimonialSection && typeof gsap !== "undefined" && typeof ScrollTrigger !=
             isDesktop: "(min-width: 768px)",
         },
         (context) => {
-            const start = context.conditions.isMobile ? "top 90%" : "top 80%";
+            const start = context.conditions.isMobile ? "top 90%" : "top";
 
             testimonialCards.forEach((card, index) => {
                 const quote = card.querySelector("p");
@@ -647,6 +691,7 @@ window.addEventListener("load", () => {
 ////////////////////////////////////////////////////////////////////////////cursor icon when hover gsap animation
 document.addEventListener("DOMContentLoaded", () => {
     if (!document.body.classList.contains("home-page")) return;
+    if (typeof gsap === "undefined") return;
 
     const target = document.getElementById("services-track");
     const cursor = document.getElementById("cursor-icon");
