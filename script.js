@@ -370,7 +370,7 @@ if (testimonialSection && typeof gsap !== "undefined" && typeof ScrollTrigger !=
             isDesktop: "(min-width: 768px)",
         },
         (context) => {
-            const start = context.conditions.isMobile ? "top 90%" : "top";
+            const start = context.conditions.isMobile ? "center 92%" : "top -=50%";
 
             testimonialCards.forEach((card, index) => {
                 const quote = card.querySelector("p");
@@ -428,7 +428,7 @@ if (testimonialSection && typeof gsap !== "undefined" && typeof ScrollTrigger !=
                     scrollTrigger: {
                         trigger: card,
                         start,
-                        toggleActions: "play none none reset",
+                        toggleActions: "restart none restart reset",
                     }
                 });
 
