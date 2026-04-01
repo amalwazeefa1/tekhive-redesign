@@ -635,43 +635,63 @@ if (document.querySelector("#grow-morph-1")) {
 
 ///////////////////////////////////////////////////////////////////////////////popup button gsap animation - sticky button
 window.addEventListener("load", () => {
-    gsap.from("#pop-up", {
-        opacity: 0,
-        y: 40,
-        duration: 0.3,
-        ease: "back.out(1.7",
-        delay: 0.5
-    })
-})
-
-window.addEventListener("load", () => {
     const popup = document.querySelector("#pop-up");
     if (!popup || typeof gsap === "undefined") return;
 
+    gsap.set(popup, {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        clearProps: "transform"
+    });
+
+    gsap.from(popup, {
+        opacity: 0,
+        y: 0,
+        scale: 1,
+        duration: 0.35,
+        ease: "back.out(1.7)",
+        delay: 0.5
+    });
+
     let lastScrollY = window.scrollY;
     let scrollTimer;
+    let isHidden = false;
 
     window.addEventListener("scroll", () => {
         const currentScrollY = window.scrollY;
-        const isScrollingDown = currentScrollY > lastScrollY;
+        const scrollDelta = currentScrollY - lastScrollY;
+        const isScrollingDown = scrollDelta > 8;
 
-        if (isScrollingDown) {
+        if (isScrollingDown && !isHidden) {
             gsap.to(popup, {
-                y: 40,
-                opacity: 0,
-                duration: 0.3,
-                ease: "power2.out"
+                y: 80,
+                scale: 0.85,
+                duration: 0.25,
+                ease: "power2.in",
+                overwrite: true
             });
+            isHidden = true;
         }
 
         clearTimeout(scrollTimer);
         scrollTimer = setTimeout(() => {
-            gsap.to(popup, {
-                y: 0,
-                opacity: 1,
-                // duration: 0.4,
-                ease: "power2.out"
-            });
+            if (isHidden) {
+                gsap.fromTo(popup,
+                    {
+                        y: 40,
+                        scale: 0.85
+                    },
+                    {
+                        y: 0,
+                        scale: 1,
+                        duration: 0.35,
+                        ease: "back.out(1.7)",
+                        overwrite: true
+                    }
+                );
+                isHidden = false;
+            }
         }, 800);
 
         lastScrollY = currentScrollY;
