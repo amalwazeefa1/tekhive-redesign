@@ -666,7 +666,7 @@ window.addEventListener("load", () => {
         if (isScrollingDown && !isHidden) {
             gsap.to(popup, {
                 y: 80,
-                scale: 0.85,
+                scale: 0.75,
                 duration: 0.25,
                 ease: "power2.in",
                 overwrite: true
@@ -680,7 +680,7 @@ window.addEventListener("load", () => {
                 gsap.fromTo(popup,
                     {
                         y: 40,
-                        scale: 0.85
+                        scale: 0.75
                     },
                     {
                         y: 0,
