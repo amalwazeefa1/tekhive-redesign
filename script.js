@@ -1388,7 +1388,7 @@ lines.forEach((line, index) => {
         ease: "none",
         scrollTrigger: {
             trigger: line.parentElement,
-            start: "top 80%",
+            start: "top 60%",
             toggleActions: "play none none reset",
             duration: 1.5,
         },
