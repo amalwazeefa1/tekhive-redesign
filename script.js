@@ -636,55 +636,47 @@ if (document.querySelector("#grow-morph-1")) {
 ///////////////////////////////////////////////////////////////////////////////popup button gsap animation - sticky button
 window.addEventListener("load", () => {
     gsap.from("#pop-up", {
-        scale: 0.6,
         opacity: 0,
         y: 40,
-        duration: 0.8,
+        duration: 0.3,
         ease: "back.out(1.7",
         delay: 0.5
     })
 })
 
 window.addEventListener("load", () => {
-    const button = document.querySelector("#pop-up")
-    const text = button.querySelector(".popup-text")
-    const icon = button.querySelector(".popup-icon")
+    const popup = document.querySelector("#pop-up");
+    if (!popup || typeof gsap === "undefined") return;
 
-    // calculate final width (icon + padding)
-    const iconWidth = icon.offsetWidth
-    const finalWidth = iconWidth + 16 // little breathing space
+    let lastScrollY = window.scrollY;
+    let scrollTimer;
 
-    const tl = gsap.timeline({ delay: 0.3 })
+    window.addEventListener("scroll", () => {
+        const currentScrollY = window.scrollY;
+        const isScrollingDown = currentScrollY > lastScrollY;
 
-    // 1?? Pop-in animation
-    tl.from(button, {
-        scale: 0.6,
-        opacity: 0,
-        y: 40,
-        duration: 0.8,
-        scrub: true,
-        ease: "back.out(1.7)"
-    })
+        if (isScrollingDown) {
+            gsap.to(popup, {
+                y: 40,
+                opacity: 0,
+                duration: 0.3,
+                ease: "power2.out"
+            });
+        }
 
-    // 2?? Fade + slide text out
-    tl.to(text, {
-        opacity: 0,
-        x: -20,
-        duration: 0.3,
-        scrub: true,
-        ease: "power2.out"
-    }, "+=0.6")
+        clearTimeout(scrollTimer);
+        scrollTimer = setTimeout(() => {
+            gsap.to(popup, {
+                y: 0,
+                opacity: 1,
+                // duration: 0.4,
+                ease: "power2.out"
+            });
+        }, 800);
 
-    // 3?? Shrink button to icon size
-    tl.to(button, {
-        width: finalWidth,
-        paddingLeft: 0,
-        paddingRight: 0,
-        duration: 0.5,
-        scrub: true,
-        ease: "power3.inOut"
-    })
-})
+        lastScrollY = currentScrollY;
+    });
+});
 
 
 
