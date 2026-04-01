@@ -692,7 +692,7 @@ window.addEventListener("load", () => {
                 );
                 isHidden = false;
             }
-        }, 800);
+        }, 700);
 
         lastScrollY = currentScrollY;
     });
@@ -1278,6 +1278,37 @@ morphWrappers.forEach((wrapper) => {
         tl.reverse();
     });
 });
+
+
+//////////////////////// contact us submit button animation - morph svg on hover
+const submitMorphWrapper = document.getElementById("submit-morph-button");
+
+if (
+    submitMorphWrapper &&
+    typeof gsap !== "undefined" &&
+    typeof MorphSVGPlugin !== "undefined"
+) {
+    const submitShape = submitMorphWrapper.querySelector("#submit-small-shape1");
+    const submitHoverShape = submitMorphWrapper.querySelector("#submit-small-shape2");
+
+    if (submitShape && submitHoverShape) {
+        const submitMorphTl = gsap.timeline({ paused: true });
+
+        submitMorphTl.to(submitShape, {
+            duration: 0.45,
+            morphSVG: submitHoverShape,
+            ease: "power2.out"
+        });
+
+        submitMorphWrapper.addEventListener("mouseenter", () => {
+            submitMorphTl.play();
+        });
+
+        submitMorphWrapper.addEventListener("mouseleave", () => {
+            submitMorphTl.reverse();
+        });
+    }
+}
 
 
 ///////////////////////////////////////////////////////////////////////////////////footer logo gsap animation
