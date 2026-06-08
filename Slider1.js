@@ -53,6 +53,20 @@ document.addEventListener("DOMContentLoaded", () => {
         navItems.forEach((item, i) => {
             item.classList.toggle("active", i === index);
         });
+
+        const activeItem = navItems[index];
+        if (activeItem && nav) {
+            // Smoothly scroll the active item to the center of the navigation container
+            const navWidth = nav.offsetWidth;
+            const itemOffset = activeItem.offsetLeft;
+            const itemWidth = activeItem.offsetWidth;
+            const scrollTarget = itemOffset - (navWidth / 2) + (itemWidth / 2);
+
+            nav.scrollTo({
+                left: scrollTarget,
+                behavior: "smooth"
+            });
+        }
     }
 
     /* ------------------------

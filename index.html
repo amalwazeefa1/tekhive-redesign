@@ -95,6 +95,13 @@
         .glow-2-float {
             animation: float-glow-2 20s ease-in-out infinite;
         }
+        .scrollbar-none::-webkit-scrollbar {
+            display: none;
+        }
+        .scrollbar-none {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
     </style>
 </head>
 
@@ -360,15 +367,17 @@
         <div id="nav" class="
         absolute z-10
         bottom-6 md:bottom-16
-        md:left-24
+        left-0 md:left-24
+        w-full md:w-fit
         flex flex-row
-        gap-2
-        w-fit
+        gap-2 md:gap-4
+        px-6 md:px-0
+        overflow-x-auto md:overflow-visible
+        scrollbar-none
         items-end
-        justify-center
       ">
             <!-- ITEM 1 -->
-            <div class="nav-item w-fit group flex flex-col gap-4 active cursor-pointer">
+            <div class="nav-item w-fit flex-shrink-0 group flex flex-col gap-4 active cursor-pointer">
                 <span
                     class="text-white text-[12px] group-[.active]:text-[15px] md:text-[14px] group-[.active]:md:text-[20px] opacity-55 group-[.active]:opacity-100 group-[.active]:font-semibold transition-all duration-300 group-hover:opacity-80 tracking-wide whitespace-nowrap">
                     <span class="font-light mr-1 opacity-70">01</span><span
@@ -385,11 +394,11 @@
             </div>
 
             <!-- ITEM 2 -->
-            <div class="nav-item w-fit group flex flex-col gap-4 cursor-pointer">
+            <div class="nav-item w-fit flex-shrink-0 group flex flex-col gap-4 cursor-pointer">
                 <span
                     class="text-white text-[12px] group-[.active]:text-[15px] md:text-[14px] group-[.active]:md:text-[18px] opacity-55 group-[.active]:opacity-100 group-[.active]:font-semibold transition-all duration-300 group-hover:opacity-80 tracking-wide whitespace-nowrap">
                     <span class="font-light mr-1 opacity-70">02</span><span
-                        class="hidden group-[.active]:inline">App Development</span>
+                        class="hidden group-[.active]:inline">Ecommerce Solutions</span>
                 </span>
                 <div class="relative overflow-hidden w-10 group-[.active]:w-[250px] h-[3px] group-[.active]:h-[3px] bg-white/20 rounded-full transition-all duration-500
               before:content-['']
@@ -402,11 +411,11 @@
             </div>
 
             <!-- ITEM 3 -->
-            <div class="nav-item w-fit group flex flex-col gap-4 cursor-pointer">
+            <div class="nav-item w-fit flex-shrink-0 group flex flex-col gap-4 cursor-pointer">
                 <span
                     class="text-white text-[12px] group-[.active]:text-[15px] md:text-[14px] group-[.active]:md:text-[18px] opacity-55 group-[.active]:opacity-100 group-[.active]:font-semibold transition-all duration-300 group-hover:opacity-80 tracking-wide whitespace-nowrap">
                     <span class="font-light mr-1 opacity-70">03</span><span
-                        class="hidden group-[.active]:inline">CMS Development</span>
+                        class="hidden group-[.active]:inline">Mobile App Development</span>
                 </span>
                 <div class="relative overflow-hidden w-10 group-[.active]:w-[250px] h-[3px] group-[.active]:h-[3px] bg-white/20 rounded-full transition-all duration-500
               before:content-['']
@@ -419,11 +428,11 @@
             </div>
 
             <!-- ITEM 4 -->
-            <div class="nav-item w-fit group flex flex-col gap-4 cursor-pointer">
+            <div class="nav-item w-fit flex-shrink-0 group flex flex-col gap-4 cursor-pointer">
                 <span
                     class="text-white text-[12px] group-[.active]:text-[15px] md:text-[14px] group-[.active]:md:text-[18px] opacity-55 group-[.active]:opacity-100 group-[.active]:font-semibold transition-all duration-300 group-hover:opacity-80 tracking-wide whitespace-nowrap">
                     <span class="font-light mr-1 opacity-70">04</span><span
-                        class="hidden group-[.active]:inline">Digital Marketing</span>
+                        class="hidden group-[.active]:inline">CMS Development</span>
                 </span>
                 <div class="relative overflow-hidden w-10 group-[.active]:w-[250px] h-[3px] group-[.active]:h-[3px] bg-white/20 rounded-full transition-all duration-500
               before:content-['']
@@ -436,11 +445,11 @@
             </div>
 
             <!-- ITEM 5 -->
-            <div class="nav-item w-fit group flex flex-col gap-4 cursor-pointer">
+            <div class="nav-item w-fit flex-shrink-0 group flex flex-col gap-4 cursor-pointer">
                 <span
                     class="text-white text-[12px] group-[.active]:text-[15px] md:text-[14px] group-[.active]:md:text-[18px] opacity-55 group-[.active]:opacity-100 group-[.active]:font-semibold transition-all duration-300 group-hover:opacity-80 tracking-wide whitespace-nowrap">
                     <span class="font-light mr-1 opacity-70">05</span><span
-                        class="hidden group-[.active]:inline">SAP Business</span>
+                        class="hidden group-[.active]:inline">Digital Marketing</span>
                 </span>
                 <div class="relative overflow-hidden w-10 group-[.active]:w-[250px] h-[3px] group-[.active]:h-[3px] bg-white/20 rounded-full transition-all duration-500
               before:content-['']
@@ -453,11 +462,11 @@
             </div>
 
             <!-- ITEM 6 -->
-            <div class="nav-item w-fit group flex flex-col gap-4 cursor-pointer">
+            <div class="nav-item w-fit flex-shrink-0 group flex flex-col gap-4 cursor-pointer">
                 <span
                     class="text-white text-[12px] group-[.active]:text-[15px] md:text-[14px] group-[.active]:md:text-[18px] opacity-55 group-[.active]:opacity-100 group-[.active]:font-semibold transition-all duration-300 group-hover:opacity-80 tracking-wide whitespace-nowrap">
                     <span class="font-light mr-1 opacity-70">06</span><span
-                        class="hidden group-[.active]:inline">Automation</span>
+                        class="hidden group-[.active]:inline">Third Party App Integration</span>
                 </span>
                 <div class="relative overflow-hidden w-10 group-[.active]:w-[250px] h-[3px] group-[.active]:h-[3px] bg-white/20 rounded-full transition-all duration-500
               before:content-['']
@@ -470,11 +479,11 @@
             </div>
 
             <!-- ITEM 7 -->
-            <div class="nav-item w-fit group flex flex-col gap-4 cursor-pointer">
+            <div class="nav-item w-fit flex-shrink-0 group flex flex-col gap-4 cursor-pointer">
                 <span
                     class="text-white text-[12px] group-[.active]:text-[18px] md:text-[14px] group-[.active]:md:text-[18px] opacity-55 group-[.active]:opacity-100 group-[.active]:font-semibold transition-all duration-300 group-hover:opacity-80 tracking-wide whitespace-nowrap">
                     <span class="font-light mr-1 opacity-70">07</span><span
-                        class="hidden group-[.active]:inline">Ecommerce</span>
+                        class="hidden group-[.active]:inline">CRM</span>
                 </span>
                 <div class="relative overflow-hidden w-10 group-[.active]:w-[250px] h-[3px] group-[.active]:h-[3px] bg-white/20 rounded-full transition-all duration-500
               before:content-['']
