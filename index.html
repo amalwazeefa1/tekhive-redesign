@@ -81,6 +81,20 @@
             background-color: #fff;
             aspect-ratio: 1 / 1;
         }
+        @keyframes float-glow-1 {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(45px, -35px) scale(1.15); }
+        }
+        @keyframes float-glow-2 {
+            0%, 100% { transform: translate(0, 0) scale(1.1); }
+            50% { transform: translate(-35px, 45px) scale(0.85); }
+        }
+        .glow-1-float {
+            animation: float-glow-1 16s ease-in-out infinite;
+        }
+        .glow-2-float {
+            animation: float-glow-2 20s ease-in-out infinite;
+        }
     </style>
 </head>
 
@@ -649,7 +663,10 @@
 
     <!-- pinned section -->
     <section
-        class="pinned-section relative bg-black min-h-screen py-20 flex flex-col md:flex-row items-center justify-center gap-12 md:gap-24 px-6 md:px-16 lg:px-24">
+        class="pinned-section relative bg-black min-h-screen py-10 flex flex-col md:flex-row items-center justify-center gap-12 md:gap-24 px-6 md:px-16 lg:px-24 overflow-hidden">
+        <!-- Ambient Glows -->
+        <div class="absolute top-1/4 left-1/4 w-[350px] h-[350px] rounded-full bg-[#499bd5]/10 blur-[110px] pointer-events-none select-none glow-1 glow-1-float"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] rounded-full bg-[#57BF93]/10 blur-[130px] pointer-events-none select-none glow-2 glow-2-float"></div>
         <!-- Left: Logo -->
         <div class="flex items-center justify-center w-full md:w-1/2 max-w-lg">
             <img class="tekhive-icon w-20 md:w-28 lg:w-32 h-auto mr-4 md:mr-8" src="assets/tekhive-icon.svg" alt="icon">

@@ -912,13 +912,26 @@ if (document.body.classList.contains("home-page")) {
         }
     });
 
-    pinTl.from(".pinned-section .tekhive-icon", {
+    // Animate ambient glows
+    pinTl.from(".pinned-section .glow-1", {
+        scale: 0.4,
         opacity: 0,
-        scale: 0.5,
-        rotation: -45,
-        duration: 1,
-        ease: "back.out(1.7)"
-    })
+        duration: 1.5,
+        ease: "power2.out"
+    }, 0)
+        .from(".pinned-section .glow-2", {
+            scale: 0.4,
+            opacity: 0,
+            duration: 1.5,
+            ease: "power2.out"
+        }, 0.2)
+        .from(".pinned-section .tekhive-icon", {
+            opacity: 0,
+            scale: 0.5,
+            rotation: -45,
+            duration: 1,
+            ease: "back.out(1.7)"
+        }, 0.3)
         .from(".logo-part", {
             opacity: 0,
             y: 40,
@@ -931,32 +944,80 @@ if (document.body.classList.contains("home-page")) {
         }, "-=0.6")
         .from(".animated-divider", {
             scaleY: 0,
-            transformOrigin: "top",
-            duration: 0.8,
-            ease: "expo.out"
-        }, "-=0.3");
+            transformOrigin: "center",
+            duration: 1,
+            ease: "power3.inOut"
+        }, "-=0.8");
 
-    if (document.getElementById("tektext") && typeof SplitText !== "undefined") {
-        const split = SplitText.create("#tektext", {
-            type: "lines",
-            linesClass: "line",
-            mask: "lines",
+    if (document.getElementById("tektext")) {
+        if (typeof SplitType !== "undefined") {
+            const split = new SplitType("#tektext", { types: "lines" });
+            split.lines.forEach(line => {
+                const wrapper = document.createElement("div");
+                wrapper.style.overflow = "hidden";
+                wrapper.style.display = "block";
+                line.parentNode.insertBefore(wrapper, line);
+                wrapper.appendChild(line);
+            });
+            pinTl.from(split.lines, {
+                yPercent: 110,
+                opacity: 0,
+                duration: 1.2,
+                stagger: 0.1,
+                ease: "power4.out"
+            }, "-=0.5");
+        } else if (typeof SplitText !== "undefined") {
+            const split = SplitText.create("#tektext", {
+                type: "lines",
+                linesClass: "line",
+                mask: "lines",
+            });
+
+            pinTl.from(split.lines, {
+                duration: 1.2,
+                yPercent: 100,
+                opacity: 0,
+                stagger: 0.1,
+                ease: "expo.out",
+            }, "-=0.5");
+        } else {
+            pinTl.from("#tektext", {
+                opacity: 0,
+                y: 20,
+                duration: 0.8,
+                ease: "power3.out"
+            }, "-=0.5");
+        }
+    }
+
+    // Mouse hover parallax effect on ambient glows
+    const pinnedSec = document.querySelector(".pinned-section");
+    if (pinnedSec) {
+        pinnedSec.addEventListener("mousemove", (e) => {
+            const rect = pinnedSec.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            gsap.to(".pinned-section .glow-1", {
+                x: (x - rect.width / 2) * 0.12,
+                y: (y - rect.height / 2) * 0.12,
+                duration: 2.5,
+                ease: "power2.out"
+            });
+            gsap.to(".pinned-section .glow-2", {
+                x: -(x - rect.width / 2) * 0.12,
+                y: -(y - rect.height / 2) * 0.12,
+                duration: 2.5,
+                ease: "power2.out"
+            });
         });
-
-        pinTl.from(split.lines, {
-            duration: 1.2,
-            yPercent: 100,
-            opacity: 0,
-            stagger: 0.1,
-            ease: "expo.out",
-        }, "-=0.5");
-    } else {
-        pinTl.from("#tektext", {
-            opacity: 0,
-            y: 20,
-            duration: 0.8,
-            ease: "power3.out"
-        }, "-=0.5");
+        pinnedSec.addEventListener("mouseleave", () => {
+            gsap.to(".pinned-section .glow-1, .pinned-section .glow-2", {
+                x: 0,
+                y: 0,
+                duration: 2,
+                ease: "power2.out"
+            });
+        });
     }
 }
 
