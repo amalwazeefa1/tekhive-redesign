@@ -1,12 +1,12 @@
 document.addEventListener("DOMContentLoaded", () => {
     const slideTexts = [
-        "Turning Ideas Into Powerful Digital Products",
-        "Crafting Seamless Mobile Experiences",
-        "Empowering Your Brand with Tailored CMS Tools",
-        "Helping Brands Grow with Digital Marketing",
-        "Streamlining Operations with SAP Business One",
-        "Optimizing Workflows with Process Automation",
-        "Building High-Conversion E-Commerce Stores",
+        "Turning Ideas Into Powerful Digital Products", // 01 Web Development
+        "Building High-Conversion E-Commerce Stores", // 02 Ecommerce Solutions
+        "Crafting Seamless Mobile Experiences", // 03 Mobile App Development
+        "Empowering Your Brand with Tailored CMS Tools", // 04 CMS Development
+        "Helping Brands Grow with Digital Marketing", // 05 Digital Marketing
+        "Streamlining Operations with SAP Business One", // 06 Third Party App Integration
+        "Optimizing Workflows with Process Automation", // 07 CRM / Process Automation
     ];
 
     const wrapper = document.getElementById("wrapper");
