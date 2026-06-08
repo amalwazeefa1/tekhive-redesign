@@ -907,6 +907,7 @@ if (document.body.classList.contains("home-page")) {
             start: "top top",
             end: "+=150%",
             pin: true,
+            scrub: 1,
             toggleActions: "play none none reverse",
         }
     });
