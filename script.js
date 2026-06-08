@@ -510,7 +510,7 @@ if (document.body.classList.contains("home-page")) {
                 progress2,
                 { scaleX: 0, transformOrigin: "left center" },
                 {
-                    scaleX: 0.85,
+                    scaleX: 0.95,
                     duration: 3,
                     ease: "power2.out",
                     scrollTrigger: {
@@ -563,7 +563,7 @@ if (document.body.classList.contains("home-page")) {
     // second counter
     let counter2 = { value: 0 };
     gsap.to(counter2, {
-        value: 85,
+        value: 95,
         duration: 2,
         ease: "power1.out",
         scrollTrigger: {
