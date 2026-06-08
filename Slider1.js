@@ -56,16 +56,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const activeItem = navItems[index];
         if (activeItem && nav) {
-            // Smoothly scroll the active item to the center of the navigation container
-            const navWidth = nav.offsetWidth;
-            const itemOffset = activeItem.offsetLeft;
-            const itemWidth = activeItem.offsetWidth;
-            const scrollTarget = itemOffset - (navWidth / 2) + (itemWidth / 2);
+            if (window.innerWidth < 768) {
+                // Calculate statically to avoid layout transition delay issues
+                const navWidth = nav.offsetWidth;
+                const itemOffset = 24 + index * 48; // px-6 (24px) + index * (w-10 (40px) + gap-2 (8px))
+                const itemWidth = 250; // group-[.active]:w-[250px]
+                const scrollTarget = itemOffset - (navWidth / 2) + (itemWidth / 2);
 
-            nav.scrollTo({
-                left: scrollTarget,
-                behavior: "smooth"
-            });
+                nav.scrollTo({
+                    left: scrollTarget,
+                    behavior: "smooth"
+                });
+            }
         }
     }
 
