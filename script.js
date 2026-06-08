@@ -638,61 +638,65 @@ window.addEventListener("load", () => {
     const popup = document.querySelector("#pop-up");
     if (!popup || typeof gsap === "undefined") return;
 
-    gsap.set(popup, {
-        opacity: 1,
-        y: 0,
-        scale: 1,
-        clearProps: "transform"
-    });
+    // Check if we start at the top of the page (in the hero section)
+    const heroHeight = window.innerHeight;
+    const startAtTop = window.scrollY < heroHeight - 100;
 
-    gsap.from(popup, {
-        opacity: 0,
-        y: 0,
-        scale: 1,
-        duration: 0.35,
-        ease: "back.out(1.7)",
-        delay: 0.5
+    gsap.set(popup, {
+        y: startAtTop ? 100 : 0,
+        opacity: startAtTop ? 0 : 1,
+        scale: startAtTop ? 0.8 : 1
     });
 
     let lastScrollY = window.scrollY;
-    let scrollTimer;
-    let isHidden = false;
+    let isHidden = startAtTop;
 
     window.addEventListener("scroll", () => {
         const currentScrollY = window.scrollY;
+
+        // Keep completely hidden if in the hero section
+        if (currentScrollY < heroHeight - 100) {
+            if (!isHidden) {
+                gsap.to(popup, {
+                    y: 100,
+                    opacity: 0,
+                    scale: 0.8,
+                    duration: 0.35,
+                    ease: "power2.inOut",
+                    overwrite: true
+                });
+                isHidden = true;
+            }
+            lastScrollY = currentScrollY;
+            return;
+        }
+
         const scrollDelta = currentScrollY - lastScrollY;
         const isScrollingDown = scrollDelta > 8;
 
         if (isScrollingDown && !isHidden) {
+            // Hide on scroll down
             gsap.to(popup, {
-                y: 80,
-                scale: 0.75,
-                duration: 0.25,
-                ease: "power2.in",
+                y: 100,
+                opacity: 0,
+                scale: 0.8,
+                duration: 0.35,
+                ease: "power2.inOut",
                 overwrite: true
             });
             isHidden = true;
+        } else if (!isScrollingDown && isHidden && scrollDelta < -8) {
+            // Show immediately on scroll up
+            gsap.to(popup, {
+                y: 0,
+                opacity: 1,
+                scale: 1,
+                duration: 0.4,
+                ease: "back.out(1.7)",
+                overwrite: true
+            });
+            isHidden = false;
         }
-
-        clearTimeout(scrollTimer);
-        scrollTimer = setTimeout(() => {
-            if (isHidden) {
-                gsap.fromTo(popup,
-                    {
-                        y: 40,
-                        scale: 0.75
-                    },
-                    {
-                        y: 0,
-                        scale: 1,
-                        duration: 0.35,
-                        ease: "back.out(1.7)",
-                        overwrite: true
-                    }
-                );
-                isHidden = false;
-            }
-        }, 700);
 
         lastScrollY = currentScrollY;
     });
