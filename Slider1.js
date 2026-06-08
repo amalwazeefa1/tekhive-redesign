@@ -41,6 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
     ------------------------ */
     gsap.set(slides, { xPercent: 100, zIndex: 0 });
     gsap.set(slides[0], { xPercent: 0, zIndex: 2 });
+    gsap.set(".slide-bg", { xPercent: 0 });
 
     /* ------------------------
        UPDATE NAV
@@ -64,25 +65,44 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const currentSlide = slides[currentIndex];
         const nextSlide = slides[nextIndex];
+        const currentBg = currentSlide.querySelector(".slide-bg");
+        const nextBg = nextSlide.querySelector(".slide-bg");
 
         updateNav(nextIndex);
+
+        const startXPercent = direction * 100;
+        const endXPercent = -direction * 100;
+        const startBgXPercent = -direction * 30; // parallax offset (slides opposite way)
+        const endBgXPercent = direction * 30;
+
+        // Set layout & start positions
+        gsap.set(currentSlide, { zIndex: 1 });
+        gsap.set(nextSlide, { xPercent: startXPercent, zIndex: 2 });
+        gsap.set(nextBg, { xPercent: startBgXPercent });
 
         const tl = gsap.timeline({
             defaults: { ease: "power2.inOut" },
             onComplete: () => {
-                gsap.set(currentSlide, { zIndex: 0 });
+                // reset all non-active slides
+                slides.forEach((slide, idx) => {
+                    if (idx !== nextIndex) {
+                        gsap.set(slide, { xPercent: 100, zIndex: 0 });
+                    }
+                });
+                gsap.set(nextSlide, { zIndex: 2 });
                 isAnimating = false;
                 currentIndex = nextIndex;
             },
         });
 
-        gsap.set(nextSlide, { xPercent: 100, zIndex: 2 });
-
         tl.to(textEl, { opacity: 0, y: -30, duration: 0.4 }, 0)
             .add(() => {
                 textEl.innerHTML = slideTexts[nextIndex];
             })
+            .to(currentSlide, { xPercent: endXPercent, duration: 1.8 }, 0)
+            .to(currentBg, { xPercent: endBgXPercent, duration: 1.8 }, 0)
             .to(nextSlide, { xPercent: 0, duration: 1.8 }, 0)
+            .to(nextBg, { xPercent: 0, duration: 1.8 }, 0)
             .to(textEl, { opacity: 1, y: 0, duration: 0.8 }, 1.1);
     }
 
