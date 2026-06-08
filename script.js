@@ -638,9 +638,10 @@ window.addEventListener("load", () => {
     const popup = document.querySelector("#pop-up");
     if (!popup || typeof gsap === "undefined") return;
 
-    // Check if we start at the top of the page (in the hero section)
+    // Check if we are on the homepage to decide if we hide at the top (hero section)
+    const isHomePage = document.body.classList.contains("home-page");
     const heroHeight = window.innerHeight;
-    const startAtTop = window.scrollY < heroHeight - 100;
+    const startAtTop = isHomePage && (window.scrollY < heroHeight - 100);
 
     gsap.set(popup, {
         y: startAtTop ? 100 : 0,
@@ -654,8 +655,8 @@ window.addEventListener("load", () => {
     window.addEventListener("scroll", () => {
         const currentScrollY = window.scrollY;
 
-        // Keep completely hidden if in the hero section
-        if (currentScrollY < heroHeight - 100) {
+        // On the homepage, keep completely hidden if inside the hero section
+        if (isHomePage && currentScrollY < heroHeight - 100) {
             if (!isHidden) {
                 gsap.to(popup, {
                     y: 100,
