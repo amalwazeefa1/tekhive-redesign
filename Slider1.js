@@ -4,6 +4,9 @@ document.addEventListener("DOMContentLoaded", () => {
         "Crafting Seamless Mobile Experiences",
         "Empowering Your Brand with Tailored CMS Tools",
         "Helping Brands Grow with Digital Marketing",
+        "Streamlining Operations with SAP Business One",
+        "Optimizing Workflows with Process Automation",
+        "Building High-Conversion E-Commerce Stores",
     ];
 
     const wrapper = document.getElementById("wrapper");
