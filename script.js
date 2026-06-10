@@ -296,8 +296,7 @@ if (testimonialSection && typeof gsap !== "undefined" && typeof ScrollTrigger !=
             isDesktop: "(min-width: 768px)",
         },
         (context) => {
-            const start = context.conditions.isMobile ? "center 92%" : "top -=50%";
-
+            const start = context.conditions.isMobile ? "top 90%" : "top 85%";
             testimonialCards.forEach((card, index) => {
                 const quote = card.querySelector("p");
                 const badge = card.querySelector(".small-card");
@@ -422,10 +421,10 @@ if (document.body.classList.contains("home-page")) {
                 { scaleX: 0, transformOrigin: "left center" },
                 {
                     scaleX: 0.98,
-                    duration: 3,
+                    duration: 2,
                     ease: "power2.out",
                     scrollTrigger: {
-                        trigger: progress1,
+                        trigger: "#about-us",
                         start,
                         toggleActions: "play none none reset"
                     }
@@ -437,10 +436,10 @@ if (document.body.classList.contains("home-page")) {
                 { scaleX: 0, transformOrigin: "left center" },
                 {
                     scaleX: 0.95,
-                    duration: 3,
+                    duration: 2,
                     ease: "power2.out",
                     scrollTrigger: {
-                        trigger: progress2,
+                        trigger: "#about-us",
                         start,
                         toggleActions: "play none none reset"
                     }
@@ -448,13 +447,13 @@ if (document.body.classList.contains("home-page")) {
             );
         };
 
-        // Mobile devices should trigger later because the section is taller in view.
+        // Trigger animation when the section enters the screen
         mm.add("(max-width: 767px)", () => {
-            createProgressAnimation("top 30%");
+            createProgressAnimation("top 85%");
         });
 
         mm.add("(min-width: 768px)", () => {
-            createProgressAnimation("center");
+            createProgressAnimation("top 80%");
         });
     }
 
@@ -475,7 +474,7 @@ if (document.body.classList.contains("home-page")) {
         ease: "power1.out",
         scrollTrigger: {
             trigger: "#about-us",
-            start: "center",
+            start: "top 80%",
             toggleActions: "play none none reset"
         },
         onUpdate: () => {
@@ -494,7 +493,7 @@ if (document.body.classList.contains("home-page")) {
         ease: "power1.out",
         scrollTrigger: {
             trigger: "#about-us",
-            start: "center",
+            start: "top 80%",
             toggleActions: "play none none reset"
         },
         onUpdate: () => {
@@ -835,10 +834,10 @@ if (document.body.classList.contains("home-page")) {
     const pinTl = gsap.timeline({
         scrollTrigger: {
             trigger: ".pinned-section",
-            start: "top top",
-            end: "+=150%",
-            pin: true,
-            scrub: 1,
+            start: "top 80%",
+            end: "bottom center",
+            pin: false,
+            scrub: false,
             toggleActions: "play none none reverse",
         }
     });
