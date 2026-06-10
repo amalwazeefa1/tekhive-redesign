@@ -144,6 +144,9 @@
                                 </span>
                             </a>
 
+                            <!-- Backdrop Overlay -->
+                            <div class="fixed inset-0 top-16 bg-black/50 opacity-0 pointer-events-none group-hover:opacity-100 transition-opacity duration-300 z-30"></div>
+
                             <!-- Mega menu -->
                             <div class="absolute left-0 shadow-sm top-full w-screen
             bg-[#F0FAF6] dark:bg-slate-800
@@ -532,7 +535,8 @@
                 <span
                     class="inline-flex items-center h-6 tracking-[7px] text-[10px] text-[#3a3a3a] relative before:content-[''] before:inline-block before:w-[6px] before:h-[6px] before:bg-[#09aeb8] before:mr-4">
                 </span>
-                <span class="text relative inline-block overflow-hidden text-[#3a3a3a] text-[10px] [word-spacing:4px]">S E C U R E . &nbsp S M A R T . &nbsp S E A M L E S S .</span>
+                <span class="text relative inline-block overflow-hidden text-[#3a3a3a] text-[10px] [word-spacing:4px]">S
+                    E C U R E . &nbsp S M A R T . &nbsp S E A M L E S S .</span>
                 <span class="text-mask-about-label absolute inset-0 bg-[#09aeb8]"></span>
             </span>
             <h1 class="hidden md:block text-4xl leading-[90%] font-semibold mb-12">
@@ -1120,7 +1124,7 @@
                 <span class="text-2xl flex items-center">.</span>
                 <span class="inline-block font-medium text-black text-lg px-4">Digital Marketing</span>
                 <!-- First set -->
-                 <span class="text-2xl flex items-center">.</span>
+                <span class="text-2xl flex items-center">.</span>
                 <span class="inline-block font-medium text-black text-lg px-4">WEB Design & Development</span>
                 <span class="text-2xl flex items-center">.</span>
                 <span class="inline-block font-medium text-black text-lg px-4">UI/UX Design</span>
@@ -1205,14 +1209,16 @@
             </div>
         </div>
     </section>
-        <!-- Sticky Bottom Nav / FAB Area -->
+    <!-- Sticky Bottom Nav / FAB Area -->
     <div class="fixed bottom-0 right-0 p-6 pointer-events-none z-40">
         <a href="contact.html" class="pointer-events-auto block">
             <button id="pop-up"
                 class="group flex h-14 w-fit items-center justify-between gap-4 rounded-full border border-white/10 bg-gradient-to-br from-slate-900 to-slate-800 pl-6 pr-2 text-white shadow-[0_10px_30px_-10px_rgba(0,0,0,0.5),0_0_20px_rgba(73,155,213,0.15)] transition-all duration-300 ease-[cubic-bezier(0.25,0.8,0.25,1)] hover:scale-[1.02] hover:border-blue-400/40 hover:shadow-[0_15px_35px_-10px_rgba(0,0,0,0.6),0_0_25px_rgba(73,155,213,0.3)] active:scale-[0.98] dark:border-black/5 dark:from-white dark:to-slate-100 dark:text-black dark:shadow-[0_10px_30px_-10px_rgba(0,0,0,0.15),0_0_20px_rgba(87,191,147,0.15)] dark:hover:border-emerald-400/40 dark:hover:shadow-[0_15px_35px_-10px_rgba(0,0,0,0.25),0_0_25px_rgba(87,191,147,0.3)]">
                 <span class="text-sm font-semibold tracking-wider">Get Started</span>
-                <div class="flex size-10 items-center justify-center rounded-full bg-primary text-black transition-transform duration-300 ease-[cubic-bezier(0.25,0.8,0.25,1)] group-hover:scale-105">
-                    <span class="material-symbols-outlined transition-transform duration-300 ease-[cubic-bezier(0.25,0.8,0.25,1)] group-hover:rotate-45">arrow_outward</span>
+                <div
+                    class="flex size-10 items-center justify-center rounded-full bg-primary text-black transition-transform duration-300 ease-[cubic-bezier(0.25,0.8,0.25,1)] group-hover:scale-105">
+                    <span
+                        class="material-symbols-outlined transition-transform duration-300 ease-[cubic-bezier(0.25,0.8,0.25,1)] group-hover:rotate-45">arrow_outward</span>
                 </div>
             </button>
         </a>
@@ -1288,7 +1294,7 @@
 
 
         <img id="footerLogo" class="relative z-0 m-auto mb-[-190px] w-[300px]" src="assets/tekhive_blur_logo.png"
-         draggable="false"   alt="">
+            draggable="false" alt="">
         <footer class="relative z-10 bg-transparent border-t-2 border-[#ededed] text-sm font-medium">
             <div class="bg-black w-full h-full"></div>
 
@@ -1423,7 +1429,8 @@
                         <li><a class="cursor-pointer text-[14px] md:text-[16px]" href="index.html">Home</a></li>
                         <li><a class="cursor-pointer text-[14px] md:text-[16px]" href="about.html">About</a></li>
                         <li><a class="cursor-pointer text-[14px] md:text-[16px]" href="work.html">Portfolio</a></li>
-                        <li><a class="cursor-pointer text-[14px] md:text-[16px]" href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a class="cursor-pointer text-[14px] md:text-[16px]" href="privacy-policy.html">Privacy
+                                Policy</a></li>
                     </ul>
                 </div>
 
@@ -1434,9 +1441,12 @@
                     <ul class="space-y-1 flex flex-col gap-[6px]">
                         <li class="group flex items-center"><a class="cursor-pointer text-[14px] md:text-[16px]"
                                 href="website-development.html">Web Development</a></li>
-                        <li><a class="cursor-pointer text-[14px] md:text-[16px]" href="e-commerce.html">Ecommerce Solutions</a></li>
-                        <li><a class="cursor-pointer text-[14px] md:text-[16px]" href="mobile-app-development.html">Mobile App Development</a></li>
-                        <li><a class="cursor-pointer text-[14px] md:text-[16px]" href="third-party-app-integration.html">Third Party Apps
+                        <li><a class="cursor-pointer text-[14px] md:text-[16px]" href="e-commerce.html">Ecommerce
+                                Solutions</a></li>
+                        <li><a class="cursor-pointer text-[14px] md:text-[16px]"
+                                href="mobile-app-development.html">Mobile App Development</a></li>
+                        <li><a class="cursor-pointer text-[14px] md:text-[16px]"
+                                href="third-party-app-integration.html">Third Party Apps
                                 Integration</a></li>
                     </ul>
                 </div>
@@ -1446,10 +1456,14 @@
                     class="p-6 pt-20 border border-l-2 border-r-2 md:border-r-0 border-t-2 border-b-0 border-[#ededed]">
                     <p class="text-gray-400 mb-6 text-[16px] md:text-[18px]">Business Solutions</p>
                     <ul class="space-y-1 flex flex-col gap-[6px]">
-                        <li><a class="cursor-pointer text-[14px] md:text-[16px]" href="cms-development.html">CMS Development</a></li>
-                        <li><a class="cursor-pointer text-[14px] md:text-[16px]" href="digital-marketing.html">Digital Marketing</a></li>
-                        <li><a class="cursor-pointer text-[14px] md:text-[16px]" href="sap-business-one.html">SAP Business One</a></li>
-                        <li><a class="cursor-pointer text-[14px] md:text-[16px]" href="business-intelligence-tool.html">Business Intelligence
+                        <li><a class="cursor-pointer text-[14px] md:text-[16px]" href="cms-development.html">CMS
+                                Development</a></li>
+                        <li><a class="cursor-pointer text-[14px] md:text-[16px]" href="digital-marketing.html">Digital
+                                Marketing</a></li>
+                        <li><a class="cursor-pointer text-[14px] md:text-[16px]" href="sap-business-one.html">SAP
+                                Business One</a></li>
+                        <li><a class="cursor-pointer text-[14px] md:text-[16px]"
+                                href="business-intelligence-tool.html">Business Intelligence
                                 Tools</a></li>
                     </ul>
                 </div>
@@ -1458,8 +1472,10 @@
                 <div class="p-6 pt-20 border border-r-2 border-l-2 border-t-2 border-b-0 border-[#ededed]">
                     <p class="text-gray-400 mb-6 text-[16px] md:text-[18px]">Contact Us</p>
                     <ul class="space-y-1 flex flex-col gap-[6px]">
-                        <li><a class="cursor-pointer text-[14px] md:text-[16px]" href="mailto:info@tekhive.com">info@tekhive.com</a></li>
-                        <li><a class="cursor-pointer text-[14px] md:text-[16px]" href="tel:+914872970765">+91 - 487 - 2970765</a></li>
+                        <li><a class="cursor-pointer text-[14px] md:text-[16px]"
+                                href="mailto:info@tekhive.com">info@tekhive.com</a></li>
+                        <li><a class="cursor-pointer text-[14px] md:text-[16px]" href="tel:+914872970765">+91 - 487 -
+                                2970765</a></li>
                         <li><a class="cursor-pointer text-[14px] md:text-[16px]"
                                 href="https://www.google.com/maps?q=Infopark+Koratty+Kerala+India">Infopark Koratty <br>
                                 Kerala, India</a></li>
@@ -1561,4 +1577,3 @@
 </body>
 
 </html>
-
