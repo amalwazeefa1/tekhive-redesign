@@ -582,16 +582,27 @@
 
 
 
-    <section class="relative">
+    <section class="relative overflow-hidden">
+        <!-- Graphics top left -->
+        <div
+            class="absolute top-0 left-0 z-0 opacity-40 pointer-events-none select-none md:w-[450px]">
+            <img src="assets/tekhive-graphics2.svg" alt="graphics"
+                class="w-full h-auto -translate-y-[10%] -translate-x-[15%] md:-translate-x-[45%]" />
+        </div>
         <div class="h-full flex items-center bg-black py-16">
-            <div class="max-w-7xl mx-auto px-4 space-y-6 py-16">
+            <div class="max-w-7xl mx-auto px-4 space-y-6 py-16 relative z-10">
                 <h1 class="text-6xl sm:w-3/4 m-auto font-thin text-start sm:text-center leading-[1.2]">
                     <span class="fill-line block text-white/20">Innovative</span>
                     <span class="fill-line block text-white/20">approaches and solutions.</span>
                     <span class="fill-line block text-white/20">Set path for a better future.</span>
                 </h1>
-
             </div>
+        </div>
+        <!-- Graphics bottom right -->
+        <div
+            class="absolute bottom-0 right-0 z-0 opacity-45 pointer-events-none select-none max-w-[200px] md:max-w-[300px]">
+            <img src="assets/tekhive-grphics.svg" alt="graphics"
+                class="w-full h-auto translate-y-[15%] translate-x-[15%]" />
         </div>
     </section>
 

@@ -5,8 +5,8 @@ document.addEventListener("DOMContentLoaded", () => {
         "Crafting Seamless Mobile Experiences", // 03 Mobile App Development
         "Empowering Your Brand with Tailored CMS Tools", // 04 CMS Development
         "Helping Brands Grow with Digital Marketing", // 05 Digital Marketing
-        "Streamlining Operations with SAP Business One", // 06 Third Party App Integration
-        "Optimizing Workflows with Process Automation", // 07 CRM / Process Automation
+        "Connecting Systems with Seamless Integrations", // 06 Third Party App Integration
+        "Centralizing Customer Data and Driving Sales", // 07 CRM
     ];
 
     const wrapper = document.getElementById("wrapper");
