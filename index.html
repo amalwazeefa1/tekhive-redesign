@@ -81,27 +81,48 @@
             background-color: #fff;
             aspect-ratio: 1 / 1;
         }
+
         @keyframes float-glow-1 {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            50% { transform: translate(45px, -35px) scale(1.15); }
+
+            0%,
+            100% {
+                transform: translate(0, 0) scale(1);
+            }
+
+            50% {
+                transform: translate(45px, -35px) scale(1.15);
+            }
         }
+
         @keyframes float-glow-2 {
-            0%, 100% { transform: translate(0, 0) scale(1.1); }
-            50% { transform: translate(-35px, 45px) scale(0.85); }
+
+            0%,
+            100% {
+                transform: translate(0, 0) scale(1.1);
+            }
+
+            50% {
+                transform: translate(-35px, 45px) scale(0.85);
+            }
         }
+
         .glow-1-float {
             animation: float-glow-1 16s ease-in-out infinite;
         }
+
         .glow-2-float {
             animation: float-glow-2 20s ease-in-out infinite;
         }
+
         .scrollbar-none::-webkit-scrollbar {
             display: none;
         }
+
         .scrollbar-none {
             -ms-overflow-style: none;
             scrollbar-width: none;
-        }    </style>
+        }
+    </style>
 </head>
 
 <body
@@ -747,11 +768,16 @@
     <section
         class="pinned-section relative bg-black min-h-screen py-10 flex flex-col md:flex-row items-center justify-center gap-12 md:gap-24 px-6 md:px-16 lg:px-24 overflow-hidden">
         <!-- Ambient Glows -->
-        <div class="absolute top-1/4 left-1/4 w-[350px] h-[350px] rounded-full bg-[#499bd5]/10 blur-[110px] pointer-events-none select-none glow-1 glow-1-float"></div>
-        <div class="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] rounded-full bg-[#57BF93]/10 blur-[130px] pointer-events-none select-none glow-2 glow-2-float"></div>
+        <div
+            class="absolute top-1/4 left-1/4 w-[350px] h-[350px] rounded-full bg-[#499bd5]/10 blur-[110px] pointer-events-none select-none glow-1 glow-1-float">
+        </div>
+        <div
+            class="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] rounded-full bg-[#57BF93]/10 blur-[130px] pointer-events-none select-none glow-2 glow-2-float">
+        </div>
         <!-- Left: Logo -->
         <div class="flex items-center justify-start w-full md:w-1/2 max-w-lg">
-            <img class="tekhive-icon select-none w-20 md:w-28 lg:w-32 h-auto mr-4 md:mr-8" src="assets/tekhive-icon.svg" draggable="false" alt="icon">
+            <img class="tekhive-icon select-none w-20 md:w-28 lg:w-32 h-auto mr-4 md:mr-8" src="assets/tekhive-icon.svg"
+                draggable="false" alt="icon">
             <svg class="tekhive-text w-full max-w-[180px] md:max-w-[260px] lg:max-w-[320px] h-auto" id="Layer_1"
                 data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300.3 48.4">
                 <polygon class="logo-part"
@@ -782,10 +808,10 @@
                 class="animated-divider w-[2px] min-h-[100px] bg-gradient-to-b from-transparent via-[#57BF93] to-transparent mr-6 md:mr-10 drop-shadow-[0_0_8px_rgba(87,191,147,0.6)]">
             </div>
             <div class="relative text-white flex items-center">
-                <p id="tektext"
-                    class="text-xl font-light leading-relaxed tracking-wide text-slate-300">
-                    At Tekhive, we bridge technology and business success. Through innovative IT services, business 
-                    automation, ERP solutions, CRM systems, and digital transformation strategies, we help businesses work smarter, grow faster, and compete confidently.
+                <p id="tektext" class="text-xl font-light leading-relaxed tracking-wide text-slate-300">
+                    At Tekhive, we bridge technology and business success. Through innovative IT services, business
+                    automation, ERP solutions, CRM systems, and digital transformation strategies, we help businesses
+                    work smarter, grow faster, and compete confidently.
                 </p>
             </div>
         </div>
@@ -843,7 +869,8 @@
 
                     <div class="flex flex-col">
                         <h2 class="font-bold text-xl">Grow your business</h2>
-                        <p class="text-gray-500 font-light">Innovative technology solutions designed to help your business scale faster and operate smarter.</p>
+                        <p class="text-gray-500 font-light">Innovative technology solutions designed to help your
+                            business scale faster and operate smarter.</p>
                     </div>
                 </div>
                 <div class="flex gap-8">
@@ -955,7 +982,8 @@ z
                     <div class="flex flex-col">
                         <h2 class="font-bold text-xl">
                             Optimize Operations</h2>
-                        <p class="text-gray-500 font-light">Automate processes, integrate systems, and improve efficiency with intelligent business solutions.</p>
+                        <p class="text-gray-500 font-light">Automate processes, integrate systems, and improve
+                            efficiency with intelligent business solutions.</p>
                     </div>
                 </div>
                 <div class="flex gap-8">
@@ -1015,7 +1043,8 @@ z
                     <div class="flex flex-col">
                         <h2 class="font-bold text-xl">
                             Boost performance</h2>
-                        <p class="text-gray-500 font-light">Drive better results through data-driven strategies, digital innovation, and expert technology support.</p>
+                        <p class="text-gray-500 font-light">Drive better results through data-driven strategies, digital
+                            innovation, and expert technology support.</p>
                     </div>
                 </div>
             </div>
@@ -1039,7 +1068,8 @@ z
                 <div class="flex flex-col w-full sm:w-1/2 gap-8" id="about-us">
                     <h2 class="text-4xl font-bold leading-[110%] text-[#3a3a3a] space-y-[-15px]">
                         <span class="line relative inline-block overflow-hidden">
-                            <span class="text relative inline-block overflow-hidden">Technology Solutions That Power</span>
+                            <span class="text relative inline-block overflow-hidden">Technology Solutions That
+                                Power</span>
                             <span class="text-mask1-section-home absolute inset-0 bg-[#fCfCfC]"></span>
                         </span>
                         <span class="line relative inline-block overflow-hidden">
@@ -1048,7 +1078,10 @@ z
                             <span class="text-mask1-section-home absolute inset-0 bg-[#fCfCfC]"></span>
                         </span>
                     </h2>
-                    <p class="space-y-4">Tekhive helps businesses innovate, automate, and scale through a comprehensive range of IT and business solutions. From web and mobile application development to ERP, CRM, business intelligence, process automation, and digital marketing, we deliver technology-driven solutions that create measurable business value.</p>
+                    <p class="space-y-4">Tekhive helps businesses innovate, automate, and scale through a comprehensive
+                        range of IT and business solutions. From web and mobile application development to ERP, CRM,
+                        business intelligence, process automation, and digital marketing, we deliver technology-driven
+                        solutions that create measurable business value.</p>
 
                     <div class="space-y-2">
                         <!-- BUSINESS GROWTH -->
@@ -1158,7 +1191,9 @@ z
 
                                     </div>
                                     <p class="text-sm text-slate-600 dark:text-slate-300">
-                                        Create powerful, responsive websites tailored to your business goals. We build modern web solutions that deliver exceptional user experiences and support long-term growth.
+                                        Create powerful, responsive websites tailored to your business goals. We build
+                                        modern web solutions that deliver exceptional user experiences and support
+                                        long-term growth.
                                     </p>
                                     <button class="mt-1 flex items-center gap-2 text-sm font-bold
                                    text-slate-900 dark:text-white
@@ -1222,7 +1257,9 @@ z
                                         </h3>
                                     </div>
                                     <p class="text-sm text-slate-600 dark:text-slate-300">
-                                        Launch and grow your online business with secure, scalable ecommerce solutions. We help you create seamless shopping experiences that drive conversions and customer satisfaction.
+                                        Launch and grow your online business with secure, scalable ecommerce solutions.
+                                        We help you create seamless shopping experiences that drive conversions and
+                                        customer satisfaction.
                                     </p>
                                     <button class="mt-1 flex items-center gap-2 text-sm font-bold
                                    text-slate-900 dark:text-white
@@ -1285,7 +1322,9 @@ z
                                         </h3>
                                     </div>
                                     <p class="text-sm text-slate-600 dark:text-slate-300">
-                                        Transform your ideas into intuitive mobile applications. Our custom app solutions help businesses engage users, improve accessibility, and stay connected on the go.
+                                        Transform your ideas into intuitive mobile applications. Our custom app
+                                        solutions help businesses engage users, improve accessibility, and stay
+                                        connected on the go.
                                     </p>
                                     <button class="mt-1 flex items-center gap-2 text-sm font-bold
                                    text-slate-900 dark:text-white
@@ -1348,7 +1387,8 @@ z
                                         </h3>
                                     </div>
                                     <p class="text-sm text-slate-600 dark:text-slate-300">
-                                        Manage your website content with ease through flexible CMS solutions. We develop user-friendly platforms that simplify updates and streamline content management.
+                                        Manage your website content with ease through flexible CMS solutions. We develop
+                                        user-friendly platforms that simplify updates and streamline content management.
                                     </p>
                                     <button class="mt-1 flex items-center gap-2 text-sm font-bold
                                    text-slate-900 dark:text-white
@@ -1411,7 +1451,9 @@ z
                                         </h3>
                                     </div>
                                     <p class="text-sm text-slate-600 dark:text-slate-300">
-                                        Reach the right audience and grow your online presence with data-driven digital marketing strategies. From visibility to engagement, we help your brand achieve measurable results.
+                                        Reach the right audience and grow your online presence with data-driven digital
+                                        marketing strategies. From visibility to engagement, we help your brand achieve
+                                        measurable results.
                                     </p>
                                     <button class="mt-1 flex items-center gap-2 text-sm font-bold
                                    text-slate-900 dark:text-white
@@ -1475,12 +1517,14 @@ z
                                         </h3>
                                     </div>
                                     <p class="text-sm text-slate-600 dark:text-slate-300">
-                                        Ensure reliable online performance with secure domain registration and hosting services. We provide the foundation your business needs for a strong digital presence.
-                                    <button class="mt-1 flex items-center gap-2 text-sm font-bold
+                                        Ensure reliable online performance with secure domain registration and hosting
+                                        services. We provide the foundation your business needs for a strong digital
+                                        presence.
+                                        <button class="mt-1 flex items-center gap-2 text-sm font-bold
                                    text-slate-900 dark:text-white
                                    group-hover:text-primary transition-colors">
-                                        <a href="domain-and-web-hosting.html">Learn More</a>
-                                    </button>
+                                            <a href="domain-and-web-hosting.html">Learn More</a>
+                                        </button>
                                 </div>
                             </div>
                         </div>
@@ -1537,7 +1581,9 @@ z
                                         </h3>
                                     </div>
                                     <p class="text-sm text-slate-600 dark:text-slate-300">
-                                        Simplify business operations with SAP Business One. Gain greater control over finance, sales, inventory, and reporting through a unified business management platform.
+                                        Simplify business operations with SAP Business One. Gain greater control over
+                                        finance, sales, inventory, and reporting through a unified business management
+                                        platform.
                                     </p>
                                     <button class="mt-1 flex items-center gap-2 text-sm font-bold
                                    text-slate-900 dark:text-white
@@ -1600,7 +1646,9 @@ z
                                         </h3>
                                     </div>
                                     <p class="text-sm text-slate-600 dark:text-slate-300">
-                                        Turn business data into actionable insights with powerful analytics solutions. Make informed decisions, identify opportunities, and drive performance with confidence.
+                                        Turn business data into actionable insights with powerful analytics solutions.
+                                        Make informed decisions, identify opportunities, and drive performance with
+                                        confidence.
                                     </p>
                                     <button class="mt-1 flex items-center gap-2 text-sm font-bold
                                    text-slate-900 dark:text-white
@@ -1663,7 +1711,9 @@ z
                                         </h3>
                                     </div>
                                     <p class="text-sm text-slate-600 dark:text-slate-300">
-                                        Connect your business systems and applications seamlessly. Our integration solutions improve data flow, enhance productivity, and eliminate operational silos.
+                                        Connect your business systems and applications seamlessly. Our integration
+                                        solutions improve data flow, enhance productivity, and eliminate operational
+                                        silos.
                                     </p>
                                     <button class="mt-1 flex items-center gap-2 text-sm font-bold
                                    text-slate-900 dark:text-white
@@ -1725,7 +1775,9 @@ z
                                         </h3>
                                     </div>
                                     <p class="text-sm text-slate-600 dark:text-slate-300">
-                                        Build stronger customer relationships with a centralized CRM solution. Manage leads, sales activities, and customer interactions efficiently while supporting business growth.
+                                        Build stronger customer relationships with a centralized CRM solution. Manage
+                                        leads, sales activities, and customer interactions efficiently while supporting
+                                        business growth.
                                     </p>
                                     <button class="mt-1 flex items-center gap-2 text-sm font-bold
                                    text-slate-900 dark:text-white
@@ -1789,7 +1841,9 @@ z
                                         </h3>
                                     </div>
                                     <p class="text-sm text-slate-600 dark:text-slate-300">
-                                        Reduce manual effort and improve operational efficiency through intelligent automation. Streamline workflows, minimize errors, and accelerate business performance.
+                                        Reduce manual effort and improve operational efficiency through intelligent
+                                        automation. Streamline workflows, minimize errors, and accelerate business
+                                        performance.
                                     </p>
                                     <button class="mt-1 flex items-center gap-2 text-sm font-bold
                                    text-slate-900 dark:text-white
@@ -1852,7 +1906,9 @@ z
                                         </h3>
                                     </div>
                                     <p class="text-sm text-slate-600 dark:text-slate-300">
-                                        Keep your technology running smoothly with reliable IT support services. Our team helps resolve issues quickly, ensuring business continuity and productivity.
+                                        Keep your technology running smoothly with reliable IT support services. Our
+                                        team helps resolve issues quickly, ensuring business continuity and
+                                        productivity.
                                     </p>
                                     <button class="mt-1 flex items-center gap-2 text-sm font-bold
                                    text-slate-900 dark:text-white
@@ -1915,7 +1971,8 @@ z
                                         </h3>
                                     </div>
                                     <p class="text-sm text-slate-600 dark:text-slate-300">
-                                        Make smarter technology decisions with expert IT consulting. We help businesses align technology investments with strategic objectives and future growth plans.
+                                        Make smarter technology decisions with expert IT consulting. We help businesses
+                                        align technology investments with strategic objectives and future growth plans.
                                     </p>
                                     <button class="mt-1 flex items-center gap-2 text-sm font-bold
                                    text-slate-900 dark:text-white
@@ -1978,7 +2035,9 @@ z
                                         </h3>
                                     </div>
                                     <p class="text-sm text-slate-600 dark:text-slate-300">
-                                        Enhance operational efficiency with dependable back-office support services. We help manage essential business functions so your team can focus on core priorities.
+                                        Enhance operational efficiency with dependable back-office support services. We
+                                        help manage essential business functions so your team can focus on core
+                                        priorities.
                                     </p>
                                     <button class="mt-1 flex items-center gap-2 text-sm font-bold
                                    text-slate-900 dark:text-white
@@ -2019,7 +2078,7 @@ z
                         </div>
                     </div>
 
-                    
+
 
 
                     <div id="cursor-icon" class="shadow-lg pointer-events-none fixed top-[-10px] left-[-13px] z-50
@@ -2259,8 +2318,10 @@ z
             <button id="pop-up"
                 class="group flex h-14 w-fit items-center justify-between gap-4 rounded-full border border-white/10 bg-gradient-to-br from-slate-900 to-slate-800 pl-6 pr-2 text-white shadow-[0_10px_30px_-10px_rgba(0,0,0,0.5),0_0_20px_rgba(73, 155, 213, 0.15)] transition-all duration-300 ease-[cubic-bezier(0.25,0.8,0.25,1)] hover:scale-[1.02] hover:border-blue-400/40 hover:shadow-[0_15px_35px_-10px_rgba(0,0,0,0.6),0_0_25px_rgba(73, 155, 213, 0.3)] active:scale-[0.98] dark:border-black/5 dark:from-white dark:to-slate-100 dark:text-black dark:shadow-[0_10px_30px_-10px_rgba(0,0,0,0.15),0_0_20px_rgba(87, 191, 147, 0.15)] dark:hover:border-emerald-400/40 dark:hover:shadow-[0_15px_35px_-10px_rgba(0,0,0,0.25),0_0_25px_rgba(87, 191, 147, 0.3)]">
                 <span class="text-sm font-semibold tracking-wider">Get Started</span>
-                <div class="flex size-10 items-center justify-center rounded-full bg-primary text-black transition-transform duration-300 ease-[cubic-bezier(0.25,0.8,0.25,1)] group-hover:scale-105">
-                    <span class="material-symbols-outlined transition-transform duration-300 ease-[cubic-bezier(0.25,0.8,0.25,1)]  group-hover:rotate-45">arrow_outward</span>
+                <div
+                    class="flex size-10 items-center justify-center rounded-full bg-primary text-black transition-transform duration-300 ease-[cubic-bezier(0.25,0.8,0.25,1)] group-hover:scale-105">
+                    <span
+                        class="material-symbols-outlined transition-transform duration-300 ease-[cubic-bezier(0.25,0.8,0.25,1)]  group-hover:rotate-45">arrow_outward</span>
                 </div>
             </button>
         </a>
@@ -2334,7 +2395,7 @@ z
 
 
         <img id="footerLogo" class="relative z-0 m-auto mb-[-190px] w-[300px]" src="assets/tekhive_blur_logo.png"
-         draggable="false"   alt="">
+            draggable="false" alt="">
         <footer class="relative z-10 bg-transparent border-t-2 border-[#ededed] text-sm font-medium">
             <div class="bg-black w-full h-full"></div>
 
@@ -2469,7 +2530,8 @@ z
                         <li><a class="cursor-pointer text-[14px] md:text-[16px]" href="index.html">Home</a></li>
                         <li><a class="cursor-pointer text-[14px] md:text-[16px]" href="about.html">About</a></li>
                         <li><a class="cursor-pointer text-[14px] md:text-[16px]" href="work.html">Portfolio</a></li>
-                        <li><a class="cursor-pointer text-[14px] md:text-[16px]" href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a class="cursor-pointer text-[14px] md:text-[16px]" href="privacy-policy.html">Privacy
+                                Policy</a></li>
                     </ul>
                 </div>
 
@@ -2480,9 +2542,12 @@ z
                     <ul class="space-y-1 flex flex-col gap-[6px]">
                         <li class="group flex items-center"><a class="cursor-pointer text-[14px] md:text-[16px]"
                                 href="website-development.html">Web Development</a></li>
-                        <li><a class="cursor-pointer text-[14px] md:text-[16px]" href="e-commerce.html">Ecommerce Solutions</a></li>
-                        <li><a class="cursor-pointer text-[14px] md:text-[16px]" href="mobile-app-development.html">Mobile App Development</a></li>
-                        <li><a class="cursor-pointer text-[14px] md:text-[16px]" href="third-party-app-integration.html">Third Party Apps
+                        <li><a class="cursor-pointer text-[14px] md:text-[16px]" href="e-commerce.html">Ecommerce
+                                Solutions</a></li>
+                        <li><a class="cursor-pointer text-[14px] md:text-[16px]"
+                                href="mobile-app-development.html">Mobile App Development</a></li>
+                        <li><a class="cursor-pointer text-[14px] md:text-[16px]"
+                                href="third-party-app-integration.html">Third Party Apps
                                 Integration</a></li>
                     </ul>
                 </div>
@@ -2492,10 +2557,14 @@ z
                     class="p-6 pt-20 border border-l-2 border-r-2 md:border-r-0 border-t-2 border-b-0 border-[#ededed]">
                     <p class="text-gray-400 mb-6 text-[16px] md:text-[18px]">Business Solutions</p>
                     <ul class="space-y-1 flex flex-col gap-[6px]">
-                        <li><a class="cursor-pointer text-[14px] md:text-[16px]" href="cms-development.html">CMS Development</a></li>
-                        <li><a class="cursor-pointer text-[14px] md:text-[16px]" href="digital-marketing.html">Digital Marketing</a></li>
-                        <li><a class="cursor-pointer text-[14px] md:text-[16px]" href="sap-business-one.html">SAP Business One</a></li>
-                        <li><a class="cursor-pointer text-[14px] md:text-[16px]" href="business-intelligence-tool.html">Business Intelligence
+                        <li><a class="cursor-pointer text-[14px] md:text-[16px]" href="cms-development.html">CMS
+                                Development</a></li>
+                        <li><a class="cursor-pointer text-[14px] md:text-[16px]" href="digital-marketing.html">Digital
+                                Marketing</a></li>
+                        <li><a class="cursor-pointer text-[14px] md:text-[16px]" href="sap-business-one.html">SAP
+                                Business One</a></li>
+                        <li><a class="cursor-pointer text-[14px] md:text-[16px]"
+                                href="business-intelligence-tool.html">Business Intelligence
                                 Tools</a></li>
                     </ul>
                 </div>
@@ -2504,8 +2573,10 @@ z
                 <div class="p-6 pt-20 border border-r-2 border-l-2 border-t-2 border-b-0 border-[#ededed]">
                     <p class="text-gray-400 mb-6 text-[16px] md:text-[18px]">Contact Us</p>
                     <ul class="space-y-1 flex flex-col gap-[6px]">
-                        <li><a class="cursor-pointer text-[14px] md:text-[16px]" href="mailto:info@tekhive.com">info@tekhive.com</a></li>
-                        <li><a class="cursor-pointer text-[14px] md:text-[16px]" href="tel:+914872970765">+91 - 487 - 2970765</a></li>
+                        <li><a class="cursor-pointer text-[14px] md:text-[16px]"
+                                href="mailto:info@tekhive.com">info@tekhive.com</a></li>
+                        <li><a class="cursor-pointer text-[14px] md:text-[16px]" href="tel:+914872970765">+91 - 487 -
+                                2970765</a></li>
                         <li><a class="cursor-pointer text-[14px] md:text-[16px]"
                                 href="https://www.google.com/maps?q=Infopark+Koratty+Kerala+India">Infopark Koratty <br>
                                 Kerala, India</a></li>
