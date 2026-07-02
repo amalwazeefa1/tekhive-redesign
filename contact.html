@@ -525,13 +525,46 @@
             <div class="flex flex-col md:flex-row gap-28 lg:gap-6">
                 <div class="lg:p-12 bg-transparent w-full md:w-1/2 rounded-md">
                     <p class="mb-12 leading-relaxed">Looking for a trusted technology partner? Whether you need software development, business automation, ERP implementation, IT consulting, or digital transformation services, our experts are ready to help. Tell us about your project and we'll get back to you promptly.</p>
-
                     <div class="">
                         <form class="space-y-4">
+                            <!-- First Name -->
+                            <div class="w-full">
+                                <label for="firstName"
+                                    class="block text-sm font-bold text-gray-700 after:content-['*'] after:text-red-500 after:ml-1">
+                                    Name</label>
+                                <input type="text" id="firstName" name="firstName" required
+                                    class="bg-[#ececec] py-4 mt-1 block w-full rounded-md border-0 shadow-sm focus:border-indigo-500 focus:ring-[#09aeb8] sm:text-sm" />
+                            </div>
+                            <!-- Last Name -->
+                            <div class="w-full">
+                                <label for="lastName"
+                                    class="block text-sm font-bold text-gray-700 after:content-['*'] after:text-red-500 after:ml-1">Company
+                                    Name</label>
+                                <input type="text" id="lastName" name="lastName" required
+                                    class="bg-[#ececec] py-4 mt-1 block w-full rounded-md border-0 shadow-sm focus:border-[#09aeb8] focus:ring-[#09aeb8] sm:text-sm" />
+                            </div>
+                            <!-- Email -->
+                            <div>
+                                <label for="email"
+                                    class="block text-sm font-bold text-gray-700 after:content-['*'] after:text-red-500 after:ml-1">Email
+                                    </label>
+                                <input type="email" id="email" name="email" required
+                                    class="bg-[#ececec] py-4 mt-1 block w-full rounded-md border-0 shadow-sm focus:border-[#09aeb8] focus:ring-[#09aeb8] sm:text-sm" />
+                            </div>
+
+                            <!-- Phone -->
+                            <div>
+                                <label for="phone"
+                                    class="block text-sm font-bold text-gray-700 after:content-['*'] after:text-red-500 after:ml-1">Phone
+                                    Number</label>
+                                <input type="tel" id="phone" name="phone" required
+                                    class="bg-[#ececec] py-4 mt-1 block w-full rounded-md border-0 shadow-sm focus:border-[#09aeb8] focus:ring-[#09aeb8] sm:text-sm" />
+                            </div>
+
                             <!-- Service Interested In -->
                             <div class="w-full">
                                 <label for="service"
-                                    class="block text-sm font-bold text-gray-700 after:content-['*'] after:text-red-500 after:ml-1">SERVICE INTERESTED IN</label>
+                                    class="block text-sm font-bold text-gray-700 after:content-['*'] after:text-red-500 after:ml-1">Service Interested In</label>
                                 <select id="service" name="service" required
                                     class="bg-[#ececec] py-4 px-4 mt-1 block w-full rounded-md border-0 shadow-sm focus:border-[#09aeb8] focus:ring-[#09aeb8] sm:text-sm text-gray-700">
                                     <option value="" disabled selected>Select a Service</option>
@@ -550,39 +583,6 @@
                                     <option value="IT Consulting">IT Consulting</option>
                                     <option value="Back Office Support">Back Office Support</option>
                                 </select>
-                            </div>
-                            <!-- First Name -->
-                            <div class="w-full">
-                                <label for="firstName"
-                                    class="block text-sm font-bold text-gray-700 after:content-['*'] after:text-red-500 after:ml-1">FIRST
-                                    NAME</label>
-                                <input type="text" id="firstName" name="firstName" required
-                                    class="bg-[#ececec] py-4 mt-1 block w-full rounded-md border-0 shadow-sm focus:border-indigo-500 focus:ring-[#09aeb8] sm:text-sm" />
-                            </div>
-                            <!-- Last Name -->
-                            <div class="w-full">
-                                <label for="lastName"
-                                    class="block text-sm font-bold text-gray-700 after:content-['*'] after:text-red-500 after:ml-1">LAST
-                                    NAME</label>
-                                <input type="text" id="lastName" name="lastName" required
-                                    class="bg-[#ececec] py-4 mt-1 block w-full rounded-md border-0 shadow-sm focus:border-[#09aeb8] focus:ring-[#09aeb8] sm:text-sm" />
-                            </div>
-                            <!-- Email -->
-                            <div>
-                                <label for="email"
-                                    class="block text-sm font-bold text-gray-700 after:content-['*'] after:text-red-500 after:ml-1">EMAIL
-                                    ADDRESS</label>
-                                <input type="email" id="email" name="email" required
-                                    class="bg-[#ececec] py-4 mt-1 block w-full rounded-md border-0 shadow-sm focus:border-[#09aeb8] focus:ring-[#09aeb8] sm:text-sm" />
-                            </div>
-
-                            <!-- Phone -->
-                            <div>
-                                <label for="phone"
-                                    class="block text-sm font-bold text-gray-700 after:content-['*'] after:text-red-500 after:ml-1">PHONE
-                                    NUMBER</label>
-                                <input type="tel" id="phone" name="phone" required
-                                    class="bg-[#ececec] py-4 mt-1 block w-full rounded-md border-0 shadow-sm focus:border-[#09aeb8] focus:ring-[#09aeb8] sm:text-sm" />
                             </div>
 
                             <!-- Message -->
@@ -796,7 +796,7 @@
     <div class="bg-[#f6f6f6] pt-16">
         <div class="text-center mb-8 m-auto">
             <h1 class="text-4xl md:text-6xl font-bold mb-8">
-                Innovate. Automate. <br> Grow.
+                Let's Build Something <br> Great Together.
             </h1>
             <div class="flex items-center justify-center gap-2">
                 <div class="flex justify-start">
