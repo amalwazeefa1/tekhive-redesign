@@ -1372,6 +1372,36 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
+///////////////////////////////////////////////////////////////////////////////////mega menu links hover animation
+document.addEventListener("DOMContentLoaded", () => {
+    const dropdownLinks = document.querySelectorAll(".dropdown-link");
+
+    dropdownLinks.forEach((link) => {
+        link.classList.add(
+            "relative",
+            "w-fit",
+
+            // base
+            "after:content-['']",
+            "after:absolute",
+            "after:left-0",
+            "after:bottom-0",
+            "after:h-[1.5px]",
+            "after:w-full",
+            "after:bg-[#09aeb8]",
+            "after:origin-right",
+            "after:scale-x-0",
+            "after:transition-transform",
+            "after:duration-300",
+
+            // hover in
+            "hover:after:origin-left",
+            "hover:after:scale-x-100"
+        );
+    });
+});
+
+
 const lines = gsap.utils.toArray(".fill-line");
 
 lines.forEach((line, index) => {
