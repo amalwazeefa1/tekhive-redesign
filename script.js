@@ -788,7 +788,7 @@ navLinks.forEach((link) => {
 ScrollTrigger.create({
     trigger: isHomePage ? "#wrapper" : "body",
     start: isHomePage ? "bottom top" : "top+=10 top",
-    end: "max",
+    end: 99999,
     onToggle: (self) => {
         isScrolled = self.isActive;
         updateHeaderUI();
