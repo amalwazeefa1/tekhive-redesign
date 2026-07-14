@@ -724,15 +724,7 @@ function setActiveNavLink(activeHref = getActiveNavHref()) {
     });
 }
 
-let startValue = "top top";
-let endValue = "99999";
-
-if (document.body.classList.contains("home-page")) {
-    startValue = "1300px top";
-}
-if (document.body.classList.contains("about-page")) {
-    startValue = "300px top";
-}
+const isHomePage = document.body.classList.contains("home-page");
 
 let isScrolled = false;
 let isHovered = false;
@@ -794,8 +786,8 @@ navLinks.forEach((link) => {
 });
 
 ScrollTrigger.create({
-    start: startValue,
-    end: endValue,
+    trigger: isHomePage ? "#wrapper" : "body",
+    start: isHomePage ? "bottom top" : "top+=10 top",
     onToggle: (self) => {
         isScrolled = self.isActive;
         updateHeaderUI();
