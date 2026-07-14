@@ -260,7 +260,7 @@ gsap.utils.toArray(".fade-up, .fade-up2").filter((el) => !el.closest("#testimoni
         scrollTrigger: {
             trigger: triggerElement,
             start: startValue,
-            toggleActions: "play none none reset",
+            toggleActions: "play none none reverse",
         },
         delay: isFadeUp2
             ? 0          // fade-up2 starts immediately
@@ -353,7 +353,7 @@ if (testimonialSection && typeof gsap !== "undefined" && typeof ScrollTrigger !=
                     scrollTrigger: {
                         trigger: card,
                         start,
-                        toggleActions: "restart none restart reset",
+                        toggleActions: "restart none restart reverse",
                     }
                 });
 
@@ -991,7 +991,7 @@ maskTargets.forEach(selector => {
         scrollTrigger: {
             trigger: elements[0],
             start: "top 80%",
-            toggleActions: "play none none reset",
+            toggleActions: "play none none reverse",
         }
     })
         .to(elements, {
