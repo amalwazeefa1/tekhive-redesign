@@ -559,34 +559,37 @@ if (document.querySelector("#grow-morph-1")) {
 
 
 ///////////////////////////////////////////////////////////////////////////////popup button gsap animation - sticky button
-window.addEventListener("load", () => {
+document.addEventListener("DOMContentLoaded", () => {
     const popup = document.querySelector("#pop-up");
     if (!popup || typeof gsap === "undefined") return;
 
     // Check if we are on the homepage to decide if we hide at the top (hero section)
     const isHomePage = document.body.classList.contains("home-page");
     const heroHeight = window.innerHeight;
-    const startAtTop = isHomePage && (window.scrollY < heroHeight - 100);
+    const threshold = isHomePage ? (heroHeight - 100) : 100;
 
+    // Always start hidden on page load
     gsap.set(popup, {
-        y: startAtTop ? 100 : 0,
-        opacity: startAtTop ? 0 : 1,
-        scale: startAtTop ? 0.8 : 1
+        y: 100,
+        opacity: 0,
+        scale: 0.8,
+        pointerEvents: "none"
     });
 
     let lastScrollY = window.scrollY;
-    let isHidden = startAtTop;
+    let isHidden = true;
 
     window.addEventListener("scroll", () => {
         const currentScrollY = window.scrollY;
 
-        // On the homepage, keep completely hidden if inside the hero section
-        if (isHomePage && currentScrollY < heroHeight - 100) {
+        // Keep completely hidden if near the top of the page / hero section
+        if (currentScrollY < threshold) {
             if (!isHidden) {
                 gsap.to(popup, {
                     y: 100,
                     opacity: 0,
                     scale: 0.8,
+                    pointerEvents: "none",
                     duration: 0.35,
                     ease: "power2.inOut",
                     overwrite: true
@@ -606,6 +609,7 @@ window.addEventListener("load", () => {
                 y: 100,
                 opacity: 0,
                 scale: 0.8,
+                pointerEvents: "none",
                 duration: 0.35,
                 ease: "power2.inOut",
                 overwrite: true
@@ -617,6 +621,7 @@ window.addEventListener("load", () => {
                 y: 0,
                 opacity: 1,
                 scale: 1,
+                pointerEvents: "auto",
                 duration: 0.4,
                 ease: "back.out(1.7)",
                 overwrite: true
