@@ -1467,3 +1467,13 @@ if (document.querySelector("#website-dev-morph-1")) {
     }
 }
 
+// Prevent the accordion image column from stretching when items expand
+document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll(".faq-item").forEach((item) => {
+        const parentFlex = item.closest(".flex");
+        if (parentFlex) {
+            parentFlex.classList.add("md:items-start");
+        }
+    });
+});
+
