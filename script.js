@@ -1309,7 +1309,7 @@ document.addEventListener("DOMContentLoaded", function () {
             {
                 opacity: 0,
                 filter: "blur(3px)",
-                y: 15
+                y: 45
             },
             {
                 opacity: 1,
