@@ -1321,18 +1321,24 @@ document.addEventListener("DOMContentLoaded", function () {
             {
                 opacity: 1,
                 filter: "blur(0px)",
-                y: 0,
+                y: 5,
                 ease: "power2.out",
-                delay: 0.5,
-                duration: 1.2,
+                delay: 0,
+                duration: 2,
                 scrollTrigger: {
                     trigger: "footer",
-                    start: "top bottom",
-                    end: "top 65%",
+                    start: "top 110%",
                     toggleActions: "play none none reverse"
                 }
             }
         );
+    }
+});
+
+// Refresh ScrollTrigger calculations after everything is fully loaded
+window.addEventListener("load", () => {
+    if (typeof ScrollTrigger !== "undefined") {
+        ScrollTrigger.refresh();
     }
 });
 
