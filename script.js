@@ -1171,7 +1171,7 @@ document.querySelectorAll(".faq-item").forEach((item) => {
                     otherItem.classList.remove("is-open");
                     const otherContent = otherItem.querySelector(".faq-content");
                     const otherIcon = otherItem.querySelector(".faq-icon");
-                    
+
                     gsap.to(otherContent, {
                         height: 0,
                         opacity: 0,
