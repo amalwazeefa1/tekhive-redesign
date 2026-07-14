@@ -1161,10 +1161,34 @@ document.querySelectorAll(".faq-item").forEach((item) => {
     const content = item.querySelector(".faq-content");
     const icon = item.querySelector(".faq-icon");
 
-    let isOpen = false;
-
     button.addEventListener("click", () => {
+        const isOpen = item.classList.contains("is-open");
+
         if (!isOpen) {
+            // Close all other faq-items
+            document.querySelectorAll(".faq-item").forEach((otherItem) => {
+                if (otherItem !== item) {
+                    otherItem.classList.remove("is-open");
+                    const otherContent = otherItem.querySelector(".faq-content");
+                    const otherIcon = otherItem.querySelector(".faq-icon");
+                    
+                    gsap.to(otherContent, {
+                        height: 0,
+                        opacity: 0,
+                        duration: 0.4,
+                        ease: "power2.inOut"
+                    });
+
+                    gsap.to(otherIcon, {
+                        rotate: 0,
+                        duration: 0.3,
+                        color: "#d1d1d1"
+                    });
+                }
+            });
+
+            // Open this item
+            item.classList.add("is-open");
             gsap.to(content, {
                 height: content.scrollHeight,
                 opacity: 1,
@@ -1179,6 +1203,8 @@ document.querySelectorAll(".faq-item").forEach((item) => {
             });
 
         } else {
+            // Close this item
+            item.classList.remove("is-open");
             gsap.to(content, {
                 height: 0,
                 opacity: 0,
@@ -1192,8 +1218,6 @@ document.querySelectorAll(".faq-item").forEach((item) => {
                 color: "#d1d1d1"
             });
         }
-
-        isOpen = !isOpen;
     });
 });
 
