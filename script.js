@@ -1365,27 +1365,29 @@ document.addEventListener("DOMContentLoaded", function () {
     const footerLogo = document.querySelector("#footerLogo");
 
     if (footerLogo) {
-        gsap.fromTo(
-            footerLogo,
-            {
-                opacity: 0,
-                filter: "blur(3px)",
-                y: 45
-            },
-            {
+        // Set initial hidden state
+        gsap.set(footerLogo, { opacity: 0, filter: "blur(3px)", y: 45 });
+
+        ScrollTrigger.create({
+            trigger: "footer",
+            start: "top 110%",
+            onEnter: () => gsap.to(footerLogo, {
                 opacity: 1,
                 filter: "blur(0px)",
                 y: 5,
                 ease: "power2.out",
-                delay: 0,
-                duration: 2,
-                scrollTrigger: {
-                    trigger: "footer",
-                    start: "top 110%",
-                    toggleActions: "play none none reverse"
-                }
-            }
-        );
+                duration: 2,        // fade IN = 2s
+                overwrite: true
+            }),
+            onLeaveBack: () => gsap.to(footerLogo, {
+                opacity: 0,
+                filter: "blur(3px)",
+                y: 45,
+                ease: "power2.in",
+                duration: 0.5,        // fade OUT = 1s
+                overwrite: true
+            })
+        });
     }
 });
 
