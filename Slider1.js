@@ -30,7 +30,11 @@ document.addEventListener("DOMContentLoaded", () => {
     function startAutoSlide() {
         if (autoSlideInterval) return;
         autoSlideInterval = setInterval(() => {
-            if (!isAnimating) gotoSlide(1);
+            if (!isAnimating) {
+                let nextIndex = currentIndex + 1;
+                if (nextIndex >= slides.length) nextIndex = 0;
+                gotoSlide(nextIndex, 1);
+            }
         }, AUTO_DELAY);
     }
 
@@ -74,13 +78,9 @@ document.addEventListener("DOMContentLoaded", () => {
     /* ------------------------
        GO TO SLIDE
     ------------------------ */
-    function gotoSlide(direction) {
+    function gotoSlide(nextIndex, direction) {
         if (isAnimating) return;
         isAnimating = true;
-
-        let nextIndex = currentIndex + direction;
-        if (nextIndex >= slides.length) nextIndex = 0;
-        if (nextIndex < 0) nextIndex = slides.length - 1;
 
         const currentSlide = slides[currentIndex];
         const nextSlide = slides[nextIndex];
@@ -138,8 +138,16 @@ document.addEventListener("DOMContentLoaded", () => {
     // ------------------------ */
     // function handleGesture() {
     //     const diff = endX - startX;
-    //     if (diff < -50) gotoSlide(1);
-    //     if (diff > 50) gotoSlide(-1);
+    //     if (diff < -50) {
+    //         let nextIndex = currentIndex + 1;
+    //         if (nextIndex >= slides.length) nextIndex = 0;
+    //         gotoSlide(nextIndex, 1);
+    //     }
+    //     if (diff > 50) {
+    //         let nextIndex = currentIndex - 1;
+    //         if (nextIndex < 0) nextIndex = slides.length - 1;
+    //         gotoSlide(nextIndex, -1);
+    //     }
     // }
 
     // wrapper.addEventListener("touchstart", (e) => {
@@ -170,8 +178,10 @@ document.addEventListener("DOMContentLoaded", () => {
     navItems.forEach((item, index) => {
         item.addEventListener("click", () => {
             stopAutoSlide();
-            const direction = index > currentIndex ? 1 : -1;
-            if (index !== currentIndex && !isAnimating) gotoSlide(direction);
+            if (index !== currentIndex && !isAnimating) {
+                const direction = index > currentIndex ? 1 : -1;
+                gotoSlide(index, direction);
+            }
             startAutoSlide();
         });
     });
@@ -179,7 +189,11 @@ document.addEventListener("DOMContentLoaded", () => {
     if (nextBtn) {
         nextBtn.addEventListener("click", () => {
             stopAutoSlide();
-            gotoSlide(1);
+            if (!isAnimating) {
+                let nextIndex = currentIndex + 1;
+                if (nextIndex >= slides.length) nextIndex = 0;
+                gotoSlide(nextIndex, 1);
+            }
             startAutoSlide();
         });
     }
