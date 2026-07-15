@@ -847,7 +847,7 @@ if (document.body.classList.contains("home-page")) {
         duration: 1.5,
         ease: "power2.out"
     }, 0)
-        .from(".pinned-section .glow-2", {
+        .from(".s-section .glow-2", {
             scale: 0.4,
             opacity: 0,
             duration: 1.5,
@@ -1102,12 +1102,33 @@ document.addEventListener("DOMContentLoaded", () => {
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////scroll triggered text swap + parallax image - common for all pages [services section]
 const paras = gsap.utils.toArray(".para");
 
+const whatWeDoSec = document.querySelector("#what-we-do");
+if (whatWeDoSec) {
+    whatWeDoSec.style.display = "block";
+    whatWeDoSec.classList.add("py-12");
+
+    // CSS Grid overlay solution: makes the parent fit the tallest paragraph
+    const style = document.createElement("style");
+    style.textContent = `
+        #what-we-do .relative > div {
+            display: grid !important;
+        }
+        #what-we-do .para {
+            grid-area: 1 / 1 / 2 / 2 !important;
+            position: relative !important;
+            top: auto !important;
+            left: auto !important;
+        }
+    `;
+    document.head.appendChild(style);
+}
+
 const tl = gsap.timeline({
     scrollTrigger: {
         trigger: "#what-we-do",
+        pin: "#what-we-do > div",
         start: "top top",
         end: "+=100%",
-        pin: true,
         scrub: 1,
         pinSpacing: true,
         anticipatePin: 1,

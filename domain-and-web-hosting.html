@@ -1093,36 +1093,7 @@
     <script src="https://unpkg.com/lottie-web/build/player/lottie.min.js"></script>
     <script src="script.js"></script>
 
-    <script>
-        gsap.registerPlugin(ScrollTrigger);
-        const paras = gsap.utils.toArray(".para");
-
-        const tl = gsap.timeline({
-            scrollTrigger: {
-                trigger: "#what-we-do",
-                start: "top top",
-                end: "+=100%",
-                pin: true,
-                scrub: 1,
-                pinSpacing: true,
-                anticipatePin: 1,
-            }
-        });
-
-        tl.to(paras[0], { opacity: 0, y: -20 })
-
-            .fromTo(paras[1],
-                { opacity: 0, y: 30 },
-                { opacity: 1, y: 0, duration: 0.5 }
-            )
-
-            .to(paras[1], { opacity: 0, y: -20, duration: 0.5 })
-
-            .fromTo(paras[2],
-                { opacity: 0, y: 30 },
-                { opacity: 1, y: 0, duration: 0.5 }
-            )
-    </script>
+    
 
 </body>
 
