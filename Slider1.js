@@ -9,10 +9,21 @@ document.addEventListener("DOMContentLoaded", () => {
         "Centralizing Customer Data and Driving Sales", // 07 CRM
     ];
 
+    const slideLinks = [
+        "website-development.html", // 01 Web Development
+        "e-commerce.html", // 02 Ecommerce Solutions
+        "mobile-app-development.html", // 03 Mobile App Development
+        "cms-development.html", // 04 CMS Development
+        "digital-marketing.html", // 05 Digital Marketing
+        "third-party-app-integration.html", // 06 Third Party App Integration
+        "crm.html", // 07 CRM
+    ];
+
     const wrapper = document.getElementById("wrapper");
     const slides = gsap.utils.toArray(".slide");
     const navItems = gsap.utils.toArray(".nav-item");
     const textEl = document.getElementById("text");
+    const exploreBtn = document.getElementById("hero-explore-btn");
     const nextBtn = document.getElementById("next");
     const nav = document.getElementById("nav");
 
@@ -117,6 +128,9 @@ document.addEventListener("DOMContentLoaded", () => {
         tl.to(textEl, { opacity: 0, y: -30, duration: 0.4 }, 0)
             .add(() => {
                 textEl.innerHTML = slideTexts[nextIndex];
+                if (exploreBtn) {
+                    exploreBtn.setAttribute("href", slideLinks[nextIndex]);
+                }
             })
             .to(currentSlide, { xPercent: endXPercent, duration: 1.8 }, 0)
             .to(currentBg, { xPercent: endBgXPercent, duration: 1.8 }, 0)
