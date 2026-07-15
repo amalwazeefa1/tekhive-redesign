@@ -740,6 +740,7 @@ function updateHeaderUI() {
     // Header background
     if (header) {
         header.classList.toggle("bg-white", isActive);
+        header.classList.toggle("shadow-md", isActive);
         header.classList.toggle("bg-gradient-to-b", !isActive);
         header.classList.toggle("from-black", !isActive);
         header.classList.toggle("to-transparent", !isActive);
@@ -790,7 +791,7 @@ navLinks.forEach((link) => {
     });
 });
 
-ScrollTrigger.create({
+const trigger = ScrollTrigger.create({
     trigger: isHomePage ? "#wrapper" : "body",
     start: isHomePage ? "bottom top" : "top+=10 top",
     end: 99999,
@@ -799,6 +800,10 @@ ScrollTrigger.create({
         updateHeaderUI();
     }
 });
+
+// Initialize header state immediately on page load/refresh
+isScrolled = trigger.isActive;
+updateHeaderUI();
 
 // unified hover handlers
 if (header) {
