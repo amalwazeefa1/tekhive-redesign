@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 
 <html class="light" lang="en">
 
@@ -533,28 +533,84 @@
                                     class="bg-[#ececec] py-4 mt-1 block w-full rounded-md border-0 shadow-sm focus:border-[#09aeb8] focus:ring-[#09aeb8] sm:text-sm" />
                             </div>
 
-                            <!-- Service Interested In -->
-                            <div class="w-full">
-                                <label for="service"
-                                    class="block text-sm font-bold text-gray-700 after:content-['*'] after:text-red-500 after:ml-1">Service Interested In</label>
-                                <select id="service" name="service" required
-                                    class="bg-[#ececec] py-4 px-4 mt-1 block w-full rounded-md border-0 shadow-sm focus:border-[#09aeb8] focus:ring-[#09aeb8] sm:text-sm text-gray-700">
-                                    <option value="" disabled selected>Select a Service</option>
-                                    <option value="Web Development">Web Development</option>
-                                    <option value="Ecommerce Solutions">Ecommerce Solutions</option>
-                                    <option value="Mobile App Development">Mobile App Development</option>
-                                    <option value="CMS Development">CMS Development</option>
-                                    <option value="Digital Marketing">Digital Marketing</option>
-                                    <option value="Domain & Web Hosting">Domain & Web Hosting</option>
-                                    <option value="SAP Business One">SAP Business One</option>
-                                    <option value="Business Intelligence Tool">Business Intelligence Tool</option>
-                                    <option value="Third Party App Integration">Third Party App Integration</option>
-                                    <option value="CRM">CRM</option>
-                                    <option value="Business Process Automation">Business Process Automation</option>
-                                    <option value="IT Support">IT Support</option>
-                                    <option value="IT Consulting">IT Consulting</option>
-                                    <option value="Back Office Support">Back Office Support</option>
-                                </select>
+                            <!-- Service Interested In (Multi-select) -->
+                            <div class="w-full relative">
+                                <label class="block text-sm font-bold text-gray-700 after:content-['*'] after:text-red-500 after:ml-1">Services Interested In</label>
+                                
+                                <!-- Custom Multi-Select Dropdown Header -->
+                                <div id="multi-select-header" class="bg-[#ececec] py-4 px-4 mt-1 flex justify-between items-center w-full rounded-md cursor-pointer border border-transparent hover:border-gray-300 transition duration-200">
+                                    <div id="selected-services-container" class="flex flex-wrap gap-2 text-sm text-gray-700">
+                                        <span class="text-gray-400 select-none">Select Services</span>
+                                    </div>
+                                    <svg class="h-5 w-5 text-gray-400 transform transition-transform duration-200 shrink-0" id="dropdown-arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                                    </svg>
+                                </div>
+
+                                <!-- Custom Multi-Select Options List -->
+                                <div id="multi-select-options" data-lenis-prevent class="absolute left-0 right-0 mt-2 bg-white border border-gray-200 rounded-md shadow-lg z-50 max-h-60 overflow-y-auto hidden">
+                                    <div class="p-2 space-y-1">
+                                        <label class="flex items-center px-4 py-2 hover:bg-gray-50 rounded cursor-pointer transition select-none">
+                                            <input type="checkbox" value="Web Development" class="rounded text-[#499BD5] focus:ring-[#499BD5] h-4 w-4 border-gray-300 mr-3">
+                                            <span class="text-sm text-gray-700">Web Development</span>
+                                        </label>
+                                        <label class="flex items-center px-4 py-2 hover:bg-gray-50 rounded cursor-pointer transition select-none">
+                                            <input type="checkbox" value="Ecommerce Solutions" class="rounded text-[#499BD5] focus:ring-[#499BD5] h-4 w-4 border-gray-300 mr-3">
+                                            <span class="text-sm text-gray-700">Ecommerce Solutions</span>
+                                        </label>
+                                        <label class="flex items-center px-4 py-2 hover:bg-gray-50 rounded cursor-pointer transition select-none">
+                                            <input type="checkbox" value="Mobile App Development" class="rounded text-[#499BD5] focus:ring-[#499BD5] h-4 w-4 border-gray-300 mr-3">
+                                            <span class="text-sm text-gray-700">Mobile App Development</span>
+                                        </label>
+                                        <label class="flex items-center px-4 py-2 hover:bg-gray-50 rounded cursor-pointer transition select-none">
+                                            <input type="checkbox" value="CMS Development" class="rounded text-[#499BD5] focus:ring-[#499BD5] h-4 w-4 border-gray-300 mr-3">
+                                            <span class="text-sm text-gray-700">CMS Development</span>
+                                        </label>
+                                        <label class="flex items-center px-4 py-2 hover:bg-gray-50 rounded cursor-pointer transition select-none">
+                                            <input type="checkbox" value="Digital Marketing" class="rounded text-[#499BD5] focus:ring-[#499BD5] h-4 w-4 border-gray-300 mr-3">
+                                            <span class="text-sm text-gray-700">Digital Marketing</span>
+                                        </label>
+                                        <label class="flex items-center px-4 py-2 hover:bg-gray-50 rounded cursor-pointer transition select-none">
+                                            <input type="checkbox" value="Domain & Web Hosting" class="rounded text-[#499BD5] focus:ring-[#499BD5] h-4 w-4 border-gray-300 mr-3">
+                                            <span class="text-sm text-gray-700">Domain & Web Hosting</span>
+                                        </label>
+                                        <label class="flex items-center px-4 py-2 hover:bg-gray-50 rounded cursor-pointer transition select-none">
+                                            <input type="checkbox" value="SAP Business One" class="rounded text-[#499BD5] focus:ring-[#499BD5] h-4 w-4 border-gray-300 mr-3">
+                                            <span class="text-sm text-gray-700">SAP Business One</span>
+                                        </label>
+                                        <label class="flex items-center px-4 py-2 hover:bg-gray-50 rounded cursor-pointer transition select-none">
+                                            <input type="checkbox" value="Business Intelligence Tool" class="rounded text-[#499BD5] focus:ring-[#499BD5] h-4 w-4 border-gray-300 mr-3">
+                                            <span class="text-sm text-gray-700">Business Intelligence Tool</span>
+                                        </label>
+                                        <label class="flex items-center px-4 py-2 hover:bg-gray-50 rounded cursor-pointer transition select-none">
+                                            <input type="checkbox" value="Third Party App Integration" class="rounded text-[#499BD5] focus:ring-[#499BD5] h-4 w-4 border-gray-300 mr-3">
+                                            <span class="text-sm text-gray-700">Third Party App Integration</span>
+                                        </label>
+                                        <label class="flex items-center px-4 py-2 hover:bg-gray-50 rounded cursor-pointer transition select-none">
+                                            <input type="checkbox" value="CRM" class="rounded text-[#499BD5] focus:ring-[#499BD5] h-4 w-4 border-gray-300 mr-3">
+                                            <span class="text-sm text-gray-700">CRM</span>
+                                        </label>
+                                        <label class="flex items-center px-4 py-2 hover:bg-gray-50 rounded cursor-pointer transition select-none">
+                                            <input type="checkbox" value="Business Process Automation" class="rounded text-[#499BD5] focus:ring-[#499BD5] h-4 w-4 border-gray-300 mr-3">
+                                            <span class="text-sm text-gray-700">Business Process Automation</span>
+                                        </label>
+                                        <label class="flex items-center px-4 py-2 hover:bg-gray-50 rounded cursor-pointer transition select-none">
+                                            <input type="checkbox" value="IT Support" class="rounded text-[#499BD5] focus:ring-[#499BD5] h-4 w-4 border-gray-300 mr-3">
+                                            <span class="text-sm text-gray-700">IT Support</span>
+                                        </label>
+                                        <label class="flex items-center px-4 py-2 hover:bg-gray-50 rounded cursor-pointer transition select-none">
+                                            <input type="checkbox" value="IT Consulting" class="rounded text-[#499BD5] focus:ring-[#499BD5] h-4 w-4 border-gray-300 mr-3">
+                                            <span class="text-sm text-gray-700">IT Consulting</span>
+                                        </label>
+                                        <label class="flex items-center px-4 py-2 hover:bg-gray-50 rounded cursor-pointer transition select-none">
+                                            <input type="checkbox" value="Back Office Support" class="rounded text-[#499BD5] focus:ring-[#499BD5] h-4 w-4 border-gray-300 mr-3">
+                                            <span class="text-sm text-gray-700">Back Office Support</span>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <!-- Hidden input visually styled to support standard HTML5 required validation tooltips -->
+                                <input type="text" id="selected-services" name="service" required class="opacity-0 absolute pointer-events-none w-[1px] h-[1px]" style="left: 50%; bottom: 0;">
                             </div>
 
                             <!-- Message -->
@@ -1041,8 +1097,78 @@
     <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.11/dist/dotlottie-wc.js" type="module"></script>
     <script src="https://unpkg.com/lottie-web/build/player/lottie.min.js"></script>
     <script src="script.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const selectHeader = document.getElementById("multi-select-header");
+            const selectOptions = document.getElementById("multi-select-options");
+            const dropdownArrow = document.getElementById("dropdown-arrow");
+            const selectedContainer = document.getElementById("selected-services-container");
+            const hiddenInput = document.getElementById("selected-services");
+            const checkboxes = selectOptions.querySelectorAll("input[type='checkbox']");
 
+            // Toggle options visibility
+            selectHeader.addEventListener("click", (e) => {
+                e.stopPropagation();
+                selectOptions.classList.toggle("hidden");
+                dropdownArrow.classList.toggle("rotate-180");
+            });
 
+            // Close options on click outside
+            document.addEventListener("click", (e) => {
+                if (!selectHeader.contains(e.target) && !selectOptions.contains(e.target)) {
+                    selectOptions.classList.add("hidden");
+                    dropdownArrow.classList.remove("rotate-180");
+                }
+            });
+
+            // Update display when checkboxes change
+            function updateSelection() {
+                const selected = [];
+                checkboxes.forEach((cb) => {
+                    if (cb.checked) {
+                        selected.push(cb.value);
+                    }
+                });
+
+                // Clear container
+                selectedContainer.innerHTML = "";
+
+                if (selected.length === 0) {
+                    selectedContainer.innerHTML = '<span class="text-gray-400 select-none">Select Services</span>';
+                    hiddenInput.value = "";
+                } else {
+                    selected.forEach((service) => {
+                        const chip = document.createElement("span");
+                        chip.className = "inline-flex items-center gap-1 bg-[#499BD5]/20 text-[#3b88be] text-xs font-semibold px-2.5 py-1 rounded-full select-none";
+                        chip.innerHTML = `
+                            ${service}
+                            <span class="cursor-pointer hover:text-red-500 font-bold ml-1 remove-service" data-value="${service}">&times;</span>
+                        `;
+                        selectedContainer.appendChild(chip);
+                    });
+                    hiddenInput.value = selected.join(", ");
+                }
+
+                // Attach click events to "x" buttons
+                const removeBtns = selectedContainer.querySelectorAll(".remove-service");
+                removeBtns.forEach((btn) => {
+                    btn.addEventListener("click", (e) => {
+                        e.stopPropagation();
+                        const val = btn.getAttribute("data-value");
+                        const cb = Array.from(checkboxes).find(c => c.value === val);
+                        if (cb) {
+                            cb.checked = false;
+                            updateSelection();
+                        }
+                    });
+                });
+            }
+
+            checkboxes.forEach((cb) => {
+                cb.addEventListener("change", updateSelection);
+            });
+        });
+    </script>
 </body>
 
 </html>
