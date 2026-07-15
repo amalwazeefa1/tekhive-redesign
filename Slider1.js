@@ -71,18 +71,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const activeItem = navItems[index];
         if (activeItem && nav) {
-            if (window.innerWidth < 768) {
-                // Calculate statically to avoid layout transition delay issues
-                const navWidth = nav.offsetWidth;
-                const itemOffset = 24 + index * 48; // px-6 (24px) + index * (w-10 (40px) + gap-2 (8px))
-                const itemWidth = 250; // group-[.active]:w-[250px]
-                const scrollTarget = itemOffset - (navWidth / 2) + (itemWidth / 2);
+            // Align the active pagination item to the left side (offset by 24px padding)
+            // so that lengthy text has maximum screen width to be fully visible on the right.
+            const scrollTarget = index * 48;
 
-                nav.scrollTo({
-                    left: scrollTarget,
-                    behavior: "smooth"
-                });
-            }
+            nav.scrollTo({
+                left: scrollTarget,
+                behavior: "smooth"
+            });
         }
     }
 
