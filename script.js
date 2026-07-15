@@ -563,6 +563,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const popup = document.querySelector("#pop-up");
     if (!popup || typeof gsap === "undefined") return;
 
+    // Disable the parent <a> link too so it's not clickable when hidden
+    const popupLink = popup.closest('a');
+
     // Check if we are on the homepage to decide if we hide at the top (hero section)
     const isHomePage = document.body.classList.contains("home-page");
     const heroHeight = window.innerHeight;
@@ -575,6 +578,7 @@ document.addEventListener("DOMContentLoaded", () => {
         scale: 0.8,
         pointerEvents: "none"
     });
+    if (popupLink) popupLink.style.pointerEvents = 'none';
 
     let lastScrollY = window.scrollY;
     let isHidden = true;
@@ -594,6 +598,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     ease: "power2.inOut",
                     overwrite: true
                 });
+                if (popupLink) popupLink.style.pointerEvents = 'none';
                 isHidden = true;
             }
             lastScrollY = currentScrollY;
@@ -614,6 +619,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 ease: "power2.inOut",
                 overwrite: true
             });
+            if (popupLink) popupLink.style.pointerEvents = 'none';
             isHidden = true;
         } else if (!isScrollingDown && isHidden && scrollDelta < -8) {
             // Show immediately on scroll up
@@ -626,6 +632,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 ease: "back.out(1.7)",
                 overwrite: true
             });
+            if (popupLink) popupLink.style.pointerEvents = 'auto';
             isHidden = false;
         }
 
