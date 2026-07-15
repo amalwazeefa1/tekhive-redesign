@@ -93,6 +93,15 @@
         .lenis.lenis-scrolling iframe {
             pointer-events: none;
         }
+
+        .scrollbar-none::-webkit-scrollbar {
+            display: none;
+        }
+
+        .scrollbar-none {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
     </style>
 </head>
 
@@ -538,8 +547,8 @@
                                 <label class="block text-sm font-bold text-gray-700 after:content-['*'] after:text-red-500 after:ml-1">Services Interested In</label>
                                 
                                 <!-- Custom Multi-Select Dropdown Header -->
-                                <div id="multi-select-header" class="bg-[#ececec] py-4 px-4 mt-1 flex justify-between items-center w-full rounded-md cursor-pointer border border-transparent hover:border-gray-300 transition duration-200">
-                                    <div id="selected-services-container" class="flex flex-wrap gap-2 text-sm text-gray-700">
+                                <div id="multi-select-header" class="bg-[#ececec] py-4 px-4 mt-1 flex justify-between items-center md:items-start w-full rounded-md cursor-pointer border border-transparent hover:border-gray-300 transition duration-200">
+                                    <div id="selected-services-container" class="flex flex-nowrap overflow-x-auto scrollbar-none md:flex-wrap md:overflow-x-visible gap-2 text-sm text-gray-700 flex-1 mr-2 md:mr-0">
                                         <span class="text-gray-400 select-none">Select Services</span>
                                     </div>
                                     <svg class="h-5 w-5 text-gray-400 transform transition-transform duration-200 shrink-0" id="dropdown-arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -1139,7 +1148,7 @@
                 } else {
                     selected.forEach((service) => {
                         const chip = document.createElement("span");
-                        chip.className = "inline-flex items-center gap-1 bg-[#499BD5]/20 text-[#3b88be] text-xs font-semibold px-2.5 py-1 rounded-full select-none";
+                        chip.className = "inline-flex items-center gap-1 bg-[#499BD5]/20 text-[#3b88be] text-xs font-semibold px-2.5 py-1 rounded-full select-none flex-shrink-0";
                         chip.innerHTML = `
                             ${service}
                             <span class="cursor-pointer hover:text-red-500 font-bold ml-1 remove-service" data-value="${service}">&times;</span>
