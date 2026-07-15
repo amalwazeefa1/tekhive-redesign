@@ -740,7 +740,6 @@ function updateHeaderUI() {
     // Header background
     if (header) {
         header.classList.toggle("bg-white", isActive);
-        header.classList.toggle("shadow-md", isActive);
         header.classList.toggle("bg-gradient-to-b", !isActive);
         header.classList.toggle("from-black", !isActive);
         header.classList.toggle("to-transparent", !isActive);
