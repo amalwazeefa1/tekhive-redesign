@@ -539,6 +539,7 @@
                                     class="block text-sm font-bold text-gray-700 after:content-['*'] after:text-red-500 after:ml-1">Phone
                                     Number</label>
                                 <input type="tel" id="phone" name="phone" required
+                                    oninput="this.value = this.value.replace(/[^0-9+\-\s()]/g, '')"
                                     class="bg-[#ececec] py-4 mt-1 block w-full rounded-md border-0 shadow-sm focus:border-[#09aeb8] focus:ring-[#09aeb8] sm:text-sm" />
                             </div>
 
