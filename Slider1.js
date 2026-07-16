@@ -60,6 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
     gsap.set(slides, { xPercent: 100, zIndex: 0 });
     gsap.set(slides[0], { xPercent: 0, zIndex: 2 });
     gsap.set(".slide-bg", { xPercent: 0 });
+    updateNav(0);
 
     /* ------------------------
        UPDATE NAV
