@@ -52,6 +52,31 @@ if (lenis && typeof gsap !== "undefined" && typeof ScrollTrigger !== "undefined"
 const openMenu = document.getElementById("openMenu");
 const closeMenu = document.getElementById("closeMenu");
 const menu = document.getElementById("fullscreenMenu");
+let card2Revealed = false;
+
+function checkCard2Reveal() {
+    if (card2Revealed || !menu) return;
+
+    const cards = menu.querySelectorAll(".card");
+    if (cards.length > 1 && typeof gsap !== "undefined") {
+        const card2 = cards[1];
+        const card2Rect = card2.getBoundingClientRect();
+        const triggerPoint = window.innerHeight * 0.9; // trigger after entering 10% of the viewport
+
+        if (card2Rect.top < triggerPoint) {
+            card2Revealed = true;
+            const card2Masks = card2.querySelectorAll(".text-mask1-mobile-menu-card-text");
+            if (card2Masks.length > 0) {
+                gsap.to(card2Masks, {
+                    xPercent: 100,
+                    duration: 1.0,
+                    ease: "power4.inOut",
+                    stagger: 0.15
+                });
+            }
+        }
+    }
+}
 
 if (openMenu && closeMenu && menu) {
     openMenu.addEventListener("click", () => {
@@ -64,6 +89,8 @@ if (openMenu && closeMenu && menu) {
         if (typeof gsap !== "undefined") {
             const cards = menu.querySelectorAll(".card");
             if (cards.length > 0) {
+                card2Revealed = false;
+
                 // Card 1: Reset and reveal immediately when menu opens
                 const card1Masks = cards[0].querySelectorAll(".text-mask1-mobile-menu-card-text");
                 if (card1Masks.length > 0) {
@@ -77,22 +104,18 @@ if (openMenu && closeMenu && menu) {
                     });
                 }
 
-                // Card 2: Reset to covered state (ScrollTrigger will handle the reveal on scroll)
+                // Card 2: Reset to covered state
                 if (cards.length > 1) {
                     const card2Masks = cards[1].querySelectorAll(".text-mask1-mobile-menu-card-text");
                     if (card2Masks.length > 0) {
                         gsap.set(card2Masks, { xPercent: 0 });
                     }
                 }
+
+                // Check visibility after menu opens in case Card 2 is already visible
+                setTimeout(checkCard2Reveal, 400);
             }
         }
-
-        // Refresh ScrollTrigger so calculations for Card 2 are correct
-        setTimeout(() => {
-            if (typeof ScrollTrigger !== "undefined") {
-                ScrollTrigger.refresh();
-            }
-        }, 350);
     });
 
     closeMenu.addEventListener("click", closeMenuFn);
@@ -100,6 +123,9 @@ if (openMenu && closeMenu && menu) {
     menu.querySelectorAll("a").forEach(link => {
         link.addEventListener("click", closeMenuFn);
     });
+
+    // Add scroll event listener to menu container
+    menu.addEventListener("scroll", checkCard2Reveal);
 }
 
 function closeMenuFn() {
@@ -109,42 +135,6 @@ function closeMenuFn() {
     menu.classList.remove("transition-opacity", "duration-300", "ease-in-out");
     menu.classList.add("opacity-0", "pointer-events-none");
     document.body.classList.remove("overflow-hidden");
-}
-
-// Initialize ScrollTrigger for Card 2 in mobile menu (runs once on load)
-function initMenuCard2ScrollTrigger() {
-    const menuEl = document.getElementById("fullscreenMenu");
-    if (!menuEl) return;
-
-    const cards = menuEl.querySelectorAll(".card");
-    if (cards.length > 1 && typeof gsap !== "undefined" && typeof ScrollTrigger !== "undefined") {
-        const card2 = cards[1];
-        const card2Masks = card2.querySelectorAll(".text-mask1-mobile-menu-card-text");
-        if (card2Masks.length > 0) {
-            gsap.set(card2Masks, { xPercent: 0 });
-
-            gsap.timeline({
-                scrollTrigger: {
-                    trigger: card2,
-                    scroller: "#fullscreenMenu",
-                    start: "top 95%",
-                    toggleActions: "play none none reverse",
-                }
-            })
-            .to(card2Masks, {
-                xPercent: 100,
-                duration: 1.0,
-                ease: "power4.inOut",
-                stagger: 0.15
-            });
-        }
-    }
-}
-
-if (document.readyState === "complete" || document.readyState === "interactive") {
-    initMenuCard2ScrollTrigger();
-} else {
-    document.addEventListener("DOMContentLoaded", initMenuCard2ScrollTrigger);
 }
 
 
