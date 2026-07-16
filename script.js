@@ -60,12 +60,39 @@ if (openMenu && closeMenu && menu) {
         menu.classList.remove("opacity-0", "pointer-events-none");
         document.body.classList.add("overflow-hidden");
 
-        // Refresh ScrollTrigger calculations after showing the menu
+        // Split reveal animations for mobile menu cards
+        if (typeof gsap !== "undefined") {
+            const cards = menu.querySelectorAll(".card");
+            if (cards.length > 0) {
+                // Card 1: Reset and reveal immediately when menu opens
+                const card1Masks = cards[0].querySelectorAll(".text-mask1-mobile-menu-card-text");
+                if (card1Masks.length > 0) {
+                    gsap.set(card1Masks, { xPercent: 0 });
+                    gsap.to(card1Masks, {
+                        xPercent: 100,
+                        duration: 1.0,
+                        ease: "power4.inOut",
+                        stagger: 0.15,
+                        delay: 0.35 // wait for menu fade-in transition (300ms)
+                    });
+                }
+
+                // Card 2: Reset to covered state (ScrollTrigger will handle the reveal on scroll)
+                if (cards.length > 1) {
+                    const card2Masks = cards[1].querySelectorAll(".text-mask1-mobile-menu-card-text");
+                    if (card2Masks.length > 0) {
+                        gsap.set(card2Masks, { xPercent: 0 });
+                    }
+                }
+            }
+        }
+
+        // Refresh ScrollTrigger so calculations for Card 2 are correct
         setTimeout(() => {
             if (typeof ScrollTrigger !== "undefined") {
                 ScrollTrigger.refresh();
             }
-        }, 150);
+        }, 350);
     });
 
     closeMenu.addEventListener("click", closeMenuFn);
@@ -84,74 +111,40 @@ function closeMenuFn() {
     document.body.classList.remove("overflow-hidden");
 }
 
-// Initialize mobile menu cards reveal on scroll
-function initMenuCardsReveal() {
+// Initialize ScrollTrigger for Card 2 in mobile menu (runs once on load)
+function initMenuCard2ScrollTrigger() {
     const menuEl = document.getElementById("fullscreenMenu");
     if (!menuEl) return;
 
-    const menuCards = menuEl.querySelectorAll(".card");
-    menuCards.forEach((card) => {
-        const textDiv = card.querySelector(".absolute.bottom-0") || card.querySelector("div[class*='bottom-0']");
-        if (!textDiv) return;
-
-        const headings = textDiv.querySelectorAll("h1");
-        headings.forEach((h1) => {
-            // Check if already wrapped to avoid double wrapping
-            if (h1.querySelector(".text-mask-menu-card")) return;
-
-            // Create the line wrapper span
-            const lineSpan = document.createElement("span");
-            lineSpan.className = "line relative inline-block overflow-hidden";
-
-            // Create the text span
-            const textSpan = document.createElement("span");
-            textSpan.className = "text relative inline-block overflow-hidden";
-            
-            // Move all children of h1 (the text) into textSpan
-            while (h1.firstChild) {
-                textSpan.appendChild(h1.firstChild);
-            }
-
-            // Create the mask span
-            const maskSpan = document.createElement("span");
-            maskSpan.className = "text-mask-menu-card absolute inset-0 bg-[#57BF93]"; // brand green color
-
-            // Assemble
-            lineSpan.appendChild(textSpan);
-            lineSpan.appendChild(maskSpan);
-            h1.appendChild(lineSpan);
-        });
-    });
-
-    if (typeof gsap !== "undefined" && typeof ScrollTrigger !== "undefined") {
-        menuCards.forEach((card) => {
-            const cardMasks = card.querySelectorAll(".text-mask-menu-card");
-            if (cardMasks.length === 0) return;
-
-            gsap.set(cardMasks, { xPercent: 0 });
+    const cards = menuEl.querySelectorAll(".card");
+    if (cards.length > 1 && typeof gsap !== "undefined" && typeof ScrollTrigger !== "undefined") {
+        const card2 = cards[1];
+        const card2Masks = card2.querySelectorAll(".text-mask1-mobile-menu-card-text");
+        if (card2Masks.length > 0) {
+            gsap.set(card2Masks, { xPercent: 0 });
 
             gsap.timeline({
                 scrollTrigger: {
-                    trigger: card,
+                    trigger: card2,
                     scroller: "#fullscreenMenu",
                     start: "top 95%",
                     toggleActions: "play none none reverse",
                 }
             })
-            .to(cardMasks, {
+            .to(card2Masks, {
                 xPercent: 100,
                 duration: 1.0,
                 ease: "power4.inOut",
                 stagger: 0.15
             });
-        });
+        }
     }
 }
 
 if (document.readyState === "complete" || document.readyState === "interactive") {
-    initMenuCardsReveal();
+    initMenuCard2ScrollTrigger();
 } else {
-    document.addEventListener("DOMContentLoaded", initMenuCardsReveal);
+    document.addEventListener("DOMContentLoaded", initMenuCard2ScrollTrigger);
 }
 
 
