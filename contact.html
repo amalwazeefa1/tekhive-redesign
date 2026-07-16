@@ -542,19 +542,23 @@
                                     class="bg-[#ececec] py-4 mt-1 block w-full rounded-md border-0 shadow-sm focus:border-[#09aeb8] focus:ring-[#09aeb8] sm:text-sm" />
                             </div>
 
-                            <!-- Service Interested In (Multi-select) -->
+                        <!-- Service Interested In (Multi-select) -->
                             <div class="w-full relative">
                                 <label class="block text-sm font-bold text-gray-700 after:content-['*'] after:text-red-500 after:ml-1">Services Interested In</label>
                                 
                                 <!-- Custom Multi-Select Dropdown Header -->
-                                <div id="multi-select-header" class="bg-[#ececec] py-4 px-4 mt-1 flex justify-between items-center md:items-start w-full rounded-md cursor-pointer border border-transparent hover:border-gray-300 transition duration-200">
-                                    <div id="selected-services-container" class="flex flex-nowrap overflow-x-auto scrollbar-none md:flex-wrap md:overflow-x-visible gap-2 text-sm text-gray-700 flex-1 mr-2 md:mr-0">
-                                        <span class="text-gray-400 select-none">Select Services</span>
-                                    </div>
-                                    <svg class="h-5 w-5 text-gray-400 transform transition-transform duration-200 shrink-0" id="dropdown-arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                                    </svg>
-                                </div>
+                                 <div id="multi-select-header" class="relative bg-[#ececec] py-4 px-4 mt-1 flex justify-between items-center md:items-start w-full rounded-md cursor-pointer border border-transparent hover:border-gray-300 transition duration-200">
+                                     <div id="selected-services-container" class="flex flex-nowrap overflow-x-auto scrollbar-none md:flex-wrap md:overflow-x-visible gap-2 text-sm text-gray-700 flex-1 mr-2 md:mr-0">
+                                         <span class="text-gray-400 select-none">Select Services</span>
+                                     </div>
+                                     <!-- Left fade overlay to smooth text truncation on mobile scrolling -->
+                                     <div id="left-fade-overlay" class="absolute left-4 top-0 bottom-0 w-8 pointer-events-none bg-gradient-to-l from-transparent to-[#ececec] opacity-0 transition-opacity duration-100 md:hidden"></div>
+                                     <!-- Right fade overlay to smooth text truncation on mobile scrolling -->
+                                     <div id="right-fade-overlay" class="absolute right-10 top-0 bottom-0 w-8 pointer-events-none bg-gradient-to-r from-transparent to-[#ececec] opacity-0 transition-opacity duration-100 md:hidden"></div>
+                                     <svg class="h-5 w-5 text-gray-400 transform transition-transform duration-200 shrink-0" id="dropdown-arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                                     </svg>
+                                 </div>
 
                                 <!-- Custom Multi-Select Options List -->
                                 <div id="multi-select-options" data-lenis-prevent class="absolute left-0 right-0 mt-2 bg-white border border-gray-200 rounded-md shadow-lg z-50 max-h-60 overflow-y-auto hidden">
@@ -1108,77 +1112,125 @@
     <script src="script.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", () => {
-            const selectHeader = document.getElementById("multi-select-header");
-            const selectOptions = document.getElementById("multi-select-options");
-            const dropdownArrow = document.getElementById("dropdown-arrow");
-            const selectedContainer = document.getElementById("selected-services-container");
-            const hiddenInput = document.getElementById("selected-services");
-            const checkboxes = selectOptions.querySelectorAll("input[type='checkbox']");
+             const selectHeader = document.getElementById("multi-select-header");
+             const selectOptions = document.getElementById("multi-select-options");
+             const dropdownArrow = document.getElementById("dropdown-arrow");
+             const selectedContainer = document.getElementById("selected-services-container");
+             const hiddenInput = document.getElementById("selected-services");
+             const checkboxes = selectOptions.querySelectorAll("input[type='checkbox']");
+             const leftFade = document.getElementById("left-fade-overlay");
+             const rightFade = document.getElementById("right-fade-overlay");
+ 
+             // Toggle options visibility
+             selectHeader.addEventListener("click", (e) => {
+                 e.stopPropagation();
+                 selectOptions.classList.toggle("hidden");
+                 dropdownArrow.classList.toggle("rotate-180");
+             });
+ 
+             // Close options on click outside
+             document.addEventListener("click", (e) => {
+                 if (!selectHeader.contains(e.target) && !selectOptions.contains(e.target)) {
+                     selectOptions.classList.add("hidden");
+                     dropdownArrow.classList.remove("rotate-180");
+                 }
+             });
 
-            // Toggle options visibility
-            selectHeader.addEventListener("click", (e) => {
-                e.stopPropagation();
-                selectOptions.classList.toggle("hidden");
-                dropdownArrow.classList.toggle("rotate-180");
-            });
+             function updateFades() {
+                 // Only handle this on mobile (less than md breakpoint)
+                 if (window.innerWidth >= 768) {
+                     leftFade.classList.add("opacity-0");
+                     leftFade.classList.remove("opacity-100");
+                     rightFade.classList.add("opacity-0");
+                     rightFade.classList.remove("opacity-100");
+                     return;
+                 }
 
-            // Close options on click outside
-            document.addEventListener("click", (e) => {
-                if (!selectHeader.contains(e.target) && !selectOptions.contains(e.target)) {
-                    selectOptions.classList.add("hidden");
-                    dropdownArrow.classList.remove("rotate-180");
-                }
-            });
+                 const scrollLeft = selectedContainer.scrollLeft;
+                 const scrollWidth = selectedContainer.scrollWidth;
+                 const clientWidth = selectedContainer.clientWidth;
+                 const maxScrollLeft = scrollWidth - clientWidth;
 
-            // Update display when checkboxes change
-            function updateSelection() {
-                const selected = [];
-                checkboxes.forEach((cb) => {
-                    if (cb.checked) {
-                        selected.push(cb.value);
-                    }
-                });
+                 // Left fade visibility (scrolled to the right)
+                 if (scrollLeft > 5) {
+                     leftFade.classList.remove("opacity-0");
+                     leftFade.classList.add("opacity-100");
+                 } else {
+                     leftFade.classList.remove("opacity-100");
+                     leftFade.classList.add("opacity-0");
+                 }
 
-                // Clear container
-                selectedContainer.innerHTML = "";
+                 // Right fade visibility (there is more content to the right)
+                 if (maxScrollLeft > 5 && scrollLeft < maxScrollLeft - 5) {
+                     rightFade.classList.remove("opacity-0");
+                     rightFade.classList.add("opacity-100");
+                 } else {
+                     rightFade.classList.remove("opacity-100");
+                     rightFade.classList.add("opacity-0");
+                 }
+             }
+ 
+             // Update display when checkboxes change
+             function updateSelection() {
+                 const selected = [];
+                 checkboxes.forEach((cb) => {
+                     if (cb.checked) {
+                         selected.push(cb.value);
+                     }
+                 });
+ 
+                 // Clear container
+                 selectedContainer.innerHTML = "";
+ 
+                 if (selected.length === 0) {
+                     selectedContainer.innerHTML = '<span class="text-gray-400 select-none">Select Services</span>';
+                     hiddenInput.value = "";
+                 } else {
+                     selected.forEach((service) => {
+                         const chip = document.createElement("span");
+                         chip.className = "inline-flex items-center gap-1 bg-[#499BD5]/20 text-[#3b88be] text-xs font-semibold px-2.5 py-1 rounded-full select-none flex-shrink-0";
+                         chip.innerHTML = `
+                             ${service}
+                             <span class="cursor-pointer hover:text-red-500 font-bold ml-1 remove-service" data-value="${service}">&times;</span>
+                         `;
+                         selectedContainer.appendChild(chip);
+                     });
+                     hiddenInput.value = selected.join(", ");
+                 }
+ 
+                 // Attach click events to "x" buttons
+                 const removeBtns = selectedContainer.querySelectorAll(".remove-service");
+                 removeBtns.forEach((btn) => {
+                     btn.addEventListener("click", (e) => {
+                         e.stopPropagation();
+                         const val = btn.getAttribute("data-value");
+                         const cb = Array.from(checkboxes).find(c => c.value === val);
+                         if (cb) {
+                             cb.checked = false;
+                             updateSelection();
+                         }
+                     });
+                 });
 
-                if (selected.length === 0) {
-                    selectedContainer.innerHTML = '<span class="text-gray-400 select-none">Select Services</span>';
-                    hiddenInput.value = "";
-                } else {
-                    selected.forEach((service) => {
-                        const chip = document.createElement("span");
-                        chip.className = "inline-flex items-center gap-1 bg-[#499BD5]/20 text-[#3b88be] text-xs font-semibold px-2.5 py-1 rounded-full select-none flex-shrink-0";
-                        chip.innerHTML = `
-                            ${service}
-                            <span class="cursor-pointer hover:text-red-500 font-bold ml-1 remove-service" data-value="${service}">&times;</span>
-                        `;
-                        selectedContainer.appendChild(chip);
-                    });
-                    hiddenInput.value = selected.join(", ");
-                }
+                 // Update scroll fades
+                 updateFades();
+                 setTimeout(updateFades, 50);
+             }
+ 
+             checkboxes.forEach((cb) => {
+                 cb.addEventListener("change", updateSelection);
+             });
 
-                // Attach click events to "x" buttons
-                const removeBtns = selectedContainer.querySelectorAll(".remove-service");
-                removeBtns.forEach((btn) => {
-                    btn.addEventListener("click", (e) => {
-                        e.stopPropagation();
-                        const val = btn.getAttribute("data-value");
-                        const cb = Array.from(checkboxes).find(c => c.value === val);
-                        if (cb) {
-                            cb.checked = false;
-                            updateSelection();
-                        }
-                    });
-                });
-            }
+             // Listen to scroll inside the container
+             selectedContainer.addEventListener("scroll", updateFades);
+             
+             // Also call updateFades when window resizes
+             window.addEventListener("resize", updateFades);
 
-            checkboxes.forEach((cb) => {
-                cb.addEventListener("change", updateSelection);
-            });
+             // Initialize fades state
+             updateFades();
         });
     </script>
 </body>
 
 </html>
-
