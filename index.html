@@ -149,6 +149,7 @@
                 font-size: 13px !important;
             }
         }
+
         @media (max-width: 300px) {
             .nav-item.active span {
                 font-size: 11px !important;
@@ -699,7 +700,10 @@
                         </div>
                         <div class="flex flex-col items-start">
                             <h1 class="text-xl text-[#6c6c6c] font-medium">Address</h1>
-                            <a href="https://maps.app.goo.gl/TbEJsTSuQ1um2KHv8" target="_blank" rel="noopener noreferrer" class="text-xl text-[#8f8f8f] hover:text-[#57BF93] transition text-left">Infopark Koratty<br>Kerala, India</a>
+                            <a href="https://maps.app.goo.gl/TbEJsTSuQ1um2KHv8" target="_blank"
+                                rel="noopener noreferrer"
+                                class="text-xl text-[#8f8f8f] hover:text-[#57BF93] transition text-left">Infopark
+                                Koratty<br>Kerala, India</a>
                         </div>
                         <div class="flex flex-col items-start justify-end">
                             <h1 class="text-xl text-[#6c6c6c] font-medium">Social</h1>
@@ -1194,8 +1198,11 @@ z
 
 
             <!-- Horizontal Scroll Wrapper -->
-            <!-- Services Slider Wrapper -->
-            <div id="services-slider" class="cursor-pointer active:cursor-pointer">
+            <div id="services-slider" class="relative cursor-pointer active:cursor-pointer">
+                <!-- Left fade overlay to smooth card truncation on scroll -->
+                <div id="services-left-fade" class="absolute left-0 top-0 bottom-0 w-24 pointer-events-none bg-gradient-to-l from-transparent to-[#f6f6f6] opacity-0 transition-opacity duration-150 z-40"></div>
+                <!-- Right fade overlay to smooth card truncation on scroll -->
+                <div id="services-right-fade" class="absolute right-0 top-0 bottom-0 w-24 pointer-events-none bg-gradient-to-r from-transparent to-[#f6f6f6] opacity-0 transition-opacity duration-150 z-40"></div>
 
                 <!-- ACTUAL SCROLL CONTAINER -->
                 <div id="services-track" class="flex mt-10 gap-6 overflow-x-hidden scroll-smooth snap-x snap-mandatory pb-4
@@ -1207,19 +1214,19 @@ z
                         <div class="inverted relative z-30 bg-[#fff] rounded-xl group">
                             <div class="card group flex-shrink-0 snap-start w-[280px] sm:w-[320px] md:w-[360px]">
                                 <div class="h-40 w-full bg-cover bg-center"
-                                    style='background-image:url("assets/web_development.svg");'>
+                                     style='background-image:url("assets/web_development.svg");'>
                                 </div>
                                 <div class="flex flex-col gap-3 p-5">
                                     <div class="flex items-center gap-3">
                                         <div
                                             class="size-14 rounded-full bg-primary/10 flex items-center justify-center">
                                             <img class="h-16 w-16" src="assets/icons/glass-icon-webdevelopment.svg"
-                                                alt="">
+                                                 alt="">
                                         </div>
                                         <h3 class="text-lg font-bold text-slate-900 
-           group-hover:text-[#57BF93] 
-           transition-colors duration-300 
-           dark:text-white">
+            group-hover:text-[#57BF93] 
+            transition-colors duration-300 
+            dark:text-white">
                                             Web Development
                                         </h3>
 
@@ -1241,16 +1248,16 @@ z
 
                         <!-- Decorative SVG -->
                         <svg class="absolute h-24 w-24 bottom-0 right-0 z-20" xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 84 90">
+                             viewBox="0 0 84 90">
                             <path
                                 d="m35.43,45.1l-11.72,36.47c-1.61,5.02-6.29,8.43-11.56,8.43-6.71,0-12.15-5.44-12.15-12.15V16C0,7.16,7.16,0,16,0h55c8.84,0,16,7.16,16,16v2c0,8.84-7.16,16-16,16h-20.34c-6.95,0-13.11,4.49-15.23,11.1h0Z"
                                 fill="#fff" />
                         </svg>
 
                         <!-- Card Arrow button -->
-                        <div class="absolute bottom-0 right-0 z-30 inline-block">
+                        <a href="website-development.html" class="absolute bottom-0 right-0 z-30 inline-block">
                             <svg class="relative block h-12" xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 72.33 58.9">
+                                 viewBox="0 0 72.33 58.9">
                                 <defs>
                                     <linearGradient id="grad2-card1" x1="0%" y1="0%" x2="100%" y2="0%">
                                         <stop offset="0%" style="stop-color:#57BF93; stop-opacity:1" />
@@ -1262,12 +1269,12 @@ z
                                     style="fill:url(#grad2-card1); stroke-width:2px;" />
                             </svg>
                             <svg class="absolute inset-0 m-auto h-4 w-4 text-white pointer-events-none transition-transform duration-300 group-hover:translate-x-1"
-                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                                 stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                                 <path d="M5 12h14" />
                                 <path d="M13 6l6 6-6 6" />
                             </svg>
-                        </div>
+                        </a>
                     </div>
 
                     <!-- Card 2: Ecommerce Solutions -->
@@ -1275,19 +1282,19 @@ z
                         <div class="inverted bg-[#fff] rounded-xl group">
                             <div class="card group flex-shrink-0 snap-start w-[280px] sm:w-[320px] md:w-[360px]">
                                 <div class="h-40 w-full bg-cover bg-center"
-                                    style='background-image:url("assets/ecommerce_development.svg");'>
+                                     style='background-image:url("assets/ecommerce_development.svg");'>
                                 </div>
                                 <div class="flex flex-col gap-3 p-5">
                                     <div class="flex items-center gap-3">
                                         <div
                                             class="size-14 rounded-full bg-primary/10 flex items-center justify-center">
                                             <img class="h-16 w-16" src="assets/icons/glass-icon-ecommerce-solutions.svg"
-                                                alt="">
+                                                 alt="">
                                         </div>
                                         <h3 class="text-lg font-bold text-slate-900 
-           group-hover:text-[#57BF93] 
-           transition-colors duration-300 
-           dark:text-white">
+            group-hover:text-[#57BF93] 
+            transition-colors duration-300 
+            dark:text-white">
                                             Ecommerce Solutions
                                         </h3>
                                     </div>
@@ -1306,16 +1313,16 @@ z
                         </div>
 
                         <svg class="absolute h-24 w-24 bottom-0 right-0 z-20" xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 84 90">
+                             viewBox="0 0 84 90">
                             <path
                                 d="m35.43,45.1l-11.72,36.47c-1.61,5.02-6.29,8.43-11.56,8.43-6.71,0-12.15-5.44-12.15-12.15V16C0,7.16,7.16,0,16,0h55c8.84,0,16,7.16,16,16v2c0,8.84-7.16,16-16,16h-20.34c-6.95,0-13.11,4.49-15.23,11.1h0Z"
                                 fill="#fff" />
                         </svg>
 
                         <!-- Card Arrow button -->
-                        <div class="absolute bottom-0 right-0 z-30 inline-block">
+                        <a href="e-commerce.html" class="absolute bottom-0 right-0 z-30 inline-block">
                             <svg class="relative block h-12" xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 72.33 58.9">
+                                 viewBox="0 0 72.33 58.9">
                                 <defs>
                                     <linearGradient id="grad2-card1" x1="0%" y1="0%" x2="100%" y2="0%">
                                         <stop offset="0%" style="stop-color:#57BF93; stop-opacity:1" />
@@ -1327,12 +1334,12 @@ z
                                     style="fill:url(#grad2-card1); stroke-width:2px;" />
                             </svg>
                             <svg class="absolute inset-0 m-auto h-4 w-4 text-white pointer-events-none transition-transform duration-300 group-hover:translate-x-1"
-                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                                 stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                                 <path d="M5 12h14" />
                                 <path d="M13 6l6 6-6 6" />
                             </svg>
-                        </div>
+                        </a>
                     </div>
 
                     <!-- Card 3: App Development -->
@@ -1340,19 +1347,19 @@ z
                         <div class="inverted bg-[#fff] rounded-xl group">
                             <div class="card group flex-shrink-0 snap-start w-[280px] sm:w-[320px] md:w-[360px]">
                                 <div class="h-40 w-full bg-cover bg-center"
-                                    style='background-image:url("assets/app_development.svg");'>
+                                     style='background-image:url("assets/app_development.svg");'>
                                 </div>
                                 <div class="flex flex-col gap-3 p-5">
                                     <div class="flex items-center gap-3">
                                         <div
                                             class="size-14 rounded-full bg-primary/10 flex items-center justify-center">
                                             <img class="h-16 w-16" src="assets/icons/glass-icon-app-development.svg"
-                                                alt="">
+                                                 alt="">
                                         </div>
                                         <h3 class="text-lg font-bold text-slate-900 
-           group-hover:text-[#57BF93] 
-           transition-colors duration-300 
-           dark:text-white">
+            group-hover:text-[#57BF93] 
+            transition-colors duration-300 
+            dark:text-white">
                                             App Development
                                         </h3>
                                     </div>
@@ -1364,23 +1371,23 @@ z
                                     <button class="mt-1 flex items-center gap-2 text-sm font-bold
                                    text-slate-900 dark:text-white
                                    group-hover:text-primary transition-colors">
-                                        <a href="e-commerce.html">Learn More</a>
+                                        <a href="mobile-app-development.html">Learn More</a>
                                     </button>
                                 </div>
                             </div>
                         </div>
 
                         <svg class="absolute h-24 w-24 bottom-0 right-0 z-20" xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 84 90">
+                             viewBox="0 0 84 90">
                             <path
                                 d="m35.43,45.1l-11.72,36.47c-1.61,5.02-6.29,8.43-11.56,8.43-6.71,0-12.15-5.44-12.15-12.15V16C0,7.16,7.16,0,16,0h55c8.84,0,16,7.16,16,16v2c0,8.84-7.16,16-16,16h-20.34c-6.95,0-13.11,4.49-15.23,11.1h0Z"
                                 fill="#fff" />
                         </svg>
 
                         <!-- Card Arrow button -->
-                        <div class="absolute bottom-0 right-0 z-30 inline-block">
+                        <a href="mobile-app-development.html" class="absolute bottom-0 right-0 z-30 inline-block">
                             <svg class="relative block h-12" xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 72.33 58.9">
+                                 viewBox="0 0 72.33 58.9">
                                 <defs>
                                     <linearGradient id="grad2-card1" x1="0%" y1="0%" x2="100%" y2="0%">
                                         <stop offset="0%" style="stop-color:#57BF93; stop-opacity:1" />
@@ -1392,12 +1399,12 @@ z
                                     style="fill:url(#grad2-card1); stroke-width:2px;" />
                             </svg>
                             <svg class="absolute inset-0 m-auto h-4 w-4 text-white pointer-events-none transition-transform duration-300 group-hover:translate-x-1"
-                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                                 stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                                 <path d="M5 12h14" />
                                 <path d="M13 6l6 6-6 6" />
                             </svg>
-                        </div>
+                        </a>
                     </div>
 
                     <!-- Card 4: CMS Development -->
@@ -1405,19 +1412,19 @@ z
                         <div class="inverted bg-[#fff] rounded-xl group">
                             <div class="card group flex-shrink-0 snap-start w-[280px] sm:w-[320px] md:w-[360px]">
                                 <div class="h-40 w-full bg-cover bg-center"
-                                    style='background-image:url("assets/cms_development.svg");'>
+                                     style='background-image:url("assets/cms_development.svg");'>
                                 </div>
                                 <div class="flex flex-col gap-3 p-5">
                                     <div class="flex items-center gap-3">
                                         <div
                                             class="size-14 rounded-full bg-primary/10 flex items-center justify-center">
                                             <img class="h-16 w-16" src="assets/icons/glass-icon-cms-development.svg"
-                                                alt="">
+                                                 alt="">
                                         </div>
                                         <h3 class="text-lg font-bold text-slate-900 
-           group-hover:text-[#57BF93] 
-           transition-colors duration-300 
-           dark:text-white">
+            group-hover:text-[#57BF93] 
+            transition-colors duration-300 
+            dark:text-white">
                                             CMS Development
                                         </h3>
                                     </div>
@@ -1435,16 +1442,16 @@ z
                         </div>
 
                         <svg class="absolute h-24 w-24 bottom-0 right-0 z-20" xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 84 90">
+                             viewBox="0 0 84 90">
                             <path
                                 d="m35.43,45.1l-11.72,36.47c-1.61,5.02-6.29,8.43-11.56,8.43-6.71,0-12.15-5.44-12.15-12.15V16C0,7.16,7.16,0,16,0h55c8.84,0,16,7.16,16,16v2c0,8.84-7.16,16-16,16h-20.34c-6.95,0-13.11,4.49-15.23,11.1h0Z"
                                 fill="#fff" />
                         </svg>
 
                         <!-- Card Arrow button -->
-                        <div class="absolute bottom-0 right-0 z-30 inline-block">
+                        <a href="cms-development.html" class="absolute bottom-0 right-0 z-30 inline-block">
                             <svg class="relative block h-12" xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 72.33 58.9">
+                                 viewBox="0 0 72.33 58.9">
                                 <defs>
                                     <linearGradient id="grad2-card1" x1="0%" y1="0%" x2="100%" y2="0%">
                                         <stop offset="0%" style="stop-color:#57BF93; stop-opacity:1" />
@@ -1456,12 +1463,12 @@ z
                                     style="fill:url(#grad2-card1); stroke-width:2px;" />
                             </svg>
                             <svg class="absolute inset-0 m-auto h-4 w-4 text-white pointer-events-none transition-transform duration-300 group-hover:translate-x-1"
-                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                                 stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                                 <path d="M5 12h14" />
                                 <path d="M13 6l6 6-6 6" />
                             </svg>
-                        </div>
+                        </a>
                     </div>
 
                     <!-- Card 5: Digital Marketing -->
@@ -1469,19 +1476,19 @@ z
                         <div class="inverted bg-[#fff] rounded-xl group">
                             <div class="card group flex-shrink-0 snap-start w-[280px] sm:w-[320px] md:w-[360px]">
                                 <div class="h-40 w-full bg-cover bg-center"
-                                    style='background-image:url("assets/digital_marketing.svg");'>
+                                     style='background-image:url("assets/digital_marketing.svg");'>
                                 </div>
                                 <div class="flex flex-col gap-3 p-5">
                                     <div class="flex items-center gap-3">
                                         <div
                                             class="size-14 rounded-full bg-primary/10 flex items-center justify-center">
                                             <img class="h-16 w-16" src="assets/icons/glass-icon-digital-marketing.svg"
-                                                alt="">
+                                                 alt="">
                                         </div>
                                         <h3 class="text-lg font-bold text-slate-900 
-           group-hover:text-[#57BF93] 
-           transition-colors duration-300 
-           dark:text-white">
+            group-hover:text-[#57BF93] 
+            transition-colors duration-300 
+            dark:text-white">
                                             Digital Marketing
                                         </h3>
                                     </div>
@@ -1500,16 +1507,16 @@ z
                         </div>
 
                         <svg class="absolute h-24 w-24 bottom-0 right-0 z-20" xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 84 90">
+                             viewBox="0 0 84 90">
                             <path
                                 d="m35.43,45.1l-11.72,36.47c-1.61,5.02-6.29,8.43-11.56,8.43-6.71,0-12.15-5.44-12.15-12.15V16C0,7.16,7.16,0,16,0h55c8.84,0,16,7.16,16,16v2c0,8.84-7.16,16-16,16h-20.34c-6.95,0-13.11,4.49-15.23,11.1h0Z"
                                 fill="#fff" />
                         </svg>
 
                         <!-- Card Arrow button -->
-                        <div class="absolute bottom-0 right-0 z-30 inline-block">
+                        <a href="digital-marketing.html" class="absolute bottom-0 right-0 z-30 inline-block">
                             <svg class="relative block h-12" xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 72.33 58.9">
+                                 viewBox="0 0 72.33 58.9">
                                 <defs>
                                     <linearGradient id="grad2-card1" x1="0%" y1="0%" x2="100%" y2="0%">
                                         <stop offset="0%" style="stop-color:#57BF93; stop-opacity:1" />
@@ -1521,12 +1528,12 @@ z
                                     style="fill:url(#grad2-card1); stroke-width:2px;" />
                             </svg>
                             <svg class="absolute inset-0 m-auto h-4 w-4 text-white pointer-events-none transition-transform duration-300 group-hover:translate-x-1"
-                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                                 stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                                 <path d="M5 12h14" />
                                 <path d="M13 6l6 6-6 6" />
                             </svg>
-                        </div>
+                        </a>
                     </div>
 
                     <!-- Card 6: Domain and Web Hosting -->
@@ -1534,20 +1541,20 @@ z
                         <div class="inverted bg-[#fff] rounded-xl group">
                             <div class="card group flex-shrink-0 snap-start w-[280px] sm:w-[320px] md:w-[360px]">
                                 <div class="h-40 w-full bg-cover bg-center"
-                                    style='background-image:url("assets/domain_and_web_hosting.svg");'>
+                                     style='background-image:url("assets/domain_and_web_hosting.svg");'>
                                 </div>
                                 <div class="flex flex-col gap-3 p-5">
                                     <div class="flex items-center gap-3">
                                         <div
                                             class="size-14 rounded-full bg-primary/10 flex items-center justify-center">
                                             <img class="h-16 w-16"
-                                                src="assets/icons/glass-icon-domain-and-web-hosting.svg"
-                                                alt="Domain and Web Hosting">
+                                                 src="assets/icons/glass-icon-domain-and-web-hosting.svg"
+                                                 alt="Domain and Web Hosting">
                                         </div>
                                         <h3 class="text-lg font-bold text-slate-900 
-           group-hover:text-[#57BF93] 
-           transition-colors duration-300 
-           dark:text-white">
+            group-hover:text-[#57BF93] 
+            transition-colors duration-300 
+            dark:text-white">
                                             Domain and Web Hosting
                                         </h3>
                                     </div>
@@ -1559,23 +1566,23 @@ z
                                     <button class="mt-1 flex items-center gap-2 text-sm font-bold
                                    text-slate-900 dark:text-white
                                    group-hover:text-primary transition-colors">
-                                        <a href="sap-business-one.html">Learn More</a>
+                                        <a href="domain-and-web-hosting.html">Learn More</a>
                                     </button>
                                 </div>
                             </div>
                         </div>
 
                         <svg class="absolute h-24 w-24 bottom-0 right-0 z-20" xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 84 90">
+                             viewBox="0 0 84 90">
                             <path
                                 d="m35.43,45.1l-11.72,36.47c-1.61,5.02-6.29,8.43-11.56,8.43-6.71,0-12.15-5.44-12.15-12.15V16C0,7.16,7.16,0,16,0h55c8.84,0,16,7.16,16,16v2c0,8.84-7.16,16-16,16h-20.34c-6.95,0-13.11,4.49-15.23,11.1h0Z"
                                 fill="#fff" />
                         </svg>
 
                         <!-- Card Arrow button -->
-                        <div class="absolute bottom-0 right-0 z-30 inline-block">
+                        <a href="domain-and-web-hosting.html" class="absolute bottom-0 right-0 z-30 inline-block">
                             <svg class="relative block h-12" xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 72.33 58.9">
+                                 viewBox="0 0 72.33 58.9">
                                 <defs>
                                     <linearGradient id="grad2-card1" x1="0%" y1="0%" x2="100%" y2="0%">
                                         <stop offset="0%" style="stop-color:#57BF93; stop-opacity:1" />
@@ -1587,12 +1594,12 @@ z
                                     style="fill:url(#grad2-card1); stroke-width:2px;" />
                             </svg>
                             <svg class="absolute inset-0 m-auto h-4 w-4 text-white pointer-events-none transition-transform duration-300 group-hover:translate-x-1"
-                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                                 stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                                 <path d="M5 12h14" />
                                 <path d="M13 6l6 6-6 6" />
                             </svg>
-                        </div>
+                        </a>
                     </div>
 
                     <!-- Card 7: SAP Business One -->
@@ -1600,19 +1607,19 @@ z
                         <div class="inverted bg-[#fff] rounded-xl group">
                             <div class="card group flex-shrink-0 snap-start w-[280px] sm:w-[320px] md:w-[360px]">
                                 <div class="h-40 w-full bg-cover bg-center"
-                                    style='background-image:url("assets/sap_business.svg");'>
+                                     style='background-image:url("assets/sap_business.svg");'>
                                 </div>
                                 <div class="flex flex-col gap-3 p-5">
                                     <div class="flex items-center gap-3">
                                         <div
                                             class="size-14 rounded-full bg-primary/10 flex items-center justify-center">
                                             <img class="h-16 w-16" src="assets/icons/glass-icon-sap-business-one.svg"
-                                                alt="">
+                                                 alt="">
                                         </div>
                                         <h3 class="text-lg font-bold text-slate-900 
-           group-hover:text-[#57BF93] 
-           transition-colors duration-300 
-           dark:text-white">
+            group-hover:text-[#57BF93] 
+            transition-colors duration-300 
+            dark:text-white">
                                             SAP Business One
                                         </h3>
                                     </div>
@@ -1631,16 +1638,16 @@ z
                         </div>
 
                         <svg class="absolute h-24 w-24 bottom-0 right-0 z-20" xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 84 90">
+                             viewBox="0 0 84 90">
                             <path
                                 d="m35.43,45.1l-11.72,36.47c-1.61,5.02-6.29,8.43-11.56,8.43-6.71,0-12.15-5.44-12.15-12.15V16C0,7.16,7.16,0,16,0h55c8.84,0,16,7.16,16,16v2c0,8.84-7.16,16-16,16h-20.34c-6.95,0-13.11,4.49-15.23,11.1h0Z"
                                 fill="#fff" />
                         </svg>
 
                         <!-- Card Arrow button -->
-                        <div class="absolute bottom-0 right-0 z-30 inline-block">
+                        <a href="sap-business-one.html" class="absolute bottom-0 right-0 z-30 inline-block">
                             <svg class="relative block h-12" xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 72.33 58.9">
+                                 viewBox="0 0 72.33 58.9">
                                 <defs>
                                     <linearGradient id="grad2-card1" x1="0%" y1="0%" x2="100%" y2="0%">
                                         <stop offset="0%" style="stop-color:#57BF93; stop-opacity:1" />
@@ -1652,12 +1659,12 @@ z
                                     style="fill:url(#grad2-card1); stroke-width:2px;" />
                             </svg>
                             <svg class="absolute inset-0 m-auto h-4 w-4 text-white pointer-events-none transition-transform duration-300 group-hover:translate-x-1"
-                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                                 stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                                 <path d="M5 12h14" />
                                 <path d="M13 6l6 6-6 6" />
                             </svg>
-                        </div>
+                        </a>
                     </div>
 
                     <!-- Card 8: Business Intelligence Tools -->
@@ -1665,19 +1672,19 @@ z
                         <div class="inverted bg-[#fff] rounded-xl group">
                             <div class="card group flex-shrink-0 snap-start w-[280px] sm:w-[320px] md:w-[360px]">
                                 <div class="h-40 w-full bg-cover bg-center"
-                                    style='background-image:url("assets/business_intelligence_tool.svg");'>
+                                     style='background-image:url("assets/business_intelligence_tool.svg");'>
                                 </div>
                                 <div class="flex flex-col gap-3 p-5">
                                     <div class="flex items-center gap-3">
                                         <div
                                             class="size-14 rounded-full bg-primary/10 flex items-center justify-center">
                                             <img class="h-16 w-16"
-                                                src="assets/icons/glass-icon-business-intelligence-tool.svg" alt="">
+                                                 src="assets/icons/glass-icon-business-intelligence-tool.svg" alt="">
                                         </div>
                                         <h3 class="text-lg font-bold text-slate-900 
-           group-hover:text-[#57BF93] 
-           transition-colors duration-300 
-           dark:text-white">
+            group-hover:text-[#57BF93] 
+            transition-colors duration-300 
+            dark:text-white">
                                             Business Intelligence Tools
                                         </h3>
                                     </div>
@@ -1689,23 +1696,23 @@ z
                                     <button class="mt-1 flex items-center gap-2 text-sm font-bold
                                    text-slate-900 dark:text-white
                                    group-hover:text-primary transition-colors">
-                                        <a href="business-intelligence-tools.html">Learn More</a>
+                                        <a href="business-intelligence-tool.html">Learn More</a>
                                     </button>
                                 </div>
                             </div>
                         </div>
 
                         <svg class="absolute h-24 w-24 bottom-0 right-0 z-20" xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 84 90">
+                             viewBox="0 0 84 90">
                             <path
                                 d="m35.43,45.1l-11.72,36.47c-1.61,5.02-6.29,8.43-11.56,8.43-6.71,0-12.15-5.44-12.15-12.15V16C0,7.16,7.16,0,16,0h55c8.84,0,16,7.16,16,16v2c0,8.84-7.16,16-16,16h-20.34c-6.95,0-13.11,4.49-15.23,11.1h0Z"
                                 fill="#fff" />
                         </svg>
 
                         <!-- Card Arrow button -->
-                        <div class="absolute bottom-0 right-0 z-30 inline-block">
+                        <a href="business-intelligence-tool.html" class="absolute bottom-0 right-0 z-30 inline-block">
                             <svg class="relative block h-12" xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 72.33 58.9">
+                                 viewBox="0 0 72.33 58.9">
                                 <defs>
                                     <linearGradient id="grad2-card1" x1="0%" y1="0%" x2="100%" y2="0%">
                                         <stop offset="0%" style="stop-color:#57BF93; stop-opacity:1" />
@@ -1717,12 +1724,12 @@ z
                                     style="fill:url(#grad2-card1); stroke-width:2px;" />
                             </svg>
                             <svg class="absolute inset-0 m-auto h-4 w-4 text-white pointer-events-none transition-transform duration-300 group-hover:translate-x-1"
-                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                                 stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                                 <path d="M5 12h14" />
                                 <path d="M13 6l6 6-6 6" />
                             </svg>
-                        </div>
+                        </a>
                     </div>
 
                     <!-- Card 9: Third Party Apps Integration -->
@@ -1730,19 +1737,19 @@ z
                         <div class="inverted bg-[#fff] rounded-xl group">
                             <div class="card group flex-shrink-0 snap-start w-[280px] sm:w-[320px] md:w-[360px]">
                                 <div class="h-40 w-full bg-cover bg-center"
-                                    style='background-image:url("assets/third_party_integration.svg");'>
+                                     style='background-image:url("assets/third_party_integration.svg");'>
                                 </div>
                                 <div class="flex flex-col gap-3 p-5">
                                     <div class="flex items-center gap-3">
                                         <div
                                             class="size-14 rounded-full bg-primary/10 flex items-center justify-center">
                                             <img class="h-16 w-16"
-                                                src="assets/icons/glass-icon-third-party-integration.svg" alt="">
+                                                 src="assets/icons/glass-icon-third-party-integration.svg" alt="">
                                         </div>
                                         <h3 class="text-lg font-bold text-slate-900 
-           group-hover:text-[#57BF93] 
-           transition-colors duration-300 
-           dark:text-white">
+            group-hover:text-[#57BF93] 
+            transition-colors duration-300 
+            dark:text-white">
                                             Third Party Apps Integration
                                         </h3>
                                     </div>
@@ -1754,23 +1761,23 @@ z
                                     <button class="mt-1 flex items-center gap-2 text-sm font-bold
                                    text-slate-900 dark:text-white
                                    group-hover:text-primary transition-colors">
-                                        <a href="third-party-apps-integration.html">Learn More</a>
+                                        <a href="third-party-app-integration.html">Learn More</a>
                                     </button>
                                 </div>
                             </div>
                         </div>
 
                         <svg class="absolute h-24 w-24 bottom-0 right-0 z-20" xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 84 90">
+                             viewBox="0 0 84 90">
                             <path
                                 d="m35.43,45.1l-11.72,36.47c-1.61,5.02-6.29,8.43-11.56,8.43-6.71,0-12.15-5.44-12.15-12.15V16C0,7.16,7.16,0,16,0h55c8.84,0,16,7.16,16,16v2c0,8.84-7.16,16-16,16h-20.34c-6.95,0-13.11,4.49-15.23,11.1h0Z"
                                 fill="#fff" />
                         </svg>
 
                         <!-- Card Arrow button -->
-                        <div class="absolute bottom-0 right-0 z-30 inline-block">
+                        <a href="third-party-app-integration.html" class="absolute bottom-0 right-0 z-30 inline-block">
                             <svg class="relative block h-12" xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 72.33 58.9">
+                                 viewBox="0 0 72.33 58.9">
                                 <defs>
                                     <linearGradient id="grad2-card1" x1="0%" y1="0%" x2="100%" y2="0%">
                                         <stop offset="0%" style="stop-color:#57BF93; stop-opacity:1" />
@@ -1782,12 +1789,12 @@ z
                                     style="fill:url(#grad2-card1); stroke-width:2px;" />
                             </svg>
                             <svg class="absolute inset-0 m-auto h-4 w-4 text-white pointer-events-none transition-transform duration-300 group-hover:translate-x-1"
-                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                                 stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                                 <path d="M5 12h14" />
                                 <path d="M13 6l6 6-6 6" />
                             </svg>
-                        </div>
+                        </a>
                     </div>
 
                     <!-- Card 10: CRM -->
@@ -1795,7 +1802,7 @@ z
                         <div class="inverted bg-[#fff] rounded-xl group">
                             <div class="card group flex-shrink-0 snap-start w-[280px] sm:w-[320px] md:w-[360px]">
                                 <div class="h-40 w-full bg-cover bg-center"
-                                    style='background-image:url("assets/crm.svg");'>
+                                     style='background-image:url("assets/crm.svg");'>
                                 </div>
                                 <div class="flex flex-col gap-3 p-5">
                                     <div class="flex items-center gap-3">
@@ -1804,9 +1811,9 @@ z
                                             <img class="h-16 w-16" src="assets/icons/glass-icon-crm.svg" alt="CRM">
                                         </div>
                                         <h3 class="text-lg font-bold text-slate-900 
-           group-hover:text-[#57BF93] 
-           transition-colors duration-300 
-           dark:text-white">
+            group-hover:text-[#57BF93] 
+            transition-colors duration-300 
+            dark:text-white">
                                             CRM
                                         </h3>
                                     </div>
@@ -1825,16 +1832,16 @@ z
                         </div>
 
                         <svg class="absolute h-24 w-24 bottom-0 right-0 z-20" xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 84 90">
+                             viewBox="0 0 84 90">
                             <path
                                 d="m35.43,45.1l-11.72,36.47c-1.61,5.02-6.29,8.43-11.56,8.43-6.71,0-12.15-5.44-12.15-12.15V16C0,7.16,7.16,0,16,0h55c8.84,0,16,7.16,16,16v2c0,8.84-7.16,16-16,16h-20.34c-6.95,0-13.11,4.49-15.23,11.1h0Z"
                                 fill="#fff" />
                         </svg>
 
                         <!-- Card Arrow button -->
-                        <div class="absolute bottom-0 right-0 z-30 inline-block">
+                        <a href="crm.html" class="absolute bottom-0 right-0 z-30 inline-block">
                             <svg class="relative block h-12" xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 72.33 58.9">
+                                 viewBox="0 0 72.33 58.9">
                                 <defs>
                                     <linearGradient id="grad2-card1" x1="0%" y1="0%" x2="100%" y2="0%">
                                         <stop offset="0%" style="stop-color:#57BF93; stop-opacity:1" />
@@ -1846,12 +1853,12 @@ z
                                     style="fill:url(#grad2-card1); stroke-width:2px;" />
                             </svg>
                             <svg class="absolute inset-0 m-auto h-4 w-4 text-white pointer-events-none transition-transform duration-300 group-hover:translate-x-1"
-                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                                 stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                                 <path d="M5 12h14" />
                                 <path d="M13 6l6 6-6 6" />
                             </svg>
-                        </div>
+                        </a>
                     </div>
 
                     <!-- Card 11: Business Process Automation -->
@@ -1859,20 +1866,20 @@ z
                         <div class="inverted bg-[#fff] rounded-xl group">
                             <div class="card group flex-shrink-0 snap-start w-[280px] sm:w-[320px] md:w-[360px]">
                                 <div class="h-40 w-full bg-cover bg-center"
-                                    style='background-image:url("assets/business_process_automation.svg");'>
+                                     style='background-image:url("assets/business_process_automation.svg");'>
                                 </div>
                                 <div class="flex flex-col gap-3 p-5">
                                     <div class="flex items-center gap-3">
                                         <div
                                             class="size-14 rounded-full bg-primary/10 flex items-center justify-center">
                                             <img class="h-16 w-16"
-                                                src="assets/icons/glass-icon-business-process-automation.svg"
-                                                alt="Business Process Automation">
+                                                 src="assets/icons/glass-icon-business-process-automation.svg"
+                                                 alt="Business Process Automation">
                                         </div>
                                         <h3 class="text-lg font-bold text-slate-900 
-           group-hover:text-[#57BF93] 
-           transition-colors duration-300 
-           dark:text-white">
+            group-hover:text-[#57BF93] 
+            transition-colors duration-300 
+            dark:text-white">
                                             Business Process Automation
                                         </h3>
                                     </div>
@@ -1891,16 +1898,16 @@ z
                         </div>
 
                         <svg class="absolute h-24 w-24 bottom-0 right-0 z-20" xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 84 90">
+                             viewBox="0 0 84 90">
                             <path
                                 d="m35.43,45.1l-11.72,36.47c-1.61,5.02-6.29,8.43-11.56,8.43-6.71,0-12.15-5.44-12.15-12.15V16C0,7.16,7.16,0,16,0h55c8.84,0,16,7.16,16,16v2c0,8.84-7.16,16-16,16h-20.34c-6.95,0-13.11,4.49-15.23,11.1h0Z"
                                 fill="#fff" />
                         </svg>
 
                         <!-- Card Arrow button -->
-                        <div class="absolute bottom-0 right-0 z-30 inline-block">
+                        <a href="business-process-automation.html" class="absolute bottom-0 right-0 z-30 inline-block">
                             <svg class="relative block h-12" xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 72.33 58.9">
+                                 viewBox="0 0 72.33 58.9">
                                 <defs>
                                     <linearGradient id="grad2-card1" x1="0%" y1="0%" x2="100%" y2="0%">
                                         <stop offset="0%" style="stop-color:#57BF93; stop-opacity:1" />
@@ -1912,12 +1919,12 @@ z
                                     style="fill:url(#grad2-card1); stroke-width:2px;" />
                             </svg>
                             <svg class="absolute inset-0 m-auto h-4 w-4 text-white pointer-events-none transition-transform duration-300 group-hover:translate-x-1"
-                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                                 stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                                 <path d="M5 12h14" />
                                 <path d="M13 6l6 6-6 6" />
                             </svg>
-                        </div>
+                        </a>
                     </div>
 
                     <!-- Card 12: IT Support -->
@@ -1925,19 +1932,19 @@ z
                         <div class="inverted bg-[#fff] rounded-xl group">
                             <div class="card group flex-shrink-0 snap-start w-[280px] sm:w-[320px] md:w-[360px]">
                                 <div class="h-40 w-full bg-cover bg-center"
-                                    style='background-image:url("assets/it_support.svg");'>
+                                     style='background-image:url("assets/it_support.svg");'>
                                 </div>
                                 <div class="flex flex-col gap-3 p-5">
                                     <div class="flex items-center gap-3">
                                         <div
                                             class="size-14 rounded-full bg-primary/10 flex items-center justify-center">
                                             <img class="h-16 w-16" src="assets/icons/glass-icon-it-support.svg"
-                                                alt="IT Support">
+                                                 alt="IT Support">
                                         </div>
                                         <h3 class="text-lg font-bold text-slate-900 
-           group-hover:text-[#57BF93] 
-           transition-colors duration-300 
-           dark:text-white">
+            group-hover:text-[#57BF93] 
+            transition-colors duration-300 
+            dark:text-white">
                                             IT Support
                                         </h3>
                                     </div>
@@ -1956,16 +1963,16 @@ z
                         </div>
 
                         <svg class="absolute h-24 w-24 bottom-0 right-0 z-20" xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 84 90">
+                             viewBox="0 0 84 90">
                             <path
                                 d="m35.43,45.1l-11.72,36.47c-1.61,5.02-6.29,8.43-11.56,8.43-6.71,0-12.15-5.44-12.15-12.15V16C0,7.16,7.16,0,16,0h55c8.84,0,16,7.16,16,16v2c0,8.84-7.16,16-16,16h-20.34c-6.95,0-13.11,4.49-15.23,11.1h0Z"
                                 fill="#fff" />
                         </svg>
 
                         <!-- Card Arrow button -->
-                        <div class="absolute bottom-0 right-0 z-30 inline-block">
+                        <a href="it-support.html" class="absolute bottom-0 right-0 z-30 inline-block">
                             <svg class="relative block h-12" xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 72.33 58.9">
+                                 viewBox="0 0 72.33 58.9">
                                 <defs>
                                     <linearGradient id="grad2-card1" x1="0%" y1="0%" x2="100%" y2="0%">
                                         <stop offset="0%" style="stop-color:#57BF93; stop-opacity:1" />
@@ -1977,12 +1984,12 @@ z
                                     style="fill:url(#grad2-card1); stroke-width:2px;" />
                             </svg>
                             <svg class="absolute inset-0 m-auto h-4 w-4 text-white pointer-events-none transition-transform duration-300 group-hover:translate-x-1"
-                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                                 stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                                 <path d="M5 12h14" />
                                 <path d="M13 6l6 6-6 6" />
                             </svg>
-                        </div>
+                        </a>
                     </div>
 
                     <!-- Card 13: IT Consulting -->
@@ -1990,19 +1997,19 @@ z
                         <div class="inverted bg-[#fff] rounded-xl group">
                             <div class="card group flex-shrink-0 snap-start w-[280px] sm:w-[320px] md:w-[360px]">
                                 <div class="h-40 w-full bg-cover bg-center"
-                                    style='background-image:url("assets/it_consulting.svg");'>
+                                     style='background-image:url("assets/it_consulting.svg");'>
                                 </div>
                                 <div class="flex flex-col gap-3 p-5">
                                     <div class="flex items-center gap-3">
                                         <div
                                             class="size-14 rounded-full bg-primary/10 flex items-center justify-center">
                                             <img class="h-16 w-16" src="assets/icons/glass-icon-it-consulting.svg"
-                                                alt="IT Consulting">
+                                                 alt="IT Consulting">
                                         </div>
                                         <h3 class="text-lg font-bold text-slate-900 
-           group-hover:text-[#57BF93] 
-           transition-colors duration-300 
-           dark:text-white">
+            group-hover:text-[#57BF93] 
+            transition-colors duration-300 
+            dark:text-white">
                                             IT Consulting
                                         </h3>
                                     </div>
@@ -2020,16 +2027,16 @@ z
                         </div>
 
                         <svg class="absolute h-24 w-24 bottom-0 right-0 z-20" xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 84 90">
+                             viewBox="0 0 84 90">
                             <path
                                 d="m35.43,45.1l-11.72,36.47c-1.61,5.02-6.29,8.43-11.56,8.43-6.71,0-12.15-5.44-12.15-12.15V16C0,7.16,7.16,0,16,0h55c8.84,0,16,7.16,16,16v2c0,8.84-7.16,16-16,16h-20.34c-6.95,0-13.11,4.49-15.23,11.1h0Z"
                                 fill="#fff" />
                         </svg>
 
                         <!-- Card Arrow button -->
-                        <div class="absolute bottom-0 right-0 z-30 inline-block">
+                        <a href="it-consulting.html" class="absolute bottom-0 right-0 z-30 inline-block">
                             <svg class="relative block h-12" xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 72.33 58.9">
+                                 viewBox="0 0 72.33 58.9">
                                 <defs>
                                     <linearGradient id="grad2-card1" x1="0%" y1="0%" x2="100%" y2="0%">
                                         <stop offset="0%" style="stop-color:#57BF93; stop-opacity:1" />
@@ -2041,12 +2048,12 @@ z
                                     style="fill:url(#grad2-card1); stroke-width:2px;" />
                             </svg>
                             <svg class="absolute inset-0 m-auto h-4 w-4 text-white pointer-events-none transition-transform duration-300 group-hover:translate-x-1"
-                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                                 stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                                 <path d="M5 12h14" />
                                 <path d="M13 6l6 6-6 6" />
                             </svg>
-                        </div>
+                        </a>
                     </div>
 
                     <!-- Card 14: Back Office Support -->
@@ -2054,19 +2061,19 @@ z
                         <div class="inverted bg-[#fff] rounded-xl group">
                             <div class="card group flex-shrink-0 snap-start w-[280px] sm:w-[320px] md:w-[360px]">
                                 <div class="h-40 w-full bg-cover bg-center"
-                                    style='background-image:url("assets/back_office_support.svg");'>
+                                     style='background-image:url("assets/back_office_support.svg");'>
                                 </div>
                                 <div class="flex flex-col gap-3 p-5">
                                     <div class="flex items-center gap-3">
                                         <div
                                             class="size-14 rounded-full bg-primary/10 flex items-center justify-center">
                                             <img class="h-16 w-16" src="assets/icons/glass-icon-back-office-support.svg"
-                                                alt="Back Office Support">
+                                                 alt="Back Office Support">
                                         </div>
                                         <h3 class="text-lg font-bold text-slate-900 
-           group-hover:text-[#57BF93] 
-           transition-colors duration-300 
-           dark:text-white">
+            group-hover:text-[#57BF93] 
+            transition-colors duration-300 
+            dark:text-white">
                                             Back Office Support
                                         </h3>
                                     </div>
@@ -2085,16 +2092,16 @@ z
                         </div>
 
                         <svg class="absolute h-24 w-24 bottom-0 right-0 z-20" xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 84 90">
+                             viewBox="0 0 84 90">
                             <path
                                 d="m35.43,45.1l-11.72,36.47c-1.61,5.02-6.29,8.43-11.56,8.43-6.71,0-12.15-5.44-12.15-12.15V16C0,7.16,7.16,0,16,0h55c8.84,0,16,7.16,16,16v2c0,8.84-7.16,16-16,16h-20.34c-6.95,0-13.11,4.49-15.23,11.1h0Z"
                                 fill="#fff" />
                         </svg>
 
                         <!-- Card Arrow button -->
-                        <div class="absolute bottom-0 right-0 z-30 inline-block">
+                        <a href="back-office-support.html" class="absolute bottom-0 right-0 z-30 inline-block">
                             <svg class="relative block h-12" xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 72.33 58.9">
+                                 viewBox="0 0 72.33 58.9">
                                 <defs>
                                     <linearGradient id="grad2-card1" x1="0%" y1="0%" x2="100%" y2="0%">
                                         <stop offset="0%" style="stop-color:#57BF93; stop-opacity:1" />
@@ -2106,14 +2113,14 @@ z
                                     style="fill:url(#grad2-card1); stroke-width:2px;" />
                             </svg>
                             <svg class="absolute inset-0 m-auto h-4 w-4 text-white pointer-events-none transition-transform duration-300 group-hover:translate-x-1"
-                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                                 stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                                 <path d="M5 12h14" />
                                 <path d="M13 6l6 6-6 6" />
                             </svg>
-                        </div>
+                        </a>
                     </div>
-
+                </div>
 
 
 
@@ -2630,7 +2637,8 @@ z
                         <li><a class="cursor-pointer text-[14px] md:text-[16px]" href="tel:+914872970765">+91 - 487 -
                                 2970765</a></li>
                         <li><a class="cursor-pointer text-[14px] md:text-[16px] hover:text-[#57BF93] transition"
-                                href="https://maps.app.goo.gl/TbEJsTSuQ1um2KHv8" target="_blank" rel="noopener noreferrer">Infopark Koratty <br>
+                                href="https://maps.app.goo.gl/TbEJsTSuQ1um2KHv8" target="_blank"
+                                rel="noopener noreferrer">Infopark Koratty <br>
                                 Kerala, India</a></li>
                     </ul>
                 </div>
