@@ -59,6 +59,13 @@ if (openMenu && closeMenu && menu) {
         menu.classList.add("transition-opacity", "duration-300", "ease-in-out");
         menu.classList.remove("opacity-0", "pointer-events-none");
         document.body.classList.add("overflow-hidden");
+
+        // Refresh ScrollTrigger calculations after showing the menu
+        setTimeout(() => {
+            if (typeof ScrollTrigger !== "undefined") {
+                ScrollTrigger.refresh();
+            }
+        }, 150);
     });
 
     closeMenu.addEventListener("click", closeMenuFn);
@@ -75,6 +82,76 @@ function closeMenuFn() {
     menu.classList.remove("transition-opacity", "duration-300", "ease-in-out");
     menu.classList.add("opacity-0", "pointer-events-none");
     document.body.classList.remove("overflow-hidden");
+}
+
+// Initialize mobile menu cards reveal on scroll
+function initMenuCardsReveal() {
+    const menuEl = document.getElementById("fullscreenMenu");
+    if (!menuEl) return;
+
+    const menuCards = menuEl.querySelectorAll(".card");
+    menuCards.forEach((card) => {
+        const textDiv = card.querySelector(".absolute.bottom-0") || card.querySelector("div[class*='bottom-0']");
+        if (!textDiv) return;
+
+        const headings = textDiv.querySelectorAll("h1");
+        headings.forEach((h1) => {
+            // Check if already wrapped to avoid double wrapping
+            if (h1.querySelector(".text-mask-menu-card")) return;
+
+            // Create the line wrapper span
+            const lineSpan = document.createElement("span");
+            lineSpan.className = "line relative inline-block overflow-hidden";
+
+            // Create the text span
+            const textSpan = document.createElement("span");
+            textSpan.className = "text relative inline-block overflow-hidden";
+            
+            // Move all children of h1 (the text) into textSpan
+            while (h1.firstChild) {
+                textSpan.appendChild(h1.firstChild);
+            }
+
+            // Create the mask span
+            const maskSpan = document.createElement("span");
+            maskSpan.className = "text-mask-menu-card absolute inset-0 bg-[#57BF93]"; // brand green color
+
+            // Assemble
+            lineSpan.appendChild(textSpan);
+            lineSpan.appendChild(maskSpan);
+            h1.appendChild(lineSpan);
+        });
+    });
+
+    if (typeof gsap !== "undefined" && typeof ScrollTrigger !== "undefined") {
+        menuCards.forEach((card) => {
+            const cardMasks = card.querySelectorAll(".text-mask-menu-card");
+            if (cardMasks.length === 0) return;
+
+            gsap.set(cardMasks, { xPercent: 0 });
+
+            gsap.timeline({
+                scrollTrigger: {
+                    trigger: card,
+                    scroller: "#fullscreenMenu",
+                    start: "top 95%",
+                    toggleActions: "play none none reverse",
+                }
+            })
+            .to(cardMasks, {
+                xPercent: 100,
+                duration: 1.0,
+                ease: "power4.inOut",
+                stagger: 0.15
+            });
+        });
+    }
+}
+
+if (document.readyState === "complete" || document.readyState === "interactive") {
+    initMenuCardsReveal();
+} else {
+    document.addEventListener("DOMContentLoaded", initMenuCardsReveal);
 }
 
 
