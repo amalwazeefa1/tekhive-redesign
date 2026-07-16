@@ -1598,3 +1598,27 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
+// Parallax banner split text animation
+document.addEventListener("DOMContentLoaded", () => {
+    if (typeof gsap !== "undefined" && typeof ScrollTrigger !== "undefined") {
+        const bannerLines = gsap.utils.toArray(".split-line-text");
+        if (bannerLines.length > 0) {
+            // Set initial state: translated down and hidden
+            gsap.set(bannerLines, { yPercent: 110, opacity: 0 });
+
+            gsap.to(bannerLines, {
+                yPercent: 0,
+                opacity: 1,
+                duration: 1.2,
+                stagger: 0.25,
+                ease: "power4.out",
+                scrollTrigger: {
+                    trigger: bannerLines[0],
+                    start: "top 90%",
+                    toggleActions: "play none none reverse"
+                }
+            });
+        }
+    }
+});
+
