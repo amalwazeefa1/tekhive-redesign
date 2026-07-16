@@ -68,10 +68,13 @@ function checkCard2Reveal() {
     const cards = menu.querySelectorAll(".card");
     if (cards.length > 1 && typeof gsap !== "undefined") {
         const card2 = cards[1];
-        const card2Rect = card2.getBoundingClientRect();
-        const triggerPoint = window.innerHeight * 0.9; // trigger after entering 10% of the viewport
+        const textContainer = card2.querySelector("span.line");
+        if (!textContainer) return;
 
-        if (card2Rect.top < triggerPoint) {
+        const rect = textContainer.getBoundingClientRect();
+
+        // Triggers as soon as the text tag enters the viewport
+        if (rect.top < window.innerHeight) {
             card2Revealed = true;
             const card2Masks = card2.querySelectorAll(".text-mask1-mobile-menu-card-text");
             if (card2Masks.length > 0) {
@@ -79,7 +82,8 @@ function checkCard2Reveal() {
                     xPercent: 100,
                     duration: 1.0,
                     ease: "power4.inOut",
-                    stagger: 0.15
+                    stagger: 0.15,
+                    delay: 0.2 // delay animation for breathing room
                 });
             }
         }
