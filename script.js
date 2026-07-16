@@ -52,6 +52,14 @@ if (lenis && typeof gsap !== "undefined" && typeof ScrollTrigger !== "undefined"
 const openMenu = document.getElementById("openMenu");
 const closeMenu = document.getElementById("closeMenu");
 const menu = document.getElementById("fullscreenMenu");
+const siteHeader = document.getElementById("site-header");
+const sliderNav = document.getElementById("nav");
+const popUpBtn = document.getElementById("pop-up");
+
+if (menu) {
+    menu.setAttribute("data-lenis-prevent", "");
+    menu.classList.add("overscroll-contain");
+}
 let card2Revealed = false;
 
 function checkCard2Reveal() {
@@ -84,6 +92,11 @@ if (openMenu && closeMenu && menu) {
         menu.classList.add("transition-opacity", "duration-300", "ease-in-out");
         menu.classList.remove("opacity-0", "pointer-events-none");
         document.body.classList.add("overflow-hidden");
+
+        // Hide main site header and slider navigation to prevent rubber-band exposure overlap
+        if (siteHeader) siteHeader.classList.add("opacity-0", "pointer-events-none");
+        if (sliderNav) sliderNav.classList.add("opacity-0", "pointer-events-none");
+        if (popUpBtn) popUpBtn.classList.add("opacity-0", "pointer-events-none");
 
         // Split reveal animations for mobile menu cards
         if (typeof gsap !== "undefined") {
@@ -135,6 +148,11 @@ function closeMenuFn() {
     menu.classList.remove("transition-opacity", "duration-300", "ease-in-out");
     menu.classList.add("opacity-0", "pointer-events-none");
     document.body.classList.remove("overflow-hidden");
+
+    // Restore visibility of header and slider navigation
+    if (siteHeader) siteHeader.classList.remove("opacity-0", "pointer-events-none");
+    if (sliderNav) sliderNav.classList.remove("opacity-0", "pointer-events-none");
+    if (popUpBtn) popUpBtn.classList.remove("opacity-0", "pointer-events-none");
 }
 
 
