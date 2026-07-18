@@ -1374,38 +1374,7 @@ morphWrappers.forEach((wrapper) => {
         tl.reverse();
     });
 });
-document.querySelectorAll('[id="morph-button-blue"]');
 
-morphWrappers.forEach((wrapper) => {
-    const bigMorphBtn = wrapper.querySelector('#shape1');
-    const hoverShape = wrapper.querySelector('#shape2');
-    const smallMorphBtn = wrapper.querySelector('#small-shape1');
-    const smallHoverShape = wrapper.querySelector('#small-shape2');
-
-    if (!bigMorphBtn || !hoverShape || !smallMorphBtn || !smallHoverShape) return;
-
-    const tl = gsap.timeline({ paused: true });
-
-    tl.to(bigMorphBtn, {
-        duration: 0.5,
-        morphSVG: hoverShape,
-        ease: "power2.out"
-    });
-
-    tl.to(smallMorphBtn, {
-        duration: 0.5,
-        morphSVG: smallHoverShape,
-        ease: "power2.out"
-    }, 0);
-
-    wrapper.addEventListener("mouseenter", () => {
-        tl.play();
-    });
-
-    wrapper.addEventListener("mouseleave", () => {
-        tl.reverse();
-    });
-});
 
 
 //////////////////////// contact us submit button animation - morph svg on hover
