@@ -1,4 +1,98 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Page</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <!-- Lenis Scroll -->
+    <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
+    <!-- Theme Config -->
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    backgroundImage: {
+                        'shapes-bg': "url('assets/about-img.png')"
+                    },
+                    keyframes: {
+                        fill: {
+                            '0%': { width: '0%' },
+                            '100%': { width: '98%' },
+                        },
+                        marquee: {
+                            '0%': { transform: 'translateX(0%)' },
+                            '100%': { transform: 'translateX(-100%)' },
+                        }
+                    },
+                    animation: {
+                        fill: 'fill 3s ease-out forwards',
+                        marquee: 'marquee 20s linear infinite',
+                    },
+                    screens: {
+                        "xs": "380px",
+                    },
+                    colors: {
+                        "primary": "#13ec13",
+                        "primary-dark": "#0eb50e",
+                        "background-light": "#f6f8f6",
+                        "background-dark": "#102210",
+                        "surface-light": "#ffffff",
+                        "surface-dark": "#1a2e1a",
+                    },
+                    fontSize: {
+                        '18': '18px'
+                    },
+                    fontFamily: {
+                        "display": ["Nunito Sans", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+        /* body {
+            min-height: max(884px, 100dvh);
+        } */
+
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300..700&display=swap');
+
+        #lottiePreview svg {
+            margin: auto !important;
+            width: full !important;
+        }
+
+        html.lenis,
+        html.lenis body {
+            height: auto;
+        }
+
+        .lenis.lenis-smooth {
+            scroll-behavior: auto !important;
+        }
+
+        .lenis.lenis-smooth [data-lenis-prevent] {
+            overscroll-behavior: contain;
+        }
+
+        .lenis.lenis-stopped {
+            overflow: hidden;
+        }
+
+        .lenis.lenis-scrolling iframe {
+            pointer-events: none;
+<!DOCTYPE html>
 
 <html class="light" lang="en">
 
@@ -101,6 +195,18 @@
         .scrollbar-none {
             -ms-overflow-style: none;
             scrollbar-width: none;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            20%, 60% { transform: translateX(-6px); }
+            40%, 80% { transform: translateX(6px); }
+        }
+
+        .animate-shake {
+            animation: shake 0.4s ease-in-out;
+            border-color: #ef4444 !important;
+            box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2);
         }
     </style>
 </head>
@@ -531,7 +637,7 @@
                 <div class="lg:p-12 bg-transparent w-full md:w-1/2 rounded-md">
                     <p class="mb-12 leading-relaxed">Looking for a trusted technology partner? Whether you need software development, business automation, ERP implementation, IT consulting, or digital transformation services, our experts are ready to help. Tell us about your project and we'll get back to you promptly.</p>
                     <div class="">
-                        <form class="space-y-4">
+                        <form id="contactForm" class="space-y-4">
                             <!-- First Name -->
                             <div class="w-full">
                                 <label for="firstName"
@@ -660,6 +766,30 @@
                                     class="bg-[#ececec] mt-1 p-4 block w-full rounded-md border-0 shadow-sm focus:border-[#09aeb8] focus:ring-[#09aeb8] sm:text-sm"></textarea>
                             </div>
 
+                            <!-- Checkbox Captcha -->
+                            <div class="captcha-container mt-6 mb-4">
+                                <div id="captcha-box" class="flex items-center justify-between bg-[#ececec] border border-gray-200 rounded-xl p-4 select-none transition-all duration-300">
+                                    <div class="flex items-center gap-3">
+                                        <!-- Custom Checkbox Button -->
+                                        <button type="button" id="captcha-checkbox-btn" class="w-7 h-7 bg-white border-2 border-gray-300 rounded focus:outline-none flex items-center justify-center transition-all duration-200 hover:border-gray-400">
+                                            <!-- Spinner -->
+                                            <svg id="captcha-spinner" class="animate-spin h-5 w-5 text-[#499BD5] hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                            </svg>
+                                            <!-- Checkmark Icon -->
+                                            <span id="captcha-checkmark" class="material-symbols-outlined text-[#57BF93] text-xl font-bold scale-0 transition-transform duration-200">check</span>
+                                        </button>
+                                        <span id="captcha-label" class="text-sm font-semibold text-gray-600">I'm not a robot</span>
+                                    </div>
+                                    <div class="flex flex-col items-center justify-center opacity-60">
+                                        <span class="material-symbols-outlined text-2xl text-gray-500">shield</span>
+                                        <span class="text-[9px] text-gray-500 font-bold uppercase tracking-wider">Security</span>
+                                    </div>
+                                </div>
+                                <input type="checkbox" id="captcha-verified" name="captcha_verified" required class="opacity-0 absolute pointer-events-none w-[1px] h-[1px]" style="left: 50%;">
+                            </div>
+
                             <div id="submit-morph-button" class="group">
                                 <button type="submit"
                                     class="relative w-full inline-flex justify-end items-center gap-2 py-4 font-medium text-[#333333] focus:outline-none">
@@ -742,8 +872,7 @@
                                                         style="fill: #57BF93; stroke-width: 0px;" />
 
                                                 </svg>
-                                                
-                                                    Get Direction
+                                                <span class="absolute inset-0 flex items-center justify-center text-[#57bf93] font-sans text-sm font-medium">Get Direction</span>
                                             </div>
                                             <div class="relative inline-block ml-[-5px]">
                                                 
@@ -1244,9 +1373,61 @@
              
              // Also call updateFades when window resizes
              window.addEventListener("resize", updateFades);
-
+             
              // Initialize fades state
              updateFades();
+
+             // ==========================================
+             // Interactive Checkbox Captcha Logic
+             // ==========================================
+             const contactForm = document.getElementById("contactForm");
+             const captchaBox = document.getElementById("captcha-box");
+             const checkboxBtn = document.getElementById("captcha-checkbox-btn");
+             const spinner = document.getElementById("captcha-spinner");
+             const checkmark = document.getElementById("captcha-checkmark");
+             const captchaInput = document.getElementById("captcha-verified");
+
+             let isVerified = false;
+             let isChecking = false;
+
+             if (checkboxBtn) {
+                 checkboxBtn.addEventListener("click", () => {
+                     if (isVerified || isChecking) return;
+
+                     isChecking = true;
+                     checkboxBtn.classList.remove("hover:border-gray-400");
+                     checkboxBtn.classList.add("border-transparent");
+                     spinner.classList.remove("hidden");
+
+                     // Simulate checking delay
+                     setTimeout(() => {
+                         spinner.classList.add("hidden");
+                         checkmark.classList.remove("scale-0");
+                         checkmark.classList.add("scale-100");
+                         checkboxBtn.classList.remove("border-transparent");
+                         checkboxBtn.classList.add("border-[#57BF93]", "bg-green-50");
+                         
+                         captchaBox.classList.add("border-[#57BF93]");
+                         
+                         isVerified = true;
+                         isChecking = false;
+                         captchaInput.checked = true;
+                     }, 1000);
+                 });
+             }
+
+             // Handle Submit Shake validation
+             if (contactForm) {
+                 contactForm.addEventListener("submit", (e) => {
+                     if (!isVerified) {
+                         e.preventDefault();
+                         captchaBox.classList.add("animate-shake");
+                         setTimeout(() => {
+                             captchaBox.classList.remove("animate-shake");
+                         }, 600);
+                     }
+                 });
+             }
         });
     </script>
 </body>
