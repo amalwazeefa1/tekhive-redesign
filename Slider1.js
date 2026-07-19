@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const slides = gsap.utils.toArray(".slide");
     const navItems = gsap.utils.toArray(".nav-item");
     const textEl = document.getElementById("text");
-    const exploreBtn = document.getElementById("hero-explore-btn");
+    const exploreBtn = document.getElementById("morph-button-blue");
     const nextBtn = document.getElementById("next");
     const nav = document.getElementById("nav");
 
