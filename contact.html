@@ -766,25 +766,41 @@
                                     class="bg-[#ececec] mt-1 p-4 block w-full rounded-md border-0 shadow-sm focus:border-[#09aeb8] focus:ring-[#09aeb8] sm:text-sm"></textarea>
                             </div>
 
-                            <!-- Checkbox Captcha -->
-                            <div class="captcha-container mt-6 mb-4">
-                                <div id="captcha-box" class="flex items-center justify-between bg-[#ececec] border border-gray-200 rounded-xl p-4 select-none transition-all duration-300">
+                            <!-- Simulated Google reCAPTCHA Widget -->
+                            <div class="captcha-container mt-6 mb-4 flex justify-center">
+                                <div id="captcha-box" class="w-[304px] h-[78px] bg-[#f9f9f9] border border-[#d3d3d3] rounded-[3px] p-[12px] flex items-center justify-between shadow-[0_0_4px_1px_rgba(0,0,0,0.08)] select-none transition-all duration-300">
+                                    <!-- Left Side: Checkbox and Label -->
                                     <div class="flex items-center gap-3">
                                         <!-- Custom Checkbox Button -->
-                                        <button type="button" id="captcha-checkbox-btn" class="w-7 h-7 bg-white border-2 border-gray-300 rounded focus:outline-none flex items-center justify-center transition-all duration-200 hover:border-gray-400">
+                                        <button type="button" id="captcha-checkbox-btn" class="w-[28px] h-[28px] bg-white border-2 border-[#c1c1c1] rounded-[2px] focus:outline-none flex items-center justify-center transition-all duration-200 hover:border-[#b2b2b2]">
                                             <!-- Spinner -->
-                                            <svg id="captcha-spinner" class="animate-spin h-5 w-5 text-[#499BD5] hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                                                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                            <svg id="captcha-spinner" class="animate-spin h-[22px] w-[22px] text-[#1A73E8] hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="3"></circle>
                                                 <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                                             </svg>
-                                            <!-- Checkmark Icon -->
-                                            <span id="captcha-checkmark" class="material-symbols-outlined text-[#57BF93] text-xl font-bold scale-0 transition-transform duration-200">check</span>
+                                            <!-- Checkmark SVG -->
+                                            <svg id="captcha-checkmark" class="h-6 w-6 text-[#009a49] scale-0 transition-transform duration-200" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3.5">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                                            </svg>
                                         </button>
-                                        <span id="captcha-label" class="text-sm font-semibold text-gray-600">I'm not a robot</span>
+                                        <span id="captcha-label" class="text-[14px] font-sans font-normal text-[#222]">I'm not a robot</span>
                                     </div>
-                                    <div class="flex flex-col items-center justify-center opacity-60">
-                                        <span class="material-symbols-outlined text-2xl text-gray-500">shield</span>
-                                        <span class="text-[9px] text-gray-500 font-bold uppercase tracking-wider">Security</span>
+                                    
+                                    <!-- Right Side: Logo and Terms -->
+                                    <div class="flex flex-col items-center justify-center mr-1">
+                                        <!-- reCAPTCHA Logo -->
+                                        <svg class="w-8 h-8" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M16,4 C22.63,4 28,9.37 28,16 L24,16 C24,11.58 20.42,8 16,8 C13.79,8 11.79,8.89 10.34,10.34 L7.5,7.5 C9.68,5.32 12.68,4 16,4 Z" fill="#1A73E8"/>
+                                            <path d="M16,28 C9.37,28 4,22.63 4,16 L8,16 C8,20.42 11.58,24 16,24 C18.21,24 20.21,23.11 21.66,21.66 L24.5,24.5 C22.32,26.68 19.32,28 16,28 Z" fill="#9B9B9B"/>
+                                            <polygon points="10,12 6,8 10,4" fill="#1A73E8"/>
+                                            <polygon points="22,20 26,24 22,28" fill="#9B9B9B"/>
+                                        </svg>
+                                        <span class="text-[8px] text-[#555] font-sans mt-[2px]">reCAPTCHA</span>
+                                        <div class="flex gap-[3px] text-[7px] text-[#9b9b9b] font-sans leading-none mt-[1px]">
+                                            <a href="https://policies.google.com/privacy" target="_blank" class="hover:underline">Privacy</a>
+                                            <span>•</span>
+                                            <a href="https://policies.google.com/terms" target="_blank" class="hover:underline">Terms</a>
+                                        </div>
                                     </div>
                                 </div>
                                 <input type="checkbox" id="captcha-verified" name="captcha_verified" required class="opacity-0 absolute pointer-events-none w-[1px] h-[1px]" style="left: 50%;">
@@ -797,7 +813,7 @@
                                         class="relative inline-block after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[1.5px] after:w-full after:bg-current after:origin-left after:scale-x-0 after:transition-transform after:duration-300 group-hover:after:scale-x-100">
                                         SEND MESSAGE
                                     </span>
-                                    <div class="relative h-12 w-[72px] shrink-0">
+                                    <div class="relative h-12 shrink-0">
                                         <svg class="h-12 w-full block" xmlns="http://www.w3.org/2000/svg"
                                             viewBox="0 0 72.33 58.9">
                                             <defs>
@@ -1376,57 +1392,55 @@
              // Initialize fades state
              updateFades();
 
-             // ==========================================
-             // Interactive Checkbox Captcha Logic
-             // ==========================================
-             const contactForm = document.getElementById("contactForm");
-             const captchaBox = document.getElementById("captcha-box");
-             const checkboxBtn = document.getElementById("captcha-checkbox-btn");
-             const spinner = document.getElementById("captcha-spinner");
-             const checkmark = document.getElementById("captcha-checkmark");
-             const captchaInput = document.getElementById("captcha-verified");
+              // ==========================================
+              // Simulated Google reCAPTCHA Logic
+              // ==========================================
+              const contactForm = document.getElementById("contactForm");
+              const captchaBox = document.getElementById("captcha-box");
+              const checkboxBtn = document.getElementById("captcha-checkbox-btn");
+              const spinner = document.getElementById("captcha-spinner");
+              const checkmark = document.getElementById("captcha-checkmark");
+              const captchaInput = document.getElementById("captcha-verified");
 
-             let isVerified = false;
-             let isChecking = false;
+              let isVerified = false;
+              let isChecking = false;
 
-             if (checkboxBtn) {
-                 checkboxBtn.addEventListener("click", () => {
-                     if (isVerified || isChecking) return;
+              if (checkboxBtn) {
+                  checkboxBtn.addEventListener("click", () => {
+                      if (isVerified || isChecking) return;
 
-                     isChecking = true;
-                     checkboxBtn.classList.remove("hover:border-gray-400");
-                     checkboxBtn.classList.add("border-transparent");
-                     spinner.classList.remove("hidden");
+                      isChecking = true;
+                      checkboxBtn.classList.remove("hover:border-[#b2b2b2]");
+                      checkboxBtn.classList.add("border-transparent");
+                      spinner.classList.remove("hidden");
 
-                     // Simulate checking delay
-                     setTimeout(() => {
-                         spinner.classList.add("hidden");
-                         checkmark.classList.remove("scale-0");
-                         checkmark.classList.add("scale-100");
-                         checkboxBtn.classList.remove("border-transparent");
-                         checkboxBtn.classList.add("border-[#57BF93]", "bg-green-50");
-                         
-                         captchaBox.classList.add("border-[#57BF93]");
-                         
-                         isVerified = true;
-                         isChecking = false;
-                         captchaInput.checked = true;
-                     }, 1000);
-                 });
-             }
+                      // Simulate checking delay matching Google's checkmark loading time
+                      setTimeout(() => {
+                          spinner.classList.add("hidden");
+                          checkmark.classList.remove("scale-0");
+                          checkmark.classList.add("scale-100");
+                          checkboxBtn.classList.remove("border-transparent");
+                          checkboxBtn.classList.add("border-[#009a49]");
+                          
+                          isVerified = true;
+                          isChecking = false;
+                          captchaInput.checked = true;
+                      }, 1000);
+                  });
+              }
 
-             // Handle Submit Shake validation
-             if (contactForm) {
-                 contactForm.addEventListener("submit", (e) => {
-                     if (!isVerified) {
-                         e.preventDefault();
-                         captchaBox.classList.add("animate-shake");
-                         setTimeout(() => {
-                             captchaBox.classList.remove("animate-shake");
-                         }, 600);
-                     }
-                 });
-             }
+              // Handle Submit Shake validation
+              if (contactForm) {
+                  contactForm.addEventListener("submit", (e) => {
+                      if (!isVerified) {
+                          e.preventDefault();
+                          captchaBox.classList.add("animate-shake");
+                          setTimeout(() => {
+                              captchaBox.classList.remove("animate-shake");
+                          }, 600);
+                      }
+                  });
+              }
         });
     </script>
 </body>
