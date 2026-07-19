@@ -258,8 +258,8 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!track) return;
 
     const cards = Array.from(track.children).filter(child => child.classList.contains("card"));
-    const prevBtn = document.getElementById("previous-btn");
-    const nextBtn = document.getElementById("next-btn");
+    const prevBtns = document.querySelectorAll(".previous-btn, #previous-btn");
+    const nextBtns = document.querySelectorAll(".next-btn, #next-btn");
 
     let index = 0;
 
@@ -307,13 +307,17 @@ document.addEventListener("DOMContentLoaded", () => {
         scrollToIndex(index + 1);
     }
 
-    // Buttons manual trigger
-    nextBtn?.addEventListener("click", () => {
-        slideNext();
+    // Buttons manual trigger for all instances
+    nextBtns.forEach(btn => {
+        btn.addEventListener("click", () => {
+            slideNext();
+        });
     });
 
-    prevBtn?.addEventListener("click", () => {
-        scrollToIndex(index - 1);
+    prevBtns.forEach(btn => {
+        btn.addEventListener("click", () => {
+            scrollToIndex(index - 1);
+        });
     });
 });
 
