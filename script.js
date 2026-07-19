@@ -59,14 +59,6 @@ const popUpBtn = document.getElementById("pop-up");
 if (menu) {
     menu.setAttribute("data-lenis-prevent", "");
     menu.classList.add("overscroll-contain");
-
-    // Pre-initialize mask states on page load to prevent first-open render jump
-    if (typeof gsap !== "undefined") {
-        const allMenuMasks = menu.querySelectorAll(".text-mask1-mobile-menu-card-text");
-        if (allMenuMasks.length > 0) {
-            gsap.set(allMenuMasks, { xPercent: 0, force3D: true });
-        }
-    }
 }
 let card2Revealed = false;
 
@@ -86,14 +78,12 @@ function checkCard2Reveal() {
             card2Revealed = true;
             const card2Masks = card2.querySelectorAll(".text-mask1-mobile-menu-card-text");
             if (card2Masks.length > 0) {
-                gsap.killTweensOf(card2Masks);
                 gsap.to(card2Masks, {
                     xPercent: 100,
                     duration: 1.0,
                     ease: "power4.inOut",
                     stagger: 0.15,
-                    delay: 0.2, // delay animation for breathing room
-                    force3D: true
+                    delay: 0.2 // delay animation for breathing room
                 });
             }
         }
@@ -121,15 +111,13 @@ if (openMenu && closeMenu && menu) {
                 // Card 1: Reset and reveal immediately when menu opens
                 const card1Masks = cards[0].querySelectorAll(".text-mask1-mobile-menu-card-text");
                 if (card1Masks.length > 0) {
-                    gsap.killTweensOf(card1Masks);
-                    gsap.set(card1Masks, { xPercent: 0, force3D: true });
+                    gsap.set(card1Masks, { xPercent: 0 });
                     gsap.to(card1Masks, {
                         xPercent: 100,
                         duration: 1.0,
                         ease: "power4.inOut",
                         stagger: 0.15,
-                        delay: 0.35, // wait for menu fade-in transition (300ms)
-                        force3D: true
+                        delay: 0.35 // wait for menu fade-in transition (300ms)
                     });
                 }
 
@@ -137,8 +125,7 @@ if (openMenu && closeMenu && menu) {
                 if (cards.length > 1) {
                     const card2Masks = cards[1].querySelectorAll(".text-mask1-mobile-menu-card-text");
                     if (card2Masks.length > 0) {
-                        gsap.killTweensOf(card2Masks);
-                        gsap.set(card2Masks, { xPercent: 0, force3D: true });
+                        gsap.set(card2Masks, { xPercent: 0 });
                     }
                 }
 
@@ -170,15 +157,6 @@ function closeMenuFn() {
     if (siteHeader) siteHeader.classList.remove("opacity-0", "pointer-events-none");
     if (sliderNav) sliderNav.classList.remove("opacity-0", "pointer-events-none");
     if (popUpBtn) popUpBtn.classList.remove("opacity-0", "pointer-events-none");
-
-    // Reset mask transforms on close for seamless next open
-    if (typeof gsap !== "undefined") {
-        const allMenuMasks = menu.querySelectorAll(".text-mask1-mobile-menu-card-text");
-        if (allMenuMasks.length > 0) {
-            gsap.killTweensOf(allMenuMasks);
-            gsap.set(allMenuMasks, { xPercent: 0, force3D: true });
-        }
-    }
 }
 
 
