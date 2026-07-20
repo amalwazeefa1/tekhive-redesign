@@ -738,6 +738,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (!target || !cursor) return;
 
+    let isOverInteractive = false;
+
     // Smooth follow
     window.addEventListener("mousemove", (e) => {
         gsap.to(cursor, {
@@ -750,21 +752,46 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Show cursor
     target.addEventListener("mouseenter", () => {
-        gsap.to(cursor, {
-            scale: 1,
-            opacity: 1,
-            duration: 0.25,
-            ease: "power3.out",
-        });
+        if (!isOverInteractive) {
+            gsap.to(cursor, {
+                scale: 1,
+                opacity: 1,
+                duration: 0.25,
+                ease: "power3.out",
+            });
+        }
     });
 
     // Hide cursor
     target.addEventListener("mouseleave", () => {
+        isOverInteractive = false;
         gsap.to(cursor, {
             scale: 0.5,
             opacity: 0,
             duration: 0.2,
             ease: "power3.in",
+        });
+    });
+
+    // Hide cursor when hovering interactive elements (Learn More links, green buttons)
+    target.querySelectorAll("a, button").forEach((el) => {
+        el.addEventListener("mouseenter", () => {
+            isOverInteractive = true;
+            gsap.to(cursor, {
+                scale: 0,
+                opacity: 0,
+                duration: 0.2,
+                ease: "power3.in",
+            });
+        });
+        el.addEventListener("mouseleave", () => {
+            isOverInteractive = false;
+            gsap.to(cursor, {
+                scale: 1,
+                opacity: 1,
+                duration: 0.25,
+                ease: "power3.out",
+            });
         });
     });
 });
