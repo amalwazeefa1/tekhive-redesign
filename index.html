@@ -894,8 +894,14 @@
 
         <!-- Right: Text -->
         <div class="flex items-stretch text-left w-full md:w-1/2 max-w-xl">
+            <!-- Mobile divider (always visible under sm) -->
             <div
-                class="animated-divider w-[2px] min-h-[100px] bg-gradient-to-b from-transparent via-[#57BF93] to-transparent mr-6 md:mr-10 drop-shadow-[0_0_8px_rgba(87,191,147,0.6)]">
+                class="block sm:hidden shrink-0 w-[3px] min-h-[100px] bg-gradient-to-b from-transparent via-[#57BF93] to-transparent mr-4 drop-shadow-[0_0_8px_rgba(87,191,147,0.6)]">
+            </div>
+
+            <!-- Desktop divider (animated by GSAP on sm and above) -->
+            <div
+                class="animated-divider hidden sm:block shrink-0 w-[2px] min-h-[100px] bg-gradient-to-b from-transparent via-[#57BF93] to-transparent mr-6 md:mr-10 drop-shadow-[0_0_8px_rgba(87,191,147,0.6)]">
             </div>
             <div class="relative text-white flex items-center">
                 <!-- Mobile version (under sm: no GSAP split animation, fluid typography) -->
@@ -933,7 +939,7 @@
     <section id="about" class="py-16 bg-[#f6f6f6]">
         <div class="max-w-7xl mx-auto px-4 space-y-6">
             <div class="flex flex-col md:flex-row justify-between gap-8 mb-12">
-                <div class="flex gap-8">
+                <div class="flex flex-col xs:flex-row gap-8">
                     <!-- Morph SVG 1 -->
                     <div class="relative flex">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w-[57px] h-auto">
@@ -972,7 +978,7 @@
                             business scale faster and operate smarter.</p>
                     </div>
                 </div>
-                <div class="flex gap-8">
+                <div class="flex flex-col xs:flex-row gap-8">
                     <!-- Morph SVG 2 -->
                     <div class="relative flex">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w-[57px] h-auto">
@@ -1085,7 +1091,7 @@ z
                             efficiency with intelligent business solutions.</p>
                     </div>
                 </div>
-                <div class="flex gap-8">
+                <div class="flex flex-col xs:flex-row gap-8">
                     <!-- Morph SVG 3 -->
                     <div class="relative flex">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w-[57px] h-auto">
