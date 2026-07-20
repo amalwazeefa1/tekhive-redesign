@@ -510,7 +510,7 @@ if (document.body.classList.contains("home-page")) {
                     duration: 2,
                     ease: "power2.out",
                     scrollTrigger: {
-                        trigger: "#about-us",
+                        trigger: progress1,
                         start,
                         toggleActions: "play none none reset"
                     }
@@ -525,7 +525,7 @@ if (document.body.classList.contains("home-page")) {
                     duration: 2,
                     ease: "power2.out",
                     scrollTrigger: {
-                        trigger: "#about-us",
+                        trigger: progress1,
                         start,
                         toggleActions: "play none none reset"
                     }
@@ -533,13 +533,13 @@ if (document.body.classList.contains("home-page")) {
             );
         };
 
-        // Trigger animation when the section enters the screen
+        // Trigger animation when the progress bars reach the viewport
         mm.add("(max-width: 767px)", () => {
-            createProgressAnimation("top 85%");
+            createProgressAnimation("top 90%");
         });
 
         mm.add("(min-width: 768px)", () => {
-            createProgressAnimation("top 80%");
+            createProgressAnimation("top 85%");
         });
     }
 
@@ -559,8 +559,8 @@ if (document.body.classList.contains("home-page")) {
         duration: 2,
         ease: "power1.out",
         scrollTrigger: {
-            trigger: "#about-us",
-            start: "top 80%",
+            trigger: "#progress-fill1",
+            start: "top 90%",
             toggleActions: "play none none reset"
         },
         onUpdate: () => {
@@ -578,8 +578,8 @@ if (document.body.classList.contains("home-page")) {
         duration: 2,
         ease: "power1.out",
         scrollTrigger: {
-            trigger: "#about-us",
-            start: "top 80%",
+            trigger: "#progress-fill1",
+            start: "top 90%",
             toggleActions: "play none none reset"
         },
         onUpdate: () => {
