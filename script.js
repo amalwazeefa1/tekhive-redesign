@@ -507,7 +507,7 @@ if (document.body.classList.contains("home-page")) {
                 { scaleX: 0, transformOrigin: "left center" },
                 {
                     scaleX: 0.98,
-                    duration: 3,
+                    duration: 3.5,
                     ease: "power2.out",
                     scrollTrigger: {
                         trigger: progress1,
@@ -522,7 +522,7 @@ if (document.body.classList.contains("home-page")) {
                 { scaleX: 0, transformOrigin: "left center" },
                 {
                     scaleX: 0.95,
-                    duration: 3,
+                    duration: 3.5,
                     ease: "power2.out",
                     scrollTrigger: {
                         trigger: progress1,
