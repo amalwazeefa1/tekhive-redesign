@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 
 <html class="light" lang="en">
 
@@ -319,7 +319,7 @@
                                     style="fill: url(#linear-gradient); stroke-width: 0px;" />
                             </svg>
                         </a>
-                        <button id="openMenu" class="flex size-10 items-center justify-center rounded-full
+                        <button type="button" id="openMenu" class="flex size-10 items-center justify-center rounded-full
                          hover:bg-black/5 dark:hover:bg-white/10
                          transition">
                             <svg class="menu w-[26px] h-[26px] text-white z-100" viewBox="0 0 24 24" fill="none"
@@ -571,8 +571,8 @@
                 <span class="text-mask-about-label absolute inset-0 bg-[#09aeb8]"></span>
             </span>
 
-            <div class="flex gap-8 flex-col sm:flex-row">
-                <div class="flex flex-col text-start">
+            <div class="flex gap-10 flex-col md:flex-row items-start">
+                <div class="flex flex-col w-full text-start md:w-5/12 shrink-0 md:sticky md:top-24">
 
                     <!-- Mobile version -->
                     <h1 class="block md:hidden text-3xl max-w-[333px] font-semibold leading-[95%] text-[#0f172a]">
@@ -600,7 +600,7 @@
 
                     <!-- Desktop version -->
                     <h1
-                        class="hidden md:block text-3xl md:text-4xl max-w-[333px] md:max-w-none font-semibold leading-[95%] md:leading-[95%] text-[#0f172a]">
+                        class="hidden md:block text-3xl md:text-4xl max-w-[333px] md:max-w-none font-semibold leading-[95%] md:leading-[95%] text-[#0f172a] mb-6">
                         <span class="line relative inline-block overflow-hidden whitespace-nowrap">
                             <span class="text relative inline-block overflow-hidden">Empowering Businesses</span>
                             <span class="text-mask1-section-home absolute inset-0 bg-[#fcfcfc]"></span>
@@ -615,29 +615,66 @@
                         </span>
                     </h1>
 
+                    <!-- Featured Image & Highlights Card -->
+                    <div class="relative overflow-hidden rounded-2xl shadow-lg border border-slate-200/80 bg-white group transition-all duration-300 hover:shadow-xl mt-2">
+                        <div class="h-48 w-full overflow-hidden relative">
+                            <img src="assets/about-img.png" alt="Tekhive Team" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+                            <div class="absolute bottom-3 left-4 right-4 text-white">
+                                <span class="text-xs font-semibold tracking-wider uppercase px-2.5 py-1 rounded-full bg-[#09aeb8]/90 text-white backdrop-blur-sm">Key Capabilities</span>
+                            </div>
+                        </div>
+                        <div class="p-5 bg-white flex flex-col gap-3 text-slate-700">
+                            <div class="flex items-center gap-3 text-sm font-medium">
+                                <div class="w-2.5 h-2.5 rounded-full bg-[#09aeb8] shrink-0"></div>
+                                <span>Innovative IT & Business Solutions</span>
+                            </div>
+                            <div class="flex items-center gap-3 text-sm font-medium">
+                                <div class="w-2.5 h-2.5 rounded-full bg-[#57BF93] shrink-0"></div>
+                                <span>Backed by Wazeefa1 & NAS Info Solutions</span>
+                            </div>
+                            <div class="flex items-center gap-3 text-sm font-medium">
+                                <div class="w-2.5 h-2.5 rounded-full bg-[#499BD5] shrink-0"></div>
+                                <span>Based in Infopark Koratty, Kerala, India</span>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
-                <div class="">
-                    <p class="mb-5 text-[#4b4f58] leading-loose">Tekhive is a technology solutions company based in
+                <div class="md:w-7/12">
+                    <p class="mb-5 text-[#4b4f58] text-base md:text-lg leading-relaxed">Tekhive is a technology solutions company based in
                         Kerala, India, dedicated to helping businesses achieve operational excellence through innovative
                         IT services and business solutions. We bring together expertise across software development,
                         digital transformation, automation, and enterprise technologies to support organizations in
                         their growth journey.</p>
-                    <p class="mb-5 text-[#4b4f58] leading-loose">As a subsidiary of Wazeefa1 Technologies and NAS Info
+                    <p class="mb-5 text-[#4b4f58] text-base md:text-lg leading-relaxed">As a subsidiary of Wazeefa1 Technologies and NAS Info
                         Solutions, Tekhive combines the strengths of two established technology organizations to deliver
                         comprehensive, end-to-end solutions for modern businesses.</p>
-                    <p class="mb-5 text-[#4b4f58] leading-loose">NAS Info Solutions, a trusted SAP partner with over a
+                    <p class="mb-5 text-[#4b4f58] text-base md:text-lg leading-relaxed">NAS Info Solutions, a trusted SAP partner with over a
                         decade of industry experience, specializes in SAP Business One implementation, consulting,
                         integration, customization, and ongoing support for businesses across various sectors.</p>
-                    <p class="mb-5 text-[#4b4f58] leading-loose">Wazeefa1 Technologies brings extensive expertise in web
+                    <p class="mb-5 text-[#4b4f58] text-base md:text-lg leading-relaxed">Wazeefa1 Technologies brings extensive expertise in web
                         development, eCommerce solutions, CMS development, mobile applications, and digital marketing,
                         helping organizations strengthen their digital presence and customer engagement.</p>
-                    <p class="mb-5 text-[#4b4f58] leading-loose">Together, our combined experience enables us to deliver
+                    <p class="mb-5 text-[#4b4f58] text-base md:text-lg leading-relaxed">Together, our combined experience enables us to deliver
                         scalable, reliable, and future-ready solutions that help businesses improve efficiency, drive
                         innovation, and achieve sustainable growth.</p>
                 </div>
             </div>
-            <!-- <div class="bg-white bg-about bg-cover bg-center rounded-2xl w-full my-12 h-[350px]">
-            </div> -->
+            <!-- Full Width Feature Image Card -->
+            <div class="relative rounded-2xl w-full my-10 h-[320px] md:h-[400px] overflow-hidden shadow-xl group">
+                <img src="assets/about-img.png" alt="Tekhive Workspace & Team" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/15 to-transparent"></div>
+                <div class="absolute bottom-6 left-6 right-6 text-white flex flex-col md:flex-row justify-between items-start md:items-end gap-4">
+                    <div>
+                        <p class="text-xs tracking-widest uppercase text-[#57BF93] font-bold mb-1">Our Mission & Vision</p>
+                        <h3 class="text-xl md:text-2xl font-bold">Driving Digital Excellence Across Industries</h3>
+                    </div>
+                    <a href="contact.html" class="px-5 py-2.5 bg-gradient-to-r from-[#499BD5] to-[#57BF93] hover:opacity-90 transition rounded-full text-white text-sm font-semibold shadow-md shrink-0">
+                        Get In Touch
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -741,8 +778,7 @@
                                         style="fill: #499BD5; stroke-width: 0px; visibility: hidden;" />
                                 </svg>
                                 <span
-                                    class="absolute inset-0 flex items-center justify-center text-white font-sans text-md font-medium">See
-                                    our works</span>
+                                    class="absolute inset-0 flex items-center justify-center text-white font-sans text-md font-medium">Get Started</span>
                             </div>
                             <div class="relative inline-block ml-[-5px]">
 
