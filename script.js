@@ -507,7 +507,7 @@ if (document.body.classList.contains("home-page")) {
                 { scaleX: 0, transformOrigin: "left center" },
                 {
                     scaleX: 0.98,
-                    duration: 2,
+                    duration: 3,
                     ease: "power2.out",
                     scrollTrigger: {
                         trigger: progress1,
@@ -522,7 +522,7 @@ if (document.body.classList.contains("home-page")) {
                 { scaleX: 0, transformOrigin: "left center" },
                 {
                     scaleX: 0.95,
-                    duration: 2,
+                    duration: 3,
                     ease: "power2.out",
                     scrollTrigger: {
                         trigger: progress1,
@@ -533,13 +533,13 @@ if (document.body.classList.contains("home-page")) {
             );
         };
 
-        // Trigger animation when the progress bars reach the viewport
+        // Trigger animation the instant progress bars enter the viewport bottom
         mm.add("(max-width: 767px)", () => {
-            createProgressAnimation("top 90%");
+            createProgressAnimation("top bottom");
         });
 
         mm.add("(min-width: 768px)", () => {
-            createProgressAnimation("top 85%");
+            createProgressAnimation("top bottom");
         });
     }
 
@@ -560,7 +560,7 @@ if (document.body.classList.contains("home-page")) {
         ease: "power1.out",
         scrollTrigger: {
             trigger: "#progress-fill1",
-            start: "top 90%",
+            start: "top bottom",
             toggleActions: "play none none reset"
         },
         onUpdate: () => {
@@ -579,7 +579,7 @@ if (document.body.classList.contains("home-page")) {
         ease: "power1.out",
         scrollTrigger: {
             trigger: "#progress-fill1",
-            start: "top 90%",
+            start: "top bottom",
             toggleActions: "play none none reset"
         },
         onUpdate: () => {
