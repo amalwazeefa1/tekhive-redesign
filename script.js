@@ -779,110 +779,84 @@ document.addEventListener("DOMContentLoaded", () => {
     if (typeof gsap === "undefined") return;
 
     const target = document.getElementById("services-track");
-    const sliderSection = document.getElementById("services-slider") || target;
     const cursor = document.getElementById("cursor-icon");
 
     if (!target || !cursor) return;
 
     let isOverInteractive = false;
 
-    function hideCursor() {
-        isOverInteractive = false;
+    // Smooth follow cursor across the screen
+    window.addEventListener("mousemove", (e) => {
         gsap.to(cursor, {
-            scale: 0,
-            opacity: 0,
-            duration: 0.2,
-            ease: "power3.in",
-            overwrite: true
+            x: e.clientX - 24,
+            y: e.clientY - 24,
+            duration: 0.5,
+            ease: "power3.out",
         });
-    }
+    });
 
-    function showCursor() {
+    // Show cursor when entering target cards area
+    target.addEventListener("mouseenter", () => {
         if (!isOverInteractive) {
             gsap.to(cursor, {
                 scale: 1,
                 opacity: 1,
                 duration: 0.25,
                 ease: "power3.out",
-                overwrite: true
             });
         }
-    }
-
-    function updateCursorPos(clientX, clientY) {
-        gsap.to(cursor, {
-            x: clientX - 24,
-            y: clientY - 24,
-            duration: 0.4,
-            ease: "power3.out",
-        });
-    }
-
-    // Mouse move tracking
-    window.addEventListener("mousemove", (e) => {
-        const rect = target.getBoundingClientRect();
-        const isInside = (
-            e.clientX >= rect.left &&
-            e.clientX <= rect.right &&
-            e.clientY >= rect.top &&
-            e.clientY <= rect.bottom
-        );
-
-        if (!isInside) {
-            hideCursor();
-            return;
-        }
-
-        updateCursorPos(e.clientX, e.clientY);
     });
 
-    target.addEventListener("mouseenter", showCursor);
-    target.addEventListener("mouseleave", hideCursor);
+    // Hide cursor when leaving target cards area
+    target.addEventListener("mouseleave", () => {
+        isOverInteractive = false;
+        gsap.to(cursor, {
+            scale: 0.5,
+            opacity: 0,
+            duration: 0.2,
+            ease: "power3.in",
+        });
+    });
 
-    // Touch events for mobile
+    // Touch support for mobile devices
     target.addEventListener("touchstart", (e) => {
         if (e.touches.length > 0) {
-            updateCursorPos(e.touches[0].clientX, e.touches[0].clientY);
-            showCursor();
+            gsap.set(cursor, {
+                x: e.touches[0].clientX - 24,
+                y: e.touches[0].clientY - 24,
+            });
+            if (!isOverInteractive) {
+                gsap.to(cursor, {
+                    scale: 1,
+                    opacity: 1,
+                    duration: 0.25,
+                    ease: "power3.out",
+                });
+            }
         }
     }, { passive: true });
 
     target.addEventListener("touchmove", (e) => {
         if (e.touches.length > 0) {
-            const touch = e.touches[0];
-            const rect = target.getBoundingClientRect();
-            const isInside = (
-                touch.clientX >= rect.left &&
-                touch.clientX <= rect.right &&
-                touch.clientY >= rect.top &&
-                touch.clientY <= rect.bottom
-            );
-
-            if (!isInside) {
-                hideCursor();
-                return;
-            }
-
-            updateCursorPos(touch.clientX, touch.clientY);
+            gsap.to(cursor, {
+                x: e.touches[0].clientX - 24,
+                y: e.touches[0].clientY - 24,
+                duration: 0.4,
+                ease: "power3.out",
+            });
         }
     }, { passive: true });
 
-    // ScrollTrigger to instantly hide cursor when leaving the services cards section (entering another section)
-    if (typeof ScrollTrigger !== "undefined") {
-        ScrollTrigger.create({
-            trigger: sliderSection,
-            start: "top bottom",
-            end: "bottom top",
-            onLeave: hideCursor,
-            onLeaveBack: hideCursor,
-        });
-    }
-
-    // Also hide cursor on page scroll if container leaves viewport
+    // On mobile under sm screens (< 640px), hide cursor when scrolling away into another section
     window.addEventListener("scroll", () => {
-        const rect = target.getBoundingClientRect();
-        if (rect.top > window.innerHeight || rect.bottom < 0) {
-            hideCursor();
+        if (window.innerWidth < 640) {
+            isOverInteractive = false;
+            gsap.to(cursor, {
+                scale: 0.5,
+                opacity: 0,
+                duration: 0.2,
+                ease: "power3.in",
+            });
         }
     }, { passive: true });
 
@@ -890,11 +864,21 @@ document.addEventListener("DOMContentLoaded", () => {
     target.querySelectorAll("a, button").forEach((el) => {
         el.addEventListener("mouseenter", () => {
             isOverInteractive = true;
-            hideCursor();
+            gsap.to(cursor, {
+                scale: 0,
+                opacity: 0,
+                duration: 0.2,
+                ease: "power3.in",
+            });
         });
         el.addEventListener("mouseleave", () => {
             isOverInteractive = false;
-            showCursor();
+            gsap.to(cursor, {
+                scale: 1,
+                opacity: 1,
+                duration: 0.25,
+                ease: "power3.out",
+            });
         });
     });
 });
