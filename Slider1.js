@@ -72,14 +72,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const activeItem = navItems[index];
         if (activeItem && nav) {
-            // Align the active pagination item to the left side (offset by 24px padding)
-            // so that lengthy text has maximum screen width to be fully visible on the right.
-            const scrollTarget = index * 48;
+            requestAnimationFrame(() => {
+                // Dynamically center active item inside nav scroll container
+                const itemOffsetLeft = activeItem.offsetLeft;
+                const itemWidth = activeItem.offsetWidth;
+                const navWidth = nav.clientWidth;
 
-            gsap.to(nav, {
-                scrollLeft: scrollTarget,
-                duration: 0.4,
-                ease: "power2.out"
+                let scrollTarget = itemOffsetLeft - (navWidth / 2) + (itemWidth / 2);
+                const maxScroll = Math.max(0, nav.scrollWidth - navWidth);
+                scrollTarget = Math.max(0, Math.min(scrollTarget, maxScroll));
+
+                gsap.to(nav, {
+                    scrollLeft: scrollTarget,
+                    duration: 0.4,
+                    ease: "power2.out"
+                });
             });
         }
     }
