@@ -435,6 +435,9 @@
         overflow-x-auto md:overflow-visible
         scrollbar-none
         items-end
+        cursor-grab active:cursor-grabbing
+        [mask-image:linear-gradient(to_right,transparent,black_12px,black_calc(100%-24px),transparent)] md:[mask-image:none]
+        [-webkit-mask-image:linear-gradient(to_right,transparent,black_12px,black_calc(100%-24px),transparent)] md:[-webkit-mask-image:none]
       ">
             <!-- ITEM 1 -->
             <div class="nav-item w-fit flex-shrink-0 group flex flex-col gap-4 cursor-pointer">
