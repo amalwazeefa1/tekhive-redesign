@@ -262,6 +262,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const nextBtns = document.querySelectorAll(".next-btn, #next-btn");
 
     let index = 0;
+    let autoScrollInterval = null;
 
     function supportsNativeSmoothScroll() {
         return "scrollBehavior" in document.documentElement.style;
@@ -307,17 +308,61 @@ document.addEventListener("DOMContentLoaded", () => {
         scrollToIndex(index + 1);
     }
 
+    function startAutoScroll() {
+        if (autoScrollInterval) return;
+        autoScrollInterval = setInterval(() => {
+            slideNext();
+        }, 3500);
+    }
+
+    function stopAutoScroll() {
+        if (autoScrollInterval) {
+            clearInterval(autoScrollInterval);
+            autoScrollInterval = null;
+        }
+    }
+
+    // ScrollTrigger to start auto-scrolling when reaching the section
+    const sliderContainer = document.getElementById("services-slider") || track;
+    if (typeof ScrollTrigger !== "undefined") {
+        ScrollTrigger.create({
+            trigger: sliderContainer,
+            start: "top 80%",
+            end: "bottom 20%",
+            onEnter: () => startAutoScroll(),
+            onLeave: () => stopAutoScroll(),
+            onEnterBack: () => startAutoScroll(),
+            onLeaveBack: () => stopAutoScroll()
+        });
+    } else {
+        startAutoScroll();
+    }
+
+    // Pause on user hover or touch interaction
+    track.addEventListener("mouseenter", stopAutoScroll);
+    track.addEventListener("mouseleave", startAutoScroll);
+    track.addEventListener("touchstart", stopAutoScroll, { passive: true });
+    track.addEventListener("touchend", startAutoScroll, { passive: true });
+
     // Buttons manual trigger for all instances
     nextBtns.forEach(btn => {
         btn.addEventListener("click", () => {
+            stopAutoScroll();
             slideNext();
+            startAutoScroll();
         });
+        btn.addEventListener("mouseenter", stopAutoScroll);
+        btn.addEventListener("mouseleave", startAutoScroll);
     });
 
     prevBtns.forEach(btn => {
         btn.addEventListener("click", () => {
+            stopAutoScroll();
             scrollToIndex(index - 1);
+            startAutoScroll();
         });
+        btn.addEventListener("mouseenter", stopAutoScroll);
+        btn.addEventListener("mouseleave", startAutoScroll);
     });
 });
 
