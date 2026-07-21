@@ -779,64 +779,122 @@ document.addEventListener("DOMContentLoaded", () => {
     if (typeof gsap === "undefined") return;
 
     const target = document.getElementById("services-track");
+    const sliderSection = document.getElementById("services-slider") || target;
     const cursor = document.getElementById("cursor-icon");
 
     if (!target || !cursor) return;
 
     let isOverInteractive = false;
 
-    // Smooth follow
-    window.addEventListener("mousemove", (e) => {
+    function hideCursor() {
+        isOverInteractive = false;
         gsap.to(cursor, {
-            x: e.clientX - 24,
-            y: e.clientY - 24,
-            duration: 0.5,
-            ease: "power3.out",
+            scale: 0,
+            opacity: 0,
+            duration: 0.2,
+            ease: "power3.in",
+            overwrite: true
         });
-    });
+    }
 
-    // Show cursor
-    target.addEventListener("mouseenter", () => {
+    function showCursor() {
         if (!isOverInteractive) {
             gsap.to(cursor, {
                 scale: 1,
                 opacity: 1,
                 duration: 0.25,
                 ease: "power3.out",
+                overwrite: true
             });
         }
+    }
+
+    function updateCursorPos(clientX, clientY) {
+        gsap.to(cursor, {
+            x: clientX - 24,
+            y: clientY - 24,
+            duration: 0.4,
+            ease: "power3.out",
+        });
+    }
+
+    // Mouse move tracking
+    window.addEventListener("mousemove", (e) => {
+        const rect = target.getBoundingClientRect();
+        const isInside = (
+            e.clientX >= rect.left &&
+            e.clientX <= rect.right &&
+            e.clientY >= rect.top &&
+            e.clientY <= rect.bottom
+        );
+
+        if (!isInside) {
+            hideCursor();
+            return;
+        }
+
+        updateCursorPos(e.clientX, e.clientY);
     });
 
-    // Hide cursor
-    target.addEventListener("mouseleave", () => {
-        isOverInteractive = false;
-        gsap.to(cursor, {
-            scale: 0.5,
-            opacity: 0,
-            duration: 0.2,
-            ease: "power3.in",
+    target.addEventListener("mouseenter", showCursor);
+    target.addEventListener("mouseleave", hideCursor);
+
+    // Touch events for mobile
+    target.addEventListener("touchstart", (e) => {
+        if (e.touches.length > 0) {
+            updateCursorPos(e.touches[0].clientX, e.touches[0].clientY);
+            showCursor();
+        }
+    }, { passive: true });
+
+    target.addEventListener("touchmove", (e) => {
+        if (e.touches.length > 0) {
+            const touch = e.touches[0];
+            const rect = target.getBoundingClientRect();
+            const isInside = (
+                touch.clientX >= rect.left &&
+                touch.clientX <= rect.right &&
+                touch.clientY >= rect.top &&
+                touch.clientY <= rect.bottom
+            );
+
+            if (!isInside) {
+                hideCursor();
+                return;
+            }
+
+            updateCursorPos(touch.clientX, touch.clientY);
+        }
+    }, { passive: true });
+
+    // ScrollTrigger to instantly hide cursor when leaving the services cards section (entering another section)
+    if (typeof ScrollTrigger !== "undefined") {
+        ScrollTrigger.create({
+            trigger: sliderSection,
+            start: "top bottom",
+            end: "bottom top",
+            onLeave: hideCursor,
+            onLeaveBack: hideCursor,
         });
-    });
+    }
+
+    // Also hide cursor on page scroll if container leaves viewport
+    window.addEventListener("scroll", () => {
+        const rect = target.getBoundingClientRect();
+        if (rect.top > window.innerHeight || rect.bottom < 0) {
+            hideCursor();
+        }
+    }, { passive: true });
 
     // Hide cursor when hovering interactive elements (Learn More links, green buttons)
     target.querySelectorAll("a, button").forEach((el) => {
         el.addEventListener("mouseenter", () => {
             isOverInteractive = true;
-            gsap.to(cursor, {
-                scale: 0,
-                opacity: 0,
-                duration: 0.2,
-                ease: "power3.in",
-            });
+            hideCursor();
         });
         el.addEventListener("mouseleave", () => {
             isOverInteractive = false;
-            gsap.to(cursor, {
-                scale: 1,
-                opacity: 1,
-                duration: 0.25,
-                ease: "power3.out",
-            });
+            showCursor();
         });
     });
 });
