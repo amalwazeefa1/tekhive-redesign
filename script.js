@@ -1198,19 +1198,24 @@ if (aboutHero && ball) {
 const maskTargets = [".text-mask-banner", ".text-mask-section-about", ".text-mask1-section-home", ".text-mask2-section-home", ".text-mask-section-services", ".text-mask-testimonials", ".text-mask-approach", ".text-mask-contact", ".text-mask-about-label", ".text-mask-agile", ".text-mask-website-development"];
 
 maskTargets.forEach(selector => {
-    const elements = gsap.utils.toArray(selector);
-    if (!elements.length) return;
+    const allElements = gsap.utils.toArray(selector);
+    if (!allElements.length) return;
 
-    gsap.set(elements, { xPercent: 0 });
+    // Dynamically select visible elements for responsive headers (mobile vs desktop)
+    const visibleElements = allElements.filter(el => el.offsetParent !== null && window.getComputedStyle(el).display !== "none");
+    const targetElements = visibleElements.length ? visibleElements : allElements;
+    const triggerEl = targetElements[0];
+
+    gsap.set(allElements, { xPercent: 0 });
 
     gsap.timeline({
         scrollTrigger: {
-            trigger: elements[0],
-            start: "top 80%",
+            trigger: triggerEl,
+            start: "top 85%",
             toggleActions: "play none none reverse",
         }
     })
-        .to(elements, {
+        .to(targetElements, {
             xPercent: 100,
             duration: 1,
             ease: "power4.inOut",
