@@ -9,6 +9,10 @@
       .cls-1, .cls-2 {
         stroke-width: 0px;
       }
+
+      .cls-2 {
+        fill: #000;
+      }
     </style>
     <linearGradient id="linear-gradient" x1="-.19" y1="453.4" x2="93.86" y2="453.4" gradientTransform="translate(0 -394.4)" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#499bd5"/>

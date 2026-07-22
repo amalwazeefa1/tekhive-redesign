@@ -941,6 +941,24 @@ const isHomePage = document.body.classList.contains("home-page");
 let isScrolled = false;
 let isHovered = false;
 
+// Inject CSS styles for instant hover response
+const headerStyle = document.createElement("style");
+headerStyle.textContent = `
+    #site-header:hover {
+        background-color: #ffffff !important;
+        background-image: none !important;
+    }
+    #site-header:hover .nav-link:not([data-active="true"]) {
+        color: #000000 !important;
+    }
+    #site-header:hover .whatsapp-icon-white,
+    #site-header:hover .phone-icon-white,
+    #site-header:hover .menu {
+        color: #000000 !important;
+    }
+`;
+document.head.appendChild(headerStyle);
+
 function updateHeaderUI() {
     const isActive = isScrolled || isHovered;
 
@@ -954,36 +972,27 @@ function updateHeaderUI() {
 
     // Nav link colors
     navLinks.forEach(link => {
-        link.classList.toggle("text-black", isActive);
-        link.classList.toggle("text-white", !isActive);
-
         if (link.dataset.active === "true") {
             link.style.color = "#09aeb8";
+        } else {
+            link.style.color = isActive ? "#000000" : "#ffffff";
         }
     });
 
     // Icon colors
     [whatsappIcon, phoneIcon, menuIcon].forEach(icon => {
         if (icon) {
-            icon.classList.toggle("text-black", isActive);
-            icon.classList.toggle("text-white", !isActive);
+            icon.style.color = isActive ? "#000000" : "#ffffff";
         }
     });
 
-    // Logo and other image swaps
-    document.querySelectorAll('img[data-alt-src]').forEach(img => {
-        // We assume the original src is the "white/link" version
-        // and data-alt-src is the "black" version.
-        // To make it robust, we store the original paths if not already done.
-        if (!img.dataset.originalSrc) {
-            img.dataset.originalSrc = img.src;
-        }
-
-        const whiteSrc = img.dataset.originalSrc;
-        const blackSrc = img.dataset.altSrc;
-
-        img.src = isActive ? blackSrc : whiteSrc;
-    });
+    // Logo image swap
+    const siteLogo = document.getElementById("site-logo");
+    if (siteLogo) {
+        const whiteSrc = "assets/tekhive_logo_white.svg";
+        const blackSrc = siteLogo.dataset.altSrc || "assets/tekhive_logo_black.svg";
+        siteLogo.src = isActive ? blackSrc : whiteSrc;
+    }
 }
 
 setActiveNavLink();
