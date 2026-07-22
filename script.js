@@ -1201,26 +1201,30 @@ maskTargets.forEach(selector => {
     const allElements = gsap.utils.toArray(selector);
     if (!allElements.length) return;
 
-    // Dynamically select visible elements for responsive headers (mobile vs desktop)
-    const visibleElements = allElements.filter(el => el.offsetParent !== null && window.getComputedStyle(el).display !== "none");
-    const targetElements = visibleElements.length ? visibleElements : allElements;
-    const triggerEl = targetElements[0];
+    // Group mask elements by their parent header container to create independent triggers
+    const parentContainers = new Set(allElements.map(el => el.closest('h2') || el.closest('h1') || el.parentElement));
 
-    gsap.set(allElements, { xPercent: 0 });
+    parentContainers.forEach(container => {
+        if (!container) return;
+        const masks = container.querySelectorAll(selector);
+        if (!masks.length) return;
 
-    gsap.timeline({
-        scrollTrigger: {
-            trigger: triggerEl,
-            start: "top 85%",
-            toggleActions: "play none none reverse",
-        }
-    })
-        .to(targetElements, {
-            xPercent: 100,
-            duration: 1,
-            ease: "power4.inOut",
-            stagger: 0.15
-        });
+        gsap.set(masks, { xPercent: 0 });
+
+        gsap.timeline({
+            scrollTrigger: {
+                trigger: container,
+                start: "top 85%",
+                toggleActions: "play none none reverse",
+            }
+        })
+            .to(masks, {
+                xPercent: 100,
+                duration: 1,
+                ease: "power4.inOut",
+                stagger: 0.15
+            });
+    });
 });
 
 
