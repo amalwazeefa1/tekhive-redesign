@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
     const slideTexts = [
         "Turning Ideas Into Powerful Digital Products", // 01 Web Development
-        "Building High-Conversion E-Commerce Stores", // 02 Ecommerce Solutions
+        "Building High-Conversion <span class=\"whitespace-nowrap\">E-Commerce</span> Stores", // 02 Ecommerce Solutions
         "Crafting Seamless Mobile Experiences", // 03 Mobile App Development
         "Empowering Your Brand with Tailored CMS Tools", // 04 CMS Development
         "Helping Brands Grow with Digital Marketing", // 05 Digital Marketing
