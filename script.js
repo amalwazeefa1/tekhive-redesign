@@ -1645,9 +1645,15 @@ document.addEventListener("DOMContentLoaded", () => {
     dropdownLinks.forEach((link) => {
         const linkPage = link.getAttribute("href")?.split("/").pop();
         if (linkPage && linkPage === currentPage) {
-            // Remove default scale-x-0 and origin-right, apply active state
-            link.classList.remove("after:scale-x-0", "after:origin-right");
-            link.classList.add("after:origin-left", "after:scale-x-100");
+            // Remove default hidden underline state
+            link.classList.remove("after:scale-x-0", "after:origin-right", "text-black");
+            // Apply active styles: teal text + semibold + permanent underline
+            link.classList.add(
+                "after:origin-left",
+                "after:scale-x-100",
+                "!text-[#09aeb8]",
+                "font-semibold"
+            );
         }
     });
 });
