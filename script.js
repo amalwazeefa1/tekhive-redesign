@@ -1639,6 +1639,17 @@ document.addEventListener("DOMContentLoaded", () => {
             "hover:after:scale-x-100"
         );
     });
+
+    // Highlight active dropdown link based on current page
+    const currentPage = window.location.pathname.split("/").pop() || "index.html";
+    dropdownLinks.forEach((link) => {
+        const linkPage = link.getAttribute("href")?.split("/").pop();
+        if (linkPage && linkPage === currentPage) {
+            // Remove default scale-x-0 and origin-right, apply active state
+            link.classList.remove("after:scale-x-0", "after:origin-right");
+            link.classList.add("after:origin-left", "after:scale-x-100");
+        }
+    });
 });
 
 
