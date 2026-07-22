@@ -707,7 +707,8 @@
                         <div class="flex flex-col items-start">
                             <h1 class="text-xl text-[#6c6c6c] font-medium">Phone</h1>
                             <a href="tel:+914872970765"
-                                class="text-xl text-start text-[#8f8f8f] hover:text-[#57BF93] transition">+91 - 487 - 2970765</a>
+                                class="text-xl text-start text-[#8f8f8f] hover:text-[#57BF93] transition">+91 - 487 -
+                                2970765</a>
                         </div>
                         <div class="flex flex-col items-start">
                             <h1 class="text-xl text-[#6c6c6c] font-medium">Email</h1>
@@ -1203,20 +1204,9 @@ z
                         </span>
                     </h2>
 
-                    <!-- Desktop version (sm and above) -->
+                    <!-- Tablet version (between sm and md) -->
                     <h2
-                        class="hidden sm:block text-3xl lg:text-4xl max-w-[333px] md:max-w-none leading-[95%] lg:leading-[95%] font-bold text-[#0f172a]">
-                        <span class="line relative inline-block overflow-hidden whitespace-nowrap">
-                            <span class="text relative inline-block overflow-hidden">Technology Solutions That</span>
-                            <span class="text-mask1-section-home absolute inset-0 bg-[#fCfCfC]"></span>
-                        </span>
-                        <span class="line relative inline-block overflow-hidden whitespace-nowrap">
-                            <span class="text relative inline-block overflow-hidden">Power Business growth.</span>
-                            <span class="text-mask1-section-home absolute inset-0 bg-[#fCfCfC]"></span>
-                        </span>
-                    </h2>
-                    <!-- <h2
-                        class="hidden sm:block text-[28px] lg:text-4xl max-w-[333px] md:max-w-none font-bold leading-[95%] text-[#0f172a]">
+                        class="hidden sm:block md:hidden text-[28px] lg:text-4xl max-w-[333px] md:max-w-none font-bold leading-[95%] text-[#0f172a]">
                         <span class="line relative inline-block overflow-hidden whitespace-nowrap">
                             <span class="text relative inline-block overflow-hidden">Technology</span>
                             <span class="text-mask1-section-home absolute inset-0 bg-[#fCfCfC]"></span>
@@ -1229,7 +1219,20 @@ z
                             <span class="text relative inline-block overflow-hidden">Power Business growth.</span>
                             <span class="text-mask1-section-home absolute inset-0 bg-[#fCfCfC]"></span>
                         </span>
-                    </h2> -->
+                    </h2>
+
+                    <!-- Desktop version (md and above) -->
+                    <h2
+                        class="hidden md:block text-3xl lg:text-4xl max-w-[333px] md:max-w-none leading-[95%] lg:leading-[95%] font-bold text-[#0f172a]">
+                        <span class="line relative inline-block overflow-hidden whitespace-nowrap">
+                            <span class="text relative inline-block overflow-hidden">Technology Solutions That</span>
+                            <span class="text-mask1-section-home absolute inset-0 bg-[#fCfCfC]"></span>
+                        </span>
+                        <span class="line relative inline-block overflow-hidden whitespace-nowrap">
+                            <span class="text relative inline-block overflow-hidden">Power Business growth.</span>
+                            <span class="text-mask1-section-home absolute inset-0 bg-[#fCfCfC]"></span>
+                        </span>
+                    </h2>
                     <p class="space-y-4">Tekhive helps businesses innovate, automate, and scale through a comprehensive
                         range of IT and business solutions. From web and mobile application development to ERP, CRM,
                         business intelligence, process automation, and digital marketing, we deliver technology-driven
@@ -1277,8 +1280,32 @@ z
             <!-- Section Header -->
             <div class="flex flex-col justify-between sm:flex-row gap-8">
                 <div class="flex flex-col mb-0 sm:mb-8 lg:flex-row gap-8 justify-between items-start">
-                    <!-- Mobile version (under sm) -->
-                    <h2 class="block sm:hidden text-[28px] font-bold leading-[95%] text-slate-900 dark:text-white">
+                    <!-- Extra Small Mobile version (under 380px) -->
+                    <h2 class="block min-[380px]:hidden text-[28px] font-bold leading-[95%] text-slate-900 dark:text-white">
+                        <span class="line relative inline-block overflow-hidden whitespace-nowrap">
+                            <span class="text relative overflow-hidden">Empowering</span>
+                            <span class="text-mask2-section-home absolute inset-0 bg-[#fcfcfc]"></span>
+                        </span>
+                        <span class="line relative inline-block overflow-hidden whitespace-nowrap">
+                            <span class="text relative overflow-hidden">Businesses</span>
+                            <span class="text-mask2-section-home absolute inset-0 bg-[#fcfcfc]"></span>
+                        </span>
+                        <span class="line relative inline-block overflow-hidden whitespace-nowrap">
+                            <span class="text relative overflow-hidden">Through</span>
+                            <span class="text-mask2-section-home absolute inset-0 bg-[#fcfcfc]"></span>
+                        </span>
+                        <span class="line relative inline-block overflow-hidden whitespace-nowrap">
+                            <span class="text relative overflow-hidden">Technology &</span>
+                            <span class="text-mask2-section-home absolute inset-0 bg-[#fcfcfc]"></span>
+                        </span>
+                        <span class="line relative inline-block overflow-hidden whitespace-nowrap">
+                            <span class="text relative overflow-hidden">Innovation</span>
+                            <span class="text-mask2-section-home absolute inset-0 bg-[#fcfcfc]"></span>
+                        </span>
+                    </h2>
+
+                    <!-- Mobile version (between 380px and sm) -->
+                    <h2 class="hidden min-[380px]:block sm:hidden text-[28px] font-bold leading-[95%] text-slate-900 dark:text-white">
                         <span class="line relative inline-block overflow-hidden whitespace-nowrap">
                             <span class="text relative overflow-hidden">Empowering Businesses</span>
                             <span class="text-mask2-section-home absolute inset-0 bg-[#fcfcfc]"></span>
@@ -1293,15 +1320,32 @@ z
                         </span>
                     </h2>
 
-                    <!-- Desktop version (sm and above) -->
+                    <!-- Tablet / Small Desktop version (between sm and lg) -->
                     <h2
-                        class="hidden sm:block text-3xl lg:text-4xl max-w-[333px] md:max-w-none leading-[95%] md:leading-[100%] font-bold text-slate-900 dark:text-white">
+                        class="hidden sm:block lg:hidden text-3xl max-w-[333px] md:max-w-none leading-[95%] md:leading-[100%] font-bold text-slate-900 dark:text-white">
                         <span class="line relative inline-block overflow-hidden whitespace-nowrap">
                             <span class="text relative overflow-hidden">Empowering Businesses Through</span>
                             <span class="text-mask2-section-home absolute inset-0 bg-[#fcfcfc]"></span>
                         </span>
                         <span class="line relative inline-block overflow-hidden whitespace-nowrap">
                             <span class="text relative overflow-hidden">Technology & Innovation</span>
+                            <span class="text-mask2-section-home absolute inset-0 bg-[#fcfcfc]"></span>
+                        </span>
+                    </h2>
+
+                    <!-- Large Desktop version (lg and above) -->
+                    <h2
+                        class="hidden lg:block text-4xl max-w-[333px] md:max-w-none leading-[95%] md:leading-[100%] font-bold text-slate-900 dark:text-white">
+                        <span class="line relative inline-block overflow-hidden whitespace-nowrap">
+                            <span class="text relative overflow-hidden">Empowering Businesses</span>
+                            <span class="text-mask2-section-home absolute inset-0 bg-[#fcfcfc]"></span>
+                        </span>
+                        <span class="line relative inline-block overflow-hidden whitespace-nowrap">
+                            <span class="text relative overflow-hidden">Through Technology &</span>
+                            <span class="text-mask2-section-home absolute inset-0 bg-[#fcfcfc]"></span>
+                        </span>
+                        <span class="line relative inline-block overflow-hidden whitespace-nowrap">
+                            <span class="text relative overflow-hidden">Innovation</span>
                             <span class="text-mask2-section-home absolute inset-0 bg-[#fcfcfc]"></span>
                         </span>
                     </h2>
