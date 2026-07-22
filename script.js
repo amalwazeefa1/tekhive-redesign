@@ -102,6 +102,11 @@ if (openMenu && closeMenu && menu) {
         if (sliderNav) sliderNav.classList.add("opacity-0", "pointer-events-none");
         if (popUpBtn) popUpBtn.classList.add("opacity-0", "pointer-events-none");
 
+        const whatsappHeaderBtn = document.querySelector(".whatsapp-icon-white")?.closest("a");
+        const phoneHeaderBtn = document.querySelector(".phone-icon-white")?.closest("a");
+        if (whatsappHeaderBtn) whatsappHeaderBtn.classList.add("hidden");
+        if (phoneHeaderBtn) phoneHeaderBtn.classList.add("hidden");
+
         // Split reveal animations for mobile menu cards
         if (typeof gsap !== "undefined") {
             const cards = menu.querySelectorAll(".card");
@@ -157,6 +162,11 @@ function closeMenuFn() {
     if (siteHeader) siteHeader.classList.remove("opacity-0", "pointer-events-none");
     if (sliderNav) sliderNav.classList.remove("opacity-0", "pointer-events-none");
     if (popUpBtn) popUpBtn.classList.remove("opacity-0", "pointer-events-none");
+
+    const whatsappHeaderBtn = document.querySelector(".whatsapp-icon-white")?.closest("a");
+    const phoneHeaderBtn = document.querySelector(".phone-icon-white")?.closest("a");
+    if (whatsappHeaderBtn) whatsappHeaderBtn.classList.remove("hidden");
+    if (phoneHeaderBtn) phoneHeaderBtn.classList.remove("hidden");
 }
 
 
