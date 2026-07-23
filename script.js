@@ -809,6 +809,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function showCursor() {
+        if (window.innerWidth < 768) return;
         if (!isOverInteractive) {
             gsap.to(cursor, {
                 scale: 1,
@@ -821,6 +822,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Smooth follow cursor across the screen
     window.addEventListener("mousemove", (e) => {
+        if (window.innerWidth < 768) return;
         gsap.to(cursor, {
             x: e.clientX - 24,
             y: e.clientY - 24,
@@ -833,8 +835,9 @@ document.addEventListener("DOMContentLoaded", () => {
     target.addEventListener("mouseenter", showCursor);
     target.addEventListener("mouseleave", hideCursor);
 
-    // Touch support: show cursor on touch start & touch move, hide on touch end
+    // Touch support: show cursor on touch start & touch move only on desktop touch devices
     target.addEventListener("touchstart", (e) => {
+        if (window.innerWidth < 768) return;
         if (e.touches.length > 0) {
             gsap.set(cursor, {
                 x: e.touches[0].clientX - 24,
@@ -845,6 +848,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }, { passive: true });
 
     target.addEventListener("touchmove", (e) => {
+        if (window.innerWidth < 768) return;
         if (e.touches.length > 0) {
             gsap.to(cursor, {
                 x: e.touches[0].clientX - 24,

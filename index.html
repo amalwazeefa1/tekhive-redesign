@@ -876,20 +876,20 @@
 
     <!-- pinned section -->
     <section
-        class="pinned-section relative bg-black min-h-[55vh] py-16 md:py-24 flex flex-col md:flex-row items-center justify-center gap-12 md:gap-24 px-6 md:px-16 lg:px-24 overflow-hidden">
+        class="pinned-section relative bg-black min-h-[50vh] md:min-h-[55vh] py-12 md:py-20 flex flex-col md:flex-row items-center justify-center gap-8 sm:gap-12 md:gap-16 lg:gap-24 px-6 md:px-16 lg:px-24 overflow-hidden">
         <!-- Ambient Glows -->
         <div
-            class="absolute top-1/4 left-1/4 w-[350px] h-[350px] rounded-full bg-[#499bd5]/10 blur-[110px] pointer-events-none select-none glow-1 glow-1-float">
+            class="absolute top-1/4 left-1/4 w-[280px] sm:w-[350px] h-[280px] sm:h-[350px] rounded-full bg-[#499bd5]/10 blur-[90px] sm:blur-[110px] pointer-events-none select-none glow-1 glow-1-float">
         </div>
         <div
-            class="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] rounded-full bg-[#57BF93]/10 blur-[130px] pointer-events-none select-none glow-2 glow-2-float">
+            class="absolute bottom-1/4 right-1/4 w-[300px] sm:w-[400px] h-[300px] sm:h-[400px] rounded-full bg-[#57BF93]/10 blur-[100px] sm:blur-[130px] pointer-events-none select-none glow-2 glow-2-float">
         </div>
         <!-- Left: Logo -->
-        <div class="flex items-center justify-start w-full md:w-1/2 max-w-lg">
-            <img class="tekhive-icon select-none w-20 md:w-28 lg:w-32 h-auto mr-4 md:mr-8" src="assets/tekhive-icon.svg"
-                draggable="false" alt="icon">
-            <svg class="tekhive-text w-full max-w-[180px] md:max-w-[260px] lg:max-w-[320px] h-auto" id="Layer_1"
-                data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300.3 48.4">
+        <div class="flex items-center justify-center md:justify-start w-full md:w-1/2 max-w-md lg:max-w-lg">
+            <img class="tekhive-icon select-none w-14 sm:w-20 md:w-28 lg:w-32 h-auto mr-3 sm:mr-6 md:mr-8"
+                src="assets/tekhive-icon.svg" draggable="false" alt="icon">
+            <svg class="tekhive-text w-full max-w-[150px] sm:max-w-[200px] md:max-w-[260px] lg:max-w-[320px] h-auto"
+                id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300.3 48.4">
                 <polygon class="logo-part"
                     points="12.5 48.4 12.5 5.7 0 5.7 0 0 38 0 38 5.7 25.6 5.7 25.6 48.4 12.5 48.4"
                     style="fill: #fff; stroke-width: 0px;" />
@@ -916,7 +916,7 @@
         <div class="flex items-stretch text-left w-full md:w-1/2 max-w-xl">
             <!-- Mobile divider (always visible under sm) -->
             <div
-                class="block sm:hidden shrink-0 w-[3px] min-h-[100px] bg-gradient-to-b from-transparent via-[#57BF93] to-transparent mr-4 drop-shadow-[0_0_8px_rgba(87,191,147,0.6)]">
+                class="block sm:hidden shrink-0 w-[3px] min-h-[90px] bg-gradient-to-b from-transparent via-[#57BF93] to-transparent mr-4 drop-shadow-[0_0_8px_rgba(87,191,147,0.6)]">
             </div>
 
             <!-- Desktop divider (animated by GSAP on sm and above) -->
@@ -925,7 +925,8 @@
             </div>
             <div class="relative text-white flex items-center">
                 <!-- Mobile version (under sm: no GSAP split animation, fluid typography) -->
-                <p class="block sm:hidden text-xs xs:text-sm font-light leading-relaxed tracking-normal text-slate-300">
+                <p
+                    class="block sm:hidden text-xs xs:text-sm sm:text-base font-light leading-relaxed tracking-normal text-slate-300">
                     At Tekhive, we bridge technology and business success. Through innovative IT services, business
                     automation, ERP solutions, CRM systems, and digital transformation strategies, we help businesses
                     work smarter, grow faster, and compete confidently.
@@ -933,7 +934,7 @@
 
                 <!-- Desktop version (sm and above: GSAP SplitText reveal animation) -->
                 <p id="tektext"
-                    class="hidden sm:block text-sm md:text-lg lg:text-xl font-light leading-normal md:leading-relaxed tracking-normal md:tracking-wide text-slate-300">
+                    class="hidden sm:block text-sm md:text-lg lg:text-xl font-light leading-relaxed tracking-normal md:tracking-wide text-slate-300">
                     At Tekhive, we bridge technology and business success. Through innovative IT services, business
                     automation, ERP solutions, CRM systems, and digital transformation strategies, we help businesses
                     work smarter, grow faster, and compete confidently.
@@ -2309,10 +2310,71 @@ z
                     </div>
                 </div>
 
+                <div class="inline-block cursor-pointer mt-4"><a href="services.html" id="morph-button-blue"
+                        class="flex items-end transition-transform duration-300 block w-fit cursor-pointer">
+                        <div class="relative inline-block">
+                            <!-- start shape -->
+                            <svg class="h-12" id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 165.81 58.9">
+                                <defs>
+                                    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+                                        <stop offset="0%" style="stop-color:#499BD5; stop-opacity:1" />
+                                        <stop offset="100%" style="stop-color:#499BD5; stop-opacity:1" />
+                                    </linearGradient>
+                                </defs>
+                                <path id="shape1"
+                                    d="m153.61,58.9H12.18c-6.73,0-12.18-5.45-12.18-12.18V12.18C0,5.45,5.45,0,12.18,0h126.97c4.91,0,9.34,2.95,11.24,7.48l14.46,34.54c3.36,8.03-2.54,16.88-11.24,16.88Z"
+                                    style="fill: #499BD5; stroke-width: 0px;" />
+                                <path id="shape2"
+                                    d="m153.61,0H12.18C5.45,0,0,5.45,0,12.18v34.54c0,6.73,5.45,12.18,12.18,12.18h126.97c4.91,0,9.34-2.95,11.24-7.48l14.46-34.54c3.36-8.03-2.54-16.88-11.24-16.88Z"
+                                    style="fill: #499BD5; stroke-width: 0px; visibility: hidden;" />
+                            </svg>
+                            <span
+                                class="absolute inset-0 flex items-center justify-center text-white font-sans text-md font-medium">Get
+                                Started</span>
+                        </div>
+                        <div class="relative inline-block ml-[-5px]">
+
+                            <!-- base morph shape -->
+                            <svg class="h-12 relative block" xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 72.33 58.9">
+                                <defs>
+                                    <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="0%">
+                                        <stop offset="0%" style="stop-color:#57BF93; stop-opacity:1" />
+                                        <stop offset="100%" style="stop-color:#57BF93; stop-opacity:1" />
+                                    </linearGradient>
+                                </defs>
+                                <path id="small-shape1"
+                                    d="m12.19,0h47.96c6.73,0,12.18,5.45,12.18,12.18v34.54c0,6.73-5.45,12.18-12.18,12.18H26.65c-4.91,0-9.34-2.95-11.24-7.48L.96,16.88C-2.4,8.86,3.49,0,12.19,0Z"
+                                    style="fill:#57BF93; stroke-width:2px;" />
+                                <path id="small-shape2"
+                                    d="m12.19,58.9h47.96c6.73,0,12.18-5.45,12.18-12.18V12.18C72.33,5.45,66.88,0,60.15,0H26.65c-4.91,0-9.34,2.95-11.24,7.48L.96,42.02c-3.36,8.03,2.54,16.88,11.24,16.88Z"
+                                    style="fill:#57BF93; stroke-width:2px; visibility:hidden;" />
+                            </svg>
+                            <!-- arrow overlay -->
+                            <svg class="absolute inset-0 m-auto w-4 h-4 text-white pointer-events-none transition-transform duration-300 group-hover:translate-x-1"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M5 12h14" />
+                                <path d="M13 6l6 6-6 6" />
+                            </svg>
+
+                        </div>
+                    </a></div>
+                    <div class="md:hidden flex gap-2 justify-end sm:w-[20%]">
+                    <span class="w-12 h-12 cursor-pointer rounded-full bg-white active:scale-90 previous-btn"
+                        id="previous-btn">
+                        <img class="p-4 m-auto" src="assets/arrow_left.svg" alt="Previous">
+                    </span>
+                    <span class="w-12 h-12 cursor-pointer rounded-full bg-white active:scale-90 next-btn" id="next-btn">
+                        <img class="p-4 m-auto" src="assets/arrow_right.svg" alt="Next">
+                    </span>
+                </div>
 
 
-                <div id="cursor-icon" class="shadow-lg pointer-events-none fixed top-[-10px] left-[-13px] z-50
-         flex items-center justify-center
+
+                <div id="cursor-icon" class="hidden md:flex shadow-lg pointer-events-none fixed top-[-10px] left-[-13px] z-50
+         items-center justify-center
          w-20 h-20 rounded-full
          bg-gradient-to-r from-[#499BD5] to-[#57BF93] backdrop-blur
          opacity-0 scale-50">
@@ -2334,16 +2396,9 @@ z
                 </div>
             </div>
         </div>
-        <div class="flex md:hidden gap-2 justify-center mt-4">
-            <span class="w-12 h-12 cursor-pointer rounded-full bg-white active:scale-90 previous-btn">
-                <img class="p-4 m-auto" src="assets/arrow_left.svg" alt="Previous">
-            </span>
-            <span class="w-12 h-12 cursor-pointer rounded-full bg-white active:scale-90 next-btn">
-                <img class="p-4 m-auto" src="assets/arrow_right.svg" alt="Next">
-            </span>
         </div>
 
-        </div>
+
     </section>
 
 
