@@ -104,8 +104,8 @@ if (openMenu && closeMenu && menu) {
 
         const whatsappHeaderBtn = document.querySelector(".whatsapp-icon-white")?.closest("a");
         const phoneHeaderBtn = document.querySelector(".phone-icon-white")?.closest("a");
-        if (whatsappHeaderBtn) whatsappHeaderBtn.classList.add("hidden");
-        if (phoneHeaderBtn) phoneHeaderBtn.classList.add("hidden");
+        if (whatsappHeaderBtn) whatsappHeaderBtn.classList.add("opacity-0", "pointer-events-none");
+        if (phoneHeaderBtn) phoneHeaderBtn.classList.add("opacity-0", "pointer-events-none");
 
         // Split reveal animations for mobile menu cards
         if (typeof gsap !== "undefined") {
@@ -165,8 +165,8 @@ function closeMenuFn() {
 
     const whatsappHeaderBtn = document.querySelector(".whatsapp-icon-white")?.closest("a");
     const phoneHeaderBtn = document.querySelector(".phone-icon-white")?.closest("a");
-    if (whatsappHeaderBtn) whatsappHeaderBtn.classList.remove("hidden");
-    if (phoneHeaderBtn) phoneHeaderBtn.classList.remove("hidden");
+    if (whatsappHeaderBtn) whatsappHeaderBtn.classList.remove("opacity-0", "pointer-events-none");
+    if (phoneHeaderBtn) phoneHeaderBtn.classList.remove("opacity-0", "pointer-events-none");
 }
 
 
