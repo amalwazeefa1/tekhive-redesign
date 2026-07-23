@@ -124,10 +124,10 @@ if (openMenu && closeMenu && menu) {
                     gsap.set(card1Masks, { xPercent: 0 });
                     gsap.to(card1Masks, {
                         xPercent: 100,
-                        duration: 0.5,
-                        ease: "power3.out",
-                        stagger: 0.08,
-                        delay: 0.15
+                        duration: 1.0,
+                        ease: "power4.inOut",
+                        stagger: 0.15,
+                        delay: 0.2
                     });
                 }
 
@@ -389,32 +389,31 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 ///////////////////////////////////////////////////////////////////////////////fade in gsap animation
-gsap.utils.toArray(".fade-up, .fade-up2").filter((el) => !el.closest("#testimonials")).forEach((el, i) => {
-    const isFadeUp2 = el.classList.contains("fade-up2");
-    const isFadeUp = el.classList.contains("fade-up");
-    const isCardElement = el.classList.contains("card");
-    const triggerElement = isCardElement ? el : (el.closest("section") || el);
-    const startValue = isCardElement
-        ? "top 88%"
-        : (isFadeUp2 ? "top 70%" : "top 80%");
-
-    gsap.to(el, {
-        opacity: 1,
-        y: 0,
-        duration: 1,
-        ease: "power1.out",
-        scrollTrigger: {
-            trigger: triggerElement,
-            start: startValue,
-            toggleActions: "play none none reverse",
-        },
-        delay: isFadeUp2
-            ? 0          // fade-up2 starts immediately
-            : isFadeUp
-                ? i * 0.3  // fade-up staggers by index
-                : 0
-    })
-})
+if (typeof gsap !== "undefined" && typeof ScrollTrigger !== "undefined") {
+    const fadeElements = gsap.utils.toArray(".fade-up, .fade-up2").filter((el) => !el.closest("#testimonials"));
+    if (fadeElements.length > 0) {
+        ScrollTrigger.batch(fadeElements, {
+            onEnter: batch => gsap.to(batch, {
+                opacity: 1,
+                y: 0,
+                duration: 0.8,
+                stagger: 0.15,
+                ease: "power2.out",
+                force3D: true,
+                overwrite: true
+            }),
+            onLeaveBack: batch => gsap.to(batch, {
+                opacity: 0,
+                y: 30,
+                duration: 0.4,
+                ease: "power2.in",
+                force3D: true,
+                overwrite: true
+            }),
+            start: "top 88%"
+        });
+    }
+}
 
 ///////////////////////////////////////////////////////////////////////////////testimonial scroll trigger animation
 const testimonialSection = document.getElementById("testimonials");
@@ -1264,7 +1263,8 @@ maskTargets.forEach(selector => {
                 xPercent: 100,
                 duration: 1,
                 ease: "power4.inOut",
-                stagger: 0.15
+                stagger: 0.15,
+                force3D: true
             });
     });
 });
