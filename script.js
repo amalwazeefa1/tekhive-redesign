@@ -794,10 +794,30 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const target = document.getElementById("services-track");
     const cursor = document.getElementById("cursor-icon");
-
     if (!target || !cursor) return;
 
     let isOverInteractive = false;
+
+    function hideCursor() {
+        isOverInteractive = false;
+        gsap.to(cursor, {
+            scale: 0.5,
+            opacity: 0,
+            duration: 0.2,
+            ease: "power3.in",
+        });
+    }
+
+    function showCursor() {
+        if (!isOverInteractive) {
+            gsap.to(cursor, {
+                scale: 1,
+                opacity: 1,
+                duration: 0.25,
+                ease: "power3.out",
+            });
+        }
+    }
 
     // Smooth follow cursor across the screen
     window.addEventListener("mousemove", (e) => {
@@ -810,43 +830,17 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // Show cursor when entering target cards area
-    target.addEventListener("mouseenter", () => {
-        if (!isOverInteractive) {
-            gsap.to(cursor, {
-                scale: 1,
-                opacity: 1,
-                duration: 0.25,
-                ease: "power3.out",
-            });
-        }
-    });
+    target.addEventListener("mouseenter", showCursor);
+    target.addEventListener("mouseleave", hideCursor);
 
-    // Hide cursor when leaving target cards area
-    target.addEventListener("mouseleave", () => {
-        isOverInteractive = false;
-        gsap.to(cursor, {
-            scale: 0.5,
-            opacity: 0,
-            duration: 0.2,
-            ease: "power3.in",
-        });
-    });
-
-    // Touch support for mobile devices
+    // Touch support: show cursor on touch start & touch move, hide on touch end
     target.addEventListener("touchstart", (e) => {
         if (e.touches.length > 0) {
             gsap.set(cursor, {
                 x: e.touches[0].clientX - 24,
                 y: e.touches[0].clientY - 24,
             });
-            if (!isOverInteractive) {
-                gsap.to(cursor, {
-                    scale: 1,
-                    opacity: 1,
-                    duration: 0.25,
-                    ease: "power3.out",
-                });
-            }
+            showCursor();
         }
     }, { passive: true });
 
@@ -861,18 +855,10 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }, { passive: true });
 
-    // On mobile under sm screens (< 640px), hide cursor when scrolling away into another section
-    window.addEventListener("scroll", () => {
-        if (window.innerWidth < 640) {
-            isOverInteractive = false;
-            gsap.to(cursor, {
-                scale: 0.5,
-                opacity: 0,
-                duration: 0.2,
-                ease: "power3.in",
-            });
-        }
-    }, { passive: true });
+    target.addEventListener("touchend", hideCursor, { passive: true });
+
+    // Smoothly hide cursor as soon as user scrolls the page
+    window.addEventListener("scroll", hideCursor, { passive: true });
 
     // Hide cursor when hovering interactive elements (Learn More links, green buttons)
     target.querySelectorAll("a, button").forEach((el) => {
@@ -887,12 +873,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
         el.addEventListener("mouseleave", () => {
             isOverInteractive = false;
-            gsap.to(cursor, {
-                scale: 1,
-                opacity: 1,
-                duration: 0.25,
-                ease: "power3.out",
-            });
+            showCursor();
         });
     });
 });
