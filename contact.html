@@ -73,6 +73,17 @@
             width: full !important;
         }
 
+        @media (hover: none) {
+            #site-header:hover {
+                background-color: transparent !important;
+                background-image: none !important;
+            }
+            #site-header button:hover,
+            #site-header a:hover {
+                background-color: transparent !important;
+            }
+        }
+
         html.lenis,
         html.lenis body {
             height: auto;
@@ -132,7 +143,7 @@
 <body
     class="contact-page bg-black dark:bg-background-dark text-slate-900 dark:text-white font-display antialiased overflow-x-hidden">
     <!-- Top App Bar -->
-    <header id="site-header" class="fixed w-full top-0 z-50 hover:bg-white hover:bg-none hover:from-transparent hover:to-transparent hover:transition-all hover:duration-300 hover:duration-0 dark:bg-slate-900/80
+    <header id="site-header" class="fixed w-full top-0 z-50 lg:hover:bg-white lg:hover:bg-none lg:hover:from-transparent lg:hover:to-transparent lg:hover:transition-all lg:hover:duration-300 lg:hover:duration-0 dark:bg-slate-900/80
          dark:border-slate-800">
 
         <div class="max-w-7xl mx-auto px-4">

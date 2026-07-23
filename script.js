@@ -951,20 +951,34 @@ const isHomePage = document.body.classList.contains("home-page");
 let isScrolled = false;
 let isHovered = false;
 
-// Inject CSS styles for instant hover response
+// Inject CSS styles for instant hover response (desktop pointer devices only)
 const headerStyle = document.createElement("style");
 headerStyle.textContent = `
-    #site-header:hover {
-        background-color: #ffffff !important;
-        background-image: none !important;
+    @media (hover: hover) and (pointer: fine) {
+        #site-header:hover {
+            background-color: #ffffff !important;
+            background-image: none !important;
+        }
+        #site-header:hover .nav-link:not([data-active="true"]) {
+            color: #000000 !important;
+        }
+        #site-header:hover .whatsapp-icon-white,
+        #site-header:hover .phone-icon-white,
+        #site-header:hover .menu {
+            color: #000000 !important;
+        }
     }
-    #site-header:hover .nav-link:not([data-active="true"]) {
-        color: #000000 !important;
-    }
-    #site-header:hover .whatsapp-icon-white,
-    #site-header:hover .phone-icon-white,
-    #site-header:hover .menu {
-        color: #000000 !important;
+    @media (hover: none) {
+        #site-header button:hover,
+        #site-header a:hover {
+            background-color: transparent !important;
+        }
+        #site-header .group:hover .group-hover\\:hidden {
+            display: block !important;
+        }
+        #site-header .group:hover .group-hover\\:block {
+            display: none !important;
+        }
     }
 `;
 document.head.appendChild(headerStyle);
@@ -976,7 +990,7 @@ function updateHeaderUI() {
     if (header) {
         header.classList.toggle("bg-white", isActive);
         header.classList.toggle("bg-gradient-to-b", !isActive);
-        header.classList.toggle("from-black", !isActive);
+        header.classList.toggle("from-black/80", !isActive);
         header.classList.toggle("to-transparent", !isActive);
     }
 
@@ -1030,16 +1044,20 @@ const trigger = ScrollTrigger.create({
 isScrolled = trigger.isActive;
 updateHeaderUI();
 
-// unified hover handlers
+// unified hover handlers (desktop pointer devices only)
 if (header) {
     header.addEventListener('mouseenter', () => {
-        isHovered = true;
-        updateHeaderUI();
+        if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+            isHovered = true;
+            updateHeaderUI();
+        }
     });
 
     header.addEventListener('mouseleave', () => {
-        isHovered = false;
-        updateHeaderUI();
+        if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+            isHovered = false;
+            updateHeaderUI();
+        }
     });
 }
 

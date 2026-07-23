@@ -77,13 +77,20 @@
             margin: auto !important;
             width: full !important;
         }
+
+        @media (hover: none) {
+            #site-header button:hover,
+            #site-header a:hover {
+                background-color: transparent !important;
+            }
+        }
     </style>
 </head>
 
 <body
     class="service-page bg-black dark:bg-background-dark text-slate-900 dark:text-white font-display antialiased overflow-x-hidden">
     <!-- Top App Bar -->
-    <header id="site-header" class="fixed w-full top-0 z-50 hover:bg-white hover:bg-none hover:from-transparent hover:to-transparent hover:transition-all hover:duration-300 hover:duration-0 dark:bg-slate-900/80
+    <header id="site-header" class="fixed w-full top-0 z-50 lg:hover:bg-white lg:hover:bg-none lg:hover:from-transparent lg:hover:to-transparent lg:hover:transition-all lg:hover:duration-300 lg:hover:duration-0 dark:bg-slate-900/80
          dark:border-slate-800">
 
         <div class="max-w-7xl mx-auto px-4">
@@ -603,35 +610,40 @@
                     <path id="website-dev-morph-1" class="cls-1"
                         d="M160,110V30c0-16.6-13.4-30-30-30H30C13.4,0,0,13.4,0,30v100c0,16.6,13.4,30,30,30h80c16.6,0,30,13.4,30,30v80  c0,16.6,13.4,30,30,30h100c16.6,0,30-13.4,30-30V170c0-16.6-13.4-30-30-30h-80C173.4,140,160,126.6,160,110z" />
                     <!-- Tablet & Desktop (above 470px) - 2 Lines -->
-                <h1 class="hidden min-[471px]:block text-base md:text-2xl leading-snug md:leading-[170%] max-w-2xl">
-                    <span class="line relative inline-block overflow-hidden">
-                        <span class="text relative inline-block overflow-hidden">Ensure business continuity, maximize system performance,</span>
-                        <span class="text-mask-website-development absolute inset-0 bg-[#fcfcfc]"></span>
-                    </span>
-                    <br>
-                    <span class="line relative inline-block overflow-hidden">
-                        <span class="text relative inline-block overflow-hidden">and reduce downtime with proactive IT support services.</span>
-                        <span class="text-mask-website-development absolute inset-0 bg-[#fcfcfc]"></span>
-                    </span>
-                </h1>
+                    <h1 class="hidden min-[471px]:block text-base md:text-2xl leading-snug md:leading-[170%] max-w-2xl">
+                        <span class="line relative inline-block overflow-hidden">
+                            <span class="text relative inline-block overflow-hidden">Ensure business continuity,
+                                maximize system performance,</span>
+                            <span class="text-mask-website-development absolute inset-0 bg-[#fcfcfc]"></span>
+                        </span>
+                        <br>
+                        <span class="line relative inline-block overflow-hidden">
+                            <span class="text relative inline-block overflow-hidden">and reduce downtime with proactive
+                                IT support services.</span>
+                            <span class="text-mask-website-development absolute inset-0 bg-[#fcfcfc]"></span>
+                        </span>
+                    </h1>
 
-                <!-- Mobile (470px and under) - 3 Lines -->
-                <h1 class="block min-[471px]:hidden text-[13px] leading-tight max-w-2xl">
-                    <span class="line relative inline-block overflow-hidden max-[470px]:whitespace-nowrap">
-                        <span class="text relative inline-block overflow-hidden">Ensure business continuity, maximize system</span>
-                        <span class="text-mask-website-development absolute inset-0 bg-[#fcfcfc]"></span>
-                    </span>
-                    <br>
-                    <span class="line relative inline-block overflow-hidden max-[470px]:whitespace-nowrap">
-                        <span class="text relative inline-block overflow-hidden">performance, and reduce downtime with</span>
-                        <span class="text-mask-website-development absolute inset-0 bg-[#fcfcfc]"></span>
-                    </span>
-                    <br>
-                    <span class="line relative inline-block overflow-hidden max-[470px]:whitespace-nowrap">
-                        <span class="text relative inline-block overflow-hidden">proactive IT support services.</span>
-                        <span class="text-mask-website-development absolute inset-0 bg-[#fcfcfc]"></span>
-                    </span>
-                </h1>
+                    <!-- Mobile (470px and under) - 3 Lines -->
+                    <h1 class="block min-[471px]:hidden text-[13px] leading-tight max-w-2xl">
+                        <span class="line relative inline-block overflow-hidden max-[470px]:whitespace-nowrap">
+                            <span class="text relative inline-block overflow-hidden">Ensure business continuity,
+                                maximize system</span>
+                            <span class="text-mask-website-development absolute inset-0 bg-[#fcfcfc]"></span>
+                        </span>
+                        <br>
+                        <span class="line relative inline-block overflow-hidden max-[470px]:whitespace-nowrap">
+                            <span class="text relative inline-block overflow-hidden">performance, and reduce downtime
+                                with</span>
+                            <span class="text-mask-website-development absolute inset-0 bg-[#fcfcfc]"></span>
+                        </span>
+                        <br>
+                        <span class="line relative inline-block overflow-hidden max-[470px]:whitespace-nowrap">
+                            <span class="text relative inline-block overflow-hidden">proactive IT support
+                                services.</span>
+                            <span class="text-mask-website-development absolute inset-0 bg-[#fcfcfc]"></span>
+                        </span>
+                    </h1>
             </div>
             <div class="image-banner relative w-full overflow-hidden rounded-xl">
                 <!-- <img src="assets/curved_shadow.png" class="pointer-events-none absolute inset-0 z-[20] h-full w-full object-cover opacity-80" alt=""> -->
