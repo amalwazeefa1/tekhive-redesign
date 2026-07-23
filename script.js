@@ -92,20 +92,25 @@ function checkCard2Reveal() {
 
 if (openMenu && closeMenu && menu) {
     openMenu.addEventListener("click", () => {
-        // enable smooth fade-in
-        menu.classList.add("transition-opacity", "duration-300", "ease-in-out");
-        menu.classList.remove("opacity-0", "pointer-events-none");
+        // Stop Lenis background scroll loop to free JS thread
+        if (lenis) lenis.stop();
+
+        // GPU Hardware Acceleration
+        menu.style.transform = "translateZ(0)";
+        menu.style.willChange = "opacity";
+
+        // Prevent body scroll
         document.body.classList.add("overflow-hidden");
 
-        // Hide main site header and slider navigation to prevent rubber-band exposure overlap
-        if (siteHeader) siteHeader.classList.add("opacity-0", "pointer-events-none");
+        // Use requestAnimationFrame so browser renders initial state cleanly before fading
+        requestAnimationFrame(() => {
+            menu.classList.add("transition-opacity", "duration-200", "ease-out");
+            menu.classList.remove("opacity-0", "pointer-events-none");
+        });
+
+        // Hide floating elements cleanly without header opacity conflict
         if (sliderNav) sliderNav.classList.add("opacity-0", "pointer-events-none");
         if (popUpBtn) popUpBtn.classList.add("opacity-0", "pointer-events-none");
-
-        const whatsappHeaderBtn = document.querySelector(".whatsapp-icon-white")?.closest("a");
-        const phoneHeaderBtn = document.querySelector(".phone-icon-white")?.closest("a");
-        if (whatsappHeaderBtn) whatsappHeaderBtn.classList.add("opacity-0", "pointer-events-none");
-        if (phoneHeaderBtn) phoneHeaderBtn.classList.add("opacity-0", "pointer-events-none");
 
         // Split reveal animations for mobile menu cards
         if (typeof gsap !== "undefined") {
@@ -119,10 +124,10 @@ if (openMenu && closeMenu && menu) {
                     gsap.set(card1Masks, { xPercent: 0 });
                     gsap.to(card1Masks, {
                         xPercent: 100,
-                        duration: 1.0,
-                        ease: "power4.inOut",
-                        stagger: 0.15,
-                        delay: 0.35 // wait for menu fade-in transition (300ms)
+                        duration: 0.5,
+                        ease: "power3.out",
+                        stagger: 0.08,
+                        delay: 0.15
                     });
                 }
 
@@ -135,7 +140,7 @@ if (openMenu && closeMenu && menu) {
                 }
 
                 // Check visibility after menu opens in case Card 2 is already visible
-                setTimeout(checkCard2Reveal, 400);
+                setTimeout(checkCard2Reveal, 250);
             }
         }
     });
@@ -153,20 +158,20 @@ if (openMenu && closeMenu && menu) {
 function closeMenuFn() {
     if (!menu) return;
 
-    // disable transition ? instant close
-    menu.classList.remove("transition-opacity", "duration-300", "ease-in-out");
+    // Resume Lenis smooth scroll engine
+    if (lenis) lenis.start();
+
+    // Fast fade out
+    menu.classList.remove("transition-opacity", "duration-200", "ease-out");
     menu.classList.add("opacity-0", "pointer-events-none");
     document.body.classList.remove("overflow-hidden");
 
-    // Restore visibility of header and slider navigation
-    if (siteHeader) siteHeader.classList.remove("opacity-0", "pointer-events-none");
+    // Clear GPU hints after closed to free GPU memory
+    menu.style.willChange = "auto";
+
+    // Restore visibility of slider navigation
     if (sliderNav) sliderNav.classList.remove("opacity-0", "pointer-events-none");
     if (popUpBtn) popUpBtn.classList.remove("opacity-0", "pointer-events-none");
-
-    const whatsappHeaderBtn = document.querySelector(".whatsapp-icon-white")?.closest("a");
-    const phoneHeaderBtn = document.querySelector(".phone-icon-white")?.closest("a");
-    if (whatsappHeaderBtn) whatsappHeaderBtn.classList.remove("opacity-0", "pointer-events-none");
-    if (phoneHeaderBtn) phoneHeaderBtn.classList.remove("opacity-0", "pointer-events-none");
 }
 
 
