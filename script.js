@@ -1404,6 +1404,17 @@ if (whatWeDoSec) {
     whatWeDoSec.style.display = "block";
     whatWeDoSec.classList.add("py-12");
 
+    const whatWeDoRow = whatWeDoSec.querySelector(":scope > div > div");
+    const whatWeDoText = whatWeDoRow ? whatWeDoRow.querySelector(".relative") : null;
+
+    if (whatWeDoRow && whatWeDoText && !whatWeDoRow.querySelector(".what-we-do-indicator")) {
+        const indicator = document.createElement("div");
+        indicator.className = "what-we-do-indicator";
+        indicator.setAttribute("aria-hidden", "true");
+        indicator.innerHTML = '<span class="what-we-do-indicator-thumb"></span>';
+        whatWeDoRow.insertBefore(indicator, whatWeDoText);
+    }
+
     // Stack the paragraphs without using absolute positioning so the section
     // keeps only the height it needs.
     const style = document.createElement("style");
@@ -1421,12 +1432,51 @@ if (whatWeDoSec) {
             top: auto !important;
             left: auto !important;
         }
+        #what-we-do .what-we-do-indicator {
+            position: relative;
+            display: block;
+            width: min(180px, 46vw);
+            height: 6px;
+            margin: 0 0 18px 0;
+            flex: 0 0 auto;
+            border-radius: 999px;
+            background: #ececec;
+            overflow: hidden;
+        }
+        #what-we-do .what-we-do-indicator-thumb {
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: block;
+            width: 100%;
+            height: 100%;
+            border-radius: inherit;
+            background: #bfbfbf;
+            transform: scaleX(0.42);
+            transform-origin: left center;
+            will-change: transform;
+        }
+        @media (min-width: 768px) {
+            #what-we-do .what-we-do-indicator {
+                width: 8px;
+                height: 158px;
+                margin: 10px clamp(28px, 5vw, 72px) 0 auto;
+                flex: 0 0 8px;
+            }
+            #what-we-do .what-we-do-indicator-thumb {
+                width: 100%;
+                height: 60px;
+                transform: translateY(0) scaleX(1);
+                transform-origin: center top;
+            }
+        }
     `;
     document.head.appendChild(style);
 }
 
 if (whatWeDoSec && paras.length > 1) {
     gsap.set(paras.slice(1), { opacity: 0, y: 24 });
+    const indicatorThumb = whatWeDoSec.querySelector(".what-we-do-indicator-thumb");
 
     const tl = gsap.timeline({
         scrollTrigger: {
@@ -1450,6 +1500,16 @@ if (whatWeDoSec && paras.length > 1) {
             duration: 0.55,
             ease: "power2.out",
         }, ">");
+
+    if (indicatorThumb) {
+        tl.to(indicatorThumb, {
+            x: 0,
+            y: () => window.innerWidth >= 768 ? 98 : 0,
+            scaleX: () => window.innerWidth < 768 ? 1 : 1,
+            duration: 0.55,
+            ease: "power2.out",
+        }, "<");
+    }
 }
 
 //parallax image movement for service-page banners only
