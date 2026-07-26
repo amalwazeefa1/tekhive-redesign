@@ -1455,7 +1455,7 @@ if (whatWeDoSec) {
             left: 0;
             display: block;
             width: 100%;
-            height: 40px;
+            height: 55px;
             border-radius: inherit;
             background: linear-gradient(to bottom, #499BD5, #57BF93);
             box-shadow: 0 4px 12px rgba(73, 155, 213, 0.35);
@@ -1474,7 +1474,7 @@ if (whatWeDoSec && paras.length > 1) {
     const tl = gsap.timeline({
         scrollTrigger: {
             trigger: "#what-we-do > div",
-            start: "center center",
+            start: "center 60%",
             toggleActions: "play none none reverse",
         }
     });
@@ -1497,7 +1497,7 @@ if (whatWeDoSec && paras.length > 1) {
     if (indicatorThumb) {
         tl.to(indicatorThumb, {
             x: 0,
-            y: 70,
+            y: 55,
             duration: 0.55,
             ease: "power2.out",
         }, "<");
