@@ -59,15 +59,22 @@ const popUpBtn = document.getElementById("pop-up");
 if (menu) {
     menu.setAttribute("data-lenis-prevent", "");
     menu.classList.add("overscroll-contain");
+    menu.style.contain = "layout paint";
 }
 let card2Revealed = false;
+const menuCards = menu ? Array.from(menu.querySelectorAll(".card")) : [];
+const card1Masks = menuCards[0]
+    ? Array.from(menuCards[0].querySelectorAll(".text-mask1-mobile-menu-card-text"))
+    : [];
+const card2Masks = menuCards[1]
+    ? Array.from(menuCards[1].querySelectorAll(".text-mask1-mobile-menu-card-text"))
+    : [];
 
 function checkCard2Reveal() {
     if (card2Revealed || !menu) return;
 
-    const cards = menu.querySelectorAll(".card");
-    if (cards.length > 1 && typeof gsap !== "undefined") {
-        const card2 = cards[1];
+    if (menuCards.length > 1 && typeof gsap !== "undefined") {
+        const card2 = menuCards[1];
         const textContainer = card2.querySelector("span.line");
         if (!textContainer) return;
 
@@ -76,7 +83,6 @@ function checkCard2Reveal() {
         // Triggers as soon as the text tag enters the viewport
         if (rect.top < window.innerHeight) {
             card2Revealed = true;
-            const card2Masks = card2.querySelectorAll(".text-mask1-mobile-menu-card-text");
             if (card2Masks.length > 0) {
                 gsap.to(card2Masks, {
                     xPercent: 100,
@@ -88,6 +94,47 @@ function checkCard2Reveal() {
             }
         }
     }
+}
+
+function warmMenuImages() {
+    if (!menu) return;
+
+    menu.querySelectorAll("img").forEach((image) => {
+        if (typeof image.decode === "function" && image.complete) {
+            image.decode().catch(() => {});
+        }
+    });
+}
+
+window.addEventListener("load", () => {
+    if ("requestIdleCallback" in window) {
+        requestIdleCallback(warmMenuImages, { timeout: 2000 });
+    } else {
+        setTimeout(warmMenuImages, 600);
+    }
+});
+
+function runMenuOpenAnimations() {
+    if (typeof gsap === "undefined" || menuCards.length === 0) return;
+
+    card2Revealed = false;
+
+    if (card1Masks.length > 0) {
+        gsap.set(card1Masks, { xPercent: 0 });
+        gsap.to(card1Masks, {
+            xPercent: 100,
+            duration: 1.0,
+            ease: "power4.inOut",
+            stagger: 0.15,
+            delay: 0.2
+        });
+    }
+
+    if (card2Masks.length > 0) {
+        gsap.set(card2Masks, { xPercent: 0 });
+    }
+
+    setTimeout(checkCard2Reveal, 250);
 }
 
 if (openMenu && closeMenu && menu) {
@@ -112,37 +159,9 @@ if (openMenu && closeMenu && menu) {
         if (sliderNav) sliderNav.classList.add("opacity-0", "pointer-events-none");
         if (popUpBtn) popUpBtn.classList.add("opacity-0", "pointer-events-none");
 
-        // Split reveal animations for mobile menu cards
-        if (typeof gsap !== "undefined") {
-            const cards = menu.querySelectorAll(".card");
-            if (cards.length > 0) {
-                card2Revealed = false;
-
-                // Card 1: Reset and reveal immediately when menu opens
-                const card1Masks = cards[0].querySelectorAll(".text-mask1-mobile-menu-card-text");
-                if (card1Masks.length > 0) {
-                    gsap.set(card1Masks, { xPercent: 0 });
-                    gsap.to(card1Masks, {
-                        xPercent: 100,
-                        duration: 1.0,
-                        ease: "power4.inOut",
-                        stagger: 0.15,
-                        delay: 0.2
-                    });
-                }
-
-                // Card 2: Reset to covered state
-                if (cards.length > 1) {
-                    const card2Masks = cards[1].querySelectorAll(".text-mask1-mobile-menu-card-text");
-                    if (card2Masks.length > 0) {
-                        gsap.set(card2Masks, { xPercent: 0 });
-                    }
-                }
-
-                // Check visibility after menu opens in case Card 2 is already visible
-                setTimeout(checkCard2Reveal, 250);
-            }
-        }
+        requestAnimationFrame(() => {
+            requestAnimationFrame(runMenuOpenAnimations);
+        });
     });
 
     closeMenu.addEventListener("click", closeMenuFn);
