@@ -1408,11 +1408,17 @@ if (whatWeDoSec) {
     const whatWeDoText = whatWeDoRow ? whatWeDoRow.querySelector(".relative") : null;
 
     if (whatWeDoRow && whatWeDoText && !whatWeDoRow.querySelector(".what-we-do-indicator")) {
+        const wrapper = document.createElement("div");
+        wrapper.className = "what-we-do-content-wrapper flex flex-row items-start gap-4 sm:gap-12";
+        whatWeDoText.parentNode.insertBefore(wrapper, whatWeDoText);
+
         const indicator = document.createElement("div");
         indicator.className = "what-we-do-indicator";
         indicator.setAttribute("aria-hidden", "true");
         indicator.innerHTML = '<span class="what-we-do-indicator-thumb"></span>';
-        whatWeDoRow.insertBefore(indicator, whatWeDoText);
+
+        wrapper.appendChild(indicator);
+        wrapper.appendChild(whatWeDoText);
     }
 
     // Stack the paragraphs without using absolute positioning so the section
@@ -1435,10 +1441,10 @@ if (whatWeDoSec) {
         #what-we-do .what-we-do-indicator {
             position: relative;
             display: block;
-            width: min(220px, 60vw);
-            height: 5px;
-            margin: 4px 0 20px 0;
-            flex: 0 0 auto;
+            width: 6px;
+            height: 110px;
+            margin-top: 8px;
+            flex: 0 0 6px;
             border-radius: 999px;
             background: rgba(0, 0, 0, 0.08);
             overflow: hidden;
@@ -1449,31 +1455,13 @@ if (whatWeDoSec) {
             left: 0;
             display: block;
             width: 100%;
-            height: 100%;
+            height: 40px;
             border-radius: inherit;
-            background: linear-gradient(to right, #499BD5, #57BF93);
-            transform: scaleX(0.42);
-            transform-origin: left center;
+            background: linear-gradient(to bottom, #499BD5, #57BF93);
+            box-shadow: 0 4px 12px rgba(73, 155, 213, 0.35);
+            transform: translateY(0);
+            transform-origin: center top;
             will-change: transform;
-        }
-        @media (min-width: 768px) {
-            #what-we-do .what-we-do-indicator {
-                width: 6px;
-                height: 160px;
-                margin: 10px clamp(24px, 4vw, 60px) 0 auto;
-                flex: 0 0 6px;
-                background: rgba(0, 0, 0, 0.08);
-                border-radius: 999px;
-            }
-            #what-we-do .what-we-do-indicator-thumb {
-                width: 100%;
-                height: 55px;
-                background: linear-gradient(to bottom, #499BD5, #57BF93);
-                border-radius: inherit;
-                box-shadow: 0 4px 12px rgba(73, 155, 213, 0.35);
-                transform: translateY(0) scaleX(1);
-                transform-origin: center top;
-            }
         }
     `;
     document.head.appendChild(style);
@@ -1509,8 +1497,7 @@ if (whatWeDoSec && paras.length > 1) {
     if (indicatorThumb) {
         tl.to(indicatorThumb, {
             x: 0,
-            y: () => window.innerWidth >= 768 ? 105 : 0,
-            scaleX: () => window.innerWidth < 768 ? 1 : 1,
+            y: 70,
             duration: 0.55,
             ease: "power2.out",
         }, "<");
