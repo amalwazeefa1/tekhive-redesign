@@ -1404,9 +1404,14 @@ if (whatWeDoSec) {
     whatWeDoSec.style.display = "block";
     whatWeDoSec.classList.add("py-12");
 
-    // CSS Grid overlay solution: makes the parent fit the tallest paragraph
+    // Stack the paragraphs without using absolute positioning so the section
+    // keeps only the height it needs.
     const style = document.createElement("style");
     style.textContent = `
+        #what-we-do {
+            min-height: auto !important;
+            align-items: flex-start !important;
+        }
         #what-we-do .relative > div {
             display: grid !important;
         }
@@ -1420,41 +1425,30 @@ if (whatWeDoSec) {
     document.head.appendChild(style);
 }
 
-const tl = gsap.timeline({
-    scrollTrigger: {
-        trigger: "#what-we-do",
-        pin: "#what-we-do > div",
-        start: "top top",
-        end: "+=100%",
-        scrub: 1,
-        pinSpacing: true,
-        anticipatePin: 1,
-    }
-});
+if (whatWeDoSec && paras.length > 1) {
+    gsap.set(paras.slice(1), { opacity: 0, y: 24 });
 
-// first paragraph fade out
-tl.to(paras[0], {
-    opacity: 0,
-    y: -20,
-    duration: 0.5,
-})
-    // second paragraph fade in
-    .to(paras[1], {
-        opacity: 1,
-        y: 0,
-        duration: 0.5
-    }, ">");
+    const tl = gsap.timeline({
+        scrollTrigger: {
+            trigger: "#what-we-do > div",
+            start: "center center",
+            toggleActions: "play none none reverse",
+        }
+    });
 
-if (paras[2]) {
-    tl.to(paras[1], {
+    const finalPara = paras[2] || paras[1];
+
+    tl.to(paras[0], {
         opacity: 0,
-        y: -20,
-        duration: 0.5,
+        y: -24,
+        duration: 0.45,
+        ease: "power2.out",
     })
-        .to(paras[2], {
+        .to(finalPara, {
             opacity: 1,
             y: 0,
-            duration: 0.5,
+            duration: 0.55,
+            ease: "power2.out",
         }, ">");
 }
 
