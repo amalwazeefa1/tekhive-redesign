@@ -101,7 +101,7 @@ function warmMenuImages() {
 
     menu.querySelectorAll("img").forEach((image) => {
         if (typeof image.decode === "function" && image.complete) {
-            image.decode().catch(() => {});
+            image.decode().catch(() => { });
         }
     });
 }
@@ -977,7 +977,7 @@ function preloadLogo(src) {
     const image = new Image();
     image.src = src;
     if (typeof image.decode === "function") {
-        image.decode().catch(() => {});
+        image.decode().catch(() => { });
     }
 }
 
@@ -1435,12 +1435,12 @@ if (whatWeDoSec) {
         #what-we-do .what-we-do-indicator {
             position: relative;
             display: block;
-            width: min(180px, 46vw);
-            height: 6px;
-            margin: 0 0 18px 0;
+            width: min(220px, 60vw);
+            height: 5px;
+            margin: 4px 0 20px 0;
             flex: 0 0 auto;
             border-radius: 999px;
-            background: #ececec;
+            background: rgba(0, 0, 0, 0.08);
             overflow: hidden;
         }
         #what-we-do .what-we-do-indicator-thumb {
@@ -1451,21 +1451,26 @@ if (whatWeDoSec) {
             width: 100%;
             height: 100%;
             border-radius: inherit;
-            background: #bfbfbf;
+            background: linear-gradient(to right, #499BD5, #57BF93);
             transform: scaleX(0.42);
             transform-origin: left center;
             will-change: transform;
         }
         @media (min-width: 768px) {
             #what-we-do .what-we-do-indicator {
-                width: 8px;
-                height: 158px;
-                margin: 10px clamp(28px, 5vw, 72px) 0 auto;
-                flex: 0 0 8px;
+                width: 6px;
+                height: 160px;
+                margin: 10px clamp(24px, 4vw, 60px) 0 auto;
+                flex: 0 0 6px;
+                background: rgba(0, 0, 0, 0.08);
+                border-radius: 999px;
             }
             #what-we-do .what-we-do-indicator-thumb {
                 width: 100%;
-                height: 60px;
+                height: 55px;
+                background: linear-gradient(to bottom, #499BD5, #57BF93);
+                border-radius: inherit;
+                box-shadow: 0 4px 12px rgba(73, 155, 213, 0.35);
                 transform: translateY(0) scaleX(1);
                 transform-origin: center top;
             }
@@ -1504,7 +1509,7 @@ if (whatWeDoSec && paras.length > 1) {
     if (indicatorThumb) {
         tl.to(indicatorThumb, {
             x: 0,
-            y: () => window.innerWidth >= 768 ? 98 : 0,
+            y: () => window.innerWidth >= 768 ? 105 : 0,
             scaleX: () => window.innerWidth < 768 ? 1 : 1,
             duration: 0.55,
             ease: "power2.out",
