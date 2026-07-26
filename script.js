@@ -908,6 +908,12 @@ const navLinks = document.querySelectorAll('.nav-link');
 const whatsappIcon = document.querySelector(".whatsapp-icon-white");
 const phoneIcon = document.querySelector(".phone-icon-white");
 const menuIcon = document.querySelector(".menu");
+const siteLogo = document.getElementById("site-logo");
+const logoWhiteSrc = siteLogo ? siteLogo.getAttribute("src") || "assets/tekhive_logo_white.svg" : "";
+const logoBlackSrc = siteLogo ? siteLogo.dataset.altSrc || "assets/tekhive_logo_black.svg" : "";
+let currentLogoSrc = siteLogo && siteLogo.currentSrc
+    ? siteLogo.currentSrc
+    : (siteLogo && siteLogo.getAttribute("src") ? new URL(siteLogo.getAttribute("src"), document.baseURI).href : "");
 
 const servicePages = new Set([
     "services.html",
@@ -958,6 +964,36 @@ const isHomePage = document.body.classList.contains("home-page");
 
 let isScrolled = false;
 let isHovered = false;
+
+function preloadLogo(src) {
+    if (!src) return;
+
+    const preloadLink = document.createElement("link");
+    preloadLink.rel = "preload";
+    preloadLink.as = "image";
+    preloadLink.href = src;
+    document.head.appendChild(preloadLink);
+
+    const image = new Image();
+    image.src = src;
+    if (typeof image.decode === "function") {
+        image.decode().catch(() => {});
+    }
+}
+
+preloadLogo(logoWhiteSrc);
+preloadLogo(logoBlackSrc);
+
+function setHeaderLogo(isActive) {
+    if (!siteLogo) return;
+
+    const nextSrc = isActive ? logoBlackSrc : logoWhiteSrc;
+    const nextAbsoluteSrc = new URL(nextSrc, document.baseURI).href;
+    if (currentLogoSrc === nextAbsoluteSrc) return;
+
+    siteLogo.src = nextSrc;
+    currentLogoSrc = nextAbsoluteSrc;
+}
 
 // Inject CSS styles for instant hover response (desktop pointer devices only)
 const headerStyle = document.createElement("style");
@@ -1019,12 +1055,7 @@ function updateHeaderUI() {
     });
 
     // Logo image swap
-    const siteLogo = document.getElementById("site-logo");
-    if (siteLogo) {
-        const whiteSrc = "assets/tekhive_logo_white.svg";
-        const blackSrc = siteLogo.dataset.altSrc || "assets/tekhive_logo_black.svg";
-        siteLogo.src = isActive ? blackSrc : whiteSrc;
-    }
+    setHeaderLogo(isActive);
 }
 
 setActiveNavLink();
