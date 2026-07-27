@@ -1446,7 +1446,7 @@ if (whatWeDoSec) {
             margin-top: 8px;
             flex: 0 0 6px;
             border-radius: 999px;
-            background: rgba(0, 0, 0, 0.08);
+            background: rgba(217, 217, 217, 0.35);
             overflow: hidden;
         }
         #what-we-do .what-we-do-indicator-thumb {
@@ -1457,8 +1457,7 @@ if (whatWeDoSec) {
             width: 100%;
             height: 55px;
             border-radius: inherit;
-            background: linear-gradient(to bottom, #499BD5, #57BF93);
-            box-shadow: 0 4px 12px rgba(73, 155, 213, 0.35);
+            background: #DDDDDD;
             transform: translateY(0);
             transform-origin: center top;
             will-change: transform;
