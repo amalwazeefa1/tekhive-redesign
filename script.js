@@ -1409,7 +1409,7 @@ if (whatWeDoSec) {
 
     if (whatWeDoRow && whatWeDoText && !whatWeDoRow.querySelector(".what-we-do-indicator")) {
         const wrapper = document.createElement("div");
-        wrapper.className = "what-we-do-content-wrapper flex flex-row items-start gap-4 sm:gap-12";
+        wrapper.className = "what-we-do-content-wrapper flex flex-row items-start gap-6 sm:gap-12";
         whatWeDoText.parentNode.insertBefore(wrapper, whatWeDoText);
 
         const indicator = document.createElement("div");
