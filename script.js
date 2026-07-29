@@ -811,87 +811,97 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!document.body.classList.contains("home-page")) return;
     if (typeof gsap === "undefined") return;
 
-    const target = document.getElementById("services-track");
+    const target = document.getElementById("services-track") || document.getElementById("services-slider");
     const cursor = document.getElementById("cursor-icon");
     if (!target || !cursor) return;
 
     let isOverInteractive = false;
+    let isHovering = false;
 
     function hideCursor() {
-        isOverInteractive = false;
+        isHovering = false;
         gsap.to(cursor, {
-            scale: 0.5,
+            scale: 0,
             opacity: 0,
             duration: 0.2,
-            ease: "power3.in",
+            ease: "power2.out",
+            overwrite: true
         });
     }
 
     function showCursor() {
         if (window.innerWidth < 768) return;
-        if (!isOverInteractive) {
+        if (isHovering && !isOverInteractive) {
             gsap.to(cursor, {
                 scale: 1,
                 opacity: 1,
                 duration: 0.25,
-                ease: "power3.out",
+                ease: "power2.out",
+                overwrite: true
             });
         }
     }
 
-    // Smooth follow cursor across the screen
+    // Smooth follow mouse inside window / container
     window.addEventListener("mousemove", (e) => {
         if (window.innerWidth < 768) return;
-        gsap.to(cursor, {
-            x: e.clientX - 24,
-            y: e.clientY - 24,
-            duration: 0.5,
-            ease: "power3.out",
-        });
+
+        const rect = target.getBoundingClientRect();
+        const insideX = e.clientX >= rect.left && e.clientX <= rect.right;
+        const insideY = e.clientY >= rect.top && e.clientY <= rect.bottom;
+
+        if (insideX && insideY) {
+            if (!isHovering) {
+                isHovering = true;
+                showCursor();
+            }
+            gsap.to(cursor, {
+                x: e.clientX - 24,
+                y: e.clientY - 24,
+                duration: 0.4,
+                ease: "power3.out"
+            });
+        } else {
+            if (isHovering) {
+                hideCursor();
+            }
+        }
     });
 
-    // Show cursor when entering target cards area
-    target.addEventListener("mouseenter", showCursor);
+    target.addEventListener("mouseenter", (e) => {
+        if (window.innerWidth < 768) return;
+        isHovering = true;
+        gsap.set(cursor, {
+            x: e.clientX - 24,
+            y: e.clientY - 24
+        });
+        showCursor();
+    });
+
     target.addEventListener("mouseleave", hideCursor);
 
-    // Touch support: show cursor on touch start & touch move only on desktop touch devices
-    target.addEventListener("touchstart", (e) => {
-        if (window.innerWidth < 768) return;
-        if (e.touches.length > 0) {
-            gsap.set(cursor, {
-                x: e.touches[0].clientX - 24,
-                y: e.touches[0].clientY - 24,
-            });
-            showCursor();
+    // Hide drag icon immediately on page scroll
+    const onScroll = () => {
+        if (isHovering) {
+            hideCursor();
         }
-    }, { passive: true });
+    };
 
-    target.addEventListener("touchmove", (e) => {
-        if (window.innerWidth < 768) return;
-        if (e.touches.length > 0) {
-            gsap.to(cursor, {
-                x: e.touches[0].clientX - 24,
-                y: e.touches[0].clientY - 24,
-                duration: 0.4,
-                ease: "power3.out",
-            });
-        }
-    }, { passive: true });
+    window.addEventListener("scroll", onScroll, { passive: true });
+    if (typeof lenis !== "undefined" && lenis) {
+        lenis.on("scroll", onScroll);
+    }
 
-    target.addEventListener("touchend", hideCursor, { passive: true });
-
-    // Smoothly hide cursor as soon as user scrolls the page
-    window.addEventListener("scroll", hideCursor, { passive: true });
-
-    // Hide cursor when hovering interactive elements (Learn More links, green buttons)
+    // Hide cursor when hovering buttons / links inside cards
     target.querySelectorAll("a, button").forEach((el) => {
         el.addEventListener("mouseenter", () => {
             isOverInteractive = true;
             gsap.to(cursor, {
                 scale: 0,
                 opacity: 0,
-                duration: 0.2,
-                ease: "power3.in",
+                duration: 0.15,
+                ease: "power2.out",
+                overwrite: true
             });
         });
         el.addEventListener("mouseleave", () => {
