@@ -1194,22 +1194,38 @@ z
                 </div>
 
                 <div class="flex flex-col w-full sm:w-1/2 gap-8" id="about-us">
-                    <!-- Mobile version (under sm) -->
-                    <h2 class="block sm:hidden text-[28px] font-bold leading-[95%] text-[#0f172a]">
+                    <!-- Mobile version (under 407px) -->
+                    <h2 class="block min-[407px]:hidden text-[28px] font-bold leading-[95%] text-[#0f172a]">
                         <span class="line relative inline-block overflow-hidden whitespace-nowrap">
-                            <span class="text relative inline-block overflow-hidden">Technology</span>
+                            <span class="text relative inline-block overflow-hidden">Technology Solutions</span>
                             <span class="text-mask1-section-home absolute inset-0 bg-[#fCfCfC]"></span>
                         </span>
+                        <br>
                         <span class="line relative inline-block overflow-hidden whitespace-nowrap">
-                            <span class="text relative inline-block overflow-hidden">Solutions That</span>
+                            <span class="text relative inline-block overflow-hidden"> That Power Business</span>
                             <span class="text-mask1-section-home absolute inset-0 bg-[#fCfCfC]"></span>
                         </span>
-                        <span class="line relative inline-block overflow-hidden whitespace-nowrap">
-                            <span class="text relative inline-block overflow-hidden">Power Business</span>
-                            <span class="text-mask1-section-home absolute inset-0 bg-[#fCfCfC]"></span>
-                        </span>
+                        <br>
                         <span class="line relative inline-block overflow-hidden whitespace-nowrap">
                             <span class="text relative inline-block overflow-hidden">growth.</span>
+                            <span class="text-mask1-section-home absolute inset-0 bg-[#fCfCfC]"></span>
+                        </span>
+                    </h2>
+
+                    <!-- For between 407px and 640px screens -->
+                    <h2
+                        class="hidden min-[407px]:block sm:hidden text-[28px] font-bold leading-[95%] text-[#0f172a]">
+                        <span class="line relative inline-block overflow-hidden whitespace-nowrap">
+                            <span class="text relative inline-block overflow-hidden">Technology Solutions</span>
+                            <span class="text-mask1-section-home absolute inset-0 bg-[#fCfCfC]"></span>
+                        </span>
+                        <br>
+                        <span class="line relative inline-block overflow-hidden whitespace-nowrap">
+                            <span class="text relative inline-block overflow-hidden"> That Power Business growth.</span>
+                            <span class="text-mask1-section-home absolute inset-0 bg-[#fCfCfC]"></span>
+                        </span>
+                        <span class="line relative inline-block overflow-hidden whitespace-nowrap">
+                            <span class="text relative inline-block overflow-hidden"></span>
                             <span class="text-mask1-section-home absolute inset-0 bg-[#fCfCfC]"></span>
                         </span>
                     </h2>
@@ -1290,42 +1306,39 @@ z
             <!-- Section Header -->
             <div class="flex flex-col justify-between sm:flex-row gap-8">
                 <div class="flex flex-col mb-0 sm:mb-8 lg:flex-row gap-8 justify-between items-start">
-                    <!-- Extra Small Mobile version (under 380px) -->
+                    <!-- Extra Small Mobile version (under 407px) -->
                     <h2
-                        class="block min-[380px]:hidden text-[28px] font-bold leading-[95%] text-slate-900 dark:text-white">
+                        class="block min-[407px]:hidden text-[28px] font-bold leading-[95%] text-slate-900 dark:text-white">
                         <span class="line relative inline-block overflow-hidden whitespace-nowrap">
-                            <span class="text relative overflow-hidden">Empowering</span>
+                            <span class="text relative overflow-hidden">Empowering Businesses</span>
                             <span class="text-mask2-section-home absolute inset-0 bg-[#fcfcfc]"></span>
                         </span>
+                        <br>
                         <span class="line relative inline-block overflow-hidden whitespace-nowrap">
-                            <span class="text relative overflow-hidden">Businesses</span>
+                            <span class="text relative overflow-hidden">Through Technology &</span>
                             <span class="text-mask2-section-home absolute inset-0 bg-[#fcfcfc]"></span>
                         </span>
-                        <span class="line relative inline-block overflow-hidden whitespace-nowrap">
-                            <span class="text relative overflow-hidden">Through</span>
-                            <span class="text-mask2-section-home absolute inset-0 bg-[#fcfcfc]"></span>
-                        </span>
-                        <span class="line relative inline-block overflow-hidden whitespace-nowrap">
-                            <span class="text relative overflow-hidden">Technology &</span>
-                            <span class="text-mask2-section-home absolute inset-0 bg-[#fcfcfc]"></span>
-                        </span>
+                        <br>
                         <span class="line relative inline-block overflow-hidden whitespace-nowrap">
                             <span class="text relative overflow-hidden">Innovation</span>
                             <span class="text-mask2-section-home absolute inset-0 bg-[#fcfcfc]"></span>
                         </span>
                     </h2>
 
-                    <!-- Mobile version (between 380px and sm) -->
+                    <!-- Mobile version (between 407px and sm) -->
                     <h2
-                        class="hidden min-[380px]:block sm:hidden text-[28px] font-bold leading-[95%] text-slate-900 dark:text-white">
+                        class="hidden min-[407px]:block sm:hidden text-[28px] font-bold leading-[95%] text-slate-900 dark:text-white">
                         <span class="line relative inline-block overflow-hidden whitespace-nowrap">
                             <span class="text relative overflow-hidden">Empowering Businesses</span>
                             <span class="text-mask2-section-home absolute inset-0 bg-[#fcfcfc]"></span>
                         </span>
+                        <br>
                         <span class="line relative inline-block overflow-hidden whitespace-nowrap">
-                            <span class="text relative overflow-hidden">Through Technology &</span>
+                            <span class="text relative overflow-hidden">Through Technology &
+                            </span>
                             <span class="text-mask2-section-home absolute inset-0 bg-[#fcfcfc]"></span>
                         </span>
+                        <br>
                         <span class="line relative inline-block overflow-hidden whitespace-nowrap">
                             <span class="text relative overflow-hidden">Innovation</span>
                             <span class="text-mask2-section-home absolute inset-0 bg-[#fcfcfc]"></span>
@@ -1334,7 +1347,7 @@ z
 
                     <!-- Tablet / Small Desktop version (between sm and lg) -->
                     <h2
-                        class="hidden sm:block lg:hidden text-3xl max-w-[333px] md:max-w-none leading-[95%] md:leading-[100%] font-bold text-slate-900 dark:text-white">
+                        class="hidden sm:block lg:hidden text-3xl max-w-[333px] md:max-w-none leading-[100%] md:leading-[95%] font-bold text-slate-900 dark:text-white">
                         <span class="line relative inline-block overflow-hidden whitespace-nowrap">
                             <span class="text relative overflow-hidden">Empowering Businesses Through</span>
                             <span class="text-mask2-section-home absolute inset-0 bg-[#fcfcfc]"></span>
