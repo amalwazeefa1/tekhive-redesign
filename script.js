@@ -1339,17 +1339,7 @@ if (parallaxContainer) {
     }
 }
 
-gsap.fromTo(".image-banner .parallax-img", { yPercent: -20 },
-    {
-        yPercent: 20,
-        ease: "none",
-        scrollTrigger: {
-            trigger: ".image-banner",
-            start: "top bottom",
-            end: "bottom top",
-            scrub: true,
-        }
-    })
+
 
 //////////////////////////////////////////////////////////////sliced boxes reveal animation
 if (document.querySelector(".sliced-box")) {
@@ -1571,7 +1561,10 @@ document.querySelectorAll(".faq-item").forEach((item) => {
                 height: content.scrollHeight,
                 opacity: 1,
                 duration: 0.4,
-                ease: "power2.out"
+                ease: "power2.out",
+                onComplete: () => {
+                    if (typeof ScrollTrigger !== "undefined") ScrollTrigger.refresh();
+                }
             });
 
             gsap.to(icon, {
@@ -1587,7 +1580,10 @@ document.querySelectorAll(".faq-item").forEach((item) => {
                 height: 0,
                 opacity: 0,
                 duration: 0.4,
-                ease: "power2.inOut"
+                ease: "power2.inOut",
+                onComplete: () => {
+                    if (typeof ScrollTrigger !== "undefined") ScrollTrigger.refresh();
+                }
             });
 
             gsap.to(icon, {
